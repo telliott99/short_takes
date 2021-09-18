@@ -1,0 +1,170 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Decimals}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+In pre-algebra, we start to think about the decimal system in a serious way.  Decimal is a method for writing any number.  For example, $1/10$ becomes $0.1$, $1/4$ becomes $0.25$ and their product, $1/40 = 0.025$.
+
+You object, saying you already know how to write numbers, as integers and fractions.  Why add another way?
+
+Rational is a fancy name for the numbers we've been calling fractions.  We don't mean 'sane'.  We mean rational as in ratio.  And integers are also rational, with $1$ as the denominator.  But it turns out that some numbers cannot be written as fractions or ratios.  These are called irrational numbers.  
+
+One example is the square root of $2$, written $\sqrt{2}$, and defined to be the number which, when multiplied by itself, gives $2$.
+\[ \sqrt{2} \cdot \sqrt{2} = 2 \]
+For the perfect squares, the square root is what you expect.  For example $2 = \sqrt{4}$.
+
+Another irrational number is $\pi$, the ratio of the circumference of a circle to its diameter, $C = \pi d$.
+
+A second reason is that using decimals makes adding (and subtracting) fractions a lot easier, because it gets rid of the need to find a common denominator.
+
+\subsection*{decimals}
+
+Of course, decimal notation is introduced pretty early for whole numbers, or integers.  It's a positional notation, the value of a symbol depends on where it occurs in the number.
+\[ 2042 = 2(1000) + 0(100) + 4(10) + 2 \]
+
+The $2$ on the left is worth $2000$, but the other one is just $2$.  Our example uses the digit $0$, which acts as a place-holder showing there are no hundreds to add.  Without $0$, we would not know that the leading $2$ is $2000$ rather than $200$.
+
+All of this is pretty familiar.  You likely also know about powers, or exponents.  Rather than write $1000 = 10 \cdot 10 \cdot 10$, we write $1000 = 10^3$.  The $3$ indicates how many $10$s must be multiplied together to give the product $1000$.
+
+Rewriting the previous expression, and proceeding from smaller numbers to larger ones:
+\[ 2042 = 2 + 4(10^1) + 0(10^2) +  2(10^3) \]
+
+\subsection*{decimal point}
+
+As we said at the beginning, $1/10$ becomes $0.1$.  So adding to our example
+\[ 2042 + 0.13 = 2042.13 \]
+\[ = 3(10^{-2}) + 1(10^{-1}) + 2 + 4(10^1) + 0(10^2) +  2(10^3) \]
+The pattern of the exponents is interesting.  It looks a lot like the number line for integers.
+\begin{center} \includegraphics [scale=0.4] {number_line2.png} \end{center}
+
+There is one place that doesn't follow the pattern.  In the middle we wrote $+\ 2\ +$.  Before long we will write $+ \ 2(10^0) \ +$, with the definition that $10^0 = 1$.  If you haven't seen that yet don't worry too much about it yet.
+
+One last thing about the decimal point.  When a number written in decimal is less than $1$ but still positive, it is customary to write a $0$ before the decimal point.  As in
+\[ 2042.13 - 2042 = 0.13 \]
+
+\subsection*{fractions}
+
+Fractions are converted to decimals by long division.  I presume you've seen this.
+
+\begin{verbatim}
+    0.25
+    ______
+4 | 1.000
+    0.8
+    ---
+    0.20
+    0.20
+    -----
+       00
+\end{verbatim}
+
+Some fractions convert to decimals that end neatly in zero.  Other fractions do not.  $1/3 = 0.{\bar{3}}$, where the bar mean that the threes continue forever.  This may sometimes be written as $0.3333 \dots$, where the dots mean something else is coming, but we haven't specified what it is.
+
+If you carry out long division for other fractions, you'll find that the repeats are longer.  For example 
+\[ \frac{1}{7} = 0.142857142857 \dots \]
+A repeat can never be as long as the denominator.  Here, the length of the repeat is $6$.
+
+You may have seen this:
+\[ 3 \cdot \frac{1}{3} = 3 \cdot 0.3333 \dots = 0.9999 \dots = \stackrel{?}{1} \]
+How can $0.9999 \dots$ be \emph{equal} to $1$?  One answer is that we can make the difference between $0.9999 \dots$ and $1$ as small as we like, by taking as many nines as necessary.
+\[ 1 - 0.99 > 1 - 0.9999999999 \]
+
+Another approach is to convert $0.\bar{9}$ back into a fraction.  It goes like this:
+
+\[ 10 (0.9999 \dots) = 9.999 \dots \]
+Subtract $0.9999 \dots$ from both sides:
+\[ 9 (0.9999 \dots) = 9 \]
+\[ 0.9999 \dots = \frac{9}{9} = 1 \]
+
+\subsection*{truncation}
+
+Let's go back to $\sqrt{2}$.  What is the value of this expression in decimal?
+
+One approach is trial multiplication.  Like this
+\[ 1^2 = 1, \ \ \ \ \ 2^2 = 4 \]
+We know that $1 < \sqrt{2} < 2$.  Then
+\[ 1.4^2 = 1.96, \ \ \ \ \ 1.5^2 = 2.25 \]
+We know that $1.4 < \sqrt{2} < 1.5$.  Then
+\[ 1.41^2 = 1.9881, \ \ \ \ \ 1.42^2 = 2.0164 \]
+We know that $1.41 < \sqrt{2} < 1.42$
+
+This can be continued forever.  You will never find a decimal that will give \emph{exactly} $2$.
+
+At each stage, the value of $\sqrt{2}$ is bracketed between one number which is smaller than $2$, and one which is greater.
+
+To 15 places, 
+\[ \sqrt{2} = 1.414213562373095 \dots \]
+
+Here, the dots mean that the digits never stop, but the pattern appears to be random.
+
+In order to actually calculate with $\sqrt{2}$ or $\pi$, we have to choose where to stop.  This is called rounding.
+
+To 15 places, $\pi = 3.14159265358979 \dots$
+
+Maybe $3.14$ is enough.  The error is $0.00159265358979 \dots$.
+
+Or perhaps you need more accuracy and decide to use $3.141$.
+
+There is a standard thing people do to reduce the error, called \emph{rounding up}.  If the digit in the next place is $9$, as in $3.14159 \dots$, the convention is to replace the $5$ with a $6$.  That is, the rule is to 
+
+$\bullet$ \ round up if the next digit is $\ge 5$.  
+
+To four places (after the decimal point)
+\[ \pi = 3.1416 \]
+The first time you round up for the previous example is
+\[ \sqrt{2} = 1.4142136 \]
+That $6$ on the end was rounded up from $5$, because the next digit after $5$ was $\ge 5$, namely $6$.
+
+\subsection*{other bases}
+Did you ever think, when we wrote
+\[ 2042 = 2 \cdot 1000 + 0 \cdot 100 + 4 \cdot 10 + 2 \]
+Why did we choose $10$?  After all, that's what decimal means.  Because we have $10$ fingers, maybe?  In any event, $10$ is a choice, and it's possible to make other choices.
+
+One common choice is binary, where numbers are written with only $0$ and $1$.  For example
+\[ 5 = 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 \]
+which is written as $101$ or sometimes $0b \ 101$ where the $0b$ means, what's next is a binary number.
+
+Another common choice is hexadecimal, with 16 digits.  After $0..9$ we add $abcdef$.  
+
+\begin{verbatim}
+0x 1 = 1 
+..
+0x 9 = 9
+0x a = 10
+0x b = 11
+0x c = 12
+0x d = 13
+0x e = 14
+0x f = 15
+\end{verbatim}
+
+For example
+\[ \\0x \ 32 = 3 \cdot 16^1 + 2 \cdot 16^0 = 50 \]
+\[ \\0x \ af = 10 \cdot 16^1 + 15 \cdot 16^0 = 175 \]
+Although everything is $0$ and $1$ inside the computer, to save space and aid recognition, binary numbers are usually translated into hexadecimal.  
+
+\begin{verbatim}
+68 65 6c 6c 6f 20 77 6f 72 6c 6
+\end{verbatim}
+means "hello world".  But that's another story and a good place to stop.
+
+
+\end{document}

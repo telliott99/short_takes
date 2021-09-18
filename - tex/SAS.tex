@@ -1,0 +1,161 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{SAS:  side-angle-side}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+A large part of the work in geometry involves asking whether we can show that two triangles are exactly the same.  We call that congruence, which is just a fancy word for equality.  Let's look two examples.
+
+\subsection*{sides equal and parallel}
+
+In the figure below, there is a four-sided quadrilateral.  It looks like it might be a parallelogram, but we can't just assume that to begin with.
+\begin{center} \includegraphics [scale=0.4] {SAS3.png} \end{center}
+
+We must consider what information the problem says we are \emph{given}.  Suppose that we are given that the side $AB$ is equal in length to the side $DC$.    Equality is indicated by the short, single cross bars on the two sides.
+
+Suppose that, in addition, we are told $AB$ is parallel to $DC$.  We write
+\[ AB = DC, \ \ \ \ \ \ AB \parallel DC \]
+where $=$ has its usual meaning, and $\parallel$ means parallel.
+
+That's all we're given in the problem.  What can we do?  Well, we have the following.
+
+\emph{Theorem}.  
+
+When two lines or line segments are parallel, and they are both cut by another line segment, such as $AC$ in the figure, then the \textbf{alternate interior angles are equal}.  
+
+I'm assuming you've seen this before.
+
+\begin{center} \includegraphics [scale=0.4] {SAS4.png} \end{center}
+
+We write
+\[ \angle BAC = \angle ACD \]
+and the angle equalities are marked with red dots.  
+
+But now we have split the 4-sided figure into two triangles, $\triangle ABC$ and $\triangle ACD$.  We can say that these two triangles are congruent.  If we were to cut out $\triangle ACD$ from a sheet of paper and rotate it, we could drop it right on top of $\triangle ABC$ and it would fit exactly.
+
+Write $\triangle ABC \cong \triangle ACD$, the two triangles are congruent.
+
+The idea we used here is another theorem.
+
+\emph{Theorem}.  
+
+SAS (side-angle-side) are enough to prove two triangles congruent.  If, in two triangles, two sides are equal and the angle between them is also equal, then the two triangles are congruent.
+
+We know that $AB = DC$ and $\angle BAC = \angle ACD$, and of course, $AC$ is equal to itself.  So that's SAS.
+
+That might not seem like a lot, but it has consequences.
+\begin{center} \includegraphics [scale=0.4] {SAS5.png} \end{center}
+
+It means that the other pair of sides is also equal, $AD = BC$.  The reason is that they are \emph{corresponding parts of congruent triangles}.
+
+It also means that the angles marked with black and magenta dots are equal.  And the consequence of that (because of the alternate interior angles theorem in reverse), is that $AD \parallel BC$.
+
+So the conclusion is that $ABCD$ is a parallelogram.  
+
+We started with the given information, that $AB = DC$ and $AB \parallel DC$, and after relying on some theorems that must be previously established (we're assuming them at the moment), that's enough to show the result, that $ABCD$ is a parallelogram.  We can write a new
+
+\emph{Theorem}.  
+
+In any 4-sided figure, if two opposing sides are equal and parallel, then the figure is a parallelogram, or with further conditions, a rectangle.
+
+\subsection*{isosceles triangle theorem}
+
+Usually, the theorem is stated first.  So we will do the same here:
+
+\emph{Theorem}.
+
+ In any isosceles triangle, equal angles lie opposite the equal sides.  We might write \emph{equal sides $\rightarrow$ equal angles}.
+
+\begin{center} \includegraphics [scale=0.4] {iso6.png} \end{center}
+
+\emph{Proof}.
+
+We are given $AB = AC$ (left panel).  
+
+Draw the bisector of the angle $A$ (middle panel).  This construction forms equal angles at the top, marked with 'x'.  
+
+But then, the two smaller triangles $\triangle ABD$ and $\triangle ACD$ are congruent by SAS since
+
+$\circ$ \ \ $AB = AC$
+
+$\circ$ \ \ $\angle BAD = \angle DAC$
+
+$\circ$ \ \ $AD$ is shared 
+
+We write $\triangle ABD \cong \triangle ACD$.
+
+Therefore (as corresponding parts of congruent triangles) the base angles are equal (right panel).  Other corresponding angles and sides are equal as well.
+
+$\square$
+
+The full set of equal angles and sides is:
+
+\begin{center} \includegraphics [scale=0.4] {iso14.png} \end{center}
+
+plus of course the central line segment $AD$, which is equal to itself.
+
+\subsection*{why it works}
+
+A good way to think about the congruence conditions is to imagine trying to construct a triangle from the given information, and ask whether it is uniquely determined.  
+
+\begin{center} \includegraphics [scale=0.4] {SAS2.png} \end{center}
+
+Two sides and the angle between them are given.  So draw that part of the triangle.  Notice that the second and third vertices are also determined, they are just at the ends of the two sides we're given.  All that remains is to draw the line segment that joins them.
+
+The next one is ASA.  Since we know two angles, we know the third.  Here is a diagram of the situation:
+
+\begin{center} \includegraphics [scale=0.4] {ASA1.png} \end{center}
+ 
+Draw the known side, then using the known angles, start two other sides from the ends of that side.  They must cross at a unique point.  This follows from the parallel postulate and the fact that the sum of two angles in a triangle must be less than two right angles.
+
+But... actually, if we start the two lines from opposite ends of the horizontal
+
+\begin{center} \includegraphics [scale=0.4] {ASA4.png} \end{center}
+
+there is another solution, the mirror image.  These two triangles are congruent to the one above.
+ 
+If we know two angles we also know the third, by the angle sum theorem.  For this reason, ASA and AAS imply that we have exactly the same information, because we know all three angles and we know one side.  
+
+Crucially, we know \emph{which} two angles flank the known side.  Equivalently, it is enough to know which angle is opposite to the known side.
+
+Now that we have the ASA theorem, let's prove the converse of the isosceles triangle theorem.
+
+\subsection*{isosceles converse}
+
+We will prove equal angles $\rightarrow$ equal sides.
+
+\begin{center} \includegraphics [scale=0.4] {iso7.png} \end{center}
+
+\emph{Proof}.
+
+We are given that the angles marked with black dots are equal. 
+
+We again draw the bisector of the angle $A$.  Then we have all three angles the same, and the side $AD$ is shared.
+
+Therefore, $\triangle ABD \cong \triangle ADC$ by ASA or AAS.
+
+Thus, $AB = AC$.  And then, as before, there are right angles at the base, and the base is bisected.
+
+$\square$
+
+These theorems are used extensively in geometry.
+
+
+\end{document}

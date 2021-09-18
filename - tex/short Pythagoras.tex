@@ -1,0 +1,138 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Pythagorean Theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:pythagorean_thm}
+
+The most famous theorem of Greek geometry is also without a doubt the most useful in analytic geometry and calculus.  
+\begin{center} \includegraphics [scale=0.4] {triangle3.png} \end{center}
+
+The Pythagorean theorem says that if $a$ and $b$ are the shorter sides of a right triangle, and $c$ is the hypotenuse, then 
+\[ a^2 + b^2 = c^2 \]
+
+\begin{center} \includegraphics [scale=0.25] {pyth7.png} \end{center}
+
+Above is a pictorial proof for the case of an isosceles triangle.  Four half-squares (on the diagonal) in light blue make up the square on the diagonal, and they are equal to two copies of the square on the base.
+
+The following is sometimes called the "Chinese proof."  I can easily imagine proceeding from the figure above to this one by simply rotating the inner square.
+
+\begin{center} \includegraphics [scale=0.25] {pythagoras1.png} \end{center}
+
+It really needs no explanation, but ..
+
+In the left panel the white area is the square on the hypotenuse.  In the right panel we rearrange the magenta triangles to reveal that the white area is also the sum of squares of the two sides.
+
+A simple example of such a triangle with integer sides is a $3,4,5$ right triangle (since $9 + 16 = 25$).  A set of three integers with this property is called a Pythagorean triple.  Very large Pythagorean triples have been found in clay tablets from Babylon (about 1800 B.C.).
+
+Although Pythagoras is known as a historical figure, it seems rather unlikely that he actually developed proofs of the theorem himself.  The most famous proof is probably the one in the first book of Euclid, proposition 47.  There are literally hundreds of them.
+
+Rather than go through Euclid $I.47$, let's just write a simple algebraic proof based on the properties of similar triangles (all three angles the same, but scaled differently).
+
+\begin{center} \includegraphics [scale=0.4] {triangle3.png} \end{center}
+
+If the altitude to the hypotenuse is drawn in a right triangle, the two smaller triangles are similar to the original.  This is easily shown because the two angles that are not right angles always add up to one right angle, and the smaller triangles each share an angle found in the original right triangle.
+
+We are looking for equalities that can be rearranged to give $a^2$ and $b^2$, and we'd like $c$ somehow as well.  For the first, we choose the ratio of the short side to the hypotenuse in two similar triangles:
+\[ \frac{x}{a} = \frac{a}{c}, \ \ \ \ \ a^2 = cx \]
+
+Similarly, the ratio of the longer side to the hypotenuse is:
+\[ \frac{y}{b} = \frac{b}{c}, \ \ \ \ \ b^2 = cy \]
+
+So
+\[ a^2 + b^2 = cx + cy = c(x + y) = c^2 \]
+
+\subsection*{consequences}
+
+\begin{center} \includegraphics [scale=0.3] {rt_tri_bisector.png} \end{center}
+
+In a right triangle, draw the line segment from the vertex that contains a right angle to the midpoint of the hypotenuse, separating it into two equal lengths $a$.  We will show that the length of the bisector is also $a$.
+
+\emph{Proof}.
+
+In the right panel, draw the perpendicular from the midpoint $S$ to the base $PR$.  The triangle $SQR$ is similar to the original right triangle (by AAA).
+
+Hence the two parts of the base are equal (labeled $b$), because $a/2a = b/2b$.  
+
+Therefore we have two congruent triangles:  $SQR$ and $PQS$ (by SAS).  So the bisector $PS$ is equal in length to $SR$.
+
+Both of the new isosceles triangles formed by the original dashed line have equal base angles.
+
+$\square$
+
+\subsection*{Thales' theorem}
+
+$\bullet$  Any angle inscribed in a semicircle is a right angle.
+
+Think of three points on the circumference of a circle, forming a triangle. If two of the points are on a diameter of the circle, the angle formed at any arbitrary but distinct third point is always a right angle.
+
+$\angle PRQ$ is a right angle.
+\begin{center} \includegraphics [scale=0.3] {arcs12.png} \end{center}
+
+\emph{Proof}.
+
+Draw the radius $OR$ (right panel). 
+
+Notice that the two smaller triangles produced ($\triangle OPR$ and $\triangle OQR$) are both isosceles, since two of their sides are radii of the circle.
+
+Therefore, in each triangle the two angles marked with dots of the same color are equal, by the isosceles triangle theorem.
+
+Since $\angle PRQ$ is composed of one angle of each type, it is equal to one-half the angle sum for the triangle, i.e., $\angle PRQ$ is a right angle.
+
+To restate this in more conventional notation:  in the figure below, $\angle PRQ = \phi + \theta$.  
+
+\begin{center} \includegraphics [scale=0.3] {arcs13.png} \end{center}
+
+Since the full measure of the triangle is two right angles
+\[ \phi + \phi + \theta + \theta = \text{two right angles} \]
+it follows that
+\[  \angle PRQ =  \phi + \theta = \text{one right angle} \]
+
+$\square$
+
+\subsection*{angles on the perimeter}
+
+The arc swept out by the angle $\angle POQ$ (equal to two right angles) is clearly equal to two right angles, because that arc is one-half of a circle.  
+
+But the two angles on the perimeter of the circle which together subtend one-half of the circle arc add up to
+\[ \angle PRQ = \phi + \theta = \text{one right angle} \]
+
+What's going on?
+
+To clarify, let us label the angles at the center of the circle, as well as three segments of arc.
+
+\begin{center} \includegraphics [scale=0.3] {arcs8.png} \end{center}
+
+By the triangle sum theorem, $t + 2 \phi =$ two right angles, but since they are supplementary angles, $t + s =$ two right angles as well.  Therefore, $s = 2 \phi$.  (This is a restatement of the external angle theorem).
+
+If a central angle and a peripheral angle have the same arc (which is actually taken as the measure of the central angle), then the peripheral angle is one-half the measure of the central one.
+
+As useful as the Pythagorean theorem is in geometry, it really shines in trigonometry.
+\begin{center}  \includegraphics [scale=0.3] {sine_cosine.png} \end{center}
+
+If $h = 1$, then the sine of $\angle \alpha$ is $a$, and the cosine of $\angle \alpha$ is $b$ so Pythagoras says that
+\[ [\sin(\alpha)]^2 + [\cos(\alpha)]^2 = 1 \]
+which is usually written without brackets and parentheses as
+\[ \sin^2 \alpha + \cos^2 \alpha = 1 \]
+
+
+
+\end{document}

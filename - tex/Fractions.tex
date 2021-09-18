@@ -1,0 +1,237 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Fractions}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+Keep your eye on the denominator, the number on the bottom of a fraction.  It tells you into how many smaller parts a whole unit has been divided.  Pizza is always popular, it's usually cut into 8 parts.  So each piece of pizza is $1/8$ of the whole.  
+\begin{center} \includegraphics [scale=0.4] {pizza.png} \end{center}
+
+One day, you decide to just cut the pizza into two halves, then each "piece" is
+\[ \frac{1}{2} \]
+Which number is larger?  It may seem like having $8$ is better than having $2$, but that $8$ is in the denominator.  It makes the slices smaller
+\[ \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2} \]
+It takes $4$ of the smaller $1/8$ slices to get the same amount as $1/2$.
+
+$1/100$ would be even worse.  That's like $1$ penny out of a dollar.  A dime ($1/10$ of a dollar) is worth much more than a penny.
+
+\begin{center} 
+\includegraphics [scale=1] {penny.png} 
+\includegraphics [scale=1] {dime.png} 
+\end{center}
+
+\subsection*{addition}
+Example:
+\[ \frac{1}{2} + \frac{2}{3} =  \ ? \]
+
+Looking at this you should be able to see right away that since
+\[ \frac{2}{3} > \frac{1}{2} \]
+
+the result must be larger than $1$.  
+
+To actually do the addition problem, we need to put both fractions over a \emph{common denominator}.
+
+\[ \frac{3}{6} + \frac{4}{6} = \frac{7}{6} \]
+
+Generalization ($a, b, c, d$ are whole numbers):
+
+\[ \frac{a}{b} + \frac{c}{d} = \frac{ad}{bd} + \frac{bc}{bd} =  \frac{ad + bc}{bd} \]
+What rules did we use?
+
+(1) Addition of fractions requires a common denominator.
+
+(2) A simple way to find a common denominator is to multiply the two denominators we were given:  $b \times d$, which we write as $b \cdot d$ or just $bd$ once we start using letters.
+
+This is not always the \emph{best} way, but it's a little complicated, so we talk about it separately.
+
+(3) Multiplying a fraction on top and bottom by the same number does not change the value, it is the same as multiplying by $1$.  Since
+\[ \frac{d}{d} = 1 \]
+\[ \frac{a}{b} = 1 \cdot \frac{a}{b} =\frac{d}{d} \cdot \frac{a}{b} = \frac{ad}{bd} \]
+we now have a number that equals $a/b$ but has the common denominator that we need.  The other one is
+\[ \frac{c}{d} = 1 \cdot \frac{c}{d} = \frac{b}{b} \cdot \frac{c}{d} = \frac{bc}{bd} \]
+
+(4) Once two fractions have a common denominator, just add the numerators to get the result.
+\[ \frac{ad}{bd} + \frac{bc}{bd} =  \frac{ad + bc}{bd} \]
+
+In the problem we started with, the result is a number larger than $1$, so we also should do this:
+\[ \frac{7}{6} = \frac{6}{6} + \frac{1}{6} = 1 + \frac{1}{6} = 1 \frac{1}{6} \]
+
+(5) Write the fraction as a sum, one part that is reducible to a whole number, plus the rest.  Some people call a fraction that is larger than $1$, like $7/6$, an \emph{improper} fraction, as though it would be essential to convert it into the other form.  But that's not true.
+
+\subsection*{subtraction}
+
+Subtraction is just like addition.  We modify rule (1):
+
+(1) Addition and subtraction of fractions requires a \emph{common denominator}.
+
+Example:
+\[ 1 + \frac{1}{6} - \frac{1}{2} = \frac{7}{6} - \frac{1}{2} \]
+\[ = \frac{7}{6} - \frac{3}{6} = \frac{4}{6} = \frac{2}{3} \]
+
+Here we were smarter than to use rule (2) directly.  In looking at this subtraction we could write:
+\[ \frac{7}{6} - \frac{1}{2} = \frac{14}{12} - \frac{6}{12} \]
+\[ = \frac{8}{12} = \frac{2}{3}  \]
+
+But notice that $6 = 2 \cdot 3$.  So use $6$ as the common denominator and write:
+\[ \frac{7}{6} - \frac{1}{2} = \frac{7}{6} - \frac{3}{6} \]
+\[ = \frac{4}{6} = \frac{2}{3}  \]
+You get the same answer, but the second way the numbers are smaller, which makes the calculation easier.
+
+\subsection*{borrowing}
+
+(6) For subtraction with a number written as a whole plus a fraction, we may need to borrow from the whole.
+
+\[ 1 \ \frac{1}{6} - \frac{1}{2} = \frac{7}{6} - \frac{1}{2} \]
+
+\subsection*{lending}
+I'm not sure what your book calls this, but it's the opposite of borrowing.
+
+The situation is that the fraction is larger than $1$ (perhaps larger than $2$ or more), so we need to figure out the whole part and the rest, the \emph{proper} fraction, the part less than $1$.
+
+Example:
+\[ \frac{17}{3} \]
+
+We can divide any two whole numbers if it's OK to have a remainder.  Suppose we're working with the fraction:
+\[ \frac{a}{b} \]
+
+We say that
+\[ a = q \cdot b + r \]
+$a$ is equal to some quotient $q$ times $b$ plus the remainder.  
+
+The whole part of the fraction is the $q$, and the proper fraction is the remainder $r$ divided by $a$.
+
+Example:
+\[ \frac{17}{3} \]
+\[ 17 = 5(3) + 2 \]
+We choose $5$ because that's the biggest quotient before the result will be larger than $17$.  [ That is, $6(3) = 18 > 17$. ]
+
+Now multiply both sides by $1/3$:
+\[ \frac{17}{3} = 5 + \frac{2}{3} \]
+
+\subsection*{multiplication}
+We already snuck this one in.  Multiplication is different than addition and subtraction:  
+
+(7) Multiplication does not need a common denominator.  
+
+Example:
+
+Your dad cut the pizza into two half pieces and you cut your half into thirds.  You give one of those away and keep the other two.  How much do you get to eat?
+\[ \frac{1}{2} \cdot \frac{2}{3} = \frac{1}{3} \]
+
+Just multiply on both top and bottom:
+\[  \frac{a}{b} \cdot  \frac{c}{d} =  \frac{ac}{bd} \]
+
+then simplify as needed.
+
+Multiplication of a whole number plus a fraction is a little trickier.  One way to do it is to convert to an improper fraction, multiply, and then convert back.
+Example:
+\[ (3\frac{2}{3}) \cdot \frac{2}{5} \]
+So
+\[ 3\frac{2}{3} = \frac{11}{3} \]
+\[ \frac{11}{3} \cdot \frac{2}{5} = \frac{22}{15} = 1 \frac{7}{15} \]
+
+A different way is to use the distributive law:
+\[ (3\frac{2}{3}) \cdot \frac{2}{5} = (3 + \frac{2}{3}) \cdot \frac{2}{5} \]
+\[ = \frac{6}{5} + \frac{4}{15} \]
+Now we have an addition problem:
+\[ = \frac{18}{15} + \frac{4}{15} \]  
+\[ = \frac{22}{15} = 1\frac{7}{15} \]  
+
+The distributive law is
+\[ a \cdot (b + c) = ab + ac \]
+It always works.
+
+\subsection*{division}
+A division problem might look like:
+\[ \frac{a}{b} \div \frac{c}{d} \]
+which can also be written
+\[  \frac{a/b}{c/d} \]
+
+Simply take the denominator and flip it, and write:
+\[  \frac{a/b}{c/d} \cdot \frac{d/c}{d/c} \]
+The denominator is now equal to one, so we can rewrite this as
+\[ \frac{a}{b} \cdot \frac{d}{c} = \frac{ad}{bc} \]
+
+In other words
+\[ \frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}\]
+
+(8) To divide by a fraction, just multiply by its inverse.
+
+\subsection*{no division by zero}
+
+One last thing to be aware of:  division by zero is never allowed!  However
+\[ \frac{0}{b} = 0 \]
+because $0 \times b = 0$.
+
+(9) Division by zero is \emph{undefined}.
+
+Consider 
+
+\[ \frac{a}{0} \]
+
+Suppose that, instead of zero, we let the denominator be successively smaller fractions like $1/10, 1/100$ and so on.
+
+\[ \frac{a}{1/10} = 10 \cdot a \]
+\[ \frac{a}{1/100} = 100 \cdot a \]
+\[ \frac{a}{1/100000} = 100000 \cdot a \]
+
+You can see where this is going.  So the temptation is to write that
+\[ \frac{a}{0} \stackrel{?}{=} \infty \]
+where $\infty$ is "very large, larger than the largest number."
+
+If it means anything, this must mean that
+\[ a \stackrel{?}{=} 0 \cdot \infty \]
+
+But, zero times anything is zero, and $a \ne 0$.  Furthermore, suppose we consider $b$, different than $a$, and then 
+\[ \frac{b}{0} \stackrel{?}{=} \infty \]
+\[ b \stackrel{?}{=} 0 \cdot \infty \]
+
+So obviously $b = a$, and yet $b \ne a$.  It's a mess. Division by zero is \emph{undefined}.
+
+(10) $0$ in the numerator is OK:  $0/b = 0$ for every $b$ except $b = 0$.
+
+(11) Any integer $a$ can be written as
+\[ a = \frac{a}{1} \]
+
+\subsection*{summary}
+
+(0) The number on top is the numerator, the one on the bottom is the denominator.
+
+(1) Addition and subtraction of fractions requires a common denominator.
+
+(2) A simple way to find a common denominator is to multiply the two denominators we were given:  $b \cdot d$, but if $b$ and $d$ have shared factors, then there is a smaller common denominator.
+
+(3) Multiplying a fraction on top and bottom by the same number does not change the value.  That number can be a fraction itself.
+
+(4) If two fractions have a common denominator, just add the numerators to get the result.
+
+(5) Write fractions as a sum, one part that reduces to a whole number, plus what's left.
+
+(6) For subtraction with a number written as a whole plus a fraction, we may need to borrow from the whole.
+
+(7) Multiplication does not need a common denominator.  
+
+(8) To divide by a fraction, multiply by its inverse.
+
+(9) Division by zero is undefined.
+
+(10) $0$ in the numerator is OK.
+
+(11) Any integer $a$ can be written as $a/1$.
+
+\end{document}

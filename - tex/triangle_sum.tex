@@ -1,0 +1,52 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Triangle sum theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+\subsection*{lines that cross}
+One place to begin with geometry is to look at two straight lines that cross in the plane.  Four angles are formed at the crossing point.
+\begin{center} \includegraphics [scale=0.6] {tri_sum1.png} \end{center}
+Our first \emph{axiom} (truth) is that if two adjacent angles are equal, then they are both \emph{right angles}, marked with a filled dot to show the equality.  It is not hard to show that then, all four angles must be equal.  Can you make the argument?
+
+If the angles are \emph{not} both equal, it is still true that the sum of two adjacent angles, like $t + t'$, is equal to two right angles.
+\begin{center} \includegraphics [scale=0.6] {tri_sum2.png} \end{center}
+But then the other angle below adds to $t'$ to give two right angles as well.  So the two angles marked $t$ are equal.  They are called \emph{vertical} angles.
+
+\subsection*{lines that don't cross}
+\begin{center} \includegraphics [scale=0.6] {tri_sum6.png} \end{center}
+A third possibility is that two lines don't cross (not ever).  Such lines are described as \emph{parallel}.
+
+Now we think about what should happen (what would make sense) if a third line crosses two parallel lines.  The first case is where the new line forms a right angle with one of the two parallel lines.
+\begin{center} \includegraphics [scale=0.6] {tri_sum3.png} \end{center}
+Our sense of the world says that it will also cross the other line at a right angle.
+
+Every one of the 8 angles is a right angle.  The total angle between the two parallel lines (the sum of the two dots between the parallel lines) is equal to two right angles.
+
+We expect that this relationship should still be true if the crossing line does not form right angles.  This is called the \emph{parallel postulate}.
+\begin{center} \includegraphics [scale=0.6] {tri_sum4.png} \end{center}
+\[ t + t' = \text{2 right angles} \]
+The equal angles in this diagram are equal by what is called the \emph{alternate interior angles} theorem, based on the parallel postulate.  There are four other angles that are not labeled, but they could be, knowing what we know.  See if you can label them and then give a reason why.
+
+\subsection*{triangle sum of angles}
+We have already seen two new theorems, here is one more that may be unexpected.  Draw a triangle ($\triangle ABC$) and a line parallel to the base ($DAE \parallel BC$).
+\begin{center} \includegraphics [scale=0.6] {tri_sum5.png} \end{center}
+The triangle has $\angle A$, $\angle B$ and $\angle C$.  The dotted angles are equal by the parallel postulate.  So the sum of angles of the triangle is equal to the sum of angles at the top, along the line $DAE$.  But the latter is equal to two right angles.  So the sum of angles in any triangle is equal to two right angles.  $\square$
+
+
+\end{document}

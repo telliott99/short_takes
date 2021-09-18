@@ -1,0 +1,472 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Continued fractions}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+A continued fraction is an expression like:
+\[ \phi = 1 + \cfrac{1}{1 + \cfrac{1}{1 +  \dots}}  \]
+This particular continued fraction is equal to the famous number $\phi$, called the golden ratio. 
+
+We're interested in \emph{simple} continued fractions where the numerators are all $1$, and the expression is equal to some whole number plus a fraction that is smaller than $1$.  There are other possibilities.
+
+If we write the definition of $\phi$:
+\[ \phi^2 = \phi + 1 \]
+rearranging
+\[ \phi = 1 + \frac{1}{\phi} \]
+
+We have $\phi$ on both sides, so we can substitute the whole right-hand side for the single occurence of $\phi$ on that side, repeatedly.
+\[ \phi = 1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \dots}}}  \]
+
+The dots indicate that this continues.  In fact, it continues forever, both by the nature of the construction, and because we know that $\phi$ is an irrational number.  To evaluate it, we must chop off the dots at some point.
+
+\begin{verbatim}
+1 + 1/2 = 3/2
+1 + 2/3 = 5/3
+1 + 3/5 = 8/5
+1 + 5/8 = 13/8
+1 + 8/13 = 21/13
+1 + 13/21 = 34/21
+1 + 21/34 = 55/34
+\end{verbatim}
+
+Use a calculator or long division to obtain
+
+\begin{verbatim}
+1 + 34/55 =  = 1.618 ...
+\end{verbatim}
+
+\subsection*{$\sqrt{2}$}
+The perfect squares are like $4 \ 9 \ 16 \ 25 \dots$.  Every square that is not a perfect square has an irrational square root.  Such values can always be represented as continued fractions.
+
+Our interest is really in finding rational approximations to irrational numbers.  We look first at the easiest case, $\sqrt{2}$.
+
+\[ (\sqrt{2} - 1)(\sqrt{2} + 1) =  2 - 1 = 1 \]
+\[ \sqrt{2} - 1 = \frac{1}{\sqrt{2} + 1} \]
+
+Add one and subtract one on the bottom right:
+\[ \sqrt{2} - 1 =  \frac{1}{2 + \sqrt{2} - 1} \]
+
+This is just
+\[ x = \frac{1}{2 + x} \]
+which is very similar to the continued fraction for $\phi$.
+
+And like the previous example, this goes on forever.
+\[ \sqrt{2} = 1 + \cfrac{1}{2+\cfrac{1}{2+\cfrac{1}{2 + \dots}}}  \]
+
+The numerators are all $1$, so this is a simple continued fraction for $\sqrt{2}$.
+
+The continued fraction representation of $\sqrt{2}$ is written in this shorthand:  $[1;(2)]$, meaning that there is an initial $1$ followed by repeated $2$'s.
+
+It goes on forever.  If it were to terminate somehow, then we would have that $\sqrt{2}$ is equal to a rational number, but we know that $\sqrt{2}$ is irrational, so that can't happen.  To turn this around, the construction of the unending continued fraction constitutes a  proof of irrationality.
+
+To find a decimal representation of $\sqrt{2}$, chop off the dots.  Then the last fraction is $5/2$.  Invert and add, repeatedly:
+
+\begin{verbatim}
+2 + 1/2 = 5/2
+2 + 2/5 = 12/5
+2 + 5/12 = 29/12
+2 + 12/29 = 71/29
+2 + 29/71 = 171/71
+2 + 71/171 = 413/171
+\end{verbatim}
+
+Go as far as you like.  Then, terminate using the initial $1$:
+\begin{verbatim}
+1 + 171/413 = 1.414043
+\end{verbatim}
+
+To six places, $\sqrt{2} = 1.414213$.  We have only three.  We can easily get more but it seems a bit slow to converge.  There are better methods to actually do this calculation (like Newton-Raphson).
+
+\subsection*{$\sqrt{3}$}
+The continued fraction representation of $\sqrt{3}$ is $[1;1,2,1,2, \dots]$, which is shortened to $[1;(1,2)]$.  
+
+To see this, start with
+\[ (\sqrt{3} - 1)(\sqrt{3} + 1) = 2 \]
+
+I find the square root sign distracting, so let's substitute $x = \sqrt{3}$:
+\[ (x - 1)(x + 1) = 2 \]
+\[ x - 1 = \frac{2}{x + 1}   \]
+
+This is a good start, we want $-1$ on the left-hand side, eventually it will move to the other side to become $1 + $ something.  We don't want the $2$ on top so we use two tricks:  add and subtract and then multiply top and bottom by the inverse of the numerator:
+\[ =  \frac{2}{2 + x - 1} = \cfrac{1}{1 + \cfrac{x-1}{2}} \]
+By using the original equation we can do
+\[= \cfrac{1}{1 + \cfrac{1}{x+1}} \]
+
+For the critical step (knowing the answer), we want the $x + 1$ to turn into something like $2 + \dots$, so add and subtract again
+\[ = \cfrac{1}{1 + \cfrac{1}{2 + x - 1}} \]
+
+We're actually done since the left-hand side is also $x - 1$
+\[ x-1 = \cfrac{1}{1 + \cfrac{1}{2 + x - 1}} \]
+
+Let's do one round of substitution just to see it
+\[ x - 1 = \cfrac{1}{1 + \cfrac{1}{2 + \cfrac{1}{1 + \cfrac{1}{2 + x - 1}}}} \]
+
+So now that just repeats (forever) and the final expression is $[1:(1,2)]$, just as we said.
+
+We can get approximations for $\sqrt{3}$ similar to what we did for $\sqrt{2}$.  Unlike previously, here there are two possibilities.  We can start with either
+\[ 1 + \frac{1}{2 + \dots} \]
+or
+\[ 2 + \frac{1}{1 + \dots} \]
+and proceed by ignoring the dots.
+
+The first gives
+\begin{verbatim}
+1 + 1/2 = 3/2
+2 + 2/3 = 8/3
+1 + 3/8 = 11/8
+2 + 8/11 = 30/11
+1 + 11/30 = 41/30
+2 + 30/41 = 112/41
+1 + 41/112 = 153/112
+
+1 + 112/153 = 265/153 = 1.732026
+\end{verbatim}
+
+The actual value is $\sqrt{3} = 1.732051$, to six places.  We have four.
+
+The second gives
+\begin{verbatim}
+2 + 1 = 3
+1 + 1/3 = 4/3
+2 + 3/4 = 11/4
+1 + 4/11 = 15/11
+2 + 11/15 = 41/15
+1 + 15/41 = 56/41
+2 + 41/56 = 153/56
+1 + 56/153 = 209/153
+2 + 153/209 = 571/209
+1 + 209/571 = 780/571
+
+1 + 571/780 = 1351/780 = 1.732051
+\end{verbatim}
+
+The actual value is $\sqrt{3} = 1.732051$, to six places.  We have all six.
+
+Archimedes used approximations for $\sqrt{3}$ from both of these series in obtaining his limits on the value of $\pi$.  (At least I believe that's a reasonable guess, he doesn't say and there isn't any other evidence).
+
+\subsection*{$\sqrt{5}$}
+This one is like $\sqrt{2}$, except we use the next lower perfect square, leaving a remainder of $1$.
+
+\[ (\sqrt{5} + 2)(\sqrt{5} - 2) = 1 \]
+\[ \sqrt{5} - 2 = \frac{1}{\sqrt{5} + 2} \]
+\[ \sqrt{5} - 2 = \frac{1}{4 + \sqrt{5} - 2} \]
+which becomes
+\[ \sqrt{5} = 2 + \cfrac{1}{4 + \cfrac{1}{4 + \cfrac{1}{4 + \dots}}}  \]
+
+Evaluation:
+\begin{verbatim}
+1/4 + 4 = 17/4
+4/17 + 4 = 72/4 = 18
+1/18 + 4 = 76/18 = 38/9
+9/38 + 4 = 161/38
+38/161 + 4 = 682/161
+
+(161/682 + 2)^2 = 5.00001
+\end{verbatim}
+
+Admittedly, these can become trickier as we move farther away from any given perfect square.
+
+\subsection*{$\sqrt{6}$}
+
+\[ (\sqrt{6} + 2)(\sqrt{6} - 2) = 2 \]
+\[ \sqrt{6} - 2 = \frac{2}{\sqrt{6} + 2} \]
+\[ = \frac{2}{4 + \sqrt{6} - 2} \]
+\[ = \frac{1}{2 + \cfrac{\sqrt{6} - 2}{2}} \]
+\[ = \frac{1}{2 + \cfrac{1}{\sqrt{6} + 2}} \]
+\[ = \frac{1}{2 + \cfrac{1}{4 + \sqrt{6} - 2}} \]
+
+We have $\sqrt{6} = [2;(2,4)]$.  (Recall that $\sqrt{3} =  [1;(1,2)]$.  There are interesting patterns in these coefficients).
+
+Evaluation:
+\begin{verbatim}
+1/4 + 2 = 9/4
+4/9 + 4 = 40/4
+4/40 + 2 = 84/40 = 21/10
+10/21 + 4 = 94/21
+21/94 + 2 = 209/94
+
+(94/209 + 2)^2 = 6.0013 ...
+\end{verbatim}
+
+In the above sequence, we must always end with $+ 2$.
+
+\subsection*{$\sqrt{7}$}
+
+This one's a bit complicated, it has four terms.  First obtain $a_0$ as the next smallest perfect square's root
+\[ (\sqrt{7} - 2)(\sqrt{7} + 2) = 3 \]
+To clean up the notation, substitute $x = \sqrt{7}$:
+\[ (x - 2)(x + 2) = 3 \]
+
+We will also need this below:
+\[ (x - 1)(x + 1) = 6 \]
+\[ \frac{x - 1}{3} = \frac{2}{x + 1} \]
+
+So now
+\[ x - 2 = \frac{3}{2 + x} = \frac{3}{3 + x - 1} = \cfrac{1}{1 + \cfrac{x - 1}{3}} \]
+\[ = \cfrac{1}{1 + \cfrac{2}{x + 1}} = \cfrac{1}{1 + \cfrac{2}{2 + x - 1}} = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{x - 1}{2}}} \]
+\[ = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{3}{x + 1}}} = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{3}{3 + x - 2}}} = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{x - 2}{3}}}} \]
+\[ = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{x + 2}}}} = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{4 + x - 2}}}} \]
+
+And that's it!
+\[ \sqrt{7} = [2;(1,1,1,4)] \]
+
+Evaluation:
+\begin{verbatim}
+1/4 + 1 = 5/4
+4/5 + 1 = 9/5
+5/9 + 1 = 14/9
+9/14 + 4 = 65/14
+14/65 + 1 = 79/65
+65/79 + 1 = 144/79
+79/144 + 1 = 223/144
+
+(144/223 + 2)^2 = 6.99994 ...
+\end{verbatim}
+
+\subsection*{$\sqrt{8}$}
+\[ (\sqrt{8} + 2)(\sqrt{8} - 2) = 4 \]
+\[ x - 2 = \frac{4}{x + 2} =  \frac{4}{4 + x - 2} =  \cfrac{1}{1 + \cfrac{x - 2}{4}} \]
+\[ =  \cfrac{1}{1 + \cfrac{1}{x + 2}} =  \cfrac{1}{1 + \cfrac{1}{4 + x - 2}} \] 
+
+Evaluation:
+\begin{verbatim}
+1/4 + 1 = 5/4
+4/5 + 4 = 24/5
+5/24 + 1 = 29/24
+24/29 + 4 = 140/29
+29/140 + 1 = 169/140
+
+(140/169 + 2)^2 = 7.99986
+\end{verbatim}
+
+\subsection*{$\sqrt{10}$}
+Again, we use the next lower perfect square, leaving a remainder of $1$.
+
+\[ (\sqrt{10} + 3)(\sqrt{10} - 3) = 1 \]
+\[ \sqrt{10} - 3 = \frac{1}{\sqrt{10} + 3} \]
+\[ \sqrt{10} - 2 = \frac{1}{6 + \sqrt{5} - 3} \]
+which becomes
+\[ \sqrt{10} = 3 + \cfrac{1}{6 + \cfrac{1}{6 + \cfrac{1}{6 + \dots}}}  \]
+
+Evaluation:
+\begin{verbatim}
+1/6 + 6 = 37/6
+6/37 + 6 = 228/37
+37/228 + 6 = 1405/228
+
+(228/1405 + 3)^2 = 9.999999...
+\end{verbatim}
+
+\subsection*{$\sqrt{19}$}
+According to my source
+
+\url{http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/cfINTRO.html#section6.4}
+
+The continued fraction for $\sqrt{19}$ is $[4;(2,1,3,1,2,8)]$  
+
+Let $\sqrt{19} = x$.  Then
+\[ (x - 4)(x + 4) = 3 \]
+\[ (x - 3)(x + 3) = 2 \cdot 5 \]
+\[ (x - 2)(x + 2) = 3 \cdot 5 \]
+\[ (x - 1)(x + 1) = 3 \cdot 6 \]
+
+Starting with the first one:
+\[ x - 4 = \frac{3}{x + 4} = \frac{3}{6 + x - 2} = \cfrac{1}{2 + \cfrac{x-2}{3}} = \cfrac{1}{2 + \cfrac{5}{x + 2}}  \]
+To make things simpler, let's just continue working with the last term
+\[ \frac{5}{x + 2} = \frac{5}{5 + x - 3} = \cfrac{1}{1 + \cfrac{x - 3}{5}} = = \cfrac{1}{1 + \cfrac{2}{x + 3}} \]
+Now this looks possible:
+\[ \frac{2}{x + 3} =  \frac{2}{4 + x - 1} =  \cfrac{1}{2 + \cfrac{x - 1}{2}} =  \cfrac{1}{2 + \cfrac{9}{x + 1}}  \]
+except that would leave us dealing with $9 + x - 8$ (see below).
+
+So then
+\[ \frac{2}{x + 3} =  \frac{2}{6 + x - 3} =  \cfrac{1}{3 + \cfrac{x - 3}{2}} =  \cfrac{1}{3 + \cfrac{5}{x + 3}}  \]
+Next
+\[ \frac{5}{x + 3} = \frac{5}{5 + x - 2} =  \cfrac{1}{1 + \cfrac{x - 2}{5}} =  \cfrac{1}{1 + \cfrac{3}{x + 2}}  \]
+
+Two more to go.  Putting $x - 1$ on the bottom leads to the same problem as before.  So
+\[ \frac{3}{x + 2} = \frac{3}{6 + x - 4} =  \cfrac{1}{2 + \cfrac{x - 4}{3}} =  \cfrac{1}{2 + \cfrac{1}{x + 4}} \]
+Last:
+\[ \frac{1}{x + 4} = \frac{1}{8 + x - 4} \]
+We have extracted $(2,1,3,1,2,8)$.  Combined with the leading term of $4$ from $x - 4$, we're done!
+
+The new technique we used here is to recognize that we are forced to convert $x + 3$ to $6 + x - 3$ rather than $4 + x - 1$ because then we would have $(x - 1)/2 = 9/(x + 1) = 9/(9 + x - 8)$ which we can't do because $x < 8$.
+
+\subsection*{final challenge:  $\sqrt{31}$}
+
+According to my source this is $[5;(1,1,3,5,3,1,1,10)]$
+
+We will need the following:
+\[ (x + 1)(x - 1) = 30 = 5 \cdot 6 \]
+\[ (x + 4)(x - 4) = 15 = 3 \cdot 5 \]
+\[ (x + 5)(x - 5) = 6 = 2 \cdot 3 \]
+
+
+\[ x - 5 =  \frac{6}{x + 5} = \frac{6}{6 + x - 1} =  \cfrac{1}{1 + \cfrac{x - 1}{6}} =  \cfrac{1}{1 + \cfrac{5}{x + 1}}  \]
+We used $(x-1)(x+1) = 30$.  Keep the $1$ and work on the last fraction.
+\[ \frac{5}{x + 1} = \frac{5}{5 + x - 4} =  \cfrac{1}{1 + \cfrac{x - 4}{5}} =  \cfrac{1}{1 + \cfrac{3}{x + 4}}  \]
+We used $(x + 4)(x - 4) = 15$.  Keep the $1$.
+\[ \frac{3}{x + 4} = \frac{3}{9 + x - 5} =  \cfrac{1}{3 + \cfrac{x - 5}{3}} =  \cfrac{1}{3 + \cfrac{2}{x + 5}}  \]
+We are forced to use $9$ on the bottom because $(x + 2)(x - 2) = 27$ does not have a factor of $2$ (and in any case would be too large).  We used $(x + 5)(x - 5) = 6$.  Keep the $3$.
+\[ \frac{2}{x + 5} = \frac{2}{10 + x - 5} =  \cfrac{1}{5 + \cfrac{x - 5}{2}} =  \cfrac{1}{5 + \cfrac{3}{x + 5}}  \]
+Keep the $5$.
+
+We are halfway there.
+
+\[ \frac{3}{x + 5} = \frac{3}{9 + x - 4} =  \cfrac{1}{3 + \cfrac{x - 4}{3}} =  \cfrac{1}{3 + \cfrac{5}{x + 4}}  \]
+Another $3$
+
+\[ \frac{5}{x + 4} = \frac{5}{5 + x - 1} =  \cfrac{5}{5 + \cfrac{x - 1}{5}} =  \cfrac{1}{1 + \cfrac{6}{x + 1}}  \]
+
+\[ \frac{6}{x + 1} = \frac{6}{6 + x - 5} =  \cfrac{1}{1 + \cfrac{x - 5}{6}} =  \cfrac{1}{1 + \cfrac{1}{x + 5}}  \]
+
+\[ \frac{1}{x + 5} = \frac{1}{10 + x - 5}   \]
+
+And that's it.  We confirm the answer is $[5;(1,1,3,5,3,1,1,10)]$
+
+\newpage
+
+\subsection*{Python code}
+
+The script is called \text{contd\_fracs.py}.  Given the encoded continued fraction, it calculates the final result with an accuracy that depends on the number of times we go through the list of coefficients.  The first example below is $\phi$ called with $1 1$ for $[1;(1)]$, prefaced with $14$ for the number of rounds.
+
+\url{https://gist.github.com/telliott99/bf740d6ca5fe6ac8ff32e217569a6b8f}
+
+\begin{verbatim}
+import sys
+from fractions import Fraction
+
+prog, name, reps, lead = sys.argv[:4]
+lead, reps = int(lead), int(reps)
+L = [Fraction(s) for s in sys.argv[4:]] 
+L = L * reps
+pL = []
+
+def add_invert(n,d):
+    p = 1/d
+    q = n + p
+    pL.append((str(d), str(p), str(n), str(q)))
+    return q
+
+def evaluate(L):
+    d = L.pop()
+    while L:
+         n = L.pop()
+         d = add_invert(n,d)
+    return add_invert(lead,d)
+
+x = evaluate(L)
+print(name)
+for t in pL:
+    print('%10s %10s %4s %10s' % t)
+print(x)
+   
+if name.startswith('sqrt'):
+    print('%3.12f' % float(x**2))
+else:
+    print('%3.12f' % float(x))
+
+\end{verbatim}
+
+Output:
+
+\begin{verbatim}
+> p3 contd_fracs.py phi 14 1 1            
+phi
+         1          1    1          2
+         2        1/2    1        3/2
+       3/2        2/3    1        5/3
+       5/3        3/5    1        8/5
+       8/5        5/8    1       13/8
+      13/8       8/13    1      21/13
+     21/13      13/21    1      34/21
+     34/21      21/34    1      55/34
+     55/34      34/55    1      89/55
+     89/55      55/89    1     144/89
+    144/89     89/144    1    233/144
+   233/144    144/233    1    377/233
+   377/233    233/377    1    610/377
+   610/377    377/610    1    987/610
+987/610
+1.618032786885
+> p3 contd_fracs.py sqrt2 10 1 2          
+sqrt2
+         2        1/2    2        5/2
+       5/2        2/5    2       12/5
+      12/5       5/12    2      29/12
+     29/12      12/29    2      70/29
+     70/29      29/70    2     169/70
+    169/70     70/169    2    408/169
+   408/169    169/408    2    985/408
+   985/408    408/985    2   2378/985
+  2378/985   985/2378    2  5741/2378
+ 5741/2378  2378/5741    1  8119/5741
+8119/5741
+1.999999969659
+> p3 contd_fracs.py sqrt3 5 1 1 2         
+sqrt3
+         2        1/2    1        3/2
+       3/2        2/3    2        8/3
+       8/3        3/8    1       11/8
+      11/8       8/11    2      30/11
+     30/11      11/30    1      41/30
+     41/30      30/41    2     112/41
+    112/41     41/112    1    153/112
+   153/112    112/153    2    418/153
+   418/153    153/418    1    571/418
+   571/418    418/571    1    989/571
+989/571
+2.999993865802
+> p3 contd_fracs.py sqrt19 2 4 2 1 3 1 2 8
+sqrt19
+         8        1/8    2       17/8
+      17/8       8/17    1      25/17
+     25/17      17/25    3      92/25
+     92/25      25/92    1     117/92
+    117/92     92/117    2    326/117
+   326/117    117/326    8   2725/326
+  2725/326   326/2725    2  5776/2725
+ 5776/2725  2725/5776    1  8501/5776
+ 8501/5776  5776/8501    3 31279/8501
+31279/8501 8501/31279    1 39780/31279
+39780/31279 31279/39780    2 110839/39780
+110839/39780 39780/110839    4 483136/110839
+483136/110839
+18.999999999756
+>
+\end{verbatim}
+
+\begin{verbatim}
+> p3 contd_fracs.py sqrt31 1 5 1 1 3 5 3 1 1 10
+sqrt31
+        10       1/10    1      11/10
+     11/10      10/11    1      21/11
+     21/11      11/21    3      74/21
+     74/21      21/74    5     391/74
+    391/74     74/391    3   1247/391
+  1247/391   391/1247    1  1638/1247
+ 1638/1247  1247/1638    1  2885/1638
+ 2885/1638  1638/2885    5 16063/2885
+16063/2885
+30.999999279126
+>
+\end{verbatim}
+
+\end{document}

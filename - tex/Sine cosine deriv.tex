@@ -1,0 +1,170 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+%break
+\title{Derivatives of sine and cosine}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Think about a ball traveling around in a circle.  
+
+Strang:
+
+\begin{quote}We make the ball travel with constant speed, by requiring that the angle is equal to the time $t$...  A full circle is completed at $t = 2\pi$.\end{quote}
+
+Since the distance around is also $2\pi$, 
+
+\begin{quote}the speed equals $1$.\end{quote}
+
+Here is a diagram of the situation when $t \approx 1.2$ radian.
+\begin{center} \includegraphics [scale=0.4] {Strang_1_16.png} \end{center}
+
+The position of the ball is given by the radial vector out from the origin whose components are $x = \cos t, y = \sin t$.
+
+The direction that the ball is going is given by the tangent to the curve.  It can be seen from the diagram that the components of the tangent are $x = - \sin t, y = \cos t$.  We know that this scaling of the vector is correct, because the magnitude of the vector is the speed, which is equal to $1$, and by the Pythagorean theorem we have that $\sin^2 t + \cos^2 t = 1$.
+
+What this means then, is that the derivative
+\[ \frac{d}{dt} \ \langle \sin t, \cos t \rangle = \langle \cos t, - \sin t \rangle \]
+
+And in terms of the individual components, the derivative of the sine is the cosine and the derivative of the cosine is minus the sine.
+
+\subsection*{limit}
+
+In applying the tools of calculus to this problem, we have a preliminary requirement, which is to look at a famous limit.  We need the value of this limit
+\[    \lim_{x \rightarrow 0} \ \frac{x}{\sin x}  \]
+
+The limit of the ratio of the angle to its sine as the angle gets very small is equal to $1$.  One way to explore this is to use a plotting application:
+
+\begin{center} \includegraphics [scale=0.4] {sinx_over_x.png} \end{center}
+or a calculator such as that embedded in Python
+
+\begin{verbatim}
+>>> for i in range(1,100):
+...     f = 1.0/i
+...     print i, sin(f)/f
+... 
+1 0.841470984808
+..
+97 0.999982286557
+98 0.99998264621
+99 0.999982995019
+>>>
+\end{verbatim}
+
+but (to be honest) these are cheating because when they calculate the sine of the angle they use a shortcut based on calculus.
+
+Here is an actual proof that the ratio is equal to $1$.
+
+\begin{center} \includegraphics [scale=0.4] {lim_x_over_sinx} \end{center}
+
+We'll be looking at the area of the right triangle whose hypotenuse is the radius, the area of the sector of the circle with the same angle $t$, and the area of the right triangle whose long side is equal to the radius.
+
+Consider first the right triangle with radius $r$ which lies entirely inside the circle.  Its base is $r \cos t$ and its height is $r \sin t$, so its area is
+\[    A = \frac{1}{2} \cdot r \cos t \cdot r \sin t   \]
+\[    = \frac{1}{2} r^2 \sin t \cos t  \]
+
+Consider next the sector of the circle (piece shaped like a slice of pie) containing the same angle, $t$.  Recall that $t$ is the length of the portion of the circumference along this sector (if $t$ is measured in radians).  If the circle is not a unit circle, then multiply by the radius.
+
+$t$ is some fraction of the total angular measure of the circle, namely $t/2 \pi$, and we multiply by the total area of the circle to get the area of the sector:
+\[    A = \frac{t}{2 \pi} \pi r^2 = \frac{1}{2} r^2 t  \]
+
+Finally, consider the right triangle containing the dotted line, whose base has length $r$.  Because it is a similar triangle with the first one, its height (that dotted line) is in the same ratio to $r$, the base of the triangle, as $\sin t$ is to $\cos t$.  Thus, its length is $r \tan t$.
+
+The area of this triangle is
+\[   A = \frac{1}{2} \cdot r \cdot r \tan t   \]
+\[    =  \frac{1}{2} r^2 \ \frac{\sin t}{\cos t}  \]
+
+It is clear that the first triangle is smaller than the sector, and the sector is smaller than the second triangle \emph{no matter how small t becomes}.
+
+We can write
+\[    \frac{1}{2} r^2 \sin t \cos t < \frac{1}{2} r^2 t < \frac{1}{2} r^2 \ \frac{\sin t}{\cos t}  \]
+
+Now cancel $r^2/2$
+\[    \sin t \cos t < t < \frac{\sin t}{\cos t}  \]
+
+and divide by $\sin t$
+\[    \cos t < \frac{t}{\sin t} < \frac{1}{\cos t}  \]
+
+As $t \rightarrow 0$, both $\cos t$ and $1/\cos t$ approach the same limit, which is just the value of the cosine at $t=0$, namely, $1$.  Therefore the ratio gets squeezed, and it approaches the same limit as well.  
+\[    \lim_{x \rightarrow 0} \ \frac{x}{\sin x} = 1  \] 
+
+Since the limit is $1$, the inverse approaches the same limit.  We have proved that:
+\[  \lim_{x \rightarrow 0} \ \frac{\sin x}{x} = 1  \] 
+
+\subsection*{algebra}
+
+We will need still another limit.  We require
+\[ \lim_{h \rightarrow 0} \ \frac{(\cos h - 1)}{h} \]
+
+Now
+\[ \frac{\cos h - 1}{h}  =  \frac{\cos h - 1}{h}  \cdot \frac{\cos h + 1}{\cos h + 1} \]
+
+The numerator on the right is
+\[ (\cos h - 1)(\cos h + 1) = \cos^2 h - 1 \]
+\[ = -\sin^2 h \]
+
+so we can assign one copy of $\sin h$ to each of the terms in the denominator:
+\[  - \frac{\sin h}{h} \cdot \frac{\sin h}{\cos h + 1} \]
+
+The limit as $h \rightarrow 0$ of the first factor is equal to $1$ (with a factor of $-1$) as we saw before, but the second one is $0/2 = 0$, so the whole thing is zero.
+
+\[ \lim_{h \rightarrow 0} \frac{\cos h - 1}{h} = 0 \]
+Now it's easy.
+
+\subsection*{Difference quotient for sine}
+The limit just obtained allows us to find the derivatives of sine and cosine.  
+
+Set up the difference quotient for sine:
+\[  \frac{\sin (x + h) - \sin x}{h} \]
+
+(Note that we are not yet equating this with the derivative, it is just the difference quotient itself.  Therefore, we do not have to write the business about $\lim_{h \rightarrow 0}$).
+
+Using the addition of angles formula:
+\[ = \frac{\sin x \cos h + \sin h \cos x - \sin x}{h} \]
+Group the terms containing $\sin x$ and $\cos x$ separately
+\[ = \sin x \ \frac{(\cos h - 1)}{h} + \cos x \ \frac{\sin h}{h} \]
+
+Evaluating the limit as $h \rightarrow 0$, the second term is
+\[ \cos x \ \lim_{h \rightarrow 0} \frac{\sin h}{h} \]
+
+We are allowed to pull $\cos x$ out of the limit, because it does not depend on $h$.  By the main result above (our "famous" limit), the limit part is equal to $1$, so the whole expression is just equal to $\cos x$.
+
+We just showed that the first term is zero, which means that we have in the end:
+\[ \frac{d}{dx} \sin x = \cos x \]
+The derivative of the sine is the cosine.
+
+\subsection*{Derivative of the cosine}
+
+Set up the difference quotient for cosine:
+\[  \frac{\cos (x + h) - \cos x}{h} \]
+Using addition of angles
+\[ \frac{\cos x \cos h - \sin x \sin h - \cos x}{h} \]
+Grouping like terms
+\[ = \cos x \ \frac{(\cos h - 1)}{h}  - \sin x \ \frac{\sin h}{h} \]
+
+But we as we just said:
+\[  \lim_{h \rightarrow 0} \frac{\cos h - 1}{h} = 0 \]
+
+so the first term is zero.  By the original limit derived above, the second term is
+\[ \lim_{h \rightarrow 0} \ [ \ - \sin x \ \frac{\sin h}{h} \ ] \ = - \sin x \]
+
+The derivative of the cosine is minus the sine.
+\[ \frac{d}{dx} \ \cos x = - \sin x \]
+
+\end{document}

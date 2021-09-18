@@ -1,0 +1,59 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Basic fractions}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+In this short write-up, we look at adding fractions.  The rule for adding fractions is that \emph{they must have the same denominator}.  If they do, then the result is the sum of the numerators.
+\[ \frac{1}{3} + \frac{2}{3} = \frac{1 + 2}{3} = \frac{3}{3} = 1 \]
+\[ \frac{1}{6} + \frac{1}{6} = \frac{2}{6} = \frac{1}{3} \]
+We can simplify $\frac{2}{6}$ because $6 = 2 \cdot 3$ so we can cancel the $2$ on top and bottom.
+
+It is helpful to use symbols to write the general approach, valid for all examples.
+\[ \frac{a}{d} + \frac{b}{d} = \frac{a + b}{d} \]
+
+If two fractions do not have the same denominator, we must change the problem until they do.  The strategy is always to multiply by the same number on top and bottom, which is equivalent to just multiplying by $1$.
+\[ \frac{1}{2} + \frac{1}{6} \ \ \   \rightarrow \ \ \ \ \ \  \frac{3}{3} \cdot \frac{1}{2} = \frac{3}{6} \ \ \    \rightarrow  \ \ \ \ \ \    \frac{3}{6} + \frac{1}{6} =  \frac{4}{6} = \frac{2}{3} \]
+Here it's pretty easy because one denominator is a \emph{factor} of the other, $2$ is a factor of $6$.    So, multiply by $\frac{3}{3}$, to get a denominator of $6$ in the first term.  Finally, we simplify to get $\frac{2}{3}$.
+
+The next case is when the two denominators have no common factors, for example, when they are both prime numbers.
+\[ \frac{1}{2} + \frac{1}{5} = \ [ \  \frac{5}{5} \cdot \frac{1}{2} \ ] \ + \ [ \ \frac{2}{2} \cdot \frac{1}{5} \ ] \ = \frac{5 + 2}{10} = \frac{7}{10}  \]
+
+Note:  we only work here with numerators that are equal to $1$  The reason is that once we have a solution like
+\[ \frac{1}{c} + \frac{1}{d} = \frac{d + c}{cd} \]
+It is not hard to plug the numerators in the right place.
+\[ \frac{m}{c} + \frac{n}{d} = m \cdot \frac{1}{c} + n \cdot \frac{1}{d} = m \cdot \frac{d}{cd} + n \cdot \frac{c}{cd} = \frac{md + nc}{cd} \]
+
+The last pattern is when the two denominators share a \emph{common factor}, which is smaller than either denominator.
+\[ \frac{1}{4} + \frac{1}{6} = \ [ \  \frac{3}{3} \cdot \frac{1}{4} \ ] \ + \ [ \ \frac{2}{2} \cdot \frac{1}{6} \ ] \ = \frac{3 + 2}{12} = \frac{5}{12}  \]
+How did we start with $4$ and $6$ and come up with $12$?  One way is to write the multiples of $4$ and $6$, as if constructing a times table
+\begin{verbatim}
+ 4  8 12 ...
+ 6 12 ...
+\end{verbatim}
+$12$ is the first number that is shared.  It is the \emph{least common multiple} (abbreviated LCM).
+
+The second way is to write the prime factors of both numbers.  We'll work on that separately.
+
+Here's another example:  $6$ and $15$.  Multiples:
+\begin{verbatim}
+ 6 12 18 24 30 ...
+15 30
+\end{verbatim}
+\[ \frac{1}{6} + \frac{1}{15} = \ [ \  \frac{5}{5} \cdot \frac{1}{6} \ ] \ + \ [ \ \frac{2}{2} \cdot \frac{1}{15} \ ] \ = \frac{5 + 2}{30} = \frac{7}{30}  \]
+
+\end{document}

@@ -1,0 +1,127 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangent to the parabola by geometry}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is the simple geometric definition of a parabola:  choose a point $F$ (colored magenta) and a line called the directrix (colored blue).  Let the distance between $F$ and the directrix be equal to $2p$.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_6.png} \end{center}
+
+The parabola is the set of all points whose vertical distance to the directrix is equal to the distance to $F$ (colored red).  $FP = PD$.
+
+Draw the perpendicular from $F$ down to the directrix (colored black).  The point where the parabola crosses the vertical black line is the point of closest approach both to $F$ and to the directrix.  This point is called the vertex of the parabola.
+
+We wish to discover something about the tangent to the parabola at a general point $P$.  The tangent is defined to be the line that just touches the curve at a single point.
+
+Connect $F$ to $D$ and then draw the vertical bisector of $FD$, $PT$.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_9.png} \end{center}
+
+Because $\triangle FPD$ is isosceles, every point on $PT$ is equidistant to both $F$ and $D$ by the standard properties of the perpendicular bisector of the base of an isosceles triangle.
+
+Therefore, the point $P$ where the vertical bisector $PT$ meets $PD$ is on the parabola, for this choice of $D$.
+
+For any given value of $D$, there can be only one such point $P$, because there is only one point where $PT$ and $PD$ cross.  (They must cross, since $FD$ cannot be parallel to the directrix, hence $PT$ cannot be vertical).  $PD$ and $PT$ are never parallel, for any choice of $D$.
+
+\subsection*{$PT$ is the tangent}
+
+We will show that the perpendicular bisector $PT$ is the tangent at $P$.
+
+\emph{Proof}.
+
+Suppose $PT$ is not the tangent.
+
+Then, perhaps it would not cut the parabola at all.  But clearly $PT$ and $PD$ must intersect, since they are not parallel.  Therefore $PT$ does touch the parabola.
+
+Suppose instead that the perpendicular bisector is a secant and cuts through two points on the parabola.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_8.png} \end{center}
+
+Since the second point $P'$ lies on the perpendicular bisector of $FD$, it follows that $FP' = P'D$.  (Note:  the original $D$, not $D'$).
+
+At the same time, as a point on the parabola, $P'$ must satisfy the invariant: $FP' = P'D'$, where $P'D'$ is perpendicular to the directrix.
+
+Then $FP' = P'D = P'D'$.
+
+But $P'D$ cannot be equal to $P'D'$, since $P'D'$ is the shortest line segment connecting $P'$ and the directrix, which means that $P'D$ is the hypotenuse in a right triangle and as such $P'D > P'D'$.
+
+This is a contradiction.  
+
+Therefore the perpendicular bisector is not a secant, and since it does touch the parabola, it must be tangent.
+
+$\square$
+
+\subsection*{a parallelogram}
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_9.png} \end{center}
+
+We are given that $FP = PD$ and all the angles at $O$ are right angles.  Since $OF = OD$ (perpendicular bisector) and $OP$ is shared we have SSS so $\triangle FOP \cong \triangle POD$.
+
+$FT \parallel PD$ (both are defined to be vertical).  So $\angle TFO = \angle ODP$ (alternate interior angles), while the angles at $O$ are all right angles and $OF = OD$.  Therefore $\triangle POD \cong \triangle FOT$ by ASA.
+
+As corresponding sides of congruent triangles, $FT = PD$, and given that $FT \parallel PD$, $FPDT$ is a parallelogram.  Furthermore, it is a regular parallelogram with four sides equal.
+
+\subsection*{horizontal axis}
+
+Draw the horizontal line through the vertex.  We will show that this line also goes through the midpoint of the diagonals of the parallelogram.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_10.png} \end{center}
+
+\emph{Proof}.
+
+Consider the small triangle with one vertex at $V$, the vertex of the parabola, plus $O$ and $F$, with vertical side length $p$.  That triangle is congruent to another triangle through the vertical angle at $O$, $\triangle OHD$, because they are both right triangles with sides $FO = OD$.  So they are congruent by AAS.
+
+Alternatively, just note that $OV$ and $OH$ are altitudes in congruent right triangles.
+
+Therefore $VO = OH$.  Then it is clear that $\triangle VOT \cong \triangle  POH$ by ASA.
+
+The point $P$ lies the same distance above the horizontal axis as the intersection with the vertical, $T$, lies below it, and point $O$ lies equidistant between $V$ and $H$.
+
+$\square$
+
+This completes the derivation of the slope of the tangent to the parabola at a general point $P$, using only geometry.  The slope is rise over run, twice $PH$ divided by $VH$ or alternatively, $PH$ divided by $OH$.
+
+It is easier to deal with this relationship using the invention of Descartes and Fermat.
+
+\subsection*{analytical geometry}
+
+Let $y$ be the vertical distance from $P$ down to the horizontal axis, $PH$.  Let $x$ be the horizontal distance of $P$ from the vertical axis, $VH$.
+
+In the language of analytical geometry the slope of $PT$, which we will call $\Delta y/\Delta x$, is equal to \emph{twice} $y/x$.
+
+We obtain an equation for the parabola as follows.
+
+The total distance $PD = y + p$.  Also, $FP$ is the hypotenuse of a right triangle with sides $x$ and $y - p$.
+
+Since $FP = PD$, the squared lengths are also equal and we have:
+\[ x^2 + (y - p)^2 = (y + p)^2 \]
+\[ x^2 - 2yp = 2yp \]
+\[ y = \frac{1}{4p} x^2 \]
+
+The coefficient of $x^2$ is usually denoted by $a$, as in $y = ax^2$.  We see that $a$ is related to $p$ by $4ap = 1$.
+
+The slope is 
+\[ \frac{2y}{x} =  2 \cdot \frac{x^2}{4p} \cdot \frac{1}{x} = \frac{1}{2p} x = 2ax \]
+
+This is, literally, the first result from calculus, which shows its power.
+
+
+\end{document}

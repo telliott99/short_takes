@@ -1,0 +1,65 @@
+\subsection*{initialization}
+
+\begin{center} \includegraphics [scale=0.4] {pi.png} \end{center}
+
+For the perimeter method, we have a circle of diameter $1$ (so that the circumference will be equal to $\pi$).  Since $d = 1$ and the long side (not hypotenuse) of the triangle lies along the diagonal, we must scale the standard $1,\sqrt{3},2$ triangle.  
+
+We have that the ratio of the half-side to the diagonal is 
+
+\[ \frac{1}{\sqrt{3}} = \frac{x}{1/2} \]
+where $x$ is the length of the half-side and $1/2$ is the radius.  So $x = 1/2 \ \sqrt3$.
+
+Later on, we will need the altitude of this triangle, but it is just equal to $1/2$, since it is the radius and the diameter is $1$.
+
+Multiply by $x$ by $2$ to obtain one full side and then by $6$ to obtain the perimeter:  $P = 6/\sqrt{3} = 2 \sqrt{3} \approx 3.464$, which matches our initial estimate for $\pi$.
+
+For the inscribed case, we have six equilateral triangles.  The side length is equal to the radius, so $s = 1/2$, and the total perimeter is $p = 6/2 = 3$.
+
+For the altitude, we have that the altitude is in the same ratio to the side as
+\[ \frac{x}{s} = \frac{\sqrt{3}}{2} \]
+
+and since $s = 1/2$, the altitude is $\sqrt{3}/4$.
+
+So far we have that
+\[ P = 2 \sqrt{3}, \ \ \ \ \ p = 3 \]
+
+In the area calculation, we must scale so that the triangle has a radius of $1$ (so the the area is equal to $\pi$).  That means each measurement must be multiplied by $2$.
+
+For the circumscribed case, we originally had a side length of $\sqrt{3}/2$ and an altitude of $1/2$, and the area of each small triangle is then
+
+\[ \frac{1}{2} \sqrt{3} \]
+
+There are six sides so $A = 3 \sqrt{3}$.  This works out to $5.196$.  So our conclusion is that the area approximation is worse than the perimeter approximation for the hexagon.
+
+For the inscribed case, we originally had a side length of $1/2$ and an altitude of $\sqrt{3}/4$.  After multiplying each length by $2$, the area of each small triangle is
+
+\[ \frac{1}{2} \ \frac{\sqrt{3}}{2}  = \frac{\sqrt{3}}{4} \]
+
+There are six sides so $a = 3 \sqrt{3}/2$.  This is about $2.598$, again, worse that the perimeter version.  To summarize, for the hexagon, we have that
+
+\[ P = 2 \sqrt{3}, \ \ \ \ \ p = 3 \]
+\[ A = 3 \sqrt{3}, \ \ \ \ \ a = 3 \sqrt{3}/2 \]
+
+\subsection*{recurrence}
+
+To recap, the calculations are:
+
+\[ P' = \frac{2pP}{p + P} \ \ \ \ p' = \sqrt{pP'} \]
+\[ a' = \sqrt{aA}  \ \ \ \ \  A' = 2 \frac{a'A}{a' + A} \]
+
+\[ P' = \frac{2 \cdot 3 \cdot 2 \sqrt{3}}{3 + 2 \sqrt{3}} \]
+\[ = \frac{12}{2 + \sqrt{3}} = 3.2154 \]
+
+\[ p'^2 = 3 \cdot \frac{12}{2 + \sqrt{3}} = \frac{36}{2 + \sqrt{3}} \]
+\[ p' = 6 \cdot \sqrt{\frac{1}{2 + \sqrt{3}}} = 3.1058 \]
+
+These are pretty close to what we had before, but things are getting messy.  Let's try the area before we quit.
+
+\[ a' = \sqrt{aA}  \ \ \ \ \  A' = 2 \frac{a'A}{a' + A} \]
+
+\[ a' = \sqrt{3 \sqrt{3}/2 \cdot 3 \sqrt{3}} = 3 \sqrt{3/2}  \]
+\[ A' = 2 \cdot \frac{3 \sqrt{3/2} \cdot 3 \sqrt{3}}{3 \sqrt{3/2} + 3 \sqrt{3}} \]
+\[ = 2 \cdot \frac{3^3/2}{3 \sqrt{3}(1 + \sqrt{1/2)}} \]
+\[ = 2 \cdot 3 \sqrt{3} \cdot \frac{1}{2 + \sqrt{2}} = 3.0438 \]
+
+This is too much of a mess for me

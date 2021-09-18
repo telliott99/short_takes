@@ -1,0 +1,77 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{gcd example}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+A challenging example of factorization is to convert a speed in miles per hour into feet per second.  It turns out that 
+\[ 15 \ \frac{\text{miles}}{\text{hour}} = 22 \ \frac{\text{feet}}{\text{second}} \]
+which is usually abbreviated
+\[ 15 \ \frac{\text{mi}}{\text{hr}} = 22 \ \frac{\text{ft}}{\text{sec}} \]
+
+To start with we need to remember or look up how many feet there are in a mile ($5280$ feet per mile), and perhaps, calculate $60$ seconds per minute x $60$ minutes per hour = $3600$ seconds per hour.
+
+So then write the computation:
+\[ 15 \ \frac{\text{mi}}{\text{hr}} \cdot 5280 \ \frac{\text{ft}}{\text{mi}} \cdot \frac{1}{3600} \ \frac{\text{hr}}{\text{sec}} = \text{?} \ \frac{\text{ft}}{\text{sec}} \]
+
+We note in passing how important it is to see that the units are correct:  miles cancel top and bottom, as do hours, leaving the answer in units of feet per second, as desired.  This makes it easy to write the fractions with the correct orientation.
+
+So then, what about calculating
+\[ 15 \cdot \frac{5280}{3600} \]
+We see immediately that we can cancel a factor of $10$
+\[ 15 \cdot \frac{528}{360} \]
+
+There are two ways to do this.  The first is to write out all the prime factors.  
+\[ 528 = 2 \cdot 264 = 2^2 \cdot 132 = 2^3 \cdot 66 = 2^4 \cdot 3 \cdot 11 \]
+\[ 360 = 2 \cdot 36 \cdot 5 = 2^3 \cdot 3^2 \cdot 5 \]
+
+which means that
+\[ \frac{528}{360} = \frac{2 \cdot 11}{3 \cdot 5} \]
+but that $15$ in the denominator cancels the leading factor of $15$, leaving our answer as
+\[ 2 \cdot 11 \ \frac{\text{ft}}{\text{sec}} = 22 \ \frac{\text{ft}}{\text{sec}}  \]
+as promised.
+
+There is another way to do this problem, which is arguably better (easier).  To see why, imagine that our problem had been $5290/3600$.  Then we would proceed to $529/360$.
+
+In checking the possible prime factors of $529$, we must check at least to $19$, since $20^2 < 529$, so $19^2 < 529$ as well, but possibly not to $23$.  Compute the square of $23$ to be sure.  Oops.  $529 = 23^2$.
+
+Okay, what if our problem had been $5090$?   $2, 3, 5, 7, 11, 13, 17, 19$ all must be checked first, and $23$ squared, before we realize that $509$ is prime.
+
+\subsection*{Euclid's algorithm}
+Here's another way, it is called Euclid's algorithm for the gcd (greatest common divisor).  Its big advantage is avoiding factorization, which is a hard problem because of possible large prime factors.
+
+To make it more challenging, we will pretend we didn't notice that both numbers are multiples of $10$.  
+
+Find the largest integer which multiplies $3600$ and the result is still smaller than or equal to $5280$.  Then subtract to obtain the remainder and write:
+\[ 5280 = 3600 \cdot 1 + 1680 \]
+Now repeat the same process, but use $3600$ and $1680$.
+\[ 3600 = 1680 \cdot 2 + 240 \]
+and again
+\[ 1680 = 240 \cdot 7 + 0 \]
+
+We stop when the remainder is zero.  Then, $240$ is the gcd of the two numbers we started with.  We almost can read off 
+\[ 3600 = 15 \cdot 240 \]
+since $2 \cdot 7 + 1 = 15$.  For the other, when I see $5280/240$ I know right away it's at least $20$ because $20 \cdot 240$ is $4800$ and then what's left is twice $240$ so that gives $22$.  The calculation was
+\[ 15 \cdot \frac{5280}{3600} \]
+and it becomes
+\[ 15 \cdot \frac{22 \cdot 240}{15 \cdot 240} = 22 \]
+
+In the second part, it helps that we \emph{know} both $3600$ and $5280$ must be even multiples of $240$.  I think that's at least as easy as finding all the prime factors.
+
+\end{document}
