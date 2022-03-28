@@ -23,32 +23,37 @@
 
 \subsection*{Newton-Raphson, or the Babylonian method}
 
-Suppose we have a first approximation to $\sqrt{N}$, call it $x$.  We wish to find a better guess $g$ as to the value of $\sqrt{N}$.  If we compute
+Suppose we have a first approximation to $\sqrt{N}$, call it $x$.  We wish to find a better guess as to the value of $\sqrt{N}$.  Let
 
-\[ g = \frac{N}{x} \]
+\[ xy = N, \ \ \ \ \ \ y = \frac{N}{x} \]
 
-$g$ and $x$ "straddle" the true value.  
+$x$ and $y$ "straddle" the true value.  If $x < \sqrt{N}$ then $y > \sqrt{N}$ and vice-versa.
 
 \emph{Proof}.  
 
-Suppose that $x^2 < N$.  Then 
-\[ 1/x^2 > 1/N \]
-\[ N^2/x^2 > N \]
-\[ g^2 > N > x^2 \] 
-[The  converse is true also].
+Factoring the equation above and rearranging, we have that
+\[ \frac{g}{\sqrt{N}} = \frac{\sqrt{N}}{x} \]
 
-Furthermore, $g$ is closer to $\sqrt{N}$ than $x$ is, it's a better guess.
+Suppose that $x < \sqrt{N}$ ($x^2 < N$), so then $\sqrt{N}/x > 1$ and
+\[ \frac{y}{\sqrt{N}} = \frac{\sqrt{N}}{x}  > 1 \ \ \ \Rightarrow \ \ \  y > \sqrt{N} \]
 
-The geometric mean of $g$ and $x$ is
-\[ \sqrt{g \cdot x} = \sqrt{g \cdot \frac{N}{g}} = \sqrt{N} \]
+while if $x > \sqrt{N}$
+\[ \frac{y}{\sqrt{N}} = \frac{\sqrt{N}}{x} < 1 \ \ \Rightarrow \ \ \  y < \sqrt{N} \]
 
-which would give us the precise value, but of course that assumes exactly what we're trying to find.  
+The geometric mean of $x$ and $y$ is
+\[ \sqrt{x \cdot y} = \sqrt{x \cdot \frac{N}{x}} = \sqrt{N} \]
 
-The arithmetic mean might do.
+which would give us the precise value.  But of course that assumes exactly what we're trying to find.  
+
+The arithmetic mean of $x$ and $y$ might do.  
 
 \[ g = \frac{1}{2} \ (x + N/x) \]
 
-The source calls this the "Babylonian method", but I've always known it as the Newton-Raphson method.  It's a linear approximation.  
+It must be closer to $\sqrt{N}$ than at least one of $x$ or $y$ but it is not guaranteed to be closer than both.  (Counterexample:  if we have $N = 2$ and suppose $x = 0.2$ then $y = N/x = 10$.  The average is $4.9$ which is not as close to $1.414 \dots$ as $x$ is.)
+
+\subsection*{Newton-Raphson}
+
+My source calls this the "Babylonian method", but I've always known it as the Newton-Raphson method.  It's a linear approximation.  
 
 Technically, the Newton method applies to (almost) any $f(x)$ and is written in terms of $f'(x)$, while the Babylonian method is strictly for the square root function.
 
@@ -58,11 +63,12 @@ For this parabola, the slope of the tangent line at any point such as $(x, x^2-N
 
 Let the zero of the tangent line be at the point $(g,0)$, then we can write the point-slope equation of the tangent line as
 
-\[ 2x = \frac{(x^2 - N) - 0}{x - g} \]
-\[ x - g = \frac{x^2 - N}{2x} = \frac{1}{2} (x - \frac{N}{x})  \]
+\[ \frac{\Delta y}{\Delta x} = 2x = \frac{(x^2 - N) - 0}{x - g} \]
+\[ 2x(x - g) = x^2 - N \]
+\[ 2x - 2g = x - \frac{N}{x} \]
 \[ g = \frac{1}{2} (x + \frac{N}{x}) \]
 
-Use the tangent line as an approximation to the parabola, and the point where the tangent line crosses the $y$-axis as an approximation to the zero of the parabola, that is, to $\sqrt{N}$.
+Using the tangent line as an approximation to the parabola, then the point where the tangent line crosses the $y$-axis is close to the zero of the parabola, that is, to $g \approx \sqrt{N}$.
 
 As an example, $7/4$ is a reasonable first approximation of $\sqrt{3}$.  Then
 \[ x = \frac{1}{2} (\frac{7}{4} + \frac{4}{7} \cdot 3) = \frac{1}{2} (\frac{49 + 48}{28})  = \frac{97}{56} \]

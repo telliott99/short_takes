@@ -1,0 +1,54 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Infinite series}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The most important elementary series is
+\[ 1 + x + x^2 + \dots = \sum_{n=0}^{\infty} x^n \]
+which can also be written as shown.
+
+I saw a post by Steven Strogatz on Twitter that shows a clever way of looking at it.  Suppose we consider the distance from $0$ to $1$ and imagine that we will take multiple steps to move from $x = 0$ to $x = 1$.
+
+\begin{center} \includegraphics [scale=0.4] {Strogatz2.png} \end{center}
+
+We will use the rule that we always move a certain fraction of the distance remaining (like one of Zeno's paradoxes).  This means that in the first step, we leave a certain fraction of the distance yet to be covered, $r$.
+
+In the second step, we have that the distance remaining is $r$, the fraction that we will actually move is $1-r$ and that distance corresponds to $r(1-r)$.  So the total distance moved so far is
+\[ d = (1-r) + r(1-r) \]
+
+If we continue forever we \emph{will} get to $1$
+\[ 1 = (1 - r) + r(1-r) + r^2(1-r) + \dots \]
+
+But then
+\[ \frac{1}{1-r} = 1 + r + r^2 + \dots \]
+
+And from our construction, clearly $0 < r < 1$, which is the standard restriction on $r$ so that the sum of the series is meaningful.
+
+We might think about writing this another way, namely that at each stage we move a fraction of the distance remaining $f$ (with $f = 1 -r$).
+\[ 1 = f + f(1-f) + f(1-f)^2 + \dots \]
+
+Let $r = 1-f$ and then
+\[ r = fr + fr^2 + \dots \]
+\[ \frac{1}{f} = 1 + r + r^2 +  \dots \]
+\[ \frac{1}{1-r} = 1 + r + r^2 + \dots \]
+
+
+\end{document}

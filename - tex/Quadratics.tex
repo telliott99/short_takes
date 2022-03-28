@@ -36,14 +36,14 @@ Depending on the values of the constants, there may be two, one (duplicated) or 
 We divide both sides by $a$.  $0/a$ equals zero, so that gives
 \[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
 
-Call the new constants $b'$ and $c'$
+Momentarily, call the new constants $b'$ and $c'$
 \[ x^2 + b'x + c' = 0 \]
-This new equation has a different shape ($a$ is called the shape factor).  We have effectively re-scaled $y$ by the factor $1/a$.
 
-For the new curve (colored blue) in the figure below, if you go out $1$ unit from the vertex, change $x$ by $\pm 1$, the curve crosses through a point $1$ unit above that.  If $\Delta x$ is $\pm 2$, $\Delta y$ will be $4$.
+This new equation has a different shape ($a$ is called the shape factor).  We have effectively re-scaled $y$ by the factor $1/a$.  In the figure, the original curve is red and the re-scaled one is blue.
 
-Nevertheless, the roots of the equation, the values of $x$ that make this equation true, are unchanged.  We can see this in an example:
 \begin{center} \includegraphics [scale=0.30] {roots.png} \end{center}
+
+The point is that the values of $x$ that make this equation true ($y = 0$) are unchanged by re-scaling.
 
 Let us suppose that the values of $x$ which make $y = 0$ are $s$ and $t$.  Write:
 \[ (x - s)(x - t) = 0 \]
@@ -51,36 +51,41 @@ Let us suppose that the values of $x$ which make $y = 0$ are $s$ and $t$.  Write
 Multiplying the whole thing by $1/a$ will not change the values of $x$ which give $y = 0$.
 \[ \frac{1}{a} (x - s)(x - t) = 0 \]
 
-We can see that this equality holds precisely when $x = s$ or $x = t$.  The connection with the previous equation can be discovered by multiplying out
+We can see that this equality holds precisely when $x = s$ or $x = t$.  
+
+Rather than use new letters, and rather than use primes, I am going to re-define the letters $b$ and $c$.  Namely, we will assume that we've done the first step (division by the cofactor of $x^2$) already, and now we have
+\[ x^2 + bx + c = 0 \]
+
+The connection between the two equations can be discovered by multiplying out
 \[ x^2 - sx -tx + st = 0 \]
 \[ x^2 - (s + t)x + st = 0 \]
 
 We see that
-\[ b' = - (s + t) \]
-\[ c' = st \]
+\[ b = - (s + t) \]
+\[ c = st \]
 
-$-b'$ is the sum of $s$ and $t$ and $c'$ is their product $st$.  Dividing the first by $-2$, we say that the \emph{mean} $m$ of $s$ and $t$ is
-\[ m = \frac{s + t}{2} = - \frac{b'}{2} \]
+$-b$ is the sum of $s$ and $t$ and $c$ is their product $st$.  Dividing the first by $-2$, we say that the \emph{mean} $m$ of $s$ and $t$ is
+\[ m = \frac{s + t}{2} = - \frac{b}{2} \]
 
-The mean, or average, of $s$ and $t$ is equal to $-b'/2$, which is equal to $-b/2a$.  
+The mean, or average, of $s$ and $t$ is equal to $-b/2$ (which is $-b/2a$ with the original notation).  
 
 Crucially, because of the symmetry of the parabola, this value $m$ lying between the two roots is the $x$-coordinate of the vertex.  The two roots lie the same distance from $m$.  Let that distance be $d$.  Then
 \[ s = m - d \]
 \[ t = m + d \]
 Their product is
-\[ st = c' = m^2 - d^2 \]
+\[ st = c = m^2 - d^2 \]
 Rearranging, we get
-\[ d = \pm \ \sqrt{m^2 - c'} \]
+\[ d = \pm \ \sqrt{m^2 - c} \]
 
 \subsection*{summary}
 
 We have worked out three steps for finding the roots of a quadratic equation.
 
-$\circ$ \ divide through by $a$ to get $x^2 + b'x + c' = 0$.
+$\circ$ \ divide through by $a$ to get $x^2 + bx + c = 0$.
 
-$\circ$ \ find $m = -b'/2$.
+$\circ$ \ find $m = -b/2$.
 
-$\circ$ \ find $d = \sqrt{m^2 - c'}$
+$\circ$ \ find $d = \sqrt{m^2 - c}$
 
 $\circ$ \ $s, t = m \pm d$.
 
@@ -90,7 +95,7 @@ Let us construct a simple example.  Suppose the roots are $1$ and $3$, then
 \[ (x - 1)(x - 3) = 0 \]
 \[ x^2 - 4x + 3 = 0 \]
 
-The simple procedure of guessing which two integers multiply to give $3$ and add to give $-4$ will do here.  The $x$-coordinate of the vertex is at $x = m = -b'/2 = 2$, which gives $y = -1$ and that means that the vertex is at $(2,-1)$.
+The simple procedure of guessing which two integers multiply to give $3$ and add to give $-4$ will do here.  The $x$-coordinate of the vertex is at $x = m = -b/2 = 2$, which gives $y = -1$ and that means that the vertex is at $(2,-1)$.
 
 How about if we move the whole graph up by two units?  Now the roots are $x$ such that
 \[ x^2 - 4x + 5 = 0 \]
@@ -109,7 +114,7 @@ Notice that
 \[ = \frac{4}{2} = 2 \]
 
 And
-\[ c' = st = (2 + \sqrt{-1})(2 - \sqrt{-1}) \]
+\[ c = st = (2 + \sqrt{-1})(2 - \sqrt{-1}) \]
 \[ = 4 + 1 = 5 \]
 
 Everything checks.
@@ -118,6 +123,9 @@ Everything checks.
 
 The standard approach to quadratic roots is to use the quadratic equation:
 \[ s,t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+defined in terms of the original, un-scaled equation:
+\[ ax^2 + bx + c = 0 \]
 
 Most students find it difficult to memorize this equation.  The above method has little to memorize.  Just use the symmetry of the graph to find the mean between the roots and then find $d$.
 

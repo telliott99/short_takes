@@ -21,22 +21,23 @@
 
 %[my-super-duper-separator]
 
-We will prove that every integer has a unique \emph{prime factorization}.  This is also called \emph{the fundamental theorem of arithmetic}.  As the name says, it's fundamental, so it will be worth some effort for the proof.
+We will prove that every integer $n$ that is not prime has a \emph{unique} prime factorization (not counting the factors of $n$ itself, and $1$).  
 
-The prime factors of $n$ go like this:
+This is also called \emph{the fundamental theorem of arithmetic}.  As the name says, it's fundamental, so it will be worth some effort for the proof.  The classic approach from Euclid is straightforward, but relies on some tricky preliminary work.  The approach shown here is due to G.H. Hardy.
+
+The list of the prime factors of $n$ go like this:
 \[ n = p_1 \cdot p_2 \dots p_k \]
 
-In the list of the prime factors of $n$, a factor may be repeated.  An example is:
-
+A factor may be repeated.  An example is:
 \[ 12 = 2 \cdot 2 \cdot 3 \]
 
 To compare two factorizations for whether they are the same or different, we suppose they are sorted (say, from smallest to largest).
 
 More examples for relatively small numbers:
 \begin{verbatim}
- 39  = 3.13
-144  = 2.2.2.2.3.3
-210  = 2.3.5.7
+  39 = 3.13
+ 144 = 2.2.2.2.3.3
+ 210 = 2.3.5.7
 2310 = 2.3.5.7.11
 \end{verbatim}
 
@@ -50,47 +51,32 @@ I used Python to show that $3607$ and $3803$ are the two prime factors of that n
 
 \subsection*{preliminary}
 
-Before starting the proof, some background.  When we say that one integer \emph{evenly divides} another one, written as $a|n$ ($a$ is a factor of $n$), we mean there exists another integer $k$ such that
-
+Before starting the proof, some background.  When we say that one integer \emph{evenly divides} another, we write $a|n$ ($a$ is a factor of $n$ or $a$ divides $n$).  This means there exists another integer $k$ such that
 \[ a \cdot k = n \]
 $a$ times $k$ is exactly equal to $n$ with no remainder.
 
 Take care to distinguish $a|b$ ($a$ divides $b$) from $a/b$ ($a$ divided by $b$).
 
-If there is also a number $m$ where $a$ evenly divides $m$, we write $a|m$ and mean that
+If there is a second number $m$ such that $a$ also evenly divides $m$, we write $a|m$ and naturally
 \[ a \cdot j = m \]
 
 Addition or subtraction of $m + n$ gives
-\[ m + n = a \cdot j + a \cdot k = a(k + j) \]
-\[ m - n = a \cdot j - a \cdot k = a(k - j) \]
+\[ m + n = a \cdot j + a \cdot k = a(j + k) \]
+\[ m - n = a \cdot j - a \cdot k = a(j - k) \]
 
 $\bullet$ \ If $a|m$ and $a|n$, $a$ also divides their sum or difference.
 
-We rely on this extensively in the following proof.
+In fact, if $x \pm y = z$, and if $a$ divides any two of them, it divides the third.
 
-Also, we can manually check all the numbers up to some reasonable lower limit.  Checking for divisibility by $2$, $3$ and $5$ is easy.  There are tricks for $7$ as well.  
+We rely on this in the following proof.
 
-So for each number, we check for divisibility by $2$.  If not divisible by $2$, continue by testing $3$, then $5$, and finally if all those tests are negative, use long division to check $7$.   (This is the Sieve of Eratosthenes).
+Also, we can manually find the factors for all numbers up to some reasonable lower limit.  Checking for divisibility by $2$, $3$ and $5$ is easy. So for each number, we check for divisibility by $2$.  If not divisible by $2$, continue by testing $3$, then $5$.  Then try $7$.
 
 Let's stop with $120$, checking all numbers smaller than $121 = 11^2$.
 
-In this way, we will find a number of new primes.
+In this way, we will discover a number of new primes.  In any event, all composite (non-prime) numbers to this point will be found to have a unique prime factorization.  Therefore, if there is a number with two different factorizations, it is larger than $120$.
 
-In any event, all numbers to this point will be found to have unique prime factorizations.  Therefore, if there is a number with two such factorizations, it is larger than $120$.
-
-Crucially, there must be a smallest such number.
-
-\subsection*{smallest prime factor}
-
-Another preliminary question is to ask about the smallest prime factor of $n$.  I claim that the smallest prime factor of any composite number $n$ is less than the square root of the least  perfect square greater than $n$.
-
-\emph{Proof}.
-
-We have 
-\[ pq = n < a^2 \]
-At least one of $p$ or $q$ must be smaller than $a$ because if $p \ge a$ and $q \ge a$ then $pq \ge a^2$ which is contrary to what we're given.
-
-$\square$
+Crucially, if such numbers exist, there must be a smallest such number.
 
 \subsection*{abnormal numbers}
 
@@ -109,16 +95,14 @@ where the $p$'s and $q$'s are all primes.
 
 \subsection*{Different factorizations}
 
-As a preliminary result, consider the possibility that some factor appears in both factorizations, that some $p$ is equal to a $q$.
+As a preliminary result, consider the possibility that some factor appears in both factorizations, so that some $p$ is equal to a $q$.
 
-Let us rearrange if necessary so the shared factor is listed first:  let $p_1 = q_1$ and then
-
-\[ n = p_1 \cdot p_2 \dots p_k \]
-\[ n = p_1 \cdot q_2 \dots q_j \]
+We will rearrange if necessary so the shared factor is listed first:  let $p_1 = q_1$ and then write
+\[ n = p_1 \cdot p_2 \dots p_k = p_1 \cdot q_2 \dots q_j \]
 
 But now, $n/p_1$ ($n$ divided by $p_1$) is abnormal, because it has two different prime factorizations.  
 
-But that is impossible, because $n$ is the smallest abnormal number.
+But this is impossible, because $n$ is the smallest abnormal number.
 
 Therefore, no $p$ is a $q$ and no $q$ is a $p$.  If there exist abnormal numbers with two factorizations, those factorizations must be completely different.
 
@@ -136,45 +120,47 @@ or, in the second case, there are two factors that multiplied together give $n$,
 
 \[  p_1 \cdot p_1 <  p_1 \cdot p_k \]
 
-The right hand side is $n$ so
-
-$\circ$ \ $p_1 \cdot p_1 < n$
-
-A similar result holds for $q_1$.
+The right hand side is $n$ so $p_1 \cdot p_1 < n$.  A similar result holds for $q_1$.
 
 But, since $p_1 \ne q_1$, only one of $p_1$ or $q_1$ at most, can be squared to give $n$.  Either $p_1 \cdot p_1 < n$ or $q_1 \cdot q_1 < n$ or perhaps both are true.
 
 From this it follows that 
 \[ p_1 \cdot q_1 < n \] 
 
-\subsection*{the contradiction} 
+We also know that neither $p_1$ nor $q_1$ is equal to zero, $0 < p_1 \cdot q_1$.  So we can write:
+\[ 0 < p_1 \cdot q_1 < n \]
 
-We know that $p_1 q_1 < n$ because of what we just did, and since neither $p_1$ nor $q_1$ is equal to zero, $0 < p_1 q_1$.  Write
-\[ 0 < p_1 q_1 < n \]
+\subsection*{another number} 
 
-Let 
-\[ N = n - p_1 q_1 \]
-\[ p_1 q_1 = n - N \]
+We will work out the properties of a new number.  Let 
+\[ N = n - p_1 \cdot q_1 \]
+so
+\[ p_1 \cdot q_1 = n - N \]
 
-Plug this result into the inequality.  
+Plug this result into the inequality from above.
 \[ 0 < n - N < n \]
 
-Since $0 < n - N$ we have that $N < n$, and since $n - N < n$, then $0 < N$.
+Since $0 < n - N$ we have that $N < n$, and since $n - N < n$,  $N > 0$.   Thus
 \[ 0 < N < n \]
 
 We also know that $N$ is not abnormal, since $n$ is the smallest abnormal number.
 
-We're given that $p_1 | n$ and from the equality 
-\[ N = n - p_1 q_1 \]
-and our preliminary result about what factorization means, it must be that $p_1 | N$. The same is true for $q_1$, namely $q_1 | N$.  
+\subsection*{contradiction} 
+We're given that $p_1 | n$.  From the equality 
+\[ N = n - p_1 \cdot q_1 \]
 
-We derive a contradiction as follows.
+and our preliminary result about what factorization means, it must be that $p_1 | N$. By the same reasoning, $q_1 | N$.  
 
-Both $p_1$ and $q_1$ appear in the factorization of $N$, so $p_1q_1 | N$, and that factorization is unique, since $N$ is not abnormal.  
+We derive the contradiction as follows.
 
-Certainly, $p_1 q_1$ divides itself, so it follows that $p_1 q_1 | n$, using our standard result about factorization.
+Both $p_1$ and $q_1$ appear in the factorization of $N$, and that factorization is unique, since $N$ is not abnormal.  Therefore, $p_1$ times $q_1$ \emph{also} divides $N$.  
 
-Hence, $q_1| (n/p_1)$.  
+Consider again
+\[ N = n - p_1 \cdot q_1 \]
+
+Certainly, $p_1 \cdot q_1$ divides itself, and we have concluded that $p_1 \cdot q_1$ divides $N$, so it follows that $p_1 \cdot q_1$ divides $n$, using our standard result about factorization.  
+
+This is a difficulty.  One way to show it is to look at $n/p_1$.  From what we've said, $q_1$ divides $n/p_1$.  
 
 But $n/p_1$ is less than $n$ and has the unique prime factorization $p_2 \cdot p_3 \dots p_k$.
 

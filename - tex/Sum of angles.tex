@@ -31,10 +31,6 @@ By $\cos s - t$ we mean $\cos (s - t)$, but have left off the parentheses.
 
 There are four formulas, and then some special examples.  These are used a lot in calculus, not only for solving problems, but most important, in finding an expression for the derivatives of the sine and cosine functions.
 
-You really must know them.  I think it's so important that we will show several ways of finding them.  
-
-The proofs are also beautiful, which helps to explain why I've included so many.  The easiest way to remember them uses Euler's equation, but since you've probably never seen that, I'll put it off until the end.
-
 I've memorized only the one given above.  Say "cos cos" and then recall the difference in sign, minus on the left, plus on the right.
 
 I like this version because it can be checked easily.  Just set $s = t$:
@@ -45,7 +41,7 @@ which is our favorite trigonometric identity and obviously correct.
 
 Draw two triangles, one on top of the other, with the hypotenuse of the second scaled to be equal to $1$.  Then draw a rectangle around the whole thing.
 
-\begin{center} \includegraphics [scale=0.4] {sum_angles_6.png} \end{center}
+\begin{center} \includegraphics [scale=0.6] {sum_angles_6.png} \end{center}
 
 For the triangle with angle $\theta$ and hypotenuse $1$, the labels should be obvious.
 
@@ -80,7 +76,7 @@ and
 
 It's kind of overkill, but still worth noting that a simple change to the figure we had above will give the difference formulas:
 
-\begin{center} \includegraphics [scale=0.4] {sum_angles_7.png} \end{center}
+\begin{center} \includegraphics [scale=0.6] {sum_angles_7.png} \end{center}
 We've changed the symbol $\phi$ to refer to the complementary angle from what it was before.  
 
 We can justify the label $\phi - \theta$ for the angle at the lower left in various ways, for example, by adding up the three angles at that corner:
@@ -91,6 +87,32 @@ Switch the labels appropriately (it's easy since this $\phi$ is the complement o
 Read the result:
 \[ \sin \phi - \theta = \sin \phi \cos \theta - \cos \phi \sin \theta \]
 \[ \cos \phi - \theta = \cos \phi \cos \theta + \sin \phi \sin \theta \]
+
+\subsection*{alternate grouping}
+
+In the figure, I have simply rotated the same triangle.
+\begin{center} \includegraphics [scale=0.4] {angles2.png} \end{center}
+
+From the counter-clockwise rotation, we can read off the fundamental relationships:
+\[ \sin (\theta + \pi/2) = b = \cos \theta \]
+\[ \cos (\theta + \pi/2) = - a = - \sin \theta \]
+
+Then consider the first sum of angles formula:
+\[ \sin s + t = \sin s \cos t + \cos s \sin t \]
+
+Write the same triple sum in two different ways
+\[ \sin s + t + \pi/2 = \sin (s + t) + \pi/2 = \sin s + (t + \pi/2) \]
+
+From the middle expression and using the first fundamental relation with $\theta = s + t$:
+\[ \sin (s + t) + \pi/2 = \cos s + t \]
+From the right-hand grouping and using the formula for the sine of the sum
+\[ \sin s + (t + \pi/2) = \sin s \cos t + \pi/2 + \cos s \sin t + \pi/2 \]
+But using the two fundamental relations we can see that this is equal to:
+\[ = \sin s (- \sin t) + \cos s \cos t \]
+
+Putting the two results together:
+\[ \cos s + t =  \cos s \cos t - \sin s \sin t \]
+Going backwards is a similar exercise.
 
 \subsection*{Euler}
 Euler's formula is:
