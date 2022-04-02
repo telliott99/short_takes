@@ -18,40 +18,46 @@
 \begin{document}
 \maketitle
 \Large
-Ptolemy's theorem concerns the products of opposing sides of a quadrilateral inscribed in a circle.  If those two products are added together, they will be equal to the product of the diagonals.
+Ptolemy's theorem concerns a general four-sided figure (quadrilateral), inscribed in a circle --- all four vertices lie on the circle.  Form the products of the lengths of opposing sides, and add them.  The result will be equal to the product of the diagonals.
 \begin{center} \includegraphics [scale=0.5] {ptpar1.png} \end{center}
  
-In this figure, if the length of the green side is multiplied by that of the magenta one, and the red by the black, and the results summed, the sum will be equal to the product of the dotted lines.
+In this figure, if the length of the green side is multiplied by that of the magenta one, and the red by the black, and then the results are summed, that sum will be equal to the product of the dotted lines.
  
 \emph{Proof}.
  
-The proof begins by noting the angles in the figure, equal angles subtend equal arcs, by the inscribed angle theorem, and therefore equal sides, in the same circle.  There are four pairs of equal angles.
+The proof begins by noting the angles in the figure.  By the inscribed angle theorem, equal angles lying on the circle subtend equal arcs and also chords.  This gives four pairs of equal angles, as marked by the colored dots.
  
-We will eliminate the circle, for clarity.  Rotate the figure to make one of the diagonals vertical.
+We will stop drawing the circle, for clarity.  Rotate the figure to make one of the diagonals vertical, let us choose $y$.
 \begin{center} \includegraphics [scale=0.5] {ptpar2.png} \end{center}
 
-Now cut along the diagonal to make two pieces.  What we will show is that the two pieces can be arranged to form three sides of a parallelogram (after appropriate re-scaling).  
+Now cut vertically down along the diagonal to make two pieces.  What we will show is that those two pieces can be arranged to form three sides of a parallelogram, after appropriate re-scaling.  
 
-The reason is that opposing corners of the original figure each contain a complete complement of angles (red and magenta plus black and green).
+The primary reason is that opposing corners of the original figure together contain a complete complement of angles (here, red and magenta on the left plus black and green on the right).
 \begin{center} \includegraphics [scale=0.5] {ptpar3.png} \end{center}
 
-Let us choose the black and magenta lines for the base of the figure.
+Let us choose the black and magenta lines for the base of the figure.  One could pick red and green instead, or make other choices if we had cut along the diagonal labeled $x$.
 \begin{center} \includegraphics [scale=0.5] {ptpar4.png} \end{center}
 
-So as noted, the angles between the two sides $g$ and $r$ add up to be one-half the total of the quadrilateral, that is to say, one complete triangle or two right angles.
+So as noted, the angles between side $g$ and the base, plus those between the base and $r$ add up to be one complete set.  That is one-half the total of the quadrilateral, namely, two right angles.
 
 Therefore, the green and red sides are parallel, by alternate interior angles.
 
-In the general case, the green and red sides will not be the same length, but they can be made so by rescaling.  A simple way to do that is to scale the left-hand figure by $r$ and the right-hand figure by $g$, so that the opposing sides each have length $rg = gr$.
+In the general case, the green and red sides will not be the same length, but they can be made so by rescaling.  A simple way to do that is to scale the left-hand triangle by $r$ and the right-hand one by $g$, so that the opposing sides each have length $rg = gr$.
 
-So then, we draw the long line across the top, and claim that the overall figure is a parallelogram, because it has one pair of opposing sides proven to be parallel and also equal in length.
+Draw the long line across the top.  We claim that the overall figure is a parallelogram, because it has one pair of opposing sides shown to be parallel and also equal in length.
 \begin{center} \includegraphics [scale=0.4] {ptpar7.png} \end{center}
 
-We can fill in the missing angles, by alternate interior angles, forming a triangle with two angles (or two sides) red and green and the third supplementary.  Can we find such a triangle in the original figure?
+We can fill in the missing angles at the top by alternate interior angles, forming a triangle with two dotted blue sides plus the top line.  It contains angles red and green. The third angle is supplementary (the order of black and red doesn't really matter for the argument).  
 
-Yes!  In that triangle, the third side has length $x$.  To scale properly, the top side in our parallelogram must be scaled the same as the sides, that is, by a factor of $y$.
+Can we find a similar triangle in the original figure?
+\begin{center} \includegraphics [scale=0.4] {ptpar11.png} \end{center}
+To emphasize what we're looking for here, I have colored the sides opposite the angles labeled in red and green and also made the top line dotted blue.  
+
+\begin{center} \includegraphics [scale=0.5] {ptpar10.png} \end{center}
+Yes!  We find the similar triangle in the original figure as the part above the dotted blue diagonal labeled $x$.
+
+To scale properly, the top side in our parallelogram must be multiplied by the same factor as the other two sides, that is, by a factor of $y$.
 \begin{center} \includegraphics [scale=0.4] {ptpar8.png} \end{center}
-
 In a parallelogram, \emph{both} pairs of opposing sides are equal in length.  We conclude  that
 \[ xy = rb + gm \]
 
@@ -61,26 +67,22 @@ But this is just Ptolemy's theorem.
 $\square$
 
 \subsection*{Pythagorean theorem}
-
-It is interesting to see the parallels to a proof of the Pythagorean theorem.
+It is interesting to see the parallels to one proof of the Pythagorean theorem.
 
 \emph{Proof}.
 
-Place two identical right triangles next to each other so that the sides $a$ and $b$ lie along one straight line.
-\begin{center} \includegraphics [scale=0.4] {pyth16.png} \end{center}
-
-Now, scale the triangles so that the sides have identical length.  An easy way to do that is to multiply each side length on the left by $b$, and each one on the right by $a$.
+Place two identical right triangles next to each other so that the sides $b$ and $a$ lie along one straight line.
+\begin{center} \includegraphics [scale=0.35] {pyth16.png} \end{center}
+Now, scale the triangles so that the sides have identical length.  As before, an easy way to do that is to multiply each side length on the left by $b$, and each one on the right by $a$.
 \begin{center} \includegraphics [scale=0.4] {pyth18.png} \end{center}
-
-We immediately notice:
 
 $\circ$ \ The entire figure forms a rectangle (two opposing sides equal, two adjacent right angles), and also forms a third triangle.
 
-$\circ$ \ The third triangle is similar to the first two.  $\theta$ is a right angle and the other two angles are complementary to their neighbors.
+$\circ$ \ $\theta$ is a right angle, since its neighbors are complementary and altogether they add to two right angles.  The bottom two angles of the rectangle are complementary to their neighbors.  So the third triangle has the same angles, and is similar to the first two.
 
-$\circ$ \ The scale factor for the third triangle is $c$.
+$\circ$ \ The scale factor for the third triangle is $c$, so the length of the opposite side of the rectangle is $cc$
 
-So the length of the opposite side of the rectangle is $cc$ and since the two long sides of a rectangle are also equal in length:
+Since the two long sides of a rectangle are also equal in length:
 \[ a^2 + b^2 = c^2 \]
 
 $\square$
