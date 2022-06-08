@@ -135,4 +135,28 @@ The rule for equality of complex numbers is that both the real parts and the ima
 \[ \cos (s + t) = \cos s \cos t - \sin s \sin t \]
 \[ \sin (s + t) = \sin s \cos t + \cos s \sin t \]
 
+\subsection*{alternative proof of sum of angles}
+
+The law of cosines is a relatively simply consequence of the Pythagorean theorem.  It can be used in a straightforward derivation of the formula for the sum of angles, specifically, 
+\[ \cos x - y = \cos x \cos y + \sin x \sin y \]
+
+I saw this here
+\url{https://www.youtube.com/watch?v=JOg9kQp7pig}
+
+Here is the derivation.  I am using Daniel Rubin's figure.
+\begin{center} \includegraphics [scale=0.5] {daniel_rubin.png} \end{center}
+
+We simply compute the length of the chord $AB$ in two different ways.  The first way uses the coordinates of the two points.
+\[ (AB)^2 = (\cos y - \cos x)^2 + (\sin y - \sin x)^2 \]
+\[ = \cos^2 y - 2 \cos y \cos x + \cos^2 x + \sin^2 y - 2 \sin y \sin x + \sin^2 x \]
+\[ = 1 + 1 - 2 (\cos y \cos x + \sin x \sin y) \]
+
+(Either of these differences in the first line can be reversed without changing the result).  The second way uses the law of cosines from above.
+\[ AB^2 = 1^2 + 1^2 - 2 \cdot 1 \cdot 1 (\cos x - y) \]
+
+We obtain
+\[ \cos x - y =  \cos x \cos y + \sin x \sin y \]
+
+$\square$
+
 \end{document}

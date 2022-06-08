@@ -110,24 +110,32 @@ This already says something strong.  Imagine what it would mean for $3$ to be a 
 
 \subsection*{inequality}
 
-We may take $p_1$ to be the least $p$ and $q_1$ to be the least $q$.  In this part, we establish that $p_1 \cdot q_1 < n$.
+Consider $p_1$, the least factor in the factorization of $n$, $p_1 p_2 \dots p_k$.  It is certainly possible that $p_1 \cdot p_1 = n$.  Or, possibly $q_1 \cdot q_1 = n$.
 
-Since $n$ is composite, either 
+But at most one of these can be true, since no $p$ is a $q$ and vice-versa.
 
-$\circ$ \ $p_1 \cdot p_1 = n$
+On the other hand, if $p_1 \cdot p_1 \ne n$, then
+\[ p_1 \cdot p_k = n \]
+where $p_k$ is a different factor of $n$.  
 
-or, in the second case, there are two factors that multiplied together give $n$, $p_1$ and $p_k$, with  $p_k > p_1$.
+Then let $s = \sqrt{n}$ so that $s \cdot s = n$.  
+\[ p_1 \cdot p_k = n = s \cdot s \]
 
-\[  p_1 \cdot p_1 <  p_1 \cdot p_k \]
+Since $p_1 \ne s$, either $p_1 > s$ or $p_1 < s$.  For the first case
+\[ p_k = \frac{s}{p_1} \cdot s < s \]
+But since $s/p_1 < 1$ this would mean that $p_k < s < p_1$.  This cannot be true because we have that $p_1$ is the smallest $p$.  
 
-The right hand side is $n$ so $p_1 \cdot p_1 < n$.  A similar result holds for $q_1$.
+Therefore, no matter what, it must be that $p_1 \le s$.  Similar logic applies to $q$.  And at most, one of $p_1$ or $q_1$ can square to give $n$.  We may suppose that it is $p_1$, without loss of generality.  Then
+\[ p_1 \cdot p_1 = n \]
+\[ q_1 < p_1 = s \]
+\[ p_1 \cdot q_1 < p_1 \cdot s = s \cdot s = n \]
 
-But, since $p_1 \ne q_1$, only one of $p_1$ or $q_1$ at most, can be squared to give $n$.  Either $p_1 \cdot p_1 < n$ or $q_1 \cdot q_1 < n$ or perhaps both are true.
+Otherwise, \emph{both} $p_1$ and $q_1$ are less than $s$ and it follows that
+\[ p_1 \cdot q_1 < s \cdot s = n \] 
 
-From this it follows that 
-\[ p_1 \cdot q_1 < n \] 
+In all cases, $p_1 \cdot q_1 < n$.
 
-We also know that neither $p_1$ nor $q_1$ is equal to zero, $0 < p_1 \cdot q_1$.  So we can write:
+We also know that neither $p_1$ nor $q_1$ is equal to zero, since they are factors of $n$.  So $p_1 \cdot q_1 > 0$ and we can write:
 \[ 0 < p_1 \cdot q_1 < n \]
 
 \subsection*{another number} 
@@ -153,7 +161,7 @@ and our preliminary result about what factorization means, it must be that $p_1 
 
 We derive the contradiction as follows.
 
-Both $p_1$ and $q_1$ appear in the factorization of $N$, and that factorization is unique, since $N$ is not abnormal.  Therefore, $p_1$ times $q_1$ \emph{also} divides $N$.  
+Both $p_1$ and $q_1$ appear in the factorization of $N$, and that factorization is unique, \emph{since N is not abnormal}.  Therefore, $p_1$ times $q_1$ \emph{also} divides $N$.  
 
 Consider again
 \[ N = n - p_1 \cdot q_1 \]

@@ -37,9 +37,9 @@ Going back to that equation, since the length is arbitrary, we can scale it so $
 This is a quadratic equation.  Rearranging:
 \[ x^2 - x - 1 = 0 \]
 
-When the value of the function is plotted on the $y$-axis against $x$, we have a parabola opening up.  Furthermore, for $x = 1$, the value of the function is $-1$.  
+When the value of the function is plotted on the $y$-axis against $x$, we have a parabola opening up.  Furthermore, for $x = 0$ or $x = 1$, the value of the function is $-1$.  (Symmetry then demands that the vertex is at $x = 1/2$, as we will see).
 
-Although we don't yet know where the vertex is, we do know that it lies below the $x$-axis, so the curve will pass that axis in two places going up.  There are two real roots, values of $x$ resulting in an output of $zero$.
+If we didn't yet know where the vertex lies, we would still know that the curve must pass the $x$-axis in two places going up (since the value at $x = 0$ and $x = 1$ is less than zero).  There are two real roots, values of $x$ resulting in an output of $zero$.
 \begin{center} \includegraphics [scale=0.4] {phi_plot.png} \end{center}
 
 If you know the quadratic equation this is a great place to use it.  Otherwise, there is another strategy.  Without proof, we will say that the equation can be written in another form:
@@ -50,6 +50,7 @@ These values $s$ and $t$ are symmetrical around the axis of symmetry of the para
 
 Then, by symmetry, $m$ is the average of $s$ and $t$.  That is, $m = (s + t)/2$.  Now multiply out:
 
+\[ (x - s)(x - t) = 0 \]
 \[ x^2 - (s + t) + st = 0 \]
 Comparing with
 \[ x^2 - x - 1 = 0 \]
@@ -79,21 +80,22 @@ As we said, $\phi$ really is \emph{defined} by the equation
 We confirm the arithmetic:
 \[ \phi^2 = (\frac{1}{2} (1 + \sqrt{5}))^2 \]
 \[ = \frac{1}{4} (1 + 5 + 2 \sqrt{5}) \]
-\[ =  \frac{1}{2} (3 + \sqrt{5}) = \phi + 1 \] 
+\[ =  \frac{1}{2} (3 + \sqrt{5}) = 1 +  \frac{1}{2} (1 + \sqrt{5}) \]
+\[ = \phi + 1 \] 
 
 $\phi$ is an \emph{irrational} number.  One proof depends on the fact that $\sqrt{5}$ is itself irrational.  (We have discussed this elsewhere).
 
-Now, if $x$ is irrational and $p/q$ a rational number, then the result $x + p/q$ is irrational.  
+Now, if $x$ is irrational and $p/q$ a rational number, then the result of adding $p/q$ to $x$ must be irrational.  
 
 \emph{Proof}.  
 
-Suppose $x + p/q$ is rational.  Then $x + p/q$ minus $p/q$ would also be rational, but that's just $x$, which was supposed to be irrational.  This is a contradiction.  Therefore $\sqrt{5} + 1$ is irrational.  
+Suppose instead that $x + p/q$ is rational.  Then $x$ is equal to a rational number minus $p/q$ which would also be rational.  But that's just $x$, which was supposed to be irrational.  This is a contradiction.  Therefore $\sqrt{5} + 1$ is irrational.  
 
 $\square$
 
 A similar argument will show that $(\sqrt{5} + 1)/2 = \phi$ is also irrational. 
 
-However, do not make the mistake of thinking irrational times irrational is irrational, since we can easily come up with a counter-example:  $\sqrt{2} \cdot \sqrt{2} = 2$.
+However, do not make the mistake of thinking irrational times irrational is irrational, since we can easily come up with counter-examples such as $\sqrt{2} \cdot \sqrt{2} = 2$.
 
 \subsection*{continued fraction representation}
 
