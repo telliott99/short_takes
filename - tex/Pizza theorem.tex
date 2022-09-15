@@ -1,0 +1,286 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Pizza theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is a problem that I found in Acheson's \emph{The Wonder Book of Geometry}.  It is called the ``pizza theorem".  
+\begin{center} \includegraphics [scale=0.65] {Acheson_G111.png} \end{center}
+
+Consider a circular pizza pie.  Choose a point \emph{anywhere} in the pie.  Draw two chords at right angles with any orientation, and then fill in with two more chords that bisect the angles ($45^{\circ}$).
+
+Form the sum of the areas of alternate slices.  The two collections are shaded to tell them apart.
+
+The total dark area and the total light area are always equal.  The pizza is evenly divided even though the slices are wonky.
+
+\subsection*{preliminary analysis}
+
+We will refer to the point where all the chords cross as the \emph{grid center}, and the center of the circle as the circle center, to make it clear which points we are talking about.
+
+To begin with, it is clear that if the grid center coincides with the circle center, then by the radial symmetry of the circle and the equal angles, all the segments are the same.  The equal area result is obviously correct.
+\begin{center} \includegraphics [scale=0.3] {pizza10.png} \end{center}
+
+For the drawings, I've chosen to mark the ``shaded" slices with dots.  
+
+Now, slide the grid center away from the circle center along a diagonal.  In the right panel, the grid center has moved vertically down from the circle center.  The circle center is marked with a magenta dot.
+\begin{center} \includegraphics [scale=0.3] {pizza11.png} \end{center}
+The equal area result still holds.  The reason is that the figure has mirror image symmetry across the vertical diagonal --- or whichever diagonal was chosen as the axis of movement.
+
+It seems that, in principle we could analyze a general location for the grid center, not on a diagonal, for whether the areas add up properly.
+\begin{center} \includegraphics [scale=0.4] {pizza4.png} \end{center}
+In fact, that is the idea of a famous proof without words, which we'll show later.
+
+However, we will take a different approach.  We analyze the movement of the grid center away from the circle center and show that each small change leaves the allocation of area between light and dark parts unchanged.
+
+There are two approaches.  Both start with a movement along a diagonal of the grid (and circle).  As we said, that does not change the relative areas.
+
+Having reached the desired distance from the circle center, then spin radially about the grid center to achieve the correct final orientation.  Note in passing that performing the moves in the opposite order cannot reach every position, because the grid center must remain on a diagonal of the circle.
+
+The other way is to move horizontally in the second phase.  The grid center still runs runs parallel to a diagonal of the grid, but this is no longer on a diagonal of the circle.
+
+The question arises whether this second method can actually achieve \emph{any} position and orientation.  But consider the reverse movement.  
+
+Start from any random position and orientation.  Since the circle is featureless and radially symmetric, the picture we gave above is still accurate.  
+
+Now, reverse the horizontal movement until the grid aligns on a diagonal of the circle.  We have achieved equal areas.
+
+So the crux of the analysis is to look at horizontal motion or radial motion.  We will work with vertical motion along a diagonal first, and then proceed to others in turn.  But before that, we need to do some preparatory work.
+
+\subsection*{extraordinary property}
+
+The first thing is to recall that if we have a chord $PR$ in a circle on center $O$, and $PR$ is parallel to the tangent line drawn through $T$, then the angles at $S$ are right angles.
+\begin{center}
+\includegraphics [scale=0.35] {perp_chords7.png}
+\includegraphics [scale=0.4] {perp_chords10.png} \end{center}
+We therefore have two congruent right triangles with the result that $PS = SR$, the chord is bisected by the radius perpendicular to the tangent.  And this is true for \emph{any} other chord parallel to this tangent line.  If $MN \parallel PR$, then $MN$ is bisected by $OQ$.
+
+So then, let's say we have a rectangle in a circle, but only one side is a chord of the circle.  Draw the bisector of side $AC$.
+\begin{center} \includegraphics [scale=0.4] {perp_chords9.png} \end{center}
+Extensions of the opposite side form chord $DH$, which is also bisected by $OB$.  It is easy to show that $OB$ also bisects $EG$, and by subtracting equals from equals, we have that $DE = GH$:  the extensions are equal.
+
+Now consider two chords at right angles in a circle.  Form the rectangle using a side parallel to chord $a + b$.  (Only two sides are shown).
+\begin{center} \includegraphics [scale=0.35] {perp_chords1.png} 
+\includegraphics [scale=0.35] {perp_chords3.png} 
+\end{center}
+By our previous results, we can conclude that the part at the top has length $c$, so the side of the rectangle is $d-c$.  Applying the Pythagorean theorem
+\[ (a + b)^2 + (c - d)^2 = (2R)^2 \]
+\[ a^2 + 2ab + b^2 + c^2 - 2cd + d^2 = (2R)^2 \]
+but $ab = cd$ so
+\[ a^2 + b^2 + c^2 + d^2 = (2R)^2 \]
+The components of two chords crossed at right angles in a circle, when squared and summed, equal twice the radius, squared.  This is called the ``extraordinary property" of the circle.
+
+There is a preliminary result which will be helpful in solving the problem, specifically the invariance of areas under translation parallel to one of the chords.
+
+\subsection*{distance to the circle center}
+
+One thing that makes things tricky is that individual chords change in length as the grid center is moved around, but the two ends change asymmetrically, which means that the center of the chord must shift as well.  Consider the following setup.
+\begin{center} \includegraphics [scale=0.35] {pizza7.png} \end{center}
+
+The center point bisecting any chord can be related to the lengths of the parts of the chord.  Let $t$ be the longer part of the chord, from the grid center to the circle's edge, and let $s$ be the smaller.  
+
+Then $t-s$ is a length that straddles the chord center, and it is twice the distance from the grid center to the chord center, so the distance itself is $(t-s)/2$.
+
+In the diagram, the red dot is the center of the circle.  Because of the right angles, the distance from (the center of) chord $c+d$ to the center of the circle is the same as the distance from the grid center to the center of perpendicular chord $g + h$, and vice versa.  Make sure you get that idea clear in your head.
+
+Now, let the distance from the grid center to the center of the circle be $\rho$.  Then from the Pythagorean theorem we have that
+\[ \rho^2 = (\frac{c - d}{2})^2 + (\frac{h - g}{2})^2 \]
+By symmetry, we have also that
+\[ \rho^2 = (\frac{a - b}{2})^2 + (\frac{f - e}{2})^2  \]
+
+If we cancel $2^2$ in the denominators and expand only the latter equation's right-hand side
+\[  4 \rho^2 = a^2 + b^2 - 2ab + f^2 + e^2 - 2ef \]
+\[ = (2R)^2 - 2ab - 2ef \]
+by the ``extraordinary property" of the circle.  
+
+So, restating the two parts from the beginning
+\[  \rho^2 = (\frac{a - b}{2})^2 + (\frac{f - e}{2})^2 = (\frac{c - d}{2})^2 + (\frac{h - g}{2})^2  \]
+\[ = a^2 + b^2 - 2ab + f^2 + e^2 - 2ef = c^2 + d^2 - 2cd + h^2 + g^2 - 2gh \]
+\[ = (2R)^2 - 2ab - 2ef = (2R)^2 - 2cd - 2gh \]
+Canceling $(2R)^2$ as well as $-2$ from each term we end up with just
+\[ ab + ef = cd + gh \]
+By crossed chords $ab = ef$ and $cd = gh$ so
+\[ 2ab = 2cd \]
+But of course this is obvious, since these are similar triangles so
+\[ \frac{a}{c} = \frac{d}{b} \]
+You can treat this as a sketch of a modified proof of the ``extraordinary property" theorem.  Under the covers, it uses the same relationships.
+
+The main idea here is that we will use the relationship of chord centers to areas in solving the problem.
+
+\subsection*{picture of the general case}
+Equal areas is obvious if the grid of chords has its center at the center of the circle.  If we start at the center and move parallel to one of the chords, we are moving along a diagonal of the circle and by symmetry, the equality of areas result is trivial.
+
+But to reach an arbitrary point and orientation, we must do either one of two movements after the first.  Here we focus on the second movement as a translation, again parallel to a chord (horizontal), but perpendicular to the original movement.  
+
+In the figure below, movement is to the right --- the beginning position has the chord just to the left of the ending position, where it is to the right of where it started.
+\begin{center} \includegraphics [scale=0.4] {pizza4b.png} \end{center}
+
+Each chord adds or subtracts a rectangular area plus the segments bounded by part of the circle at each end of the chord.  Let us call the small segments on both ends of a chord \emph{wingtips}.  
+
+Chords do not change orientation during the movement.  But even if they did, matching wingtips on either end of any particular chord are always the same shape and area, although they differ between chords.
+
+The component regions we consider to be ``shaded" are numbered with red Roman numerals $I-IV$.  
+
+Changes to the wingtips of a chord always cancel.  For example, region I loses the wingtip from $d$, while region III gains the one from $c$.  One is added and the other subtracted from a region of the same shading, so these changes to area cancel.  
+
+Overall, referring to just the rectangles (i.e. minus the wings):
+
+$\circ$ \ $I$ loses $d$
+
+$\circ$ \ $II$ loses $a$ and gains $h$
+
+$\circ$ \ $III$ gains $c$
+
+$\circ$ \ $IV$ loses $g$ and gains $b$
+
+\begin{center} \includegraphics [scale=0.4] {pizza4b.png} \end{center}
+
+What remains to be considered is simply areas of rectangles.  The vertical rectangle is wider than the others, and it captures more area, because the movement is parallel to its width.  
+
+The ratio of areas is $\sqrt{2}$.  That is, the width of the rectangle formed from the chord $a + b$ is larger than the width of the rectangle formed from chord $c+d$ by $\sqrt{2}$, because the angle is $45^{\circ}$.
+
+If you go back to the list of changes above you should be able to see that the net change in the areas is
+\[ \Delta A = - \frac{d}{\sqrt{2}} + \frac{h}{\sqrt{2}} - a + \frac{c}{\sqrt{2}} - \frac{g}{\sqrt{2}} + b \]
+\[ \Delta A = (b - a) + \frac{1}{\sqrt{2}} \cdot (c - d + h - g) \]
+
+Altogether the red regions change in area by $\Delta A$ during the horizontal movement.  But by hypothesis, $\Delta A = 0$, which would require that
+\[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
+We can call $\Delta A = 0$ the invariant for this problem.  If we can we prove this is correct, we're done.
+
+Now, for any chord with arms $t$ and $s$, $|t-s|$ is twice the distance of the grid center from the center of the chord.  So we can divide each term in the equation above by $2$ and obtain the distance from the grid center to the center of the chord.  Call that distance $\delta$.  Then
+\[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
+is an equivalent formulation of the invariant.
+
+This is actually easy to show when the grid center remains on a diagonal of the circle (vertical movement).
+\begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
+The red lines represent $\delta_{cd}$ and $\delta_{gh}$, while the vertical down from the red dot (center of the circle) to the grid center is $\delta_{ab}$.
+
+We have
+\[ \delta_{ab} = \sqrt{2} \cdot \delta_{cd} = \sqrt{2} \cdot \delta_{gh} \]
+\[ 2 \delta_{ab} = \sqrt{2} \cdot (\delta_{cd} + \delta_{gh}) \]
+\[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
+
+$\square$
+
+However nice, the result doesn't help that much because we knew this already.
+
+\subsection*{horizontal movement}
+
+The challenge is to do something similar in phase II.
+\begin{center} \includegraphics [scale=0.4] {pizza8.png} \end{center}
+
+For the figure in the right panel, we want to show that
+\[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
+
+We're saying that $\sqrt{2}$ times the distance from the center of chord $a+b$ to the grid center is equal to the sum of the two red lengths.  We know this is true for the left panel, and we need to show it for the right panel.  Since the movement is horizontal, $a - b$ doesn't change, so our claim becomes that the sum of the red lengths is a constant.
+
+\begin{center} \includegraphics [scale=0.4] {pizza9.png} \end{center}
+But that's easy.  The original square has sides $AO$ and $OB$.  The rectangle has sides $CD$ and $DE$.  But the triangle marked with the black dot is isosceles.  So its sides are equal.  We leave it as an exercise to show that the two pairs of red sides $CD + DE$ and $AO + OB$ have the same total length.
+
+We have shown that 
+\[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
+is invariant.  It follows that the areas we have discussed as shaded and unshaded are also invariant under horizontal translation, even when the grid center is not moving along a diagonal of the circle.
+
+The starting position --- grid center at the center of the circle --- has the property of equal areas for shaded and unshaded regions, and the transformations do not change the invariant.  It follows that the ending position --- grid center anywhere in the circle and with any orientation --- also has the property of equal areas.
+
+$\square$
+
+\subsection*{area of a sector}
+
+\begin{center} \includegraphics [scale=0.4] {pizza6.png} \end{center}
+
+Rotation is the operation that is connected to the special property of the circle which we gave above.  We choose to consider a counter-clockwise rotation.
+
+For a very small angle $\Delta \theta$, the area of a sector swept out by that angle is 
+\[ A = \frac{1}{2} \Delta \theta \ r \cdot r = \Delta \theta \ \frac{r^2}{2} \]
+
+If we focus on the sectors marked with red dots, a counter-clockwise rotation adds to the area a small wedge on the left arm, viewed from the central point and facing out.  It will be seen that the relevant radii are all at right angles to one another.
+
+These values of $r$ are exactly those which were involved in the extraordinary property:  one is $\Delta \theta/2 \cdot a^2$, another has $b^2$, the next $c^2$ and finally $d^2$ (using the notation from the special property theorem).
+
+Therefore, the total increase in area is
+\[ \Delta A = \Delta \theta \ \frac{a^2 + b^2 + c^2 + d^2}{2} \]
+\[ = \Delta \theta \ \frac{4R^2}{2} = \Delta \theta \ 2R^2 \]
+
+The increase in area for four alternate segments with a small rotation depends on $\Delta \theta$ with a constant multiplier related to $R$ for the circle (not $r$ for the sector).
+
+Furthermore, the shaded regions lose exactly the same amount of area at the trailing edge, along the right arms of the sectors.
+
+The unshaded areas, although they have different radii, add and subtract exactly the same areas, and for the same reason.
+
+For us at present, the result is only plausible and not rigorous, because we have assumed that $r$ doesn't change \emph{significantly} with small $\Delta \theta$.  
+
+I am not 100\% happy with this geometric argument, because of the oddly shaped regions at the ends of the arms.  For that reason, we'll say a little more.
+
+One observation that might help is to notice that each angle of $\pi/4$ at the intersection is equal to the average of the two whole arcs subtended by it and its companion vertical angle.  I haven't worked through the implications yet, it just seems possibly useful.
+
+\subsection*{calculus}
+
+We might use calculus for this.
+
+\url{https://www.math.uni-bielefeld.de/~sillke/PUZZLES/pizza-theorem}
+
+In the language of calculus we would have that (twice) the area added by a rotation is
+
+\[ \sum_i r_i^2 (\phi_i) \cdot \Delta \phi = \sum_i  \int_{\theta_1}^{\theta_2} r_i^2 (\phi_i) \ d \phi \]
+where $r_i(\phi_i)$ says that each $r$ is a (complicated) function of the angle $\phi$, for a chosen central point.
+
+But the sum of the integrals is the integral of the sum.  
+
+\[ = \int_{\theta_1}^{\theta_2}  \sum_i  r_i^2 (\phi_i) \ d \phi \]
+
+This is called Fubini's theorem.
+
+\url{https://en.wikipedia.org/wiki/Fubini%27s_theorem}
+
+And when we add them together, the sum of those factors $r^2$ is a constant, by the extraordinary property of the circle.  So in the end we obtain $(2R)^2$ times the total of the four angular rotations.  The changes in the radius simply drop out from the calculation.
+
+I am not entirely happy with this argument either.  The reason is that the oddly shaped regions at the ends of the arcs are different for the different chords.  My intuition is that this means the functions $r_i (\phi_i)$ in the integral are \emph{different}.  This might be problematic.
+
+\subsection*{references}
+
+I found a number of images for a ``proof without words" online and I also found a reference
+
+to some related proofs, as well as a discussion on Stack Exchange:
+
+\url{https://math.stackexchange.com/questions/865818/can-anyone-explain-pizza-theorem}
+
+The reference says
+
+\begin{quote}Sliding these arcs and
+chords together, we see that the chords form a right triangle with the
+diameter of the circle as the hypotenuse.\end{quote}
+
+The various pictures of the proof without words do not explain how the shapes were arrived at.  However, they do show that the complementary light and dark areas each add up to one-half of the pizza.  
+
+The original article is paywalled and the price is truly exorbitant.  You have to wonder if they've ever sold even a single copy for \$55.
+
+\url{https://www.tandfonline.com/doi/abs/10.1080/0025570X.1994.11996228}
+
+\begin{center} \includegraphics [scale=0.4] {pizza2.png} \end{center}
+
+See also
+
+\url{https://kevinwang0723.medium.com/the-pizza-theorem-d53721c12e0e}
+
+
+
+
+
+\end{document}

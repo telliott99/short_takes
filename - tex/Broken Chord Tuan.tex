@@ -1,0 +1,141 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Broken Chord}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is a somewhat more complicated proof of the broken chord theorem which I also found on the web, attributed to Bùi Quang Tuån.  It has slightly different notation than I've used before.  In the figure below, $P$ is the point on the circle midway between $A$ and $B$, and the vertical drops to $M$.
+
+The claim is that $AM = MC + BC$.
+
+\begin{center} \includegraphics [scale=0.5] {broken_chord7.png} \end{center}
+
+A key step in the proof will be to show that $MM'M''P$ is a rectangle, and a consequence is that $AM' = MC$.  This conclusion relies on a lemma, namely, that given such a rectangle the extensions on the longer chord, $AM'$ and $MC$ are equal.  
+
+This is a basic result.  There is a unique perpendicular bisector for any two parallel chords in a circle.  As a result, if a rectangle is drawn with two points lying on the circle, and if the opposing side is extended to meet the circle, the extensions are equal.  We showed this earlier.
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.5] {broken_chord7.png} \end{center}
+
+Draw the diameter from $P$ through the center of the circle at $O$ to $P'$.  Since $P$ is midway between $A$ and $B$, this diameter is also the perpendicular bisector of $AB$ (relying on the same chapter cited above).
+
+Lay off a chord the same length as $CB$ from $P$ to $M''$.  Complete the second triangle by drawing $M''P'$.  We have that the angle at vertex $P'$ is equal to the angle at vertex $A$, since they are inscribed angles of equal chords.  
+
+(However, the other two angles are not equal and the two large triangles are not similar, which is perhaps obvious since $AB$ is not a diameter of the circle).
+
+Since the angle at $A$ is equal to the angle at $P'$, and the smallest triangles with those vertices also contain two vertical angles, they are similar triangles.  And since $PP'$ is perpendicular to $AB$, the third angle in both triangles is a right angle.  Therefore, the angles at $M'$ are right angles.
+
+The vertex at $M''$ is also a right angle, by Thales' theorem.
+
+\begin{center} \includegraphics [scale=0.5] {broken_chord7.png} \end{center}
+
+Since $\angle PMM'$ is a right angle, and we have established that both $\angle PM''M'$ and $MM'M''$ are right angles, the fourth angle $MPM''$ is also right, and $MM'M''P$ is a rectangle.  
+
+As opposing sides in a rectangle, $M'M = M''P = CB$.
+
+Because $MM'M''P$ is a rectangle, we reference the preliminary discussion to conclude that 
+\[ AM' = MC \]
+
+Adding equals to equals
+\[ AM' + M'M = MC + CB \]
+\[ AM = MC + CB \]
+
+$\square$
+
+The key to the construction was to make $PM''$ equal to $CB$.  An alternative approach is to construct $\angle P'$ on the diagonal $PP'$ such that $\angle P' = \angle A$.  From this it follows that $M''P = CB$.  We also have the two small similar triangles, which leads to right angles at $M'$.  This implies that $MM'M''P$ is a rectangle.
+
+\url{https://www.cut-the-knot.org/triangle/BrokenChordBQT.shtml}
+
+\subsection*{Pythagorean theorem}
+
+Tuån also extended the broken chord theorem to a proof of the Pythagorean theorem.  Here is a diagram from the web.
+
+\begin{center} \includegraphics [scale=0.35] {broken_chord16.png} \end{center}
+
+We start with two right triangles ($AB$ is a diameter of the circle).  One of the triangles, $\triangle APB$, is isosceles.
+
+The sides of $\triangle ABC$ are labeled as $a, b$ and $c$, opposite the corresponding vertices.  Side $BC$ has length $a$.
+
+$PM$ is drawn perpendicular to $AC$.  By the broken chord theorem, 
+\[ AM = MC + BC \]
+
+Twice that is
+\[ AM + MC + BC = AC + BC = b + a \]
+so 
+\[ AM = \frac{b + a}{2} \]
+while
+\[ MC = AM - BC \]
+\[ = \frac{b + a}{2} - a = \frac{b -a}{2} \]
+
+$PM$ is extended to meet the diagonal at $N$ and past it to $B'$.  $B'$ is chosen so that $B'BCM$ is a rectangle.  Thus side $MB'$ is equal to $BC$ and so to $a$.
+
+We make two preliminary claims.  The first is that $\triangle PMC$ is a right \emph{isosceles} triangle.  Let us accept that provisionally.
+\[ PM = MC = \frac{b - a}{2} \]
+
+The second is that the areas of the two triangles shaded yellow are equal.
+
+\begin{center} \includegraphics [scale=0.35] {broken_chord16.png} \end{center}
+
+We reason as follows.  Add $\triangle NB'B$ to both.  The area of $\triangle AB'B$ is equal to that of $\triangle MB'B$ because they have the same base $BB'$ and the same altitude, $a$.
+
+By subtraction
+\[ (\triangle AB'N) = (\triangle MNB) \]
+
+We find the area of $\triangle APB$ in two different ways.
+
+The first is $c^2/4$ (since it is one-quarter of a square with sides $c$).
+
+The second way is as the sum of several smaller triangles:
+\[ (\triangle APM) + (\triangle PMB) + (\triangle AMN) + (\triangle MNB) \]
+\[ (\triangle APM) + (\triangle PMB) + (\triangle AMN) + (\triangle AB'N) \]
+\[ (\triangle APM) + (\triangle PMB) + (\triangle AMB') \]
+The second line follows from the previous claim about the yellow triangles, and the third is by simple addition of areas.
+
+\begin{center} \includegraphics [scale=0.35] {broken_chord16.png} \end{center}
+So then the areas are
+\[ (\triangle APM) = \frac{1}{2} \cdot AM \cdot MC = \frac{1}{2} \cdot \frac{b + a}{2} \cdot \frac{b - a}{2} \]
+\[ (\triangle PMB) = \frac{1}{2} \cdot PM \cdot MC = \frac{1}{2} \cdot \frac{(b - a)}{2} \cdot \frac{(b - a)}{2} \]
+\[ (\triangle AMB') = \frac{1}{2} \cdot PM \cdot MC = \frac{1}{2} \cdot a \cdot \frac{b + a}{2} \]
+
+We compute $8$ times the sum, so as not to deal with fractions:
+\[ (b^2 - a^2) + (b^2 - 2ab + a^2) + (2ab + 2a^2) = 2b^2 + 2a^2 \]
+Previously, we calculated the area as $c^2/4$, and $8$ times that is $2c^2$.  The result follows immediately.
+
+The proof is not yet complete.  We must show that $\triangle PMC$ is isosceles.  Simplifying the figure:
+\begin{center} \includegraphics [scale=0.35] {broken_chord17.png} \end{center}
+
+Let $AB$ be a diameter of the circle and $\triangle AMB$ isosceles.  Let $C$ be any point on the perimeter, with $MP \perp AC$.  Then, we claim that $MP = PC$.
+
+It seems reasonable.  If $C \rightarrow B$, the $P$ becomes the origin and the statement is true, while if $C \rightarrow M$, both vanish.
+
+\emph{Proof}.
+
+Connect the two vertices by drawing $MC$.
+
+\begin{center} \includegraphics [scale=0.35] {two_triangles.png} \end{center}
+
+Clearly $\angle MCA$ is one-half of a right angle since it intercepts the same arc as $\angle ABM$, by the peripheral angle theorem.  Since $\angle MPC$ is right, it follows that $\triangle PMC$ is isosceles (by complementary angles) and so $MP = PC$ (by the converse of the isosceles triangle theorem).
+
+$\square$
+
+Notice how we use the information that $\triangle AMB$ is isosceles.
+
+\end{document}

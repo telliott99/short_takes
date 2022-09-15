@@ -1,0 +1,55 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{non-perfect squares have irrational square roots}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\url{https://twitter.com/wtgowers/status/1542096796880625664}
+
+\subsection*{one}
+
+The numbers $a,b,m,,A,B$ below are all integers, while $d$ and $n$ are \emph{positive} integers.
+
+As a ratio of integers, $a/b$ is a rational number.  Every integer multiple of $a/b$ is also a multiple of $1/b$.  So the multiple is either an integer or is \emph{at least} $1/b$ away from an integer.  
+
+For example, with $b = 10$, the first positive integer multiple would be $10/b = 1$, bounded by $9/b$ and $11/b$, which are $1/10$ away from $10$.
+
+\subsection*{two}
+
+Let $d$ be any positive integer that is not a perfect square.  Choose $m$ such that $m < \sqrt{d} < m + 1$.  For example, with $d = 5$, $m = 2$.  
+
+Consider a positive integer $n$ and
+\[ (\sqrt{d} - m)^n \]
+
+I claim that for some $A$ and $B$
+\[ (\sqrt{d} - m)^n = A \sqrt{d} + B \]
+The binomial expansion of the left-hand side has terms that are integer powers of $\sqrt{d}$.  The even powers are integers and the odd ones are multiples of $\sqrt{d}$.  Collecting like terms, we obtain the result.
+
+\subsection*{three}
+
+But the left-hand side $(\sqrt{d} - m)^n$ tends to zero as $n$ gets large, without ever equalling zero.  So the right-hand side $A \sqrt{d} + B$ can be made arbitrarily small but non-zero.
+
+Equivalently, $A \sqrt{d}$ can be made arbitrarily close to an integer (namely, $-B$) without actually being an integer.  
+
+By step one, $\sqrt{d}$ is not rational.
+
+$\square$
+
+\end{document}

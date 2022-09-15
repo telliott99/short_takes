@@ -1,0 +1,73 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangents}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Consider the graph of the curve $y = f(x)$.  Suppose we draw the tangent to the curve at two points, $x_1,y_1$ and $x_2,y_2$.  What are the coordinates of the point where they meet, if they do so?
+\begin{center} \includegraphics [scale=0.4] {two_lines.png} \end{center}
+
+If we draw the tangent line at a point $(x_0,y_0)$ on the curve, the slope is the derivative at that point, and the equation of the tangent line is
+\[ \frac{y - y_0}{x - x_0} = m = f'(x_0) \]
+\[ y = f'(x_0) (x - x_0) + y_0 \]
+for every point $(x,y)$ on the line.
+
+So for these two points and a function $f(x)$, we have two lines
+\[ y = f'(x_1) (x - x_1) + y_1 \]
+\[ y = f'(x_2) (x - x_2) + y_2 \]
+
+The point where the two lines cross has the same coordinates $(x,y)$.  So
+\[ f'(x_1) (x - x_1) + y_1 = f'(x_2) (x - x_2) + y_2 \]
+Solving for $x$
+\[ [ \ f'(x_1) - f'(x_2) \ ] \ x = y_2 - y_1 + f'(x_1)x_1 - f'(x_2) x_2 \]
+
+\subsection*{parabola}
+Suppose the function is $y = f(x) = ax^2$ so $f'(x) = 2ax$.  Performing the substitutions we obtain
+\[ 2a(x_1 - x_2) x = a(x_2^2 - x_1^2) + 2ax_1^2 - 2ax_2^2 \]
+
+We can cancel the $a$, divide by $2$ and factor the difference of squares:
+\[ (x_1 - x_2) x = \frac{(x_2 - x_1)(x_2 + x_1)}{2} + (x_1 - x_2)(x_1 + x_2) \]
+Factor out the common term $(x_2 - x_1)$ (one has a minus sign):
+\[ x = - \frac{(x_2 + x_1)}{2} + (x_1 + x_2) \]
+\[ = \frac{x_1 + x_2}{2} \]
+A remarkably simple answer!
+
+\subsection*{square root}
+The function is $y = \sqrt{x}$ so $f'(x) = 1/2\sqrt{x}$.  We have
+\[ [ \ \frac{1}{2 \sqrt{x_1}} - \frac{1}{2 \sqrt{x_2}} \ ] \ x = \sqrt{x_2} - \sqrt{x_1} + \frac{x_1}{2 \sqrt{x_1}} - \frac{x_2}{2 \sqrt{x_2}} \]
+Multiply by $2$ and simplify the last two terms
+\[ [ \ \frac{\sqrt{x_2} - \sqrt{x_1}}{\sqrt{x_1}\sqrt{x_2}} \ ] \ x =  2 \sqrt{x_2} - 2 \sqrt{x_1} + \sqrt{x_1} - \sqrt{x_2}  \]
+\[ [ \ \frac{\sqrt{x_2} - \sqrt{x_1}}{\sqrt{x_1x_2}} \ ] \ x =  \sqrt{x_2} - \sqrt{x_1}  \]
+\[ x = \sqrt{x_1 x_2} \]
+
+The first one was the arithmetic mean, this is the geometric mean!
+
+Restating the general result
+\[ [ \ f'(x_1) - f'(x_2) \ ] \ x = y_2 - y_1 + f'(x_1)x_1 - f'(x_2) x_2 \]
+
+\subsection*{inverse}
+The function is $y = f(x) = 1/x$ so $f'(x) = -1/x^2$.  We have
+\[ [ \ \frac{1}{x_2^2} - \frac{1}{x_1^2} \ ] \ x = \frac{1}{x_2} - \frac{1}{x_1} + \frac{1}{x_2} - \frac{1}{x_1} \]
+\[ (\frac{1}{x_2} - \frac{1}{x_1})(\frac{1}{x_2} + \frac{1}{x_1}) \ x = 2 (\frac{1}{x_2} - \frac{1}{x_1})  \]
+\[ (\frac{1}{x_2} + \frac{1}{x_1}) \ x = 2 \]
+\[ \frac{1}{x} = \frac{1}{2} \cdot (\frac{1}{x_1} + \frac{1}{x_2}) \]
+
+
+\end{document}

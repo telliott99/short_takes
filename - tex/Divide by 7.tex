@@ -21,9 +21,9 @@
 
 %[my-super-duper-separator]
 
-There are easy tests to determine whether some number is even (ends in an even digit), is divisible by 5 (ends in 0 or 5), or is divisible by 3, or 9 (the sum of the digits is divisible by 3, or 9).  By divisible, here we mean evenly divisible, with no remainder.
+There are easy tests to determine whether some number is even (ends in an even digit or 0), is divisible by 5 (ends in 0 or 5), or is divisible by 3, or 9 (the sum of the digits is divisible by 3, or 9).  By divisible, here we mean evenly divisible, with no remainder.
 
-Those for 7 are less well-known.  I think the best (easiest) rule is to split off the last digit from a number, then multiply that digit by 2, and finally, subtract the result from the truncated part.
+Those for 7 are less well-known.  I think the best (easiest) rule is to split off the last digit from a number, then multiply that digit by 2, and finally, subtract the result from the truncated part.  If the number lies between 70 and 140, it is relatively easy to subtract 70 and then ask whether the remainder is a multiple of 7 that we already know (e.g. 98 = 70 + 28).
 
 \url{https://en.wikipedia.org/wiki/Divisibility_rule}
 
@@ -33,7 +33,7 @@ $91 \rightarrow 9 - (2 \cdot 1) = 7$
 
 $259 \rightarrow 25 - (2 \cdot 9) = 7$
 
-$11501 \rightarrow 1150 - (2 \cdot 1) = 1148 \rightarrow 114 - (2 \cdot 8) = 98$
+$11501 \rightarrow 1150 - (2 \cdot 1) = 1148 \rightarrow 114 - (2 \cdot 8) = 98 = 70 + 28$
 
 $98 \rightarrow 9 - (2 \cdot 8) = -7$
 
