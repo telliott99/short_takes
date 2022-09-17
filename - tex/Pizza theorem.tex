@@ -269,15 +269,15 @@ I am not entirely happy with this argument either.  The reason is that the oddly
 
 \subsection*{resolution}
 
-I found a solution on the web.  It validates my concerns about the function $r(\theta)$ being different for different $\theta$, but shows that when you work through the algebra, everything (almost) really does cancel.
+I found a solution I like on the web.  It validates my concerns about the function $r(\theta)$ being different for different $\theta$, but shows that when you work through the algebra, everything (almost) really does cancel.
 
-We will write equations for each area that must be integrated over, each $r(\theta_i)^2$ (i.e. $[r(\theta_i)]^2$).  I stress that these relations are \emph{different} but related for each quadrant.  The integrals are polar integrals.  Although they are full of sines and cosines, the $\theta_i$ are at right angles to each other, so it will turn out that almost everything cancels.
+We will write equations for each area that must be integrated over, each $r(\theta_i)^2$ (i.e. $[r(\theta_i)]^2$).  I stress that these relations are \emph{different} but related for each quadrant.  The integrals are polar integrals.  Although they are full of sines and cosines, the $\theta_i$ are at right angles to each other.
 
 \url{https://math.stackexchange.com/questions/865818/can-anyone-explain-pizza-theorem}
 
 (from the answer marked as correct with a green checkmark).
 
-Let $P$ be the grid center, the point where all the chords cross.  The origin of coordinates is at $P$.  
+The origin of coordinates is  at $P$, the grid center, the point where all the chords cross.
 
 Let $C$ be the center of the circle.  Designate the coordinates of the circle's center $C$ as $(x, y)$.
 
@@ -290,12 +290,12 @@ The squared distance is
 \[ = r^2 (\cos^2 \theta + \sin^2 \theta) - 2r x \cos \theta - 2 ry \sin \theta + x^2 + y^2 \]
 
 This is a quadratic in $r$.
-\[ r^2 - 2(x \cos \theta + y \sin \theta) r + x^2 + y^2 - R^2 = 0 \]
+\[ r^2 - 2r(x \cos \theta + y \sin \theta) + x^2 + y^2 - R^2 = 0 \]
 The solutions are
 \[ r = \frac{1}{2} \cdot \ [ \ 2(x \cos \theta + y \sin \theta) \pm \sqrt{4(x \cos \theta + y \sin \theta)^2 - 4 (x^2 + y^2 - R^2)} \ ] \]
 \[ = (x \cos \theta + y \sin \theta) \pm \sqrt{(x \cos \theta + y \sin \theta)^2 + (R^2 - x^2 + y^2)} \]
 
-The second solution is $< 0$ because $R^2 > x^2 + y^2$ and can be ignored since we're dealing with lengths.
+The second solution is $< 0$ because $R^2 > x^2 + y^2$ and it can be ignored since we're dealing with lengths.
 
 We have some heavy algebra ahead, and want to make the notation simpler.  Let
 \[ P(\theta) = x \cos \theta + y \sin \theta \]
@@ -308,10 +308,11 @@ So now
 
 The tricky part is to figure out what these values for $r^2$ are for different $\theta$.  Luckily, we only have four angles to worry about, namely $\theta$ plus one of  $\{-\pi/2, 0, \pi/2, \pi\}$.
 
-\subsection*{first two values for $\theta$}
+\subsection*{a pair of values for $\theta$}
 
 Start with $\theta$ and $\theta + \pi$.  Both the cosine and the sine switch \emph{sign}.  So
 \[ P(\theta + \pi) = - (x \cos \theta + y \sin \theta) = - P(\theta) \]
+
 What's under the square root has $P^2$ and something that doesn't depend on $\theta$ so the only change for $r$ is the sign of the first term.
 \[ r(\theta + \pi) = -P + \sqrt{P^2 + Q} \]
 But that changes the sign of the mixed term in the square:
@@ -325,7 +326,7 @@ Pull out a factor of $2$ twice
 
 \subsection*{two more values for $\theta$}
 
-If we add $\pi/2$ to $\theta$, we switch sine and cosine and change the \emph{sign} of the cosine.
+Adding $\pi/2$ to $\theta$, sine and cosine switch places and also the \emph{sign} of $\cos(\theta + \pi/2)$ becomes negative.
 \[ P(\theta + \pi/2) = x \cos (\theta + \pi/2) + y \sin (\theta + \pi/2) \] 
 \[ = - x \sin \theta + y \cos \theta \]
 On the other hand, subtracting $\pi/2$ gives
@@ -337,13 +338,15 @@ Now we need to compute $2P^2 + 2P \sqrt{P^2 + Q} + Q$.
 
 We will not bother with the middle term, since the change of sign on $P$ makes this disappear when we add them.  We need only $2P^2 + Q$ for each.
 
-The two terms added together give
+The two terms $r(\theta \pm \pi/2)^2$ added together give
 \[ 2 (- x \sin \theta + y \cos \theta)^2 + Q + 2 (x \sin \theta - y \cos \theta)^2 + Q \]
-This is $(-a + b)^2 + (a - b)^2 = 2(a^2 - 2ab + b^2)$ times the extra factor of $2$:
-\[ = 2 \ [ \ 2(x^2 \sin^2 \theta - 2xy \sin \theta \cos \theta + y^2 \cos^2 \theta) + Q \ ]  \]
+This is 
+\[ (-a + b)^2 + (a - b)^2 = 2(a^2 - 2ab + b^2) \]
+ times another factor of $2$:
+\[ 2 \ [ \ 2(x^2 \sin^2 \theta - 2xy \sin \theta \cos \theta + y^2 \cos^2 \theta) + Q \ ]  \]
 
-Now, go back to what we had before for $\theta$ and $\theta + \pi$
-\[ = 2 \ [ \ 2(x^2 \cos^2 \theta + 2xy \cos \theta \sin \theta + y^2 \sin^2 \theta) + Q \ ] \]
+Now, go back to what we had before for $r(\theta)^2 + r(\theta + \pi)^2$
+\[ 2 \ [ \ 2(x^2 \cos^2 \theta + 2xy \cos \theta \sin \theta + y^2 \sin^2 \theta) + Q \ ] \]
 
 There are two more cancellations coming when we add.  First, the mixed term disappears.  Then also there is $\sin^2 + \cos^2$ so that leaves just
 \[ = 2 \  [ \ 2(x^2 + y^2) + 2Q \ ] \]
@@ -352,7 +355,7 @@ This is the sum for all four angles:
 \[ = 4x^2 + 4y^2 + 4(R^2 - x^2 - y^2) \]
 \[ = 4 R^2 \]
 
-The sum of the integrands is independent of $\theta$ and hence invariant as $\theta$ changes.
+The sum of the integrands is independent of $\theta$ and hence invariant as $\theta$ changes.  What a beautiful simplification!
 
 \subsection*{references}
 
