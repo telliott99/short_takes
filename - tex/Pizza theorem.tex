@@ -21,10 +21,10 @@
 
 %[my-super-duper-separator]
 
-Here is a problem that I found in Acheson's \emph{The Wonder Book of Geometry}.  It is called the ``pizza theorem".  
+I found this problem in Acheson's \emph{The Wonder Book of Geometry}.  It is called the ``pizza theorem".  
 \begin{center} \includegraphics [scale=0.65] {Acheson_G111.png} \end{center}
 
-Consider a circular pizza pie.  Choose a point \emph{anywhere} in the pie.  Draw two chords crossing at the point, at right angles with any orientation, and then fill in with two more chords that bisect the angles ($45^{\circ}$).
+Consider a circular pizza pie.  Choose a point \emph{anywhere} in the pie.  Draw two perpendicular chords crossing at the point, with any orientation, and then fill in with two more chords that bisect the angles ($45^{\circ}$).
 
 Form the sum of the areas of alternate slices.  Above, the two collections are shaded to tell them apart.
 
@@ -34,52 +34,53 @@ The total dark area and the total light area are always equal.  The pizza is eve
 
 \subsection*{preliminary analysis}
 
-We will refer to the point where all the chords cross as the \emph{grid center}, and the center of the circle as the circle center, to make it clear which points we are talking about.
+We will refer to the point where all the chords cross as the \emph{grid center}, and the center of the circle as the circle center.
 
-To begin with, it is clear that if the grid center coincides with the circle center, then by the radial symmetry of the circle and the equal angles, all the segments are the same.  The equal area result is obviously correct.
+It is clear that if the grid center coincides with the circle center, then by the radial symmetry of the circle and the equal angles, all the segments are the same.  The equal area result is obviously correct.
 \begin{center} \includegraphics [scale=0.3] {pizza10.png} \end{center}
 
 For the drawings, I've chosen to mark the ``shaded" slices with dots.  
 
-Now, slide the grid center away from the circle center along a diagonal.  Because the circle is featureless, we can pick the vertical diagonal without loss of generality, as they say.
+Now, slide the grid center away from the circle center along a diagonal.  Because the circle is featureless, we can pick any diagonal, without loss of generality.
 
-In the right panel, the grid center has moved vertically down from the circle center.  The circle center is marked with a magenta dot.
+In the right panel below, the grid center has moved vertically down from the circle center.  The latter is marked with a magenta dot.
 \begin{center} \includegraphics [scale=0.3] {pizza11.png} \end{center}
-The equal area result still holds.  The reason is that the figure has mirror image symmetry across the vertical diagonal --- or whichever diagonal was chosen as the axis of movement.
+The equal area result still holds.  The reason is that the figure has mirror image symmetry across the diagonal.
 
-It seems that, in principle we could analyze a general location for the grid center, not on a diagonal, for whether the areas add up properly.
+In principle we could go through an analysis for any general location for the grid center, not on a diagonal, and ask whether the areas add up properly.  In fact, that is the idea of a famous proof without words, which we'll show later.
 \begin{center} \includegraphics [scale=0.4] {pizza4.png} \end{center}
-In fact, that is the idea of a famous proof without words, which we'll show later.
 
 However, we will take a different approach.  We analyze the movement of the grid center away from the circle center and show that each small change leaves the allocation of area between light and dark parts unchanged.
 
 There are two approaches.  Both start with a movement along a diagonal of the grid (and circle).  As we said, that does not change the relative areas.
 
-Having reached a specified distance from the circle center, then spin radially about the grid center to achieve the desired final orientation.  Note in passing that performing the moves in the opposite sequence cannot reach every position, because the grid center must remain on a diagonal of the circle.
+Then, having reached the desired distance from the circle center, rotate about the grid center to achieve the desired final orientation.  Note rotation cannot be performed as the first operation, because then the grid center will remain on a diagonal of the circle.
 
 The other way is to move horizontally in the second phase.  The grid center still runs runs parallel to a diagonal of the grid, but this is no longer on a diagonal of the circle.
 
-The question arises whether this second method can actually achieve \emph{any} position and orientation.  But consider the reverse movement.  
+The question arises whether this second method can actually achieve \emph{any} position and orientation.
 
-Start from any random position and orientation.  Since the circle is featureless and radially symmetric, the picture we gave above is still accurate.  
+But consider the reverse movement.  Start from any random position and orientation.  Since the circle is featureless and radially symmetric, the picture we gave above is still accurate.  
 
-Now, reverse the horizontal movement until the grid aligns on a diagonal of the circle.  We have achieved equal areas.
+Now, make a movement along a line of the grid until the grid center lies on a diagonal of the circle.  We have achieved equal areas.
 
-So the crux of the analysis is horizontal motion or radial motion.  We will take a first look at vertical motion along a diagonal, and then proceed to others in turn.  But even before that, we need to do some preparatory work.
+So the crux of the analysis is horizontal motion or radial motion.  We will first take a look at vertical motion along a diagonal, and then proceed to the others in turn.  However, even before that, we need to do some preparatory work.
 
 \subsection*{extraordinary property}
 
-Recall that if we have a chord $PR$ in a circle on center $O$, and $PR$ is parallel to the tangent line drawn through $T$, then the angles at $S$ are right angles.
-\begin{center}
-\includegraphics [scale=0.35] {perp_chords7.png}
-\includegraphics [scale=0.4] {perp_chords10.png} \end{center}
-We therefore have two congruent right triangles with the result that $PS = SR$, the chord is bisected by the radius perpendicular to the tangent.  And this is true for \emph{any} other chord parallel to this tangent line.  If $MN \parallel PR$, then $MN$ is bisected by $OQ$.
+Recall that if we have a chord $PR$ in a circle on center $O$, and $PR$ is parallel to the tangent line drawn through $Q$, then the angles at $S$ are right angles.
+\begin{center} \includegraphics [scale=0.4] {perp_chords10.png} \end{center}
 
-So then, let's say we have a rectangle in a circle, but only one side is a chord of the circle.  Draw the vertical bisector of side $AC$.
+We therefore have two congruent right triangles with the result that $PS = SR$, the chord is bisected by the radius perpendicular to the tangent.  
+
+And this is true for \emph{any} other chord parallel to this tangent line.  If $MN \parallel PR$, then $MN$ is bisected by $OQ$.
+
+Next, consideer a rectangle in a circle, where only one side is a chord of the circle.  The opposite side has extensions to become a chord as well.  Draw the vertical bisector of side $AC$.
 \begin{center} \includegraphics [scale=0.4] {perp_chords9.png} \end{center}
-Chord $DH$ contains the opposite side, $EG$, plus two extensions.  $EG$ since it is equal and parallel to $DH$, is also bisected by $OB$.  $OB$ bisects $DH$.  By subtracting equals from equals, we have that $DE = GH$:  the extensions are equal.
 
-Now consider two chords at right angles in a circle.  Form the rectangle using a side parallel to chord $a + b$.  (Only two sides are shown).  An easy way to do this is to draw the two diagonals (dotted lines).
+Chord $DH$ contains the opposite side, $EG$, plus two extensions.  Because $DH \parallel AC$, $OB$ bisects $DH$.  Since $EG$ is equal and parallel to $DH$, it is also bisected by $OB$.  By subtracting equals from equals, we have that $DE = GH$:  the extensions are equal.
+
+Now consider two chords at right angles in a circle.  Form the rectangle using a side equal and parallel to chord $a + b$.  (Only two sides of the rectangle are shown).  An easy way to do this is to draw the two diagonals (dotted lines).
 \begin{center} \includegraphics [scale=0.35] {perp_chords1.png} 
 \includegraphics [scale=0.35] {perp_chords3.png} 
 \end{center}
@@ -88,20 +89,22 @@ By our previous result, we can conclude that the extension at the top has length
 \[ a^2 + 2ab + b^2 + c^2 - 2cd + d^2 = (2R)^2 \]
 but $ab = cd$ by the crossed chords theorem so
 \[ a^2 + b^2 + c^2 + d^2 = (2R)^2 \]
-The components of two chords crossed at right angles in a circle, when squared and summed, equal twice the radius, squared.  This is called the ``extraordinary property" of the circle.
+When the components of two chords crossed at right angles in a circle are squared and summed, the result is twice the radius, squared.  This is called the ``extraordinary property" of the circle.
 
-There is also a preliminary result which will be helpful in solving the problem, specifically the invariance of areas under translation parallel to one of the chords.
+There is one more preliminary result which will be helpful in solving the problem, specifically the invariance of areas under translation parallel to one of the chords.
 
 \subsection*{distance to the circle center}
 
-One thing that makes things tricky is that individual chords change in length as the grid center is moved around, but the two ends change asymmetrically, which means that the center of the chord must shift as well.  Consider the following setup.
+Individual chords change in length as the grid center is moved around, but the two ends may change asymmetrically, which means that the center of the chord must shift as well.  Consider the following setup.
 \begin{center} \includegraphics [scale=0.35] {pizza7.png} \end{center}
 
 The center point bisecting any chord can be related to the lengths of the parts of the chord.  Let $t$ be the longer part of the chord, from the grid center to the circle's edge, and let $s$ be the smaller.  
 
 Then $t-s$ is a length that straddles the chord center, and it is twice the distance from the grid center to the chord center, so the distance itself is $(t-s)/2$.
 
-In the diagram, the red dot is the center of the circle.  Because of the right angles, the distance from (the center of) chord $c+d$ to the center of the circle is the same as the distance from the grid center to the center of perpendicular chord $g + h$, and vice versa.  Read that again if you need to.
+In the diagram, the red dot is the center of the circle.  Because of the right angles, the distance from (the center of) chord $c+d$ to the center of the circle is the same as the distance from the grid center to the center of perpendicular chord $g + h$, and vice versa.  
+
+The circle center and grid center are opposing vertices in a rectangle (or in this case, a square).
 
 Now, let the distance from the grid center to the center of the circle be $\rho$.  Then from the Pythagorean theorem we have that
 \[ \rho^2 = (\frac{c - d}{2})^2 + (\frac{h - g}{2})^2 \]
@@ -123,7 +126,7 @@ Canceling $(2R)^2$ as well as $-2$ from each remaining term we end up with just
 By crossed chords $ab = ef$ and $cd = gh$ so
 \[ 2ab = 2cd \]
 \
-But of course this is obvious follows from similar triangles so
+But of course these are sides of similar triangles
 \[ \frac{a}{c} = \frac{d}{b} \]
 You can treat this as a sketch of a modified proof of the ``extraordinary property" theorem.  Under the covers, it uses the same relationships.
 
@@ -135,15 +138,15 @@ To reach an arbitrary point and orientation, we must do either one of two moveme
 In the figure below, movement is to the right --- the beginning position has the chord just to the left of the ending position, where it is to the right of where it started.
 \begin{center} \includegraphics [scale=0.4] {pizza4b.png} \end{center}
 
-Each chord adds or subtracts a rectangular area plus the segments bounded by part of the circle at each end of the chord.  Let us call the small segments on both ends of a chord \emph{wingtips}.  
+Each chord adds or subtracts a rectangular area plus the segments bounded by part of the circle at each end of the chord.  Let us call the small segments on the ends of a chord \emph{wingtips}.  
 
-Chords do not change orientation during the movement.  But even if they did, matching wingtips on either end of any particular chord are always the same shape and area, although they differ between chords.
+Matching wingtips on the ends of any particular chord are always the same shape and area, although they differ between chords.
 
-The component regions we consider to be ``shaded" are numbered with red Roman numerals $I-IV$.  
+In the figure above, the component regions we consider to be ``shaded" are numbered with red Roman numerals $I-IV$.  
 
-Changes to the wingtips of a chord always cancel.  For example, in horizontal movement, region I loses the wingtip from $d$, while region III gains the one from $c$.  One is added and the other subtracted from a region of the same shading, so these changes to area cancel.  
+Changes to the wingtips of a chord always cancel.  For example, in horizontal movement, region I loses the wingtip from $d$, while region III gains exactly the same shape from $c$.  One is added and the other subtracted from a region of the same shading, so these changes to area cancel.  
 
-Referring to just the rectangles by their lengths (i.e. minus the wings):
+Referring to just the rectangles by their lengths (minus the wings):
 
 $\circ$ \ $I$ loses $d$
 
@@ -155,27 +158,27 @@ $\circ$ \ $IV$ loses $g$ and gains $b$
 
 \begin{center} \includegraphics [scale=0.4] {pizza4b.png} \end{center}
 
-What remains to be considered is simply areas of rectangles.  The vertical rectangle is wider than the others. Because the movement is parallel to its width, it captures more area.
+So now, the problem is reduced to the areas of rectangles.  The vertical rectangle is wider than the others. Because the movement is parallel to its width, it captures more area.
 
-The ratio of areas is $\sqrt{2}$.  That is, the width of the rectangle formed from the chord $a + b$ is larger than the width of the rectangle formed from chord $c+d$ by $\sqrt{2}$, because the latter is angled at $45^{\circ}$ to the direction of travel.
+The width of the rectangle formed from the chord $a + b$ is larger than the width of the rectangle formed from chord $c+d$ by $\sqrt{2}$, because the latter is angled at $45^{\circ}$ to the direction of travel.  Let the width of $c+d$ and $g+h$ be $1$, so the width of $a+b$ is $\sqrt{2}$.
 
-If you go back to the list of changes above you should be able to see that the net change in the areas is
-\[ \Delta A = - \frac{d}{\sqrt{2}} + \frac{h}{\sqrt{2}} - a + \frac{c}{\sqrt{2}} - \frac{g}{\sqrt{2}} + b \]
-\[ \Delta A = (b - a) + \frac{1}{\sqrt{2}} \cdot (c - d + h - g) \]
+If you go back to the list of changes above:
+\[ \Delta A = - d + h - \sqrt{2} \ a + c - g + \sqrt{2} \ b \]
+\[ \Delta A = \sqrt{2} \ (b - a) + (c - d + h - g) \]
 
 Altogether the red regions change in area by $\Delta A$ during the horizontal movement.  But by hypothesis, $\Delta A = 0$, which would require that
 \[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
-We can call $\Delta A = 0$ the invariant for this problem.  If we can we prove this is correct, we're done.
+We can call $\Delta A = 0$ the invariant for this problem.  If we can we prove it really doesn't change, we're done.
 
 Now, for any chord with arms $t$ and $s$, $|t-s|$ is twice the distance of the grid center from the center of the chord.  So we can divide each term in the equation above by $2$ and obtain the distance from the grid center to the center of the chord.  Call that distance $\delta$.  Then
 \[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
 is an equivalent formulation of the invariant.
 
-First, this invariant holds when the grid center remains on a diagonal of the circle (vertical movement).
+This invariant clearly holds when the grid center remains on a diagonal of the circle (vertical movement).
 \begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
-The red lines represent $\delta_{cd}$ and $\delta_{gh}$, while the vertical down from the red dot (center of the circle) to the grid center is $\delta_{ab}$.
+The red lines represent $\delta_{cd}$ and $\delta_{gh}$ which in this position are equal, by symmetry.  The vertical down from the red dot (center of the circle) to the grid center is $\delta_{ab}$.
 
-We have
+From the geometry we have
 \[ \delta_{ab} = \sqrt{2} \cdot \delta_{cd} = \sqrt{2} \cdot \delta_{gh} \]
 \[ 2 \delta_{ab} = \sqrt{2} \cdot (\delta_{cd} + \delta_{gh}) \]
 \[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
@@ -189,20 +192,22 @@ However pretty, the result doesn't help that much because we knew this already.
 The challenge is to do something similar for horizontal movement.
 \begin{center} \includegraphics [scale=0.4] {pizza8.png} \end{center}
 
-For the figure in the right panel, we want to show that
+We want to show that
 \[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
 \[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
 
-We're saying that $\sqrt{2}$ times the distance from the center of chord $a+b$ to the grid center is equal to the sum of the two red lengths.  We know this is true for the left panel, and we need to show it for the right panel.  Since the movement is horizontal, $a - b$ doesn't change, so our claim becomes that the sum of the red lengths is a constant.
+We know this is true for the left panel, and we need to show it for the right panel.  Since the movement is horizontal, $a - b$ doesn't change, so our claim becomes that the sum of the red lengths is a constant.
 
 \begin{center} \includegraphics [scale=0.4] {pizza9.png} \end{center}
-But that's easy.  The original square has sides $AO$ and $OB$.  The rectangle has sides $CD$ and $DE$.  But the triangle marked with the black dot is isosceles.  So its sides are equal.  We leave it as an exercise to show that the two pairs of red sides $CD + DE$ and $AO + OB$ have the same total length.
+But that's easy.  The original square has sides $AO$ and $OB$.  The rectangle has sides $CD$ and $DE$.  But the triangle marked with the black dot is isosceles, because of the $45^{\circ}$ angles.
+
+So its sides are equal.  The same length removed from $OA$ to give $CD$ is added to $OB$ to give $DE$.
 
 We have shown that 
 \[ \sqrt{2} \cdot (a - b) =  (c - d + h - g) \]
 \[ \sqrt{2} \cdot \delta_{ab} =  \delta_{cd} + \delta_{gh} \]
 
-is invariant.  It follows that the areas we have discussed as shaded and unshaded are also invariant under horizontal translation, even when the grid center is not moving along a diagonal of the circle.
+holds regardless of motion horizontally.  It follows that the areas we have discussed as shaded and unshaded are also invariant under horizontal translation, even when the grid center is not moving along a diagonal of the circle.
 
 The starting position --- grid center at the center of the circle --- has the property of equal areas for shaded and unshaded regions, and the transformations do not change the invariant.  It follows that the ending position --- grid center anywhere in the circle and with any orientation --- also has the property of equal areas.
 
@@ -212,6 +217,8 @@ $\square$
 
 \begin{center} \includegraphics [scale=0.4] {pizza6.png} \end{center}
 
+The solutions I've seen for this problem analyze rotation rather than translation, so we look at that briefly.
+
 Rotation is also connected to the special property of the circle which we gave above.  We choose to consider a counter-clockwise rotation.
 
 For a very small angle $\Delta \theta$, the area of a sector swept out by that angle is 
@@ -219,7 +226,7 @@ For a very small angle $\Delta \theta$, the area of a sector swept out by that a
 
 If we focus on the sectors marked with red dots, a counter-clockwise rotation adds to the area a small wedge on the left arm, viewed from the central point and facing out.  It will be seen that the relevant radii are all at right angles to one another.
 
-These values of $r$ are exactly those which were involved in the extraordinary property:  one is $\Delta \theta/2 \cdot a^2$, another has $b^2$, the next $c^2$ and finally $d^2$ (using the notation from the special property theorem).
+These values of $r$ are exactly those which were involved in the extraordinary property:  one has a factor of $\Delta \theta/2$ times $a^2$, another has $b^2$, the next $c^2$ and finally $d^2$ (using the notation from the special property theorem).
 
 Therefore, the total increase in area is
 \[ \Delta A = \Delta \theta \ \frac{a^2 + b^2 + c^2 + d^2}{2} \]
@@ -258,7 +265,94 @@ This is called Fubini's theorem.
 
 And when we add them together, the sum of those factors $r^2$ is a constant, by the extraordinary property of the circle.  So in the end we obtain $(2R)^2$ times the total of the four angular rotations.  The changes in the radius simply drop out from the calculation.
 
-I am not entirely happy with this argument either.  The reason is that the oddly shaped regions at the ends of the arcs are different for the different chords.  My intuition is that this means the functions $r_i (\phi_i)$ in the integral are \emph{different}.  This is problematic.
+I am not entirely happy with this argument either.  The reason is that the oddly shaped regions at the ends of the arcs are different for the different chords.  My intuition is that this means the functions $r_i (\phi_i)$ in the integral are \emph{different}.
+
+\subsection*{resolution}
+
+I found a solution on the web.  It validates my concerns about the function $r(\theta)$ being different for different $\theta$, but shows that when you work through the algebra, everything (almost) really does cancel.
+
+We will write equations for each area that must be integrated over, each $r(\theta_i)^2$ (i.e. $[r(\theta_i)]^2$).  I stress that these relations are \emph{different} but related for each quadrant.  The integrals are polar integrals.  Although they are full of sines and cosines, the $\theta_i$ are at right angles to each other, so it will turn out that almost everything cancels.
+
+\url{https://math.stackexchange.com/questions/865818/can-anyone-explain-pizza-theorem}
+
+(from the answer marked as correct with a green checkmark).
+
+Let $P$ be the grid center, the point where all the chords cross.  The origin of coordinates is at $P$.  
+
+Let $C$ be the center of the circle.  Designate the coordinates of the circle's center $C$ as $(x, y)$.
+
+Let $\theta$ be the angle that the radius of the arc $r$ makes with the horizontal.  The coordinates of the point where $r$ meets the circle are $( r \cos \theta, r \sin \theta)$.  
+
+The basic relation of the circle is that the distance of that point on the circle from the center of the circle is $R$.  
+
+The squared distance is
+\[ R^2 = (r \cos \theta - x)^2 + (r \sin \theta - y)^2 \]
+\[ = r^2 (\cos^2 \theta + \sin^2 \theta) - 2r x \cos \theta - 2 ry \sin \theta + x^2 + y^2 \]
+
+This is a quadratic in $r$.
+\[ r^2 - 2(x \cos \theta + y \sin \theta) r + x^2 + y^2 - R^2 = 0 \]
+The solutions are
+\[ r = \frac{1}{2} \cdot \ [ \ 2(x \cos \theta + y \sin \theta) \pm \sqrt{4(x \cos \theta + y \sin \theta)^2 - 4 (x^2 + y^2 - R^2)} \ ] \]
+\[ = (x \cos \theta + y \sin \theta) \pm \sqrt{(x \cos \theta + y \sin \theta)^2 + (R^2 - x^2 + y^2)} \]
+
+The second solution is $< 0$ because $R^2 > x^2 + y^2$ and can be ignored since we're dealing with lengths.
+
+We have some heavy algebra ahead, and want to make the notation simpler.  Let
+\[ P(\theta) = x \cos \theta + y \sin \theta \]
+In fact, let's call it $P$ and just remember that it is a function of $\theta$.
+
+\[ Q = R^2 - x^2 - y^2 \]
+So now
+\[ r(\theta) = P + \sqrt{P^2 + Q} \]
+\[ r(\theta)^2 = 2P^2 + 2 P \sqrt{P^2 + Q} + Q \]
+
+The tricky part is to figure out what these values for $r^2$ are for different $\theta$.  Luckily, we only have four angles to worry about, namely $\theta$ plus one of  $\{-\pi/2, 0, \pi/2, \pi\}$.
+
+\subsection*{first two values for $\theta$}
+
+Start with $\theta$ and $\theta + \pi$.  Both the cosine and the sine switch \emph{sign}.  So
+\[ P(\theta + \pi) = - (x \cos \theta + y \sin \theta) = - P(\theta) \]
+What's under the square root has $P^2$ and something that doesn't depend on $\theta$ so the only change for $r$ is the sign of the first term.
+\[ r(\theta + \pi) = -P + \sqrt{P^2 + Q} \]
+But that changes the sign of the mixed term in the square:
+\[  r(\theta + \pi)^2 = 2 P^2 - 2 P \sqrt{P^2 + Q} + Q \]
+
+When we add them the square root disappears:
+\[ r(\theta)^2 + r(\theta + \pi)^2 = 4P^2 + 2Q  \] 
+\[ = 4 (x \cos \theta + y \sin \theta)^2 + 2Q \]
+Pull out a factor of $2$ twice
+\[ = 2 \ [ \ 2(x^2 \cos^2 \theta + 2xy \cos \theta \sin \theta + y^2 \sin^2 \theta) + Q \ ] \]
+
+\subsection*{two more values for $\theta$}
+
+If we add $\pi/2$ to $\theta$, we switch sine and cosine and change the \emph{sign} of the cosine.
+\[ P(\theta + \pi/2) = x \cos (\theta + \pi/2) + y \sin (\theta + \pi/2) \] 
+\[ = - x \sin \theta + y \cos \theta \]
+On the other hand, subtracting $\pi/2$ gives
+\[ P(\theta - \pi/2) = x \cos (\theta - \pi/2) + y \sin (\theta - \pi/2) \] 
+\[ = x \sin \theta - y \cos \theta \]
+So minus the first is equal to the second, as before.
+
+Now we need to compute $2P^2 + 2P \sqrt{P^2 + Q} + Q$.  
+
+We will not bother with the middle term, since the change of sign on $P$ makes this disappear when we add them.  We need only $2P^2 + Q$ for each.
+
+The two terms added together give
+\[ 2 (- x \sin \theta + y \cos \theta)^2 + Q + 2 (x \sin \theta - y \cos \theta)^2 + Q \]
+This is $(-a + b)^2 + (a - b)^2 = 2(a^2 - 2ab + b^2)$ times the extra factor of $2$:
+\[ = 2 \ [ \ 2(x^2 \sin^2 \theta - 2xy \sin \theta \cos \theta + y^2 \cos^2 \theta) + Q \ ]  \]
+
+Now, go back to what we had before for $\theta$ and $\theta + \pi$
+\[ = 2 \ [ \ 2(x^2 \cos^2 \theta + 2xy \cos \theta \sin \theta + y^2 \sin^2 \theta) + Q \ ] \]
+
+There are two more cancellations coming when we add.  First, the mixed term disappears.  Then also there is $\sin^2 + \cos^2$ so that leaves just
+\[ = 2 \  [ \ 2(x^2 + y^2) + 2Q \ ] \]
+This is the sum for all four angles:
+\[ \sum_{k=0}^3 r(\theta + k \pi/2)^2 = 4x^2 + 4y^2 + 4Q \]
+\[ = 4x^2 + 4y^2 + 4(R^2 - x^2 - y^2) \]
+\[ = 4 R^2 \]
+
+The sum of the integrands is independent of $\theta$ and hence invariant as $\theta$ changes.
 
 \subsection*{references}
 
@@ -279,11 +373,6 @@ The original article is paywalled and the price is truly exorbitant.  You have t
 \url{https://www.tandfonline.com/doi/abs/10.1080/0025570X.1994.11996228}
 
 \begin{center} \includegraphics [scale=0.4] {pizza2.png} \end{center}
-
-See also
-
-\url{https://kevinwang0723.medium.com/the-pizza-theorem-d53721c12e0e}
-
 
 
 
