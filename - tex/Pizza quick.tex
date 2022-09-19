@@ -26,51 +26,48 @@
 I found this in Acheson's \emph{The Wonder Book of Geometry}.  It is called the ``pizza theorem".  
 \begin{center} \includegraphics [scale=0.65] {Acheson_G111.png} \end{center}
 
-Consider a circular pizza pie.  Choose a point \emph{anywhere} in the pie.  Draw two perpendicular chords crossing at the point, with any orientation, and then fill in with two more chords that bisect the angles
+Consider a circular pizza pie.  Choose a point \emph{anywhere} in the disk.  Draw two perpendicular chords crossing at the point, with any orientation, and then fill in with two more chords that bisect the angles, giving two pairs of perpendicular chords, rotated at $45^{\circ}$.
 
 Form the sum of the areas of alternate slices.  Above, the two collections are shaded to tell them apart.
 
-The total dark area and the total light area are always equal.  The pizza is evenly divided, even though the slices are wonky.
+The total dark area is always one-half, equal to the total light area.  The pizza is evenly divided, even though the slices are wonky.
 
 \url{https://en.wikipedia.org/wiki/Pizza_theorem}
 
 \subsection*{solution}
 
-We will refer to the point where all the chords cross as the \emph{grid center}.  It is clear that if the grid center coincides with the circle center, then by the radial symmetry of the circle and the equal angles, all the segments are the same.  The equal area result is obviously correct.
+We will refer to the point where all the chords cross as the \emph{grid center}.  It is clear that if the grid center coincides with the circle center, then by the radial symmetry of the circle and the equal angles, all the segments are congruent.  The equal area result is obviously correct.
 \begin{center} \includegraphics [scale=0.35] {pizza10.png} \end{center}
-For the drawings, I've chosen to mark the ``shaded" slices with dots.  
+For ease of drawing, I've marked the ``shaded" slices with dots (and Roman numerals, below).  
 
-We will show that any movement parallel to a chord of the grid, whether it is along a diagonal of the circle or not, conserves the equal apportionment of areas between shaded and unshaded regions.  The key movement is shown in the figure (to the right):
+We will show that any movement parallel to a chord of the grid, whether it is along a diagonal of the circle or not, conserves the equal apportionment of areas between shaded and unshaded regions.  The key diagram shows movement to the right in the figure below:
 \begin{center} \includegraphics [scale=0.35] {pizza4b.png} \end{center}
-``Shaded" regions are marked with Roman numerals.  Consider the increase in shaded area due to this movement.  The increase comes from rectangles formed by arms of three chords:  $c$, $b$ and $h$.  The decrease in shaded area is due to rectangles on the other end of the same chords:  $a$, $d$ and $g$.  The net change in area is just
+Consider the increase in shaded area due to this movement.  That increase comes from rectangles formed by arms of three chords:  $c$, $b$ and $h$.  The decrease in shaded area is due to rectangles on the other end of the same chords:  $a$, $d$ and $g$.  The curved regions at the edges cancel (see below).
+
+The net change in area is just
 \[ \Delta A = \sqrt{2}(b - a) + (c - d) + (h - g) \]
 The chord $ab$ counts more because it is perpendicular to the direction of travel, so it captures more area.
 
 Our hypothesis is that $\Delta A = 0$ so we should have that
 \[ \sqrt{2}(a - b) = (c - d) + (h - g) \]
-
-We'll call that the \emph{invariant}.
 \begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
 
-We can find the distance that the center of any chord lies from the grid center by taking the difference between the long and the short arm and dividing by $2$.  Call that distance $\delta$.  Dividing both sides of the invariant by $2$ gives
-\[ \sqrt{2} \ \delta_{ab} = \delta_{cd} + \delta_{gh} \]
-This invariant clearly holds when the grid center remains on a diagonal of the circle (vertical movement).
+We can find the distance from the center of any chord lies to the grid center by taking the difference between the long and the short arm and dividing by $2$.  
 
-The red lines represent the lines from the centers of the chords to the center of the circle (red dot).  These are perpendicular bisectors of the angled chords.  Because of the right angles, these are also equal to $\delta$ as defined above.
+Call that distance $\delta$.  Dividing both sides of what was above by $2$ gives the \emph{invariant}:
+This clearly holds when the grid center remains on a diagonal of the circle (vertical movement).  In fact, by symmetry $\delta_{cd} + \delta_{gh}$ so 
+\[ \delta_{ab} = \sqrt{2} \ \delta_{cd} \]
+
+The red lines go from the center of each chord to the center of the circle (red dot).  These are perpendicular bisectors of the angled chords.  Because of the right angles, these are also equal to $\delta$ as defined.
 
 The vertical down from the red dot (center of the circle) to the grid center is $\delta_{ab}$, since the center of this chord coincides with the center of the circle.
 
 \begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
-It is clear that for this position
-\[ \sqrt{2} \ \delta_{ab} = \delta_{cd} + \delta_{gh} \]
+It is clear that for this position $\delta_{ab} = \sqrt{2} \ \delta_{cd}$, as we said above.  $\delta_{ab}$ is the diagonal of a square with sides of length $\delta_{cd}$.
 
-Horizontal movement doesn't change $\delta_{ab}$.
+Horizontal movement doesn't change $\delta_{ab}$.  Here are two positions reached that way.
 \begin{center} \includegraphics [scale=0.4] {pizza12.png} \end{center}
-It \emph{does} change $\delta_{cd}$ and $\delta_{gh}$, but they are adjacent sides in a rectangle whose four vertices are the chord centers, the circle center and the grid center.
-
-\begin{center} \includegraphics [scale=0.4] {pizza9.png} \end{center}
-The dotted triangle is isosceles, so the total length of the two red lines doesn't change with horizontal motion, so neither does the total of the other sides of the rectangle, which is exactly 
-$\delta_{cd} + \delta_{gh}$.  Our invariant is really invariant!
+It \emph{does} change $\delta_{cd}$ and $\delta_{gh}$, but they are adjacent sides in a rectangle whose four vertices are the chord centers, the circle center and the grid center.  It is a rectangle because the two chords are perpendicular and the red lines are perpendicular bisectors.
 
 \subsection*{summary}
 
@@ -90,6 +87,10 @@ $\circ$ \ Vertical motion along a diagonal doesn't change the allocation of area
 $\circ$ \ It is possible to reach any position and orientation by vertical plus horizontal movement.  (\emph{Proof}:  start with any position and perform a horizontal translation followed by vertical movement along a diagonal of the circle.  Now reverse the motion.)
 
 $\circ$ \ The curved shapes at the ends of each chord, resulting from the motion, are mirror images.  Since one changes the shaded and the other the unshaded area, they cancel.
+
+There is an approachable proof for rotation that involves only geometry, here:
+
+\url{https://math.stackexchange.com/questions/865818/can-anyone-explain-pizza- theorem}
 
 \end{document}
 
