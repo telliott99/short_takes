@@ -52,20 +52,19 @@ Our hypothesis is that $\Delta A = 0$ so we should have that
 \[ \sqrt{2}(a - b) = (c - d) + (h - g) \]
 \begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
 
-We can find the distance from the center of any chord lies to the grid center by taking the difference between the long and the short arm and dividing by $2$.  
+Take the difference between the long and the short arm of any chord.  We can find the distance from the center of that chord to the grid center as one-half of that distance.  
 
-Call that distance $\delta$.  Dividing both sides of what was above by $2$ gives the \emph{invariant}:
-This clearly holds when the grid center remains on a diagonal of the circle (vertical movement).  In fact, by symmetry $\delta_{cd} + \delta_{gh}$ so 
+Call that distance $\delta$.  Dividing both sides of what was above by $2$ gives an \emph{invariant} which obviously holds when the grid center remains on a diagonal of the circle (vertical movement).  In fact, by symmetry $\delta_{cd} = \delta_{gh}$ so 
 \[ \delta_{ab} = \sqrt{2} \ \delta_{cd} \]
 
-The red lines go from the center of each chord to the center of the circle (red dot).  These are perpendicular bisectors of the angled chords.  Because of the right angles, these are also equal to $\delta$ as defined.
+The red lines go from the center of each chord to the center of the circle (red dot).  These are perpendicular bisectors of the angled chords.  Because of the right angles, these are also equal to $\delta$ for the perpendicular chord.
 
 The vertical down from the red dot (center of the circle) to the grid center is $\delta_{ab}$, since the center of this chord coincides with the center of the circle.
 
 \begin{center} \includegraphics [scale=0.4] {pizza7.png} \end{center}
 It is clear that for this position $\delta_{ab} = \sqrt{2} \ \delta_{cd}$, as we said above.  $\delta_{ab}$ is the diagonal of a square with sides of length $\delta_{cd}$.
 
-Horizontal movement doesn't change $\delta_{ab}$.  Here are two positions reached that way.
+Horizontal movement doesn't change $\delta_{ab}$.  Here are two positions reached thus:
 \begin{center} \includegraphics [scale=0.4] {pizza12.png} \end{center}
 
 It \emph{does} change $\delta_{cd}$ and $\delta_{gh}$, but they are adjacent sides in a rectangle whose four vertices are the chord centers, the circle center and the grid center.  It is a rectangle because the two chords are perpendicular and the red lines are perpendicular bisectors.
@@ -88,13 +87,13 @@ $\square$
 
 \subsection*{details}
 
-$\circ$ \ Vertical motion along a diagonal doesn't change the allocation of areas, because that diagonal remains an axis of symmetry, where each shaded region has an identical unshaded region across the axis from it.
+$\circ$ \ Motion along a diagonal doesn't change the allocation of areas, because that diagonal remains an axis of symmetry, where each shaded region has an identical unshaded region across the axis from it.
 
 $\circ$ \ It is possible to reach any position and orientation by vertical plus horizontal movement.  (\emph{Proof}:  start with any position and perform a horizontal translation followed by vertical movement along a diagonal of the circle.  Now reverse the motion.)
 
-$\circ$ \ The curved shapes at the ends of each chord, resulting from the motion, are mirror images.  Since one changes the shaded and the other the unshaded area, they cancel.
+$\circ$ \ The curved shapes at the ends of any individual rectangle, resulting from the motion of a chord, are mirror images.  Since one changes the shaded and the other the unshaded area, they cancel.
 
-There is an approachable proof for rotation that involves only geometry, here:
+There is an approachable proof for rotation that involves only trigonometry, here:
 
 \url{https://math.stackexchange.com/questions/865818/can-anyone-explain-pizza- theorem}
 
