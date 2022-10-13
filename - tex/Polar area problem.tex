@@ -1,0 +1,161 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Polar area problem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We want to find the area of that part of a circle swept out by a ray from one edge, i.e. between a chord and the diagonal.
+
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+The figure was constructed by drawing a circle inside a square, with the horizontal diagonal of the circle bisecting the square, and then only the top half of the square and circle are shown.
+
+Connect the left end of the diagonal with the edge of the square on the opposite side.  The angle $\theta$ formed has the tangent $1/2$.  We wish to calculate the area enclosed by the diagonal, the ray forming angle $\theta$ with it, and the edge of the circle.
+
+Since $r$ varies with $\theta$, we need an expression for $r(\theta)$.  At the particular $\theta$ illustrated, $r = 2a$.
+
+\subsection*{geometry}
+We don't actually need calculus for this problem.  Drawing lines from the center of the circle, the area can be divided into two right triangles with sides $R \sin \theta$ and $a = R \cos \theta$, plus a sector of the circle of radius $R$ swept out by angle $\phi = 2 \theta$.
+
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+To make things a bit simpler, we will assume now that this is a unit circle with $R = 1$, recognizing that the result can always re-scaled.  (For a circle of radius $R$, the area scales like $R^2$).
+
+The area of the each triangle is $(1/2) \cdot a \cdot \sin \theta$, so the two together are $A = \sin \theta \cos \theta$.  Since this is a unit circle, the area of a sector with angle $\phi$ is:
+\[ \frac{A}{\pi} = \frac{\phi}{2 \pi} = \frac{2 \theta}{2 \pi} \]
+This follows from the inscribed angle theorem, which says $\phi = 2 \theta$.
+
+So the sector area is $A = \theta$ and the total is
+\[ A = \theta + \sin \theta \cos \theta \]
+
+In this particular case, we can do even better.  We have that $\tan \theta = 1/2$, so $2 \sin \theta = \cos \theta$, and then from the Pythagorean theorem $5 \sin^2 \theta = 1$, so $\sin \theta = 1/\sqrt{5}$ and
+\[ A = \theta + \frac{2}{5} \]
+
+\subsection*{calculus:  setup}
+
+If the length of the ray is $r$ then the "sides" of the relevant area element are $r$ and $r \ d \theta$, and the area is
+\[ A = \frac{1}{2} \  \int_0^{\theta} r \cdot r \ d \theta =  \frac{1}{2} \  \int_0^{\theta} r^2 \ d \theta \]
+
+One way to get an expression for $r(\theta)$ is to consider the triangle with two sides that are radii of the circle, and third side $r$.  Going back to the general case with radius $R$ and using the law of cosines
+\[ R^2 = r^2 + R^2 - 2rR \cos \theta \]
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+
+This gives a quadratic in $r$
+\[ r^2 = 2R \cos \theta \ r \]
+whose solution is
+\[ r = 2R \cos \theta \]
+This fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle with hypotenuse $2R$ so $\cos \theta = r/2R$, which matches what we have.
+
+For the unit circle we have just 
+\[ r = 2 \cos \theta \ \ \ \ \ \  r^2 = 4 \cos^2 \theta \]
+
+It's a bit of a diversion, but a different approach is to consider the central angle $\phi = 2 \theta$.  The supplementary angle to $\phi$ (call it $\phi'$) is the apex angle in the same double triangle we had before.  Its cosine is the same magnitude as $\cos \phi$ but with a minus sign.
+
+The law of cosines gives here:
+\[ r^2 = R^2 + R^2 - 2 R^2 \cdot (- \cos 2 \theta) \]
+For the unit circle
+\[ r^2 = 2 + 2 \cos 2 \theta \]
+
+Compared to what we had before it seems a little different
+\[ r^2 = 2 + 2 \cos 2 \theta \stackrel{?}{=} 4 \cos^2 \theta \]
+But this is the double angle formula in disguise.  Rearranging:
+\[ 1 + \cos 2 \theta = 2 \cos^2 \theta = \cos^2 \theta + 1 - \sin^2 \theta \]
+\[ \cos 2 \theta = \cos^2 \theta - \sin^2 \theta \]
+which is correct.
+
+\subsection*{calculus:  integral}
+
+The integral is 
+\[ A = \frac{1}{2} \ \int_0^{\theta} r^2 \ d \theta \]
+Using the first version this is 
+\[ A = 2 \int \cos^2 \theta \ d \theta = \theta + \sin \theta \cos \theta \bigg |_0^{\theta} \]
+\[ = \theta + \sin \theta \cos \theta \]
+
+and using the second version it is
+\[ A = \frac{1}{2} \ \int_0^{\theta}  2 + 2 \cos 2 \theta \ d \theta \]
+\[ = \int_0^{\theta}  1 + \cos 2 \theta \ d \theta \]
+\[ = \theta + \frac{1}{2} \ \sin 2 \theta \ \bigg |_0^{\theta} = \theta + \sin \theta \cos \theta \]
+
+\subsection*{another view}
+
+The equation for a unit circle of radius $R$ centered at the origin is simply 
+\[ R^2 = x^2 + y^2 \]
+
+For a unit circle displaced from the origin to $(1,0)$, the equation is
+\[ 1^2 = (x-1)^2 + y^2 \]
+This corresponds with the origin of coordinates at the left side of the figure.
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+
+Expanding
+\[ 1 = x^2 - 2x + 1 + y^2 \]
+But $x = r \cos \theta$ and $y = r \sin \theta$ so $x^2 + y^2 = r^2$ and then
+\[ 1 = r^2 - 2x + 1 \]
+Substituting for $x$
+\[ r^2 = 2 r \cos \theta \]
+\[ r = 2 \cos \theta \]
+which matches what we had from the law of cosines.
+
+\subsection*{yet another view}
+Another way to look at this problem is to \emph{turn the circle}.  In the figure below, $r$ has been turned so that it is horizontal.  Part of the area is beneath the horizontal diagonal of the circle, but there is a matching sector above the diagonal, on the left.
+\begin{center} \includegraphics [scale=0.4] {polar_area2.png} \end{center}
+
+The equation of the circle is $y = f(x) = \sqrt{R^2 - x^2}$.
+
+Suppose we have a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).
+
+Using calculus we can get the area underneath the curve of the circle between two points.  Let's call them $\pm x_0$.  These are the two endpoints which are on the circle and where the corresponding $y$-value is $h$.
+
+\[ y = f(x_0) = \sqrt{1 - x_0^2} = h \]
+Rearranging
+\[ x_0 = \pm \ \sqrt{1 - h^2} \]
+
+The total area is
+\[ A = \int_{-x_0}^{x_0} \sqrt{1 - x^2} \ dx \]
+
+The integral $\int \sqrt{1 - x^2} \ dx$ is famous.  If we do a trig substitution where $x = \sin \phi$ so then $\sqrt{1 - x^2} = \cos \phi$, and also $dx = \cos \phi \ d \phi$ so the integral is 
+\[ \int \cos^2 \phi \ d \phi = \frac{1}{2} (\phi + \sin \phi \cos \phi) \]
+which we solved without comment above.
+
+It is easily checked:
+\[ \frac{d}{d \phi} \ \frac{1}{2} (\phi + \sin \phi \cos \phi) = \frac{1}{2} (1 - \sin^2 \phi + \cos^2 \phi) \]
+\[ = \frac{1}{2} (2 \cos^2 \phi) = \cos^2 \phi \] 
+
+So, in principle, we could integrate the area of the circle between $-x_0$ and $+x_0$, find the part which lies below the line $y = h$, and then add on the pieces from the ends.
+
+There is a better way.
+\subsection*{last view}
+The last view (which is so simple that I'll skip the diagram), is to turn the circle another quarter-turn.  The area that we want is simply
+\[ A = \int_0^h  \sqrt{1 - x^2} \ dx \]
+
+In terms of the trig substitution this is
+\[ A= \frac{1}{2} (\phi + \sin \phi \cos \phi) \]
+Switching back to the variable $x$ we have
+\[ A = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} ) \]
+
+The bounds are simply $0$ and $h$.  But since $x=0$ at the lower bound, the expression evaluates to $0$ there.  At the upper bound we have
+\[ A =  \frac{1}{2} (\sin^{-1} h + h \ \sqrt{1 - h^2} ) \]
+We need a further factor of $2$ for the final answer because this is only the area \emph{above} the $x$-axis.
+
+What is $h$?  If you look back to the first diagram you should be able to see that $h = \sin \theta$, so finally
+\[ A =  \sin^{-1} \sin \theta + \sin \theta \cos \theta \]
+\[ =  \theta + \sin \theta \cos \theta \]
+
+This is equal to the answers from other approaches, as we should require.
+
+
+\end{document}
