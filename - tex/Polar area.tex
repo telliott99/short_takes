@@ -21,7 +21,11 @@
 
 %[my-super-duper-separator]
 
-We want to find the area of that part of a circle swept out by a ray from one edge, i.e. between a chord and the diagonal.
+Here is a problem from the web:
+\begin{center} \includegraphics [scale=0.4] {circ_seg_prob.png} \end{center}
+The difficult part is the area in the upper-right hand corner.  We need to find the area of the red segment that is cut by the angled line (or its complement in white).
+
+Let's focus on the area of that part of a circle swept out by a ray from one edge, i.e. between a chord and the diagonal.
 
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
 The figure was constructed by drawing a circle inside a square, with the horizontal diagonal of the circle bisecting the square, and then only the top half of the square and circle are shown.
@@ -140,6 +144,19 @@ It is easily checked:
 \[ = \frac{1}{2} (2 \cos^2 \phi) = \cos^2 \phi \] 
 
 We could integrate the area of the circle between $-x_0$ and $+x_0$, find the part which lies below the line $y = h$, and then add the pieces from the ends.  There is a better way.
+
+\subsection*{circular segment}
+Having rotated the area, we can see that this problem can also be solved using only geometry in the new view:
+\begin{center} \includegraphics [scale=0.3] {circ_seg1b.png} \end{center}
+Since $r$ is horizontal, we have some equal angles $\theta$ by alternate interior angles.  The area of each of those wedges is $\theta/2$.
+
+We calculate the total area of the two central triangles joined together as .$\sin \theta \cos \theta$.  This is looking familiar.  
+
+So the area of the region below the circular ``cap" is just $\theta + \sin \theta \cos \theta$, as we've been saying.  The cap itself is $\pi/2$ minus this.
+
+Another formulation for the region below the cap is $\theta + \frac{1}{2} \sin 2 \theta$, so the cap itself is
+\[ A_{\text{cap}} = \frac{1}{2} ( \pi - 2 \theta - \sin 2 \theta) \]
+This is not really any different than what we did before but it does solve the cap problem.
 
 \subsection*{vertical view}
 The last view (which is so simple that I'll skip the diagram for a moment), is to turn the circle another quarter-turn.  The area that we want is simply
