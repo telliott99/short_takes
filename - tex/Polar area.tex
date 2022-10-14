@@ -28,22 +28,22 @@ The figure was constructed by drawing a circle inside a square, with the horizon
 
 Connect the left end of the diagonal with the edge of the square on the opposite side.  The angle $\theta$ formed has the tangent $1/2$.  We wish to calculate the area enclosed by the diagonal, the ray forming angle $\theta$ with it, and the edge of the circle.
 
-Since $r$ varies with $\theta$, we need an expression for $r(\theta)$.  At the particular $\theta$ illustrated, $r = 2a$.
+Since $r$ varies with $\theta$, we need an expression for $r(\theta)$.
 
 \subsection*{geometry}
 We don't actually need calculus for this problem.  Drawing lines from the center of the circle, the area can be divided into two right triangles with sides $R \sin \theta$ and $a = R \cos \theta$, plus a sector of the circle of radius $R$ swept out by angle $\phi = 2 \theta$.
 
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
-To make things a bit simpler, we will assume now that this is a unit circle with $R = 1$, recognizing that the result can always re-scaled.  (For a circle of radius $R$, the area scales like $R^2$).
+To make things a bit simpler, we will assume now that this is a unit circle with $R = 1$, recognizing that the result can always re-scaled.  For a circle of radius $R$, the area scales like $R^2$.
 
-The area of the each triangle is $(1/2) \cdot a \cdot \sin \theta$, so the two together are $A = \sin \theta \cos \theta$.  Since this is a unit circle, the area of a sector with angle $\phi$ is:
+The area of the each triangle is $a \sin \theta / 2$, so the two together are $A = \sin \theta \cos \theta$.  Since this is a unit circle, the area of a sector with angle $\phi$ is:
 \[ \frac{A}{\pi} = \frac{\phi}{2 \pi} = \frac{2 \theta}{2 \pi} \]
-This follows from the inscribed angle theorem, which says $\phi = 2 \theta$.
+This follows from the inscribed angle theorem, which gives $\phi = 2 \theta$.
 
-So the sector area is $A = \theta$ and the total is
+So the sector is $\theta$ and the total is
 \[ A = \theta + \sin \theta \cos \theta \]
 
-In this particular case, we can do even better.  We have that $\tan \theta = 1/2$, so $2 \sin \theta = \cos \theta$, and then from the Pythagorean theorem $5 \sin^2 \theta = 1$, so $\sin \theta = 1/\sqrt{5}$ and
+In this particular case, we can do even better.  We have that $\tan \theta = 1/2$, meaning that $2 \sin \theta = \cos \theta$, and then from the Pythagorean theorem $5 \sin^2 \theta = 1$, so $\sin \theta = 1/\sqrt{5}$ and
 \[ A = \theta + \frac{2}{5} \]
 
 \subsection*{calculus:  setup}
@@ -51,7 +51,11 @@ In this particular case, we can do even better.  We have that $\tan \theta = 1/2
 If the length of the ray is $r$ then the "sides" of the relevant area element are $r$ and $r \ d \theta$, and the area is
 \[ A = \frac{1}{2} \  \int_0^{\theta} r \cdot r \ d \theta =  \frac{1}{2} \  \int_0^{\theta} r^2 \ d \theta \]
 
-One way to get an expression for $r(\theta)$ is to consider the triangle with two sides that are radii of the circle, and third side $r$.  Going back to the general case with radius $R$ and using the law of cosines
+One way to get an expression for $r(\theta)$ is to consider the triangle with two sides that are radii of the circle, and third side $r$.  We have that $a = R \cos \theta$ and $r = 2a$ so $r = 2 R \cos \theta$.  
+
+This fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle.
+
+We might also use the law of cosines
 \[ R^2 = r^2 + R^2 - 2rR \cos \theta \]
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
 
@@ -59,7 +63,6 @@ This gives a quadratic in $r$
 \[ r^2 = 2R \cos \theta \ r \]
 whose solution is
 \[ r = 2R \cos \theta \]
-This fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle with hypotenuse $2R$ so $\cos \theta = r/2R$, which matches what we have.
 
 For the unit circle we have just 
 \[ r = 2 \cos \theta \ \ \ \ \ \  r^2 = 4 \cos^2 \theta \]
@@ -91,19 +94,21 @@ and using the second version it is
 \[ = \int_0^{\theta}  1 + \cos 2 \theta \ d \theta \]
 \[ = \theta + \frac{1}{2} \ \sin 2 \theta \ \bigg |_0^{\theta} = \theta + \sin \theta \cos \theta \]
 
-\subsection*{another view}
+\subsection*{displaced circle}
 
 The equation for a unit circle of radius $R$ centered at the origin is simply 
 \[ R^2 = x^2 + y^2 \]
+Every $(x,y)$ on the circle satisfies this equation.
 
 For a unit circle displaced from the origin to $(1,0)$, the equation is
 \[ 1^2 = (x-1)^2 + y^2 \]
-This corresponds with the origin of coordinates at the left side of the figure.
+This corresponds with the origin of coordinates at the bottom-left corner of the figure.
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
 
 Expanding
 \[ 1 = x^2 - 2x + 1 + y^2 \]
-But $x = r \cos \theta$ and $y = r \sin \theta$ so $x^2 + y^2 = r^2$ and then
+
+For the ray $r$, $x = r \cos \theta$ and $y = r \sin \theta$ so $x^2 + y^2 = r^2$ and then
 \[ 1 = r^2 - 2x + 1 \]
 Substituting for $x$
 \[ r^2 = 2 r \cos \theta \]
@@ -113,12 +118,11 @@ which matches what we had from the law of cosines.
 \subsection*{yet another view}
 Another way to look at this problem is to \emph{turn the circle}.  In the figure below, $r$ has been turned so that it is horizontal.  Part of the area is beneath the horizontal diagonal of the circle, but there is a matching sector above the diagonal, on the left.
 \begin{center} \includegraphics [scale=0.4] {polar_area2.png} \end{center}
+The area we need is that between $r$ and the diagonal.
 
-The equation of the circle is $y = f(x) = \sqrt{R^2 - x^2}$.
+The equation of the unit circle as a function $y = f(x) = \sqrt{1- x^2}$.
 
-Suppose we have a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).
-
-Using calculus we can get the area underneath the curve of the circle between two points.  Let's call them $\pm x_0$.  These are the two endpoints which are on the circle and where the corresponding $y$-value is $h$.
+Consider a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).  We must find the two points where the chord meets the circle.  Let's call them $\pm \ x_0$.  These are the two endpoints which are on the circle and where the corresponding $y$-value is $h$.
 
 \[ y = f(x_0) = \sqrt{1 - x_0^2} = h \]
 Rearranging
@@ -127,7 +131,7 @@ Rearranging
 The total area is
 \[ A = \int_{-x_0}^{x_0} \sqrt{1 - x^2} \ dx \]
 
-The integral $\int \sqrt{1 - x^2} \ dx$ is famous.  If we do a trig substitution where $x = \sin \phi$ so then $\sqrt{1 - x^2} = \cos \phi$, and also $dx = \cos \phi \ d \phi$ so the integral is 
+This integral is famous.  If we do a trig substitution where $x = \sin \phi$ so then $\sqrt{1 - x^2} = \cos \phi$, and also $dx = \cos \phi \ d \phi$, the integral is 
 \[ \int \cos^2 \phi \ d \phi = \frac{1}{2} (\phi + \sin \phi \cos \phi) \]
 which we solved without comment above.
 
@@ -135,37 +139,69 @@ It is easily checked:
 \[ \frac{d}{d \phi} \ \frac{1}{2} (\phi + \sin \phi \cos \phi) = \frac{1}{2} (1 - \sin^2 \phi + \cos^2 \phi) \]
 \[ = \frac{1}{2} (2 \cos^2 \phi) = \cos^2 \phi \] 
 
-So, in principle, we could integrate the area of the circle between $-x_0$ and $+x_0$, find the part which lies below the line $y = h$, and then add on the pieces from the ends.
+We could integrate the area of the circle between $-x_0$ and $+x_0$, find the part which lies below the line $y = h$, and then add the pieces from the ends.  There is a better way.
 
-There is a better way.
-\subsection*{last view}
-The last view (which is so simple that I'll skip the diagram), is to turn the circle another quarter-turn.  The area that we want is simply
+\subsection*{vertical view}
+The last view (which is so simple that I'll skip the diagram for a moment), is to turn the circle another quarter-turn.  The area that we want is simply
 \[ A = \int_0^h  \sqrt{1 - x^2} \ dx \]
-
-In terms of the trig substitution this is
-\[ A= \frac{1}{2} (\phi + \sin \phi \cos \phi) \]
-Switching back to the variable $x$ we have
-\[ A = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} ) \]
-
-The bounds are simply $0$ and $h$.  But since $x=0$ at the lower bound, the expression evaluates to $0$ there.  At the upper bound we have
-\[ A =  \frac{1}{2} (\sin^{-1} h + h \ \sqrt{1 - h^2} ) \]
 We need a further factor of $2$ for the final answer because this is only the area \emph{above} the $x$-axis.
 
+In terms of the trig substitution (and multiplying by that factor of $2$)  this is
+\[ A= \phi + \sin \phi \cos \phi \]
+Switching back to the variable $x$ we have
+\[ A = \sin^{-1} x + x \ \sqrt{1 - x^2} \]
+The first term on the right-hand side is the inverse sine, which can be read as ``the angle whose sine is $x$".
+
+The bounds are simply $0$ and $h$.  But since $x=0$ at the lower bound, the expression evaluates to $0$ there.  At the upper bound we have
+\[ A =  \sin^{-1} h + h \ \sqrt{1 - h^2} \]
+
 What is $h$?  If you look back to the first diagram you should be able to see that $h = \sin \theta$, so finally
-\[ A =  \sin^{-1} \sin \theta + \sin \theta \cos \theta \]
-\[ =  \theta + \sin \theta \cos \theta \]
+\[ A =  \theta + \sin \theta \cos \theta \]
 
 This is equal to the answers from other approaches, as we should require.
 
-The other nice thing about this is we see again where the terms come from --- as in the geometric approach above.  Notice that the area under the curve can be constructed in two parts by drawing the radius to the point $(x,y)$.
+The other nice thing about this is we see again where the terms come from --- as in the geometric approach above.  The area under the curve can be constructed in two parts by drawing the radius to the point $(x,y)$.
 
 \begin{center} \includegraphics [scale=0.4] {circle_integral.png} \end{center}
-There is a sector of the circle and a triangle.  These correspond to the terms of
-\[ \frac{1}{2} \ [ \ \sin^{-1} x + x \sqrt{1-x^2} \ ] \]
-And accounting for the duplicated area below the $x$-axis, again we have
-\[ \theta + \sin \theta \cos \theta \]
+There is a sector of the circle and a triangle.  The area is
+\[ A = \frac{1}{2} \ (\sin^{-1} x + x \sqrt{1-x^2} ) \]
 
-I find that very illuminating.
+Accounting for the duplicated area below the $x$-axis, these correspond to the terms of
+\[ A = \sin^{-1} x + x \sqrt{1-x^2} \]
 
+It is easy to see how this relates to $\theta$:
+\[ A = \theta + \sin \theta \cos \theta \]
+
+\subsection*{cartesian coordinates}
+
+Let's try to calculate the same area with the original orientation and without displacing the circle, i.e. with the origin of coordinates at the center of the circle.
+\begin{center} \includegraphics [scale=0.4] {polar_area3.png} \end{center}
+
+We will call the point where the ray intercepts the circle $(x_0,y_0)$.  We can then break the figure up into a triangle with base $1 + x_0$, height $y_0$, and area
+\[ A_{\triangle} = \frac{1}{2} \ (1 + x_0) y_0 = \frac{y_0}{2} + \frac{x_0 y_0}{2} \]
+
+We note that 
+\[ y_0 = \sin \phi = \sin 2 \theta = 2 \sin \theta \cos \theta \]
+Hence
+\[ A_{\triangle} = \sin \theta \cos \theta + \frac{x_0 y_0}{2} \]
+So that is one of the terms that we need to match the other answers.  
+
+Next, the tip of the circle is (using the integral we solved earlier):
+\[ A_{\odot} = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} \bigg |_{x_0}^1 ) \]
+
+Neglect the leading factor of $1/2$ for the moment.  At the upper bound the first term is $\pi/2$, because the sine of $\pi/2$ is equal to $1$.  
+
+Obviously, we have to get rid of that, but how?
+
+Considering the lower bound the first term is $\sin^{-1} x_0$.  Going back to the diagram, $x_0$ is the \emph{cosine} of the base angle $\phi$, so it is the sine of $\pi/2 - \phi$.  For the first term only, upper bound minus lower bound, and still ignoring that factor of $2$:
+\[ \pi/2 - \sin^{-1} ( \sin (\pi/2 - \phi)) = \phi \]
+The whole thing is then
+\[ A_{\odot} = \frac{1}{2} (\phi - x_0 \sqrt{1 - x_0^2} \ ) \]
+But $\phi = 2 \theta$ and the second term is also $x_0 y_0$ so this becomes
+\[ A_{\odot} = \theta - \frac{x_0 y_0}{2} \]
+Hence
+\[ A_{\text{tot}} = A_{\triangle} + A_{\odot} = \theta + \sin \theta \cos \theta \]
+
+$\square$
 
 \end{document}
