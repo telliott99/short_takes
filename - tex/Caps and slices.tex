@@ -107,9 +107,9 @@ The equation for a unit circle of radius $R$ centered at the origin is simply
 Every point $(x,y)$ on the circle satisfies this equation.
 
 For a circle displaced from the origin to $(h,k)$, the equation is
-\[ r^2 = (x-h)^2 + (y-k)^2 \]
+\[ R^2 = (x-h)^2 + (y-k)^2 \]
 
-Here, we have
+Here, we have unit circle whose origin is at $(1,0)$:
 \[ 1^2 = (x-1)^2 + y^2 \]
 This places the origin of coordinates at the bottom-left corner of the figure.
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
@@ -117,11 +117,12 @@ This places the origin of coordinates at the bottom-left corner of the figure.
 Expanding
 \[ 1 = x^2 - 2x + 1 + y^2 \]
 
-For a slice of the circle, the lengths of the two rays bounding the slice are different.  Since $r$ varies with angle $\theta$, we are looking for an expression for $r(\theta)$.  
+$r$ is the length of the ray extending from the origin to a point on the circle.  For a slice of the circle, the lengths of the two rays bounding the slice are different.  Since $r$ varies with angle $\theta$, we are looking for an expression for $r(\theta)$.  
 
 For the ray of length $r$ terminating at $(x,y)$ on the circle, $x = r \cos \theta$ and $y = r \sin \theta$ so $x^2 + y^2 = r^2$ and then
 \[ 1 = r^2 - 2x + 1 \]
-Substituting for $x$
+\[ r^2 = 2x \]
+Substituting for $x=r \cos \theta$
 \[ r^2 = 2 r \cos \theta \]
 \[ r = 2 \cos \theta \]
 which is the same as our simple analysis of the shapes.
@@ -130,34 +131,35 @@ which is the same as our simple analysis of the shapes.
 
 Consider the triangle with two sides that are radii of the circle, and third side $r$.  We have that $a = R \cos \theta$ and $r = 2a$ so $r = 2 R \cos \theta$.  
 
-This fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle.
+All this fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle.
 
 \subsection*{law of cosines}
 
-Another way to get an expression for $r$ in terms of the angle subtended uses the law of cosines.  Recall that for three sides of a triangle $a,b$ and $c$ and angle $C$ between $a$ and $b$ we have:
+Another way to get an expression for $r$ in terms of the subtended angle uses the law of cosines.  Recall that for three sides of a triangle $a,b$ and $c$ and angle $C$ between $a$ and $b$ we have:
 \[ c^2 = a^2 + b^2 - 2ab \cos C \]
 
 So here
 \[ R^2 = r^2 + R^2 - 2rR \cos \theta \]
 \begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
 
-This gives a quadratic in $r$
+This gives the same quadratic in $r$
 \[ r^2 = 2R \cos \theta \ r \]
 whose solution is
+\[ r = \frac{2R \cos \theta \pm \sqrt{4R^2 \cos^2 \theta}}{2} \]
 \[ r = 2R \cos \theta \]
 
 For the unit circle we have just 
 \[ r = 2 \cos \theta \ \ \ \ \ \  r^2 = 4 \cos^2 \theta \]
 
-It's a bit of a diversion, but a different perspective is to consider the central angle $\phi = 2 \theta$.  The supplementary angle to $\phi$ (call it $\phi'$) is the apex angle in the same double triangle we had before.  Its cosine is the same magnitude as $\cos \phi$ but with a minus sign.
+It's a bit of a diversion, but a different perspective is to consider the central angle $\phi = 2 \theta$.  The supplementary angle to $\phi$ (call it $\phi'$) is the apex angle in the same double triangle we had before.  As the supplementary angle, its cosine is the same magnitude as $\cos \phi$ but with a minus sign.
 
 The law of cosines gives here:
 \[ r^2 = R^2 + R^2 - 2 R^2 \cdot (- \cos 2 \theta) \]
 For the unit circle
 \[ r^2 = 2 + 2 \cos 2 \theta \]
 
-Compared to what we had before it seems a little different
-\[ r^2 = 2 + 2 \cos 2 \theta \stackrel{?}{=} 4 \cos^2 \theta \]
+Compared to what we had before the value of $r^2$ seems a little different
+\[ 2 + 2 \cos 2 \theta \stackrel{?}{=} 4 \cos^2 \theta \]
 
 But this is the double angle formula in disguise.  Rearranging:
 \[ 1 + \cos 2 \theta = 2 \cos^2 \theta \]
@@ -167,17 +169,17 @@ which is correct.
 
 \subsection*{integral}
 
-Now we want to do some calculus.  As we've seen, it is unnecessary for the area calculation, but the terms in the solution have obvious counterparts in the geometry we've already done.
+Now we want to do some calculus.  As we've seen, it isn't necessary for the area calculation, but the terms in the solution have obvious counterparts in the geometry we've already done.
 
 If the length of the ray is $r$ then the "sides" of the relevant area element are $r$ and $r \ d \theta$:
 \begin{center} \includegraphics [scale=0.4] {polar_area_element.png} \end{center}
-The figure above gives the area element in two variables, but we can replace the $\int r \ dr$ part by $\frac{r^2}{2}$ (trust me).
+Technically, this is a double integral over the area element in two variables, but we can replace the inner integral $\int r \ dr$ part by $\frac{r^2}{2}$ (trust me).
 
 The area is
 \[ A =  \frac{1}{2} \  \int_0^{\theta} r^2 \ d \theta \]
-The factor of one-half comes from the triangular shape.
+You can say that the factor of one-half comes from the triangular shape.
 
-Using the first expression for $r^2$ the integral is 
+Using our first expression for $r^2$ the integral is 
 \[ A = 2 \int \cos^2 \theta \ d \theta = \theta + \sin \theta \cos \theta \bigg |_0^{\theta} \]
 \[ = \theta + \sin \theta \cos \theta \]
 
@@ -187,16 +189,18 @@ and using the second version it is
 \[ = \theta + \frac{1}{2} \ \sin 2 \theta \ \bigg |_0^{\theta} = \theta + \frac{1}{2} \sin 2 \theta \]
 \[ = \theta + \sin \theta \cos \theta \]
 
-From the double angle formula for sine.  
+The last step uses the double angle formula for sine.  If you haven't seen $\int \cos^2 x \ dx$ before, the second solution probably makes more sense.
 
-We'll have more to say about the first solution, below.  If we didn't already know how to solve $\int \cos^2 x \ dx$, this would give one.
+We'll have more to say about this below.  If we didn't already know how to solve $\int \cos^2 x \ dx$, this would give one.
 
 \subsection*{yet another view}
 The equation of the unit circle as a function $y = f(x) = \sqrt{1- x^2}$.
 
-Consider a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).  
+Consider a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).  We might find the two points where the chord meets the circle.  Let's call them $\pm \ x_0$.  
 
-For this approach, we must find the two points where the chord meets the circle.  Let's call them $\pm \ x_0$.  These are the two endpoints which are on the circle and where the corresponding $y$-value is $y_0 = h$.
+Then we would have the area of a rectangle plus two wingtips.
+
+$\pm \ x_0$ are the two endpoints which are on the circle and where the corresponding $y$-value is $y_0 = h$.
 
 \[ y_0 = \sqrt{1 - x_0^2} = h \]
 Rearranging
@@ -205,13 +209,13 @@ Rearranging
 The total area is
 \[ A = \int_{-x_0}^{x_0} \sqrt{1 - x^2} \ dx \]
 
-This integral is also famous, and is really the same as the one we showed before.
+This integral is also famous, and turns out to be the same as the one we showed before.
 
 We do a trig substitution 
 \begin{center} \includegraphics [scale=0.4] {trig1.png} \end{center}
 except that because we are already using $\theta$ for something else, let's rename the angle from the figure as $u$.
 
-So $x = \sin u$, and $\sqrt{1 - x^2} = \cos u$, and also $dx = \cos u \ d u$, the integral is 
+So $x = \sin u$, and $\sqrt{1 - x^2} = \cos u$, and also $dx = \cos u \ d u$, and the integral is 
 \[ \int \cos^2 u \ du = \frac{1}{2} (u + \sin u \cos u) \]
 which we solved previously.
 
@@ -221,9 +225,7 @@ This is easily checked:
 
 $\square$
 
-It is a curious fact that the derivative of the double angle formula for sine gives that for cosine, and vice-versa.
-
-Note on caps:  it is tempting to use the same formula to calculate the area of a circular cap as an integral with the angle as the variable, but there is a subtlety.  Namely, this angle is $t$, the complement of $s$.  So the $r(\theta)$ term is not cosine but $\sin t$.  The area is
+Note on circular caps:  it is tempting to use the same formula to calculate the area of a circular cap as an integral with the angle as the variable, but there is a subtlety.  Namely, this angle is $t$, the complement of $s$.  So the $r(\theta)$ term is not cosine but $\sin t$.  The area is
 \[ 2 \int_0^{t} \sin^2 t \ dt = t - \sin t \cos t \]
 which matches what we had before.
 
@@ -281,20 +283,20 @@ Hence
 \[ A_{\triangle} = \sin \theta \cos \theta + \frac{x_0 y_0}{2} \]
 So that is one of the terms that we need to match the other answers.  The term with $x_0 y_0/2$ will cancel.
 
-Next, the edge of the circle is (using the integral we solved earlier):
-\[ A_{\odot} = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} \bigg |_{x_0}^1 ) \]
+Next, the edge of the D-shaped edge of the circle is (using the integral we solved earlier):
+\[ A_{D} = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} \bigg |_{x_0}^1 ) \]
 
 At the upper bound the first term is $\pi/2$, because the sine of $\pi/2$ is equal to $1$.  Obviously, we have to get rid of that, but how?
 
 Considering the lower bound the first term is $\sin^{-1} x_0$.  Going back to the diagram, $x_0$ is the \emph{cosine} of the base angle $\phi$, so it is the sine of $\pi/2 - \phi$.  For the first term only, upper bound minus lower bound, and still ignoring that factor of $2$:
 \[ \pi/2 - \sin^{-1} ( \sin (\pi/2 - \phi)) = \phi \]
 The whole thing is then
-\[ A_{\odot} = \frac{1}{2} (\phi - x_0 \sqrt{1 - x_0^2} \ ) \]
+\[ A_{D} = \frac{1}{2} (\phi - x_0 \sqrt{1 - x_0^2} \ ) \]
 But $\phi = 2 \theta$ and the second term is also $x_0 y_0$ so this becomes
-\[ A_{\odot} = \theta - \frac{x_0 y_0}{2} \]
+\[ A_{D} = \theta - \frac{x_0 y_0}{2} \]
 
 Hence
-\[ A_{\text{tot}} = A_{\triangle} + A_{\odot} \]
+\[ A_{\text{tot}} = A_{\triangle} + A_{D} \]
 \[ =  \theta - \frac{x_0 y_0}{2} + \sin \theta \cos \theta + \frac{x_0 y_0}{2} \]
 \[ = \theta + \sin \theta \cos \theta \]
 
