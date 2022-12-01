@@ -25,6 +25,7 @@
 
 I found a nice proof of the irrationality of $e$ in the calculus text by Courant and Robbins.  It is a proof by contradiction.  We start by assuming that $e$ is rational.
 \[ e = \frac{p}{q}, \ \  p,q \in \mathbb{N} \]
+
 We make use of the infinite series representation of $e$
 \[ e = 1 + 1 + \frac{1}{2!}  + \frac{1}{3!} + \frac{1}{4!} + \cdots \]
 From this, it is obvious that $e > 2$.
@@ -67,5 +68,45 @@ This is the geometric series with $r = 1/3$ and first term equal to r, and the s
 Since the right-hand side is equal to an integer plus something ``less than or equal to $\frac{1}{2}$", it is not an integer, and cannot be equal to the left-hand side, which is equal to an integer.  We have reached a contradiction.  
 
 Therefore $e$ cannot be equal to $p/q$, for $p,q \in \mathbb{N}$.
+
+\subsection*{proof 2}
+
+I found another proof online
+
+\url{https://twitter.com/TamasGorbe/status/1588200452880990210}
+
+It is attributed to Fourier (1815).
+
+We assume the infinite series expansion of $e$ (really, this is the definition of $e$):
+\[ e = 1 + \frac{1}{1!} + \frac{1}{2!} + \dots \]
+
+If $e$ is rational, we mean that $e = m/n$ for integers $m,n > 1$.  
+
+Multiply both sides by $n!$
+\[ n! \ e = (n-1)! \ m \]
+Since the right-hand side is an integer, the left-hand side must be one also.  
+
+Now, consider the following subtraction.
+\[ n! \ e - n! \ [ \ 1 + \frac{1}{1!} + \frac{1}{2!} \dots + \frac{1}{n!} \  ] \]
+
+The first term is an integer from what we just said.
+
+The second term is also an integer because each term in the finite series is an integer.  
+
+When we substitute the series form of $e$ and carry out the subtraction, what remains must be an integer also
+\[ \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)}  + \dots \]
+
+which is positive, but less than
+\[ \frac{1}{n+1} + \frac{1}{(n+1)^2} + \frac{1}{(n+1)^3}  + \dots = \frac{1}{n} < 1 \]
+
+That's a contradiction.  Hence, $e$ is not rational.
+
+$\square$
+
+The last step depends on the fact that this is a geometric series with common ratio $1/(n+1)$.  Since that term is between $-1$ and $1$, the series converges and its value is 
+
+\[ \frac{1/(n+1)}{1 - 1/(n+1)} = \frac{1}{n} \]
+
+
 
 \end{document}

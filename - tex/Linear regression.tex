@@ -1,0 +1,368 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Linear regression}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+\subsection*{introduction}
+
+A numeric variable (also called a quantitative variable) is a characteristic or "thing" whose values are numbers and these numbers may differ from one example to the next.  
+
+The current price of a pound of ground beef is an example.  The number of grams of jello pudding in a box.  The number of heartbeats in a minute.  The number of microseconds it takes to ride your bike one mile.  You get the idea.
+
+There are many situations where two numerical variables are correlated.  The last two variables might be negatively correlated.  If you're riding fast and the number of seconds is smaller, your heart rate will probably go up. 
+
+Years in A.D. (\emph{anno domini}) or C.E. (Christian era) notation are another common variable that we will see in a bit.
+
+A college admissions officer hopes to admit students who are more likely to do well in college, i.e. to have good grades (a high GPA).
+
+She might ask whether there is a positive correlation between grades in high school and in college.  Another comparison might use test scores in admission exams, and subsequent GPA in college.  Which does a better job of predicting "success"?
+
+A second example is Moore's law.  Gordon Moore, a famous computer pioneer, noted that the number of transistors carried on an integrated circuit (IC) in computers doubles about every two years. 
+
+Since the IC or chips stay roughly the same size, for this trend to continue, each of the transistors on a chip must be getting smaller.  The current size is about 5 nanometers, only about 25 times the size of the silicon atoms (0.2 nm) from which circuits are built.
+
+\begin{center} \includegraphics [scale=0.3] {reg5.png} \end{center}
+ 
+\url{https://en.wikipedia.org/wiki/Moore%27s_law}
+
+ Note that that the values plotted above on the $y$-axis are the logarithms of the data points.  This is called a \emph{semi-log} plot.  This type of plot is commonly used when the rate of change in the $y$ variable is exponential with time, for example if it doubles every $n$ years.
+ 
+ A third example is the price of a commodity, like gasoline.
+ \begin{center} \includegraphics [scale=0.6] {reg3.png} \end{center}
+
+If we plot the years on the $x$-axis and the prices on the $y$-axis, it looks like this:
+ \begin{center} \includegraphics [scale=0.35] {reg6.png} \end{center}
+
+For plots like this there are three general possibilities:  positive correlation, negative correlation, and uncorrelated.  A technical word for this is \emph{covariance}.  Covariance is a quantitative thing, it is described by a statistic which indicates that the correlation is excellent or very good, or less so.
+
+ \begin{center} \includegraphics [scale=0.6] {reg2.png} \end{center}
+
+\subsection*{toy example}
+
+Let us make a very simple example, in order to understand how correlation is measured.  We want to find an equation so that we can predict the $y$ variable if we know the $x$ variable.  It won't be perfect, but that's OK.
+
+Start with three pairs of ($x,y$) values: (1,2), (2,2), (3,4).  Open Desmos and plug them into a table, then make a linear model.  Do this by typing $y \sim mx + b$, with subscript $1$ on both the $x$ and $y$.
+
+\begin{center} \includegraphics [scale=0.3] {regression_toy.png} \end{center}
+Desmos says that the linear regression model gives a line with a slope of $1$ and a y-intercept of $2/3$.  We want to know how the calculation was done.  It's actually pretty easy.
+
+\subsection*{mean}
+First, we need the average or \emph{mean} of the $x$ and $y$ values.  One symbol for the mean is to put a little bar over the letter, and in talking about them say "x-bar" and "y-bar".
+\[ \bar{x} = \frac{1 + 2 + 3}{3} = 2 \ \ \ \ \ \ \bar{y} = \frac{2 + 2 + 4}{3} = 8/3 \]
+Later on, we'll use another convention, which is to call the mean of $x$, $\mu(x)$.
+
+\subsection*{using $\bar{x}$ and $\bar{y}$}
+Take each $x$ value in the list of values and subtract the mean.  Do not add them together yet but just keep them in order in a list.
+\[ x_1 - \bar{x} = 1 - 2 = - 1 \]
+\[ x_2 - \bar{x} = 2 - 2 = 0 \]
+\[ x_3 - \bar{x} = 3 - 2 = 1 \]
+
+You may notice that if we \emph{did} add them together, the result would be zero.  Now do the same for $y$.
+\[ y_1 - \bar{y} = 2 - 8/3 = - 2/3 \]
+\[ y_2 - \bar{y} = 2 - 8/3 = - 2/3 \]
+\[ y_3 - \bar{y} = 4 - 8/3 = 4/3 \]
+
+\subsection*{multiply, and add}
+Take the corresponding values from each resulting list and multiply, then add the results together.
+
+For example, the first term is $(x_1 - \bar{x}) \cdot (y_1 - \bar{y})$.  I'm using $\cdot$ as the symbol for multiplication.
+
+\[ (-1 \cdot -2/3) + (0 \cdot -2/3) + (1 \cdot 4/3) \]
+\[ = 2/3 + 0 + 4/3 = 6/3 = 2 \]
+Th result of this calculation  is often called $SSxy$.  (Probably not because it's \emph{so sexy}).  
+
+We're almost there!  Go back to the first list.  Square each term.  The first one is $(x_1 - \bar{x})^2$.  Add them up.
+\[ -1 \cdot -1 + 0 \cdot 0 + 1 \cdot 1 \]
+\[ = 1 + 0 + 1 = 2 \]
+This is often called $SSxx$.
+
+\subsection*{equation}
+Divide the first result by the second ($SSxy/SSxx$).  This is the slope of the line that gives the best fit by linear regression.
+\[ m = \frac{SSxy}{SSxx} = \frac{2}{2} = 1 \]
+
+To complete our equation, we need the intercept, $b$.
+
+We can take advantage of the fact that the point corresponding to two means, namely, $(\bar{x},\bar{y})$, is exactly on the line.  We won't prove this just yet.
+
+The point $(2,8/3)$ is on the line, so it satisfies the equation $y = m x + b$.  Rearranging
+\[ b = y - mx \]
+
+And in this case, these are the means so we can write
+\[ b = \bar{y} - m \bar{x} \]
+\[ = 8/3 - (1 \cdot 2) = 2/3 \]
+
+And that's how the calculation is done.  We have the same answer as Desmos, which is good.
+
+At this point, you might want to break out a spreadsheet app like Excel or Numbers or the one on Google Drive, and try to code the calculations we just did.
+
+If you're adventurous, you could make a new spreadsheet for the gasoline example and see if you can get the same numbers for $m$ and $b$ of the regression equation as Desmos gives.
+
+My version is at this link on Google Drive
+
+\url{https://docs.google.com/spreadsheets/d/1umQvka2ECjHB6rKcInvYP0qCnUvJ-AQyyaqXAmU6mEA/edit?usp=sharing}
+
+It looks like this:
+ \begin{center} \includegraphics [scale=0.4] {reg7.png} \end{center}
+I'm not too great on formatting yet, but you can see the values for $m$ and $b$ match, if you enter the same data on Desmos.
+
+\subsection*{Sigma notation}
+In statistics (and in all of mathematics) we try to simplify the notation, because it makes it easier to concentrate on what's important.  
+
+Compare this list of values:
+\[ x_1, x_2, x_3, x_4, x_5, x_6, x_7, x_8, x_9, x_{10} \]
+with this one
+\[ x_1, x_2, \dots x_{10} \]
+The second is shorter, but the meaning (I think) is clear.  The dots indicate the values that we didn't write explicitly.
+
+In the general case there don't have to be exactly $10$ values, so for $n$ values we can write
+\[ x_1, x_2, \dots x_n \]
+
+When we want to talk about a value from the list, without specifying exactly which one, call it $x_i$, with a subscript letter $i$ written a little below the line.  
+
+Then we can write the sum of all the values using the capital Greek letter sigma ($\Sigma$) as
+\[ \sum x_i  \]
+where
+\[ \sum x_i = x_1 + x_2 \dots + x_n \]
+
+If we wanted to be really careful, we might write
+\[ \sum_{i=1}^{i=n}  x_i = x_1 + x_2 \dots + x_n \]
+
+The $i$ stands for \emph{index}.  Since there is only one index involved it doesn't really hurt to \emph{suppress} or leave it out.
+\[ \sum x_i  \]
+And, in some cases we might even write
+\[ \sum x  \]
+and just remember that $x$ takes on multiple values.
+
+Using this notation, the definition of the mean is
+\[ \bar{x} = \frac{1}{n} \sum x_i  = \frac{1}{n}  (x_1 + x_2 \dots + x_n) \]
+Sum up all the values and then divide by how many there are.
+
+Another important thing to remember about sum notation is that if we have two or more terms with the same index
+\[ \sum (x_i + y_i) \]
+We can spread the sums out over the variables.
+\[ \sum x_i + \sum y_i \]
+This is easy to show by writing out all the terms and just rearranging them.
+
+\subsection*{Variance}
+
+For a given set of values, we are often interested in how closely clustered they are.  In the big picture overall, how different are the values from the mean?
+
+We could subtract the mean from each value, as we did above
+\[ \sum (x_i - \bar{x}) = (x_1 - \bar{x}) + (x_2 - \bar{x}) \dots + (x_n - \bar{x})  \]
+
+There is a problem, however.  Generally, some values will be  larger and some smaller than the mean, giving negative and positive values after subtracting the mean, and there will be cancellations when they are all added up.
+
+In fact, the expression above always evaluates to zero.  Can you rearrange terms to prove it?  I can't resist.  The formula contains $n$ copies of the mean value of $x$:
+
+\[ \sum (x_i - \bar{x}) = (x_1 - \bar{x}) + (x_2 - \bar{x}) \dots + (x_n - \bar{x}) \]
+\[ = x_1 + x_2 \dots + x_n - n \cdot \bar{x} \]
+\[ = \sum x_i - n \cdot \bar{x} \]
+But by definition $\bar{x} = (\sum x_i)/n$ so we have
+\[ = \sum x_i - n \cdot (\sum x_i)/n \]
+\[ = \sum x_i - \sum x_i  = 0 \]
+
+To make all the differences positive or at least non-negative, a useful trick is to square them
+\[ \sum (x_i - \bar{x})^2 = (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 \dots + (x_n - \bar{x})^2  \]
+
+This is just what we called $SSxx$ before.
+
+There is one more manipulation.  Divide the whole thing by the number of items, $n$, and give it a special name, the \emph{variance} of $x$.  Write $V$ for variance:
+\[ V_x = \frac{1}{n} \sum (x_i - \bar{x})^2 \]
+
+When there are two variables, $x$ and $y$, we can also compute the \emph{co-variance}, $C$:
+\[ C_{xy} = \frac{1}{n} \sum (x_i - \bar{x}) \cdot (y_i - \bar{y})  \]
+\[ V_x = \frac{1}{n} \sum (x_i - \bar{x}) \cdot (x_i - \bar{x}) \]
+We might reasonably call the variance of $x$ the co-variance of $x$ with itself, or $C_{xx}$.
+
+Divide one by the other, the factors of $1/n$ cancel, and we have
+\[ \frac{C_{xy}}{V_x} = \frac{SSxy}{SSxx} = m \]
+where $m$ is the slope of the linear regression equation.  And as before, $b = \bar{y} - m \bar{x}$.
+
+\subsection*{Standard deviation}
+
+The variance as we just calculated it, is often written as $\sigma^2$.  The reason is that the square root of the variance is often used as a measure of spread in values.  This is called the standard deviation, stdev or $\sigma$.
+
+\subsection*{residuals or errors}
+The whole point of this topic is to take some bivariate data, plot it, and then also find a line that best fits the data.  By "best fit" we mean something precise.  
+
+Draw a vertical from each data point to the line of best fit.  Compute that distance as $y_i - (mx_i + b)$.  $y_i$ is the actual $y$-value from the data point, and $mx_i - b$ is the predicted value from the line of best fit.
+
+The difference is called the \emph{residual} or error for that data point.  The smaller the total of all the errors, the more tightly clustered the data points are.
+
+The formulas for the line of best fit are derived by asking for the line where if we take the square of each residual and add them all up, that total is smaller than for any other line.  We will see how to do that later.
+
+Let's just look at the data again.  Recall that for the toy example, we had data of $(1,2),(2,2),(3,4)$ and an equation of $y = x + 2/3$.  Let us compute the residual for each point.  Subtract the predicted value for each $x$ using the equation, from the given data point for $y$.
+
+\[ 2 - 5/3 = 1/3 \]
+\[ 2 - 8/3 = -2/3 \]
+\[ 4 - 11/3 = 1/3 \]
+
+The sum of the errors is zero.  This is always true for linear regression.
+
+\subsection*{correlation coefficient $r$ and $r^2$}
+
+There are two more statistics listed by Desmos, $r$ and $r^2$.  These describe how well the line fits the data, or how well the data fits the line, depending on your point of view.
+
+First compute the covariance of $x$ and $y$
+\[ C_{xy} = \frac{1}{n} \cdot SSxy \]
+
+Then compute the variance for both $x$ and $y$
+\[ \sigma^2_x = \frac{1}{n} \cdot SSxx \]
+\[ \sigma^2_y = \frac{1}{n} \cdot SSyy \]
+
+As we said, the square root of the variance is called the \emph{standard deviation}.
+
+Pearson's correlation coefficient is defined to be:
+\[ \frac{C_{xy}}{\sigma_x \cdot \sigma_y} = \frac{C_{xy}}{\sqrt{V(x)} \cdot \sqrt{V(y)}} \]
+
+Each of the terms in the denominator has a factor of $1/\sqrt{n}$ which multiply to give a factor of $1/n$.  So we see that the $n$'s will cancel, when taking account of the numerator.
+
+We already have $SSxy = 2$ and $SSxx = 2$.  We just need $SSyy$.
+\[ SSyy = (-2/3)^2 + (-2/3)^2 + (4/3)^2 \]
+\[ = 4/9 + 4/9 + 16/9 = 24/9 = 8/3 \]
+and then
+\[ \frac{2/n}{\sqrt{2/n} \cdot \sqrt{8/3n}} \]
+
+As we said, the $n$'s cancel.  Pull $\sqrt{2}$ out of both square roots to cancel $2$ on top and bottom.  Invert to obtain 
+\[ r = \sqrt{3/4} = 0.866 \]
+\[ r^2 = 3/4 = 0.75 \]
+And that matches what Desmos gave.
+
+If the data were perfectly correlated, then $r$ and $r^2$ would be equal to one.  For example, it the $x$-values were plotted against themselves, they would all lie exactly on a straight line with $r^2 = 1$.
+
+\subsection*{another method}
+There is a second formula, often seen, to compute the slope and intercept of the linear regression equation.  
+\[ \frac{\mu (x_i y_i) - \bar{x} \bar{y}}{\mu (x_i x_i) - \bar{x} \bar{x}} \]
+
+Here we are using $\mu$ for mean, partly because this typesetting program won't draw the bar properly over $x_i y_i$.
+
+We will show later that the two are actually the same formula in different terms.
+
+Compute $x \cdot y$ for each position and then find the mean of those values.
+\[ \frac{1 \cdot 2 + 2 \cdot 2 + 3 \cdot 4}{3} = 6 \]
+Subtract the product of the means $\bar{x} \cdot \bar{y}$ 
+\[ 6 - 2 \cdot 8/3 = 2/3 \]
+
+Similarly, compute $x \cdot x$ for each position and find the mean of those values.
+\[ \frac{1 \cdot 1 + 2 \cdot 2 + 3 \cdot 3}{3} = \frac{14}{3} = 4 + 2/3 \]
+Subtract $\bar{x} \cdot \bar{x}$
+\[ 14/3 - 4 = 2/3 \]
+
+Divide the first result by the second to obtain $m = 1$, once again.
+
+We derive the formulas used for these computations in the next part.  It is a little more sophisticated and uses a tiny bit of calculus.
+
+\subsection*{derivation of the formulas}
+Suppose we have three points $(x_1,y_1)$, $(x_2,y_2)$ and $(x_3,y_3)$.  They nearly lie on one line, but not exactly.
+
+We want to find a linear regression equation $y = Ax + B$, where $A$ and $B$ are the slope and intercept that give the "best fit" to the data, defined in the following way.  
+
+The error of the predicted value for $y$ from each $x_i$ is different than what is actually in the data by
+\[ e_i = y_i - (Ax_i + B) \]
+The error squared is
+\[ e_i^2 = \ [ \ y_i - (Ax_i + B) \ ]^2 \]
+We want the total of all the squared errors to be a minimum.  Note that we can subtract $y_i$ from $Ax_i + B$, or subtract $Ax_i + B$ from $y_i$, and obtain the same result for the square.  That's because
+\[ (c - d)^2 = \ [ \ (-1)(d - c) \ ]^2 \ = (-1)^2 (d-c)^2 = (d - c)^2 \]
+
+The total error $e$ is
+\[ e = \sum_{i=1}^{i=n}  \ [ \ y_i - (Ax_i + B) \ ]^2 \]
+
+The $x$ and $y$ values are \emph{constants} for a given problem, but $A$ and $B$ are variables.  We are going to take the partial derivatives of $e$ with respect to $A$ and $B$.  
+
+Do not be nervous because we have two variables.  Partial derivatives are just regular derivatives in disguise.  When taking a partial derivative, say $\partial e/\partial A$, the other variable $B$ is treated as a constant.
+
+Nor does the sum cause any difficulty, since the derivative of a sum is the sum of the derivatives.  
+
+Thus (suppressing the index on the summation sign)
+\[ \frac{\partial}{\partial A} \sum  \ [ \ y_i - (Ax_i + B) \ ]^2 \]
+\[ = \sum  2 \ [ \ y_i - (Ax_i + B) \ ] \ (-x_i) \]
+That factor of $-x_i$ comes from the chain rule applied to the term $-(Ax_i + B)$.  $x_i$ is the constant cofactor of the variable $A$, with a minus sign out front.
+
+The factor of $2$ can go before the summation, and multiplying through
+\[ \frac{\partial e}{\partial A} = 2 \sum (Ax_i^2 - x_i y_i + B x_i) \]
+
+The second equation is the same except for that factor of $x_i$, since $B$ just stands by itself without any cofactor.
+\[ \frac{\partial e}{\partial B} = 2 \sum  \ [ \ y_i - (Ax_i + B) \ ] (-1) \]
+\[ = 2 \sum  \ [ \ Ax_i - y_i + B \ ] \]
+
+We set both of these partial derivatives equal to zero to find a minimum, and write the individual sums.  
+
+The factors of $2$ now go away and we have
+\[ A \sum x_i^2 -  \sum x_i y_i + B \sum x_i = 0 \]
+\[ A \sum x_i -  \sum y_i + \sum B = 0 \]
+
+Note that $\sum B$ is $B$ taken $n$ times, or just $nB$.  
+
+We also reverse the order in the last term of the first equation, for clarity below.
+\[ A \sum x_i^2 -  \sum x_i y_i + \sum x_i B = 0 \]
+\[ A \sum x_i -  \sum y_i + nB = 0 \]
+
+We have two equations and two unknowns.  Some people would use simple linear algebra (like Cramer's rule) here, but instead, just solve the second equation for $B$.
+\[ B = \frac{- A \sum x_i +  \sum y_i}{n} \]
+
+Substitute back into the first equation:
+\[ A \sum x_i^2 -  \sum x_i y_i - \sum x_i \cdot (\frac{1}{n}) \cdot ( A \sum x_i +  \sum y_i) = 0 \]
+
+Gather terms, rearrange, and divide by the cofactors of $A$
+\[ A = \frac{\sum x_i y_i - (1/n) \sum x_i \sum y_i}{\sum x_i^2 - (1/n) \sum x_i \sum x_i } \]
+
+If we divide the top and bottom by $1/n$ we obtain just the right number of $n$'s to turn all those sums into means.
+\[ A = \frac{\mu(x_i y_i) - \mu(x) \mu(y)}{\mu(x_i x_i) - \mu(x)  \mu(x)} \]
+
+This formula shows how to calculate the slope of a linear regression equation.
+
+\subsection*{connection to a second formula}
+
+There is a second formula for $A$, namely the one we used in the first example
+\[ A = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i -\bar{x})^2 } \]
+
+We want to show that these two are equivalent.  Start with the denominator of this formula, using $m$ for $\bar{x}$ and suppress the index $i$.  We have
+\[ \sum (x - m)^2 \]
+Expand the square
+\[ = \sum x^2 - \sum 2mx + \sum m^2 \]
+Since for any given data set the $x_i$ and $y_i$ are constants, so the mean $m$ is also a constant
+\[ = \sum x^2 - 2m \sum x + nm^2 \]
+
+But $\sum x = nm$ and then
+\[ = \sum x^2 - nm^2 \]
+\[ = \sum x^2 - m \sum x \]
+If at the end we multiply both the numerator and denominator by $1/n$ and use $\mu$ for the mean:
+\[ 1/n \cdot  \sum (x - m)^2 = \frac{1}{n} ( \sum x^2 - m \sum x) \]
+\[ = \mu(x^2) - \mu(x) \mu(x) \]
+
+This matches the denominator of the previous formula.  
+
+For the numerator:
+\[ \sum (x_i - \bar{x})(y_i - \bar{y}) = \sum (x_i y_i - x_i \bar{y} - y_i \bar{x} + \bar{x} \bar{y} ) \]
+\[ = \sum x_i y_i - \sum x_i \bar{y} - \sum y_i \bar{x} + \sum \bar{x} \bar{y} \]
+\[ = \sum x_i y_i - \bar{y} \sum x_i - \bar{x} \sum y_i  + n \bar{x} \bar{y} \]
+Multiplying by $1/n$ we have then
+\[ = \mu(x_i y_i) - \bar{y} \bar{x} - \bar{x} \bar{y} + \bar{x} \bar{y} \]
+\[ = \mu(x_i y_i) - \bar{x} \bar{y} \]
+So the whole thing is a match.
+
+\subsection*{solving for $B$}
+Recall that 
+\[ nB = - A \sum x_i +  \sum y_i \]
+\[ B = - A \bar{x} + \bar{y} \]
+\[ A \bar{x} + B = \bar{y} \]
+
+This not only gives a way to calculate $B$ but shows that $(\bar{x}, \bar{y})$ is on the line.
+
+\end{document}

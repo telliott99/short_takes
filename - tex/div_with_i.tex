@@ -1,0 +1,100 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Long division}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\[ \frac{1 + i}{2 + i} = \ \text{?} \]
+
+\subsection*{method 1}
+Multiply by the fraction formed from the complex conjugate of the denominator:
+
+\[ \frac{1 + i}{2 + i} \cdot \frac{2 - i}{2 - i} = \frac{3 + i}{5} \]
+
+The length of the resulting vector is $\sqrt{10}/5 = \sqrt{2/5}$.
+
+A slightly different approach is to use the inverse.  $z^{-1}$ is the inverse of $z$ if and only if
+\[ z \cdot z^{-1} = 1, \ \ \ \ \ \ z^{-1} = \frac{1}{z} \]
+so
+\[ \frac{w}{z} = w \cdot z^{-1} \]
+
+What is the inverse of $2 + i$?  It is almost $2 - i$ since
+\[ (2 + i)(2 - i) = 5 \]
+The inverse of $2 + i$ is $(2 - i)/5$.  And you can see that in the calculation that we did on the first line.
+
+\subsection*{method 2}
+Write the numbers in $r, \theta$ notation as
+\[ \sqrt{2} \ e^{\pi/4}, \ \ \ \ \ \sqrt{5} \ e^{\theta}, \text{ with } \theta = \tan^{-1} 1/2 \]
+
+Dividing $r$-values gives us the same length as before.  Subtracting the angles
+\[ \tan^{-1} 1 -  \tan^{-1} 1/2 \stackrel{?}{=}  \tan^{-1} 1/3 \]
+
+This is one of Gardner's problems.
+\begin{center} \includegraphics [scale=0.35] {gardner12.png} \end{center}
+Focusing on point $O$, it is clear that the central angle is $45^{\circ}$ (because $\triangle OBC$ is isosceles and $\angle OBC$ is a right angle), so the sum of the other two angles is also $45^{\circ}$.
+
+\subsection*{method 3}
+
+The last approach is long division.  I'm not going to try to typeset this.
+
+\url{https://twitter.com/MrHonner/status/1587593196606980097}
+
+But let's just think about it.  We're trying to divide $2 + i$ \emph{into} $1 + i$.  So the first factor is $1/2$ and we would write below $1 + i/2$ as what we need to subtract.  The remainder is $i - i/2 = i/2$.  
+
+The next step is to divide $2 + i$ into $i/2$.  The factor is $i/4$ and what we're subtracting is $-1/4$.
+
+Next, divide $2 + i$ into $1/4$.  The factor is $1/8$ and what we're subtracting is $i/8$.
+
+If you continue this, you will obtain two infinite series (see the web page)
+\[ S_r = \frac{1}{2} + \frac{1}{8} - \frac{1}{32} + \frac{1}{128} + \dots \]
+\[ S_i = i ( \frac{1}{4} - \frac{1}{16} + \frac{1}{64} - \frac{1}{256} + \dots ) \]
+
+The sign of the first term of $S_r$ is not quite right, but after that we have geometric series with the same common ratio $r = -1/4$.
+
+Since $-1 < r < 1$, the series converge.  
+
+There are various ways to remember the formula for the sum.  What I think of is to make the first term of the series equal to $1$.  
+
+Here we must adjust the sign of the first term before doing the rest.  
+
+\[ S_r = \frac{1}{2} + \frac{1}{8} - \frac{1}{32} + \frac{1}{128} + \dots \]
+Add $-1$ on both sides:
+\[ S_r - 1 = - \frac{1}{2} + \frac{1}{8} - \frac{1}{32} + \frac{1}{128} + \dots \]
+
+Make the first term $1$
+\[ (-2) \cdot (S_r - 1) = 1 - \frac{1}{4} + \frac{1}{16} - \frac{1}{64} \dots \]
+Now, the right-hand side is just 
+\[ \frac{1}{1 - r} = \frac{1}{5/4} = \frac{4}{5} \]
+so, putting things together
+\[ (-2) \cdot (S_r - 1) = \frac{4}{5} \]
+\[ S_r - 1 = - \frac{2}{5} \]
+I get $S_r = 3/5$, as expected.
+
+For the second series we start with
+\[ S_i = i ( \frac{1}{4} - \frac{1}{16} + \frac{1}{64} - \frac{1}{256} + \dots ) \]
+Remembering the equality $-i \cdot i = 1$
+\[ (-4i) \cdot S_i = 1 - \frac{1}{4} + \frac{1}{16} - \frac{1}{64} \dots \]
+\[ = \frac{4}{5} \]
+Applying the equality again, we obtain:
+\[ S_i = \frac{i}{5} \]
+
+Putting the two results together we have that the result of the long division is $(3 + i)/5$, which matches the other two methods.
+
+\end{document}
