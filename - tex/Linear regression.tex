@@ -27,7 +27,7 @@ The current price of a pound of ground beef is an example.  The number of grams 
 
 There are many situations where two numerical variables are correlated.  The last two variables might be negatively correlated.  If you're riding fast and the number of seconds is smaller, your heart rate will probably go up. 
 
-Years in A.D. (\emph{anno domini}) or C.E. (Christian era) notation are another common variable that we will see in a bit.
+Years are another common variable that we will see in a bit.  These might be adjusted, say for years since the year 2000, or they might be in A.D. or C.E. notation.
 
 A college admissions officer hopes to admit students who are more likely to do well in college, i.e. to have good grades (a high GPA).
 
@@ -248,20 +248,27 @@ We already have $SSxy = 2$ and $SSxx = 2$.  We just need $SSyy$.
 and then
 \[ \frac{2/n}{\sqrt{2/n} \cdot \sqrt{8/3n}} \]
 
-As we said, the $n$'s cancel.  Pull $\sqrt{2}$ out of both square roots to cancel $2$ on top and bottom.  Invert to obtain 
+As we said, the $n$'s cancel.  Pull $\sqrt{2}$ out of both square roots to cancel $2$ on top and bottom.  What is left is
+\[ \frac{1}{1 \cdot \sqrt{4/3}} \]
+
+Invert to obtain 
 \[ r = \sqrt{3/4} = 0.866 \]
 \[ r^2 = 3/4 = 0.75 \]
 And that matches what Desmos gave.
 
-If the data were perfectly correlated, then $r$ and $r^2$ would be equal to one.  For example, it the $x$-values were plotted against themselves, they would all lie exactly on a straight line with $r^2 = 1$.
+If the data were perfectly correlated, then $r$ and $r^2$ would be equal to one.  For example, if the $x$-values were plotted against themselves, they would all lie exactly on a straight line with $r^2 = 1$.
 
 \subsection*{another method}
-There is a second formula, often seen, to compute the slope and intercept of the linear regression equation.  
+There is a second formula to compute the slope and intercept of the linear regression equation.  
 \[ \frac{\mu (x_i y_i) - \bar{x} \bar{y}}{\mu (x_i x_i) - \bar{x} \bar{x}} \]
 
 Here we are using $\mu$ for mean, partly because this typesetting program won't draw the bar properly over $x_i y_i$.
 
 We will show later that the two are actually the same formula in different terms.
+
+The two formulas have advantages in different respects.
+
+\url{https://stats.stackexchange.com/questions/4446/sum-of-squares-two-ways-how-are-they-connected}
 
 Compute $x \cdot y$ for each position and then find the mean of those values.
 \[ \frac{1 \cdot 2 + 2 \cdot 2 + 3 \cdot 4}{3} = 6 \]
