@@ -110,30 +110,20 @@ This already says something strong.  Imagine what it would mean for $3$ to be a 
 
 \subsection*{inequality}
 
-Consider $p_1$, the least factor in the factorization of $n$, $p_1 p_2 \dots p_k$.  It is certainly possible that $p_1 \cdot p_1 = n$.  Or, possibly $q_1 \cdot q_1 = n$.
+Consider $p_1$, the least factor in the factorization of $n$, $p_1 p_2 \dots p_k$.  
 
-But at most one of these can be true, since no $p$ is a $q$ and vice-versa.
+It is certainly possible that $p_1 \cdot p_1 = n$.  This happens when $n$ is a perfect square, like $9 = 3 \cdot 3$.  Since the $p$'s and $q$'s are distinct, at most, this is true of $p_1$ or $q_1$ but not both.  
 
-On the other hand, if $p_1 \cdot p_1 \ne n$, then
-\[ p_1 \cdot p_k = n \]
-where $p_k$ is a different factor of $n$.  
+Suppose that $p_1 \cdot p_1 = n$.
 
-Then let $s = \sqrt{n}$ so that $s \cdot s = n$.  
-\[ p_1 \cdot p_k = n = s \cdot s \]
+Since $q_1 \cdot q_1 \ne n$, there must be some other factor $q_j$ such that $q_1 \cdot q_j = n$.  Since $q_1$ is the least of the $q$'s, we have that $q_1 < q_j$.  
+\[ q_1 \cdot q_1 < q_1 \cdot q_j = n \]
 
-Since $p_1 \ne s$, either $p_1 > s$ or $p_1 < s$.  For the first case
-\[ p_k = \frac{s}{p_1} \cdot s < s \]
-But since $s/p_1 < 1$ this would mean that $p_k < s < p_1$.  This cannot be true because we have that $p_1$ is the smallest $p$.  
+Now, $p_1^2 = n$ and $q_1^2 < n$ so
+\[ p_1^2 \cdot q_1^2 < n^2 \]
+\[ p_1 \cdot q_1 < n \]
 
-Therefore, no matter what, it must be that $p_1 \le s$.  Similar logic applies to $q$.  And at most, one of $p_1$ or $q_1$ can square to give $n$.  We may suppose that it is $p_1$, without loss of generality.  Then
-\[ p_1 \cdot p_1 = n \]
-\[ q_1 < p_1 = s \]
-\[ p_1 \cdot q_1 < p_1 \cdot s = s \cdot s = n \]
-
-Otherwise, \emph{both} $p_1$ and $q_1$ are less than $s$ and it follows that
-\[ p_1 \cdot q_1 < s \cdot s = n \] 
-
-In all cases, $p_1 \cdot q_1 < n$.
+The other possibility is that $p_1 \cdot p_1 < n$  The above inequality still holds.  In all cases, $p_1 \cdot q_1 < n$.
 
 We also know that neither $p_1$ nor $q_1$ is equal to zero, since they are factors of $n$.  So $p_1 \cdot q_1 > 0$ and we can write:
 \[ 0 < p_1 \cdot q_1 < n \]
