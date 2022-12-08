@@ -23,21 +23,25 @@
 
 \section*{Basic theory}
 
+This is a write-up about quadratic equations, in three parts.  The first is a really gentle introduction, the second gives some more detail about the theory and what is, I hope, an easier way to remember the \emph{quadratic equation}.  The third works through a few basic examples.
+
 \subsection*{introduction}
 
-You know that a linear equation is something like $y = mx + b$, where $x$ and $y$ are the variables, $m$ is the slope of the line that is the graph of the equation and $b$ is the $y$-intercept of that line. 
+You know that a linear equation is something like $y = mx + b$, where $x$ and $y$ are the variables, $m$ is the slope of the line that is the graph of the equation. 
 
 When  $x = 0$, $y = b$.  $b$ is the value that $y$ has when the line crosses the $y$-axis, when $x = 0$.  Since $b$ is the $y$-intercept, it's a reasonable idea to use the symbol $y_0$ instead of $b$.
 
-Also, we are going to use the symbol $m$ for something else today, so allow me to write $y = kx + y_0$, with $k$ being the slope.
+Since we are going to use the symbol $m$ for something else today, allow me to write $y = kx + y_0$, with $k$ being the slope.
 
 We see that a linear equation contains $kx$ or $kx^1$ ($x$ to the power $1$), and it may have a constant as well (which you can think of as the cofactor for the $x^0$ power).
 
 An extension to higher powers is inviting.  We can write
 \[ y = ax^2 + bx + c \]
-where $x$ and $y$ are again variables and $a$, $b$ and $c$ are constants.  I always thought of this as \emph{standard form}, although now that I look it up using Google it says that standard form is
+
+where $x$ and $y$ are again variables and $a$, $b$ and $c$ are constants.  I always think of this as the \emph{standard form}, although now that I look it up using Google it says that standard form is
 \[ 0 = ax^2 + bx + c \]
-and one guy even says something else is standard form.  Anyway, for us here, standard form means that we have the $ax^2 + bx + c$ part.
+
+and one page even says something else is standard form.  Anyway, for us here, standard form means that we have all three cofactors, $ax^2 + bx + c$.
 
 Here's an example
 \[ y = x^2 + 2x - 3 \]
@@ -45,17 +49,15 @@ an equation whose graph looks like this in Desmos:
 
 \begin{center} \includegraphics [scale=0.5] {quad1.png} \end{center}
 
-We might notice a couple of things right away about this graph.  First, we don't have a straight line as with the linear equation, any more but a curve that bends upward.  The graph is said to resemble a "cup" that "opens upward".  
-
-If the constant $a$ is negative then the graph will flip directions, and the "cup" opens downward.
+We might notice a couple of things about this graph.  First, we don't have a straight line as with the linear equation, any more but a curve that bends upward.  The graph is said to resemble a "cup" that "opens upward".  If the constant $a$ is negative then the graph will flip directions, and the "cup" opens downward.
 
 Second, this curve crosses the $x$-axis, which means that for exactly two values of $x$, the result of the equation is $y = 0$.
 
 There is a minimum value for $x$ on the curve, which we will call $m$.  The point on the curve where $x=m$ is called the \emph{vertex}.  If $a < 0$ then this value would be a maximum.
 
-We will see that the zeros of the equation (the $x$-values where $y = 0$ are evenly spaced on either side of $m$, so we can think of it possibly standing for mean, the average value.
+We will see that the zeros of the equation (the $x$-values where $y = 0$ are evenly spaced on either side of $m$, so we can think of it possibly standing for mean, the average value of the zeros.
 
-In fact, the curve as a whole is symmetric about the vertical line $x = m$.  That line is called the \emph{axis of symmetry}.  If we move some distance $d$ horizontally, so that $x = m \pm d$, the values of $y$ are always the same.
+In fact, the curve as a whole is symmetric about the vertical line $x = m$.  That line is called the \emph{axis of symmetry}.  If we move some distance $d$ horizontally, so that $x = m \pm d$, the values the function generates, the $y$-values, are always the same.
 
 \subsection*{simplification}
 At various points in what comes next, we may modify the general equation 
@@ -70,9 +72,10 @@ and then, having introduced an idea, go back to considering what happens when $b
 
 \subsection*{examples}
 Here are some simple equations to plug into Desmos and notice how the graph changes.
+
 \[ y = x^2 \]
 \[ y = ax^2 \]
-Notice that in this case, the graph does not cross the $x$-axis but just touches it at the vertex.  The vertex lies on the $x-axis$ and the corresponding $y$-value is $y = 0$.
+Notice that in this case, the graph does not really cross the $x$-axis but just touches it at the vertex.  The vertex lies on the $x$-axis and the corresponding $y$-value is $y = 0$.
 
 Add a slider for $a$ and check out what happens when you change it.  $a$ is called the shape factor.  Next enter the equation
 
@@ -86,20 +89,18 @@ When $c=-3$
 \[ y = x^2 + 2x - 3 \]
 the zeros (the values of $x$ giving $y = 0$ are $x = -3, +1$.
 
-You can check the arithmetic.  $(-3)^2 = 9$ and $9 - 6 - 3 = 0$.  Also, $1^2 = 1$ and $1 + 2 - 3 = 0$.
+You can check the arithmetic.  $(-3)^2 - 6 - 3 = 0$.  Also, $1^2 + 2 - 3 = 0$.
 
 For any parabola, there are some values of $c$ (more positive) where the curve won't cross the $x$-axis at all.  This means that there simply aren't any values of $x$ that give $y = 0$.
 
 Here the vertex is $4$ units down from the $x$-axis so if we added $5$ to what we had, giving
 \[ y = x^2 + 2x + 2 \]
-If you check you'll find that this curve does not cross the $x$-axis.
+If you check in Desmos you'll find that this curve does not cross the $x$-axis.
 
-The role of $b$ is a bit tricky to analyze, but you can take a look in Desmos with a slider.  
-
-Here's a challenge:  what shape do you think the vertex traces out when $b$ varies?
+The role of $b$ is a bit tricky to analyze, but you can take a look in Desmos with a slider.  Here's a challenge:  what shape do you think the vertex traces out when $b$ varies?
 
 \subsection*{alternate forms of the equation}
-Here is a second form of the quadratic and a specific example
+A second form of the quadratic and a specific example:
 \[ y = (x - s)(x - t) \ \ \ \ \ \ \ \ \ \ y = (x + 3)(x - 1) \]
 
 Multiply out the equation on the right to obtain 
@@ -110,33 +111,29 @@ You can see why the graph of this equation, which we looked at before, crosses t
 A neat fact about the vertex is that $m$, the $x$-value of the vertex, always lies halfway on the $x$-axis between $s$ and $t$.  $m$, the $x$-coordinate of the vertex, is the \emph{average} of $s$ and $t$.
 \[ m = \frac{s + t}{2} = \frac{-3 + 1}{2}  = -1 \]
 
-You might be worried about the situation when the graph doesn't cross the $x$-axis. In that case, what could $s$ and $t$ be to give $y = 0$?  
-
-Does $y = (x - s)(x - t)$ even make sense?  
+You might be worried about the situation when the graph doesn't cross the $x$-axis. In that case, what could $s$ and $t$ be to give $y = 0$?  Does $y = (x - s)(x - t)$ even make sense?  
 
 It turns out to have a deep meaning in terms of what are called complex numbers, involving $\sqrt{-1}$, but I think it's better to postpone thinking about it for now.  When talking about roots, we will only worry about functions whose graphs actually cross the $x$-axis or at least touch it (like $y =x^2$).
 
-And by the way, for $y = x^2$ we say that it has duplicate roots, both $x = 0$, since $(x - 0)(x - 0)$ is the equation written in this form.
+And by the way, for $y = x^2$ we may say that it has duplicate roots, both $x = 0$, since $(x - 0)(x - 0)$ is the equation written in this form.
 
 \subsection*{a third form}
-There is  yet another common way to write the equation of a parabola.
+There is  yet a third common way to write the equation of a parabola.
 
-Suppose the graph does not have its vertex at the origin but instead at some other point like $(3,-2)$.  Is there a formula for that?
-
-It turns out to be pretty simple.  Look at this.
+Suppose the graph does not have its vertex at the origin but instead at some other point like $(3,-2)$.  Is there a formula for that?  Look at this.
 \begin{center} \includegraphics [scale=0.5] {quad3.png} \end{center}
 
 We used Desmos to verify that the graph of the equation $y + 2 = (x - 3)^2$ has its vertex at $(x = 3, y = -2)$.  This is not a coincidence!
 
 The general result is that when the vertex is at $(h,k)$, the equation is $y - k = (x - h)^2$.
 
-Don't forget the minus sign.  If the equation is $y + k = (x + h)^2$ the vertex is at $(-h,-k)$.
+Don't forget the minus sign.  If the equation is $y + k = (x + h)^2$ the vertex is at $(-h,-k)$ and vice-versa.
 
-You can just memorize this fact and use it, but if you want to have a way to justify it, think of us as using $h$ and $k$ to adjust the vertex to the origin $(0,0)$.  The vertex was originally at $x = 3$, so we subtracted $3$ from \emph{every} $x$ to get $0$.  
+You can just memorize this fact and use it, but if you want to have a way to justify it, think of using $h$ and $k$ to adjust the vertex to the origin $(0,0)$.  The vertex was originally at $x = 3$, so we subtracted $3$ from \emph{every} $x$ to move it to $0$.
 
-Then we do whatever the equation says.  And finally that must equal the adjusted value of $y$.  If that doesn't make sense don't worry about it.
+Then we do whatever the equation says.  And finally that must equal the adjusted value of $y$.
 
-Let us first think about the case where the shape factor $a = 1$.  Then
+To simplify things, let us first think about the case where the shape factor $a = 1$.  Then
 \[ y - k = (x - h)^2 = x^2 - 2xh + h^2 \]
 Compare that to the standard form (with $a=1$):
 \[ y = x^2 + bx + c \]
@@ -149,7 +146,6 @@ Rearranging, $h = -b/2$.  That's pretty simple.
 If there is a shape factor $a$ it just multiplies the whole thing as in $y - k = a(x - h)^2$.  Again, we can play with the equation by multiplying out
 \[ y - k = a(x - h)^2 \]
 \[ = ax^2 - 2axh + ah^2 \]
-\[ = ax^2 - 2ahx + ah^2 \]
 
 We can move the constant $k$ to the right-hand side but at the moment we're more interested in the cofactor of $x$.  If you compare with the general form of the equation
 \[ y = ax^2 + bx + c \]
@@ -161,15 +157,14 @@ Again, the cofactors (including for $x$) must match.  That is
 This says that for \emph{any} quadratic, the $x$-coordinate of the vertex, which we also called $m$ before, can be found from the general form
 \[ ax^2 + bx + c  \ \ \ \ \ \ \Rightarrow  \ \ \ \ \ m = -b/2a \]
 
-This is definitely worth memorizing.  One of the most basic things we are asked to do with a quadratic is to find the position of the vertex, which always gives the minimum (or maximum) value for $y$.
+This is fundamental and definitely worth memorizing.  The most basic thing we are asked to do with a quadratic is to find the position of the vertex, which always gives the minimum (or maximum) value for $y$.
 
-If you also want the $y$-value, just plug $x = m = -b/2a$ into the equation and do the arithmetic.
+If you also want the $y$-value, just plug $x = -b/2a$ into the equation and do the arithmetic.
 
 \subsection*{zeros}
-
 The second fundamental thing we need to obtain for a quadratic are the zeros, the values of $x$ which make $y = 0$.
 
-We saw a good example before, when we had 
+We saw a good example before, with
 \[ y = (x + 3)(x - 1) = x^2 + 2x - 3 \]
 Then, the values of $x$ which give $y = 0$ were just $x = -3$ and $x = 1$.  
 
@@ -178,35 +173,41 @@ For the general case, we will need to go backward starting from $x^2 + bx + c$ a
 In simple cases we might be able to look at $x^2 + bx + c$ and see the answer.
 
 \[ x^2 + 3x + 2 = 0 \]
-Notice $1 + 2 = 3$ and $1 \cdot 2 = 2$.  So we are looking for two factors which added together give $b$ and multiplied together give $c$.
+Notice $1 + 2 = 3$ and $1 \cdot 2 = 2$.  So we are looking for two factors which add together give to $b$ and multiply together to give $c$.
 \[ = (x + 1)(x + 2) \]
 
 While you can get good at this, with practice, most equations cannot be solved by this method, because almost all equations have roots that are not integers.  They might be fractions, or square roots or even something else, as we mentioned.
 
-Here are a few more examples of roots paired with $b,c$ values:
+Here are a few more examples of roots with the resulting $b,c$ values:
 \[ (x + 1)(x - 5) \Rightarrow b = -4, c = -5 \]
 \[ (x - \frac{1}{2})(x - \frac{1}{4})) \Rightarrow b = - \frac{3}{4}, c = \frac{1}{8} \]
 
-Again, the standard form is
+Again, the standard form with $y = 0$ is
 \[ ax^2 + bx + c = 0 \]
 
-A very important fact is that multiplying both sides by $1/a$ \emph{doesn't change the roots}.
+An important fact is that factoring out $a$
+\[ a(x^2 + \frac{b}{a} x + \frac{c}{a}) = 0 \]
+or even multiplying both sides by $1/a$
 \[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
+\emph{doesn't change the roots}.
 
-You might play with an example in Desmos to see that this is true.  Changing $a$ will change the shape but not the roots.
+You should play with an example in Desmos to see this.  Changing $a$ will change the shape but not the roots.
 
 This is like writing
 \[ y = a(x - s)(x - t) \]
 
-$a$ is a non-zero constant, so the only way the above equation can be zero is if $x = s$ or $x = t$ and this has the same roots as the original equation.
+$a$ is a non-zero constant, so the only way the above equation can be zero is if $x = s$ or $x = t$ and this equation has the same roots as the original one.
 
-Slightly modifying an example we will see later, to find the roots of
+Here's an example we will see later, we need to find the roots of
 \[ -16t^2 + 64t + 96 = 0 \]
+
 it is perfectly legal to factor out the leading term of $(-16)$ and then
 \[ = (-16) (t^2 - 4t - 6) = 0 \]
+
 The zeros of the first are the same as the zeros of the second
 \[ t^2 - 4t - 6 = 0 \]
-Unfortunately, we need the quadratic equation to solve this one.
+
+Unfortunately, we need the quadratic equation to actually solve this one.
 
 \section*{Slightly more advanced theory}
 
@@ -231,28 +232,29 @@ That looks like something I could remember.
 But of course, schools will want you to use the official formula.
 \[ x = \frac{-b \pm \ \sqrt{b^2 - 4ac}}{2a} \]
 
-One thing that could help is to break it down a different way.  The part under the square root is called the discriminant $D$.
+A second approach that could help is to break it down a different way.  The part under the square root is called the discriminant $D$.
 \[ D = b^2 - 4ac \]
 
-Notice that if $b^2 < 4ac$ then $D < 0$ and \emph{and then} we have a problem with $\sqrt{D}$.  This is what happens in the cases where the graph does not cross the $x$-axis.
+Notice that if $b^2 < 4ac$ then $D < 0$ and \emph{and then} we have a problem with $\sqrt{D}$.  This is what happens in the cases where the graph does not cross the $x$-axis.  Remember when we said that making $c$ more positive eventually  makes a graph with no roots.  Look at $D$ to see why.
 
 Let's not worry about that now.  The main thing is that we can write the quadratic formula in two parts as $D = b^2 - 4ac$ and then
 \[ x = \frac{-b \pm \ \sqrt{D}}{2a} \]
+
 or even better
 \[ x = m \pm \ \frac{\sqrt{D}}{2a} \]
 Maybe that will help.  Otherwise, write it down, put it somewhere on your desk, and do a bunch of problems to help engrave it on the surface of your brain.
 
-After years of practice, I sometimes say it in my sleep: "negative $b$, plus or minus the square root ... of $b^2 - 4ac$, all over 2$a$."
+After years of practice, I still wake up from sleep reciting: "negative $b$, plus or minus the square root ... of $b^2 - 4ac$, all over 2$a$."
 
 \subsection*{easier method}
 
-At this point, a standard approach would be to introduce the method called "completing the square" and show how it can be used to solve (find the roots of) individual equations as well as to derive the quadratic formula.
+At this point, a standard approach would be to introduce the trick called "completing the square" and show how it can be used to solve (find the roots of) individual equations as well as to derive the quadratic formula.
 
-I'm not going to do that just yet.  If you're looking for that go to the end of this write-up.
+I'm not going to do that just yet, but we will get to it.
 
-Instead, I want to mention now a (related) method for finding roots that what is generally shown, which feels much more intuitive.  In fact, it's so simple, I don't know why it's not usually in the book.
+Instead, let us mention now a (related) method for finding roots which feels much more intuitive.  In fact, it's so simple, I don't know why it's not usually in the book.
 
-We actually hinted at it before.  We have that $m = -b/2a$ and then the roots are
+Rewriting the quadratic formula, before, we had that $m = -b/2a$ and then the roots are
 \[ x = m \pm \sqrt{m^2 - c/a} \]
 
 Remember that the problem we want to solve is
@@ -270,77 +272,35 @@ And if you look closely, you'll see that $x_2 > m > x_1$ so we can write the equ
 \[ 2m = x_1 + x_2 \]
 $m$ is the average of $x_1$ and $x_2$.
 
-Can you see that the roots, call them $s$ and $t$, are symmetric with $m$?  
-
+The roots, call them $s$ and $t$, are symmetric with $m$.
 \begin{center} \includegraphics [scale=0.5] {quad3.png} \end{center}
 
-Suppose that $s$ is the root that is smaller than $m$ and $t$ is the larger one.  Then, the distance between $s$ and $m$ is
+Suppose that $s$ is smaller than $m$ and $t$ is the larger one.  Then, the distance between $s$ and $m$ is
 \[ d = m - s \]
 \[ s = m - d \]
 which is also the same as the distance between $t$ and $m$, namely
 \[ d = t - m \]
 \[ t =  m + d \]
 
-Again, the change in sign happens because $m$ lies \emph{between} $s$ and $t$.  So 
+The change in sign happens because $m$ lies \emph{between} $s$ and $t$.  So 
 \[ st = (m-d)(m+d) = m^2 - d^2 \]
 
-We want to know $d$.  We already know $m$, and we also know $st$.  Wait, what?  For the simple case ($a = 1$)
+We want to know $d$.  We already know $m$, and we also know $st$.  Wait, what?  
 \[ (x - s)(x - t) = x^2 - (s + t) x + st \]
 
 Recall that this is how we found $m = (s + t)/2 = -b/2a$.  We compared
 \[ x^2 - (s + t) x + st \]
 \[ x^2 + bx/a + c/a \]
+$m$ is the average of $s + t$ so $-2m = b/a$ and then $m = -b/2a$.
 
-But now we focus on the fact that $c/a = st$.
+Now we focus on the fact that $c/a = st$.
 \[ d^2 = m^2 - st = m^2 - c/a \]
-
-Then $m \pm d = m \pm \sqrt{m^2 - c/a}$ gives the zeros.
-
-\subsection*{line and a parabola}
-Here is a very important problem usually solved by calculus.  However we are fearless and forge ahead.
-
-Suppose we have two lines
-\[ y = k_1x + u \]
-\[ y = k_2x + v \]
-If we want to know where they meet, we are looking for some point $(x,y)$ that solves both.  Since the $x$'s and the $y$'s are equal we get
-\[ k_1 x + u = k_2 x + v \]
-and we just solve for $x$, but let us not be distracted by that, because we are just warming up.
-
-The real problem is to do the same thing with a quadratic and a line.  
-\begin{center} \includegraphics [scale=0.5] {quad5.png} \end{center}
-Can you see that in general, for a parabola and a line, there are three possibilities:  the line crosses the parabola at two points, or no points, or it just touches the parabola at a single point.  If it sounds like this will generate a quadratic, you're right!
-
-We have the line $y = kx + u$ and the parabola $y = ax^2 + bx + c$ and we set the two $y$'s equal to obtain
-\[ kx + u = ax^2 + bx + c \]
-
-Group terms
-\[ ax^2 + (b - k)x + (c - u) = 0 \]
-
-This is another quadratic and can be solved in the usual way, namely the roots are
-\[ x = -\frac{b - k}{2a} \pm \ \frac{\sqrt{(b-k)^2 - 4a(c-u)}}{2a} \]
-
-This is a mess but there is a very very special case.  
-
-The line that is tangent to the curve at $(x,y)$ only touches at a single point.  
-
-What this means is that the equation we wrote should have only one solution.  And that only happens if the discriminant is zero.
-
-The square root is what gives us two solutions.  If the square root goes away there is only one solution and we have therefore
-\[ x = -\frac{b - k}{2a} \]
-\[ 2ax = - b + k \]
-\[ k = 2ax + b \]
-
-This is the slope of the tangent line to a parabola at the point $(x,y)$.  The slope is proportional to $x$, which makes sense.  The curve slopes more steeply upward, as $x$ gets bigger.
-
-I can't help pointing out that at the vertex, the slope is $0$.  So that means
-\[ 2ax + b = 0 \]
-\[ x = - \frac{b}{2a} \]
-We have calculated it again (and got the same answer).
-
-Somehow the tangent to the curve $ax^2 + bx + c$ has the slope $2ax + b$.  You might guess that the $2$ in the slope comes from the power of $2$ in the parabola, and you'd be right!  But that's calculus.
+Then $m \pm d$ 
+\[ m \pm \sqrt{m^2 - c/a} \]
+gives the zeros.
 
 \subsection*{completing the square}
-The formal apparatus for dealing with quadratic equations is called the quadratic formula.  In this last part of the theory, we will derive the formula.
+The formal apparatus for dealing with quadratic equations is called the \emph{quadratic formula}.  Here we will derive the formula.
 
 We have a general equation
 \[ ax^2 + bx + c = y \]
@@ -353,68 +313,96 @@ We want to solve for $x$ but have the variable $x$ as two different powers, both
 
 There is a trick to move both those terms into one square.  In fact, let's make it even simpler.  Let $b = 2$.
 \[ x^2 + 2x + c = 0 \]
-Clearly, if $c = 1$ this becomes
+Clearly, if $c = 1$ 
+\[ x^2 + 2x + 1 = 0 \]
+this becomes
 \[ (x + 1)^2 = 0 \]
 
-and the trick is that even if $c$ is \emph{not} $1$ we can still do this by \emph{adding and subtracting} the same term
+and the trick is that even if $c$ is \emph{not} $1$ we can still do this by \emph{adding and subtracting the same term}
 \[ x^2 + 2x + 1 + c - 1 = 0 \]
 \[ = (x + 1)^2 + (c - 1) = 0 \]
-This is the key step:  we added $+1$ to allow us to \emph{complete the square} and form $(x + 1)^2$, but we also subtracted $1$ because that is necessary to keep the equation correct.
 
-We can put one-half of the co-factor of $x$, no matter what it is, inside the parentheses by this process of adding and subtracting. To solve
+This is the key step:  we added $+1$ to allow us to \emph{complete the square} and form $(x + 1)^2$, but we also subtracted $1$ because that is necessary to keep the equation balanced and correct.
+
+We can put the square of one-half of the co-factor of $x$, no matter what it is, inside the parentheses by this process of adding and subtracting. To solve
 \[ x^2 + bx + c = 0 \]
 do this
 \[ x^2 + bx + (\frac{b}{2})^2 + c - (\frac{b}{2})^2 = 0 \]
 \[ = (x + b/2)^2 + \ [ \ c - (\frac{b}{2})^2 \ ] \  = 0 \]
 
-In the completely general case 
+In the general case 
 \[ x^2 + \frac{b}{a}x + \frac{c}{a} = 0 \] 
 do this
 \[ x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 + \ [ \frac{c}{a} - (\frac{b}{2a})^2 \ ] \ = 0 \]
 \[ (x + \frac{b}{2a})^2 + \ [ \frac{c}{a} - (\frac{b}{2a})^2 \ ] \ = 0 \]
 
-Now it's just algebra.  If you recall that $m = -b/2a$ this is
+Now it's just algebra.  If you recall that $m = -b/2a$ this is the same as
 \[ (x - m)^2 + \ [ \ \frac{c}{a} - m^2 \ ] \ = 0 \]
+
 \[ (x - m)^2 = m^2 - c/a \]
 \[ x - m = \pm \ \sqrt{m^2 - c/a} \]
 \[ x = m \pm \ \sqrt{m^2 - c/a} \]
 
-We've seen this before, if you go back and check.  If you insist on the official formula, plug back in for $m = -b/2a$:
+If you insist on the official formula, plug back in for $m = -b/2a$:
 \[ x = -\frac{b}{2a} \pm \ \sqrt{(\frac{b}{2a})^2 - c/a} \]
 \[ = -\frac{b}{2a} \pm \ \frac{1}{2a} \sqrt{b^2 - 4ac} \]
-I leave the very last step to you.
 
 \section*{Examples}
 
 \subsection*{gravity}
+The general equation for movement in one dimension is
+\[ x = \frac{1}{2}at^2 + v_0 t + x_0 \]
 
-I should solve at least one real problem.  Here are three.  My favorite example is gravity.  The equation for gravity is
-\[ h = \frac{1}{2}g t^2 + v t + h_0 \]
+$x$ is really $x(t)$, the x-position is a function of, it depends on, the time.  
 
-This says that if we throw an object like a rock or a cannonball straight up into the air, the height at time $t$ depends on the acceleration due to gravity $g$, the initial velocity $v$ in the upward direction, and the initial height $h_0$ relative to the earth's surface.
+It depends on the initial velocity $v_0$ times the time, which makes sense, and on the initial position $x_0$.
 
-The constant $g$ is negative while $v$ and $h$ are positive, because the force of gravity points down while we have defined up as positive.  We can rewrite this as
+You might be wondering about the other term, so consider a situation where $v_0$ and $x_0$ are both zero.  Then
+\[ x = \frac{1}{2}at^2 \]
+
+There's a bit of a mystery here, why do we have that factor of $1/2$, given the $v = at$?  
+
+That $v$ is the $v$ at the end of the interval, after $a$ has acted to boost the velocity from $v_0$ to $v$.
+
+The correct relationship \emph{really} is
+\[ x = \bar{v} t \]
+where $\bar{v}$ is the average velocity
+\[ \bar{v} = \frac{1}{2}at \]
+
+$\bar{v}$ is the average velocity during the interval between $0$ and $t$.  Since the acceleration $a$ is a constant, this is simply the average of the velocity at the end $(v = at)$, and at the start $(v = 0)$.
+\[ \bar{v} = \frac{1}{2} (v_f + v_0) = \frac{1}{2} (at + 0) = \frac{1}{2} at \]
+So that's why there is a factor of one-half in the basic formula.
+\[ x = \frac{1}{2}at^2 + v_0 t + x_0 \]
+
+I should solve at least one real problem.  Here are three.  
+
+My favorite example is gravity.  The equation for gravity is
+\[ h = \frac{1}{2}g t^2 + v_0 t + h_0 \]
+
+This says that if we throw an object like a rock or a cannonball straight up into the air, the height at time $t$ depends on the acceleration due to gravity $g$, the initial velocity $v_0$ in the upward direction, and the initial height $h_0$ relative to the earth's surface.
+
+For gravity we have only two directions in one dimension, up and down.  The constant $g$ is negative while $v_0$ and $h$ are positive, because the force of gravity points down while we have defined up as positive.  We can rewrite this as
 \[ h = -16t^2 + vt + h_0 \]
 
-Here the units of $v$ are feet per second, $h$ is in feet, and $g$ is $-32$ feet per second per second.
+Here the units of velocity $v$ are feet per second, $h$ is in feet, and $g$ is $-32$ feet per second per second.  (If this were a physics book we'd use meters, and then $g$ would be $-10$ meters per second per second.
 
-Suppose the initial height is $h_0 = 96$, which means that you are almost $100$ feet in the air, perhaps on a platform or the top of a cliff, and the velocity is upward at $16$ feet per second.  That's a little more than 20 miles per hour.
+Suppose the initial height is $h_0 = 96$, which means that you are almost $100$ feet in the air, perhaps on a platform or the top of a cliff, and the initial velocity is upward at $16$ feet per second.  That's a little more than 20 miles per hour.
 
 Clearly the rock will go up to some maximum height and then come down.  The question asks first, at what time is the height a maximum?  Recall the formula for the vertex.
-\[ m = -\frac{b}{2a} = -\frac{v}{2(-16)} = \frac{16}{32} = \frac{1}{2} \]
+\[ m = -\frac{b}{2a} = -\frac{v_0}{2(-16)} = \frac{16}{32} = \frac{1}{2} \]
 
 The rock reaches its maximum height at $1/2$ second and that height is
-\[ h = -16(1/4) + 16(1/2) + 96 = 112 \]
+\[ h = -16(1/2)^2 + 16(1/2) + 96 = 112 \]
 
-Now, my little brother throws 20 miles per hour.  Suppose you could talk a professional baseball player into climbing up there with you and throwing vertically up at 64 feet per second.  A fun fact is that $15$ mph is exactly $22$ feet per second.
+My little brother throws 20 miles per hour.  Suppose you could talk a professional baseball player into climbing up there with you and throwing vertically up at 64 feet per second.  A fun fact is that $15$ mph is exactly $22$ feet per second.
 \[ 64 \ \frac{22}{15} \approx 95 \]
 about 95 miles per hour, a fastball.
 
 Then
-\[ m = - \frac{v}{2(-16)} = \frac{-64}{-32} = 2 \]
+\[ m = - \frac{v_0}{2(-16)} = \frac{-64}{-32} = 2 \]
 Two seconds to the maximum height.
 
-If he throws the rock straight up, it will land on his head, or yours, with a little breeze.  Suppose the player throws it outward a bit, but still up with the same velocity, so when it comes down it just misses his nose.  
+If he throws the rock straight up, it will land on his head, or yours, in a stiff breeze.  Suppose the player throws it outward a bit, but still up with the same velocity, so when it comes down it just misses his nose.  
 
 At what time will it reach the ground?  We have
 \[ h = 0 = -16t^2 + 64t + 96 \]
@@ -426,11 +414,13 @@ Do you remember where we said that the roots don't change if we factor out a con
 We can't factor this one into integers.  The times where $h = 0$ are, with $m = 2$ and $c = -6$:
 \[ m \pm \ \sqrt{m^2 - c} = 2 \pm \ \sqrt{4 + 6} = 2 \pm \ 3.16 = - 1.16, 5.16 \]
 
-This says that the rock hits the ground after 5 seconds or so.  The negative root also can have a physical meaning under some conditions.  The equation doesn't know about the baseball player or the ladder.  All it knows is that we started the clock with the rock at $96$ feet above the ground and a vertical velocity of $16$ feet per second upward.  We won't worry about that.
+This says that the rock hits the ground after 5 seconds or so.  
+
+The negative root also can have a physical meaning under some conditions.  The equation doesn't know about the baseball player or the ladder.  All it knows is that we started our clock at zero with the rock at $96$ feet above the ground and a vertical velocity of $16$ feet per second upward.  We won't worry about that.
 
 If we are not allowed to use the simplification gained by factoring $a$ and also told to use the quadratic equation, you will write
-
 \[ -16t^2 + 64t + 96 = 0 \]
+
 so
 \[ x = \frac{-b \pm \ \sqrt{b^2 - 4ac}}{2a} \]
 \[ x = \frac{-64 \pm \ \sqrt{64^2 -4(-16)(96)}}{2(-16)} \]
@@ -440,9 +430,9 @@ I get $10240$ for the discriminant and about $3.16$ for the square root after di
 We can also say something about the velocity.  The equation for velocity is
 \[ v = gt + v_0 \]
 
-The velocity at any time $t$ is equal to the initial value + the change due to gravity.  Again, $g$ is negative while $v_0$ is positive.  Depending on time $t$, $v$ may be either positive or negative.  We had a factor of $1/2$ before, but $g = -32$.
+The velocity at any time $t$ is equal to the initial value plus the change due to gravity.  Again, $g$ is negative while $v_0$ is positive.  Depending on time $t$, $v$ may be either positive or negative.  We had a factor of $1/2$ before, that is $(1/2)g = -16$, but $g = -32$.
 
-In fact, there is one moment when the velocity is zero.  That's when the height is a maximum and the rock stops going up and comes back down.
+There is one moment when the velocity is zero, when the height is a maximum and the rock stops going up and comes back down.
 
 In this problem
 \[ v = 0 = -32t + 64 \]
@@ -452,9 +442,7 @@ At $t = 5.16$ the velocity is about
 \[ v = -32 (5.16) + 64 = 100 \]
 
 \subsection*{maximizing distance}
-King Charles requires you to shoot a cannonball as far as possible.  That would be Charles VIII, of France, campaigning in Italy in the 1490s, not Princess Diana's husband.
-
-The distance depends on the angle at which the projectile is fired (we ignore air resistance).  
+King Charles requires you to shoot a cannonball as far as possible.  The distance depends on the angle at which the projectile is fired (we ignore air resistance).  
 
 This classic problem is usually solved by trigonometry, but we are going to do it directly.  The velocity is some combination of horizontal and vertical components $v_x$ and $v_y$
 
@@ -463,44 +451,48 @@ Using the Pythagorean theorem we have that
 
 Aside from this relationship, the two component velocities act independently.  If not for gravity the horizontal distance $x$ would be 
 \[ x = v_x t \]
+
 and the clock would just keep ticking, so $x$ would continue to increase, as it would if the cannon were fired in outer space.
 
 However, the clock must stop, because for reasonable values of the velocity, gravity will bring the cannonball back down to earth before it leaves the atmosphere.  That equation is
 \[ y = -16t^2 + v_y t + 0 \]
 We want the time when $y = 0$ so
 \[ 16t^2 = v_y t \]
-Since there are only two terms in this quadratic and they both contain $t$å, we can simplify it by dividing out $t$
+
+Since there are only two terms in this quadratic and they both contain $t$, we can simplify it by dividing out
 \[ 16t = v_y \]
 \[ t = \frac{v_y}{16} \]
 
-Dividing both sides by $t$ in this way, we "lose" a solution, but that solution is $t = 0$, which we don't care about!  Now plug that $t$ back into the $x$-equation.
+Dividing both sides by $t$ in this way, we "lose" a solution, but that solution is $t = 0$, which we don't care about.  Now plug that expression for $t$ back into the $x$-equation.
 \[ x = \frac{v_x v_y}{16} \]
 
-We need to choose $v_x$ and $v_y$ to maximize $x$.  We can also ignore the factor of $1/16$, since, the value of $v_x$ or $v_y$ giving a maximum to $x$ will also maximize $16x$.
+We need to choose $v_x$ and $v_y$ to maximize $x$.  We can also ignore the factor of $1/16$, since the value of $v_x$ or $v_y$ giving a maximum to $x$ will also maximize $16x$.
 
-Hence, we want to maximize
+In the end, we want to maximize
 \[ v_x v_y = v_x \sqrt{v^2 - v_x^2} \]
 where $v$ is a constant for a given cannon and amount of gunpowder, etc.
 
-There are a couple ways to do this.  
-
-Scale the problem so that $v = 1$, and come up with a simpler name for the variable $v_x$, like $s$, and take a look in Desmos
+Just to explore a little, scale the problem so that $v = 1$, and come up with a simpler name for the variable $v_x$, like $s$.  Then take a look in Desmos
 \begin{center} \includegraphics [scale=0.5] {quad4.png} \end{center}
 
-The curve doesn't look like a standard parabola (it actually is one, but rotated by some angle), but by inspection the maximum comes at roughly $s = 0.7$.  
+The curve doesn't look like a standard parabola (it actually is one, but rotated by an angle).  It seems that the maximum comes at roughly $s = 0.7$.  That's a hint, because we know that $1/\sqrt{2} \approx 0.7$.
 
-Without getting into the gory details, if we wish to maximize $v_x v_y$ subject to the constraint that $1 = v_x^2 + v_y^2$, there is no reason to favor $x$ over $y$.  We expect they should be equal.
+Without getting into the gory details, there is no reason to favor $x$ over $y$.  We expect they should be equal.
 \[ 1 = v_x^2 + v_y^2 = 2 v_x^2 \]
 \[ v_x = \frac{1}{\sqrt{2}} \]
-The maximum comes when $v_x = v_y$, that is, for an angle of $45^{\circ}$.
 
-Note:  this isn't true in real life, because of air resistance.
+The maximum comes when $v_x = v_y$, that is, for an angle of $45^{\circ}$.  Note:  this isn't true in real life, because of air resistance.
 
-An even cleaner way to do this is to say, if something is a maximum, then its positive square root is also a maximum.  So let's maximize the square of the previous expression
+An even better way to do this is to say, if something is a maximum, then its positive square root is also a maximum.  So let's maximize the square of the previous expression
 \[ v_x^2(v^2 - v_x^2) \]
-$v_x$ will be some fraction $f$ of $v$ where $0 < f < 1$.
-\[ fv^2 (v^2 - fv^2) = v^2 \ [ \ f(1-f) \ ] \]
-$v$ is a non-zero constant.  So this problem really amounts to maximizing $f (1-f)$.  The answer is $f = 1/2$, as we will see in just a second.
+
+$v_x$ will be some fraction $x$ of $v$.
+\[ xv^2 (v^2 - xv^2) = v^2 \ [ \ x(1-x) \ ] \]
+$v$ is a non-zero constant. 
+
+This problem really amounts to maximizing $x (1-x)$.  The quadratic is 
+\[ -x^2 + x = 0 \]
+The maximum is $m = -b/2a = 1/2$.
 
 \subsection*{maximizing area}
 We want to build a rectangle from a fixed amount of fencing, and we want the area enclosed to be a maximum.
@@ -508,11 +500,51 @@ We want to build a rectangle from a fixed amount of fencing, and we want the are
 Scale the problem so the perimeter of the rectangle is $2$, the half-perimeter is $1$, and then if the height is $h$, the width is $1 - h$, so the area is
 \[ A = h(1 - h) = -h^2 + h \]
 
-What value for $h$ maximizes $A$?  This is a quadratic with $a=1$ and $b=-1$ but no $c$.  The vertex is $h = -b/2a = -1/2(-1) = 1/2$.  Since $a < 0$ the "cup" opens down and the maximum value is at the vertex.
+This is the same as the cannonball problem!  Since $a < 0$ the "cup" opens down and the maximum value is at the vertex.
 
 $h + w = 1$ and $h = 1/2$ so $w = 1/2$.
 
 A square has the maximum area for a rectangular shape with a fixed perimeter.  Actually, you may know that if the shape is not rectangular the maximum area is for a circle or disk.
 
+\subsection*{line and a parabola}
+Suppose we have two lines
+\[ y = k_1x + u \]
+\[ y = k_2x + v \]
+
+If we want to know where they meet, we are looking for some point $(x,y)$ that solves both.  Since the $x$'s and the $y$'s are equal we get
+\[ k_1 x + u = k_2 x + v \]
+and we just solve for $x$.
+
+The real problem is to do the same thing with a quadratic and a line.  
+\begin{center} \includegraphics [scale=0.5] {quad5.png} \end{center}
+
+Can you see that pictorially, for a parabola and a line, there are three possibilities:  the line crosses the parabola at two points, or no points, or it just touches the parabola at a single point.  If it sounds like this will generate a quadratic, you're right!
+
+We have the line $y = kx + u$ and the parabola $y = ax^2 + bx + c$ and we set the two $y$'s equal to obtain
+\[ kx + u = ax^2 + bx + c \]
+
+Group terms
+\[ ax^2 + (b - k)x + (c - u) = 0 \]
+
+This is another quadratic and can be solved in the usual way, namely the roots are
+\[ x = m \pm \ \sqrt{m^2 - (c-u)/a)} \]
+
+The crucial observation is this:  the line that is \emph{tangent} to the curve at $(x,y)$ only touches at that single point.  That's what tangent means.
+
+Therefore, we are interested in the case where the equation we wrote has only one solution.  That only happens if the discriminant is zero.
+
+The square root is what gives us two solutions.  If the square root goes away there is only one solution and we have therefore
+\[ x = m = -\frac{b - k}{2a} \]
+\[ 2ax = - b + k \]
+\[ k = 2ax + b \]
+
+This is the slope of the tangent line to a parabola at the point $(x,y)$.  The slope is proportional to $x$, which makes sense.  The curve slopes more steeply upward, as $x$ gets bigger.
+
+I can't help pointing out that at the vertex, the slope is $k = 0$.  So that means
+\[ 2ax + b = 0 \]
+\[ x = - \frac{b}{2a} \]
+We have calculated $m$ again (and got the same answer).
+
+The tangent to the curve $ax^2 + bx + c$ has the slope $2ax + b$.  You might guess that the $2$ in the slope comes from the power of $2$ in the parabola, and you'd be right.  But that's calculus.
 
 \end{document}
