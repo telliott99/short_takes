@@ -33,6 +33,8 @@ Years are a very common variable.  These might be adjusted, say, only counting y
 
 \subsection*{bivariate data}
 
+A well-known textbook of Statistics (Bock \emph{et al}) shows an example of rollercoasters on its cover.  It is perhaps not too surprising that the maximum height of a roller coaster is correlated with the top speed produced during the run.
+
 Part of a college admissions officer's job is to admit students who are more likely to do well in the future, perhaps because they have good grades in high school, e.g. a GPA closer to 4 than to 2.
 
 She might ask whether there is a positive correlation between grades in high school and in college.  Another comparison might use test scores in admission exams rather than high school GPA.  Which does a better job of predicting "success"?
@@ -45,10 +47,10 @@ Since the IC chips stay roughly the same size, for this trend to continue, the t
  
 \url{https://en.wikipedia.org/wiki/Moore%27s_law}
 
-We note in passing that that the values plotted above on the $y$-axis have been transformed by taking the logarithm of each data point.  This is called a \emph{semi-log} plot.  This method is commonly used when the rate of change in the $y$ variable is exponential with time, for example if it doubles every $n$ years.
+We note in passing that that the values plotted above on the $y$-axis have been transformed by taking the logarithm of each data point.  This is called a \emph{semi-log} plot.  This method is commonly used when the rate of change in the $y$ variable is exponential with time, which means that it doubles every $n$ years.
  
 A third example is the price of a commodity, like gasoline.
-\begin{center} \includegraphics [scale=0.5] {reg3.png} \end{center}
+\begin{center} \includegraphics [scale=0.6] {reg3.png} \end{center}
 
 If we plot each year on the $x$-axis and the price on the $y$-axis, it looks like this:
 \begin{center} \includegraphics [scale=0.25] {reg6.png} \end{center}
@@ -56,7 +58,7 @@ If we plot each year on the $x$-axis and the price on the $y$-axis, it looks lik
 For plots like this there are three general possibilities:  positive correlation, negative correlation, and uncorrelated.  
 \begin{center} \includegraphics [scale=0.5] {reg2.png} \end{center}
 
-A technical word for this is \emph{covariance}.  Covariance is quantitative, it is described by a statistic (a number) which indicates whether the correlation is excellent or very good, moderate or just terrible.
+A technical word for this is \emph{covariance}.  Covariance is quantitative, it is described by a statistic (a number) which indicates whether the correlation is excellent or very good, moderate or just plain terrible.
 
 \subsection*{toy example}
 
@@ -98,7 +100,7 @@ What happens to a bunch of points $(x,y)$ if we subtract $\bar{x}$ from their $x
 
 \subsection*{multiply, and add}
 
-The second thing, not really a big idea but a technique of linear regression, is the dot product.  Take the corresponding values from each list and multiply, then add the results together.
+The second big idea is a technique of linear regression called the dot product.  Take the corresponding values from each list and multiply, then add the results together.
 
 For example, the first term is $(x_1 - \bar{x}) \cdot (y_1 - \bar{y})$.  I'm using $\cdot$ as the symbol for multiplication.
 
@@ -117,7 +119,7 @@ Divide the first result by the second ($SS_{xy}/SS_{xx}$).  This is the slope of
 
 To complete our equation, we need the intercept, $b$.
 
-We take advantage of the fact that the point corresponding to two means, namely, $(\bar{x},\bar{y})$, is exactly on the line.  We won't prove this just yet.
+We take advantage of the fact that the point corresponding to the two means, namely, $(\bar{x},\bar{y})$, is exactly on the line.  We won't prove this just yet.
 
 The point $(2,8/3)$ is on the line, so it satisfies the equation $y = m x + b$.  Rearranging
 \[ b = y - mx \]

@@ -123,7 +123,8 @@ Divide one by the other, the factors of $1/n$ cancel, and we have
 \[ \frac{C_{xy}}{V_x} = \frac{SSxy}{SSxx} = m \]
 where $m$ is the slope of the linear regression equation.  And as before, $b = \bar{y} - m \bar{x}$.
 
-\subsection*{Standard deviation}
+\subsection*{technical notes}
+It turns out to be better, when estimating the variance of a population from a small sample, to divide by $n-1$ rather than $n$.  So there is a distinction between the \emph{population} variance (divide by $n$) and the \emph{sample} variance (divide by $n-1$).  That doesn't matter for us since the divisor, whatever it is, always cancels here.
 
 The variance as we just calculated it, is usually written as $\sigma^2$.  The reason is that the square root of the variance is often used as a measure of spread in values.  This is called the standard deviation, stdev or $\sigma$.
 
@@ -169,9 +170,9 @@ We already have $SS_{xy} = 2$ and $SS_{xx} = 2$.  We just need $SS_{yy}$.
 \[ SS_{yy} = (-2/3)^2 + (-2/3)^2 + (4/3)^2 \]
 \[ = 4/9 + 4/9 + 16/9 = 24/9 = 8/3 \]
 and then
-\[ \frac{2/n}{\sqrt{2/n} \cdot \sqrt{8/3n}} \]
+\[ \frac{2}{\sqrt{2} \cdot \sqrt{8/3}} \]
 
-As we said, the $n$'s cancel.  Pull $\sqrt{2}$ out of both square roots to cancel $2$ on top and bottom.  What is left is
+Pull $\sqrt{2}$ out of both square roots to cancel $2$ on top and bottom.  What is left is
 \[ \frac{1}{1 \cdot \sqrt{4/3}} \]
 
 Invert to obtain 
