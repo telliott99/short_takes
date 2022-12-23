@@ -21,51 +21,6 @@
 
 %[my-super-duper-separator]
 
-\section*{Summary}
-
-This section summarizes what you want to remember after you're finished reading.  Sometimes called TL;DR (too long didn't read).  Skim or skip this part if you are new to the topic.
-
-The general equation for a quadratic is
-\[ y = ax^2 + bx + c \]
-where $a$, $b$ and $c$ are constants. 
-
-$\circ$ \ $a$ determines how steeply the sides of parabola curve and its sign tells in what direction the "cup opens", up or down.
-
-$\circ$ \ $c$ shifts the parabola's vertical position and is also the $y$-value when $x = 0$.
-
-$\circ$ \ $b$ and $a$ together determine where the pointy end lies.  
-
-This point is called the vertex of the parabola and it is always the minimum for $y$ (or maximum if the parabola opens down).  We will call its $x$-value $m$ for minimum, and just give the result, for now.
-\[ m = - \frac{b}{2a} \]
-
-To "solve" a quadratic means to find its zeros, or roots.  These are the $x$-values that make the whole thing equal to zero.
-\[ ax^2 + bx + c = 0 \]
-Dividing by $a$ does not change the roots.  The same values of $x$ satisfy
-\[ x^2 + \frac{b}{a} x + \frac{c}{a} =  0 \]
-The zeros can always be found using the quadratic formula.  Here is a simple version of that:
-\[ x = m \pm \ \sqrt{m^2 - \frac{c}{a}} \]
-
-You must memorize both the formula for $m$ and this one.
-
-Sometimes we can guess the zeros since
-\[ (x - s)(x - t) = x^2 - (s + t)x + st = 0 \]
-See if you can two factors that add to give negative $b$ and multiply to give $c$.
-
-As an example
-\[ x^2 + 2x - 63 = y \]
-Find integers two units apart that multiply to give $63$, then play with the signs.  The roots are $-7$ and $9$.  The vast majority of equations do not have integer roots, but this exercise does focus attention on what they are.
-
-The easiest derivation of the quadratic formula is by "completing the square".  Start with
-\[ x^2 + \frac{b}{a} x + \frac{c}{a} =  0 \]
-
-We will first simplify the middle term, the cofactor of $x$.  Remember that $m = -b/2a$ so $-2m = b/a$ and then plug in to get
-\[ x^2 - 2mx + \frac{c}{a} =  0 \]
-
-The bright idea is to turn this into $(x - m)^2$ which we do by adding and subtracting $m^2$:
-\[ x^2 - 2mx + m^2 - m^2 + \frac{c}{a} = 0 \]
-\[ (x - m)^2 - m^2 + \frac{c}{a} = 0 \]
-The rest is simple algebra, which I leave to you.
-
 \subsection*{Introductory examples}
 
 A quadratic equation contains the square of a variable multiplied by some constant, which may be $1$.  Often we call the variables $y$ and $x$, so we have something like
@@ -148,6 +103,23 @@ You increase the ticket price from \$10 to \$35.  The profit will be
 \[ = 70 \cdot 35 - 400 = 2050 \]
 That's an increase of \$1250 per show.
 
+\subsection*{sum and product}
+
+The sum of two numbers is 18 and their product is 56.  What are they?
+
+\[ u + v = 18 \]
+\[ uv = 56 \]
+
+\[ u(18 - u) = 56 \]
+\[ u^2 - 18u + 56 = 0 \]
+
+The factors of $56$ are $2 \cdot 28$, $4 \cdot 14$, and $7 \cdot 8$.
+\[ 4 + 14 = 18 \]
+so
+\[ (u - 4)(u - 14) = 0 \]
+
+The numbers are $4$ and $14$.
+
 \subsection*{odd numbers}
 The product of two consecutive positive odd numbers is $255$.  Find the numbers.
 
@@ -167,6 +139,154 @@ Alternatively we can write the numbers as $2n + 1$ and $2n - 1$ and then
 \[ n^2 = 64 \]
 \[ n = \pm 8 \]
 Again $n > 0$ so $n = 8$ and the numbers are $2n - 1 = 15$ and $2n + 1 = 17$.
+
+\subsection*{bus trip}
+
+By going $15$ km per hr faster, a transit bus would have required 1 hr less to travel $180$ km. What was the average speed of this bus?
+
+Velocity $\times$ time = distance.
+
+\[ vt = 180 \]
+\[ (v + 15)(t - 1) = 180 \]
+
+We can eliminate either $v$ or $t$.  Let's try $v$ first.
+
+\[ v = 180/t \]
+\[ v + 15 = 180/(t-1) \]
+\[ 15 = 180/(t-1) - 180/t \]
+
+\[ 15(t^2 - t) = 180t - 180(t-1) \]
+\[ 15(t^2 - t) - 180 = 0 \]
+\[ t^2 - t - 12 = 0 \]
+\[ (t + 3)(t - 4) = 0 \]
+\[ t = -3,4 \]
+
+We choose $t = 4$ so then $v = 45$ and $180/60 = 3$ checks.
+The answer is $v = 45$.
+
+\subsection*{area of a square}
+
+If the length of each side of a square is increased by 6, the area is multiplied by 16. Find the side length of the original square.
+
+Let the original side be $x$ and the original area is $x^2$, so the new area is 
+
+\[ 16x^2 = (x + 6)^2 \]
+ \[      = x^2 + 12x + 36 \]
+then
+\[ 15x^2 - 12x - 36 = 0 \]
+
+Factor out $3$
+\[ 5x^2 - 4x - 12 = 0 \]
+\[ (5x + \text{ ?})(x + \text{ ?}) = 0 \]
+Go through the factors of $12$ to find $2$ and $6$ and then $5 \cdot 2 - 6$ gives $4$ so
+\[ (5x + 6)(x - 2) = 0 \]
+
+Lengths are positive, so $x = 2$.
+\[ 2^2 \cdot 16 = 64 = (2 + 6)^2  \]
+
+\subsection*{swimming pool}
+
+You live in a fancy suburban neighborhood where all the houses have pools.  It's very cold in winter where you live, and all the pools are drained so they won't crack.
+
+Suppose your garden hose can fill your swimming pool in $x$ days.  Your neighbor has a pool the same size as yours, but a bigger hose, so she can fill her pool in $y$ days.  Suppose you know that $y + 6 = x$.  
+
+Last year, you both started on the same day, but then you forgot what date that was, all you know is that she finished 6 days before you.
+
+The next year when you need to refill your pool, you put both hoses together, to fill your pool in $z$ days.
+
+The rates are what add, and rates are amount divided by time.  If the volume of the pool is $V$ then
+\[ \frac{V}{x} + \frac{V}{y} = \frac{V}{z} \]
+\[ \frac{1}{x} + \frac{1}{y} = \frac{1}{z} \]
+\[ yz + xz = xy \]
+
+As we said, $y + 6 = x$.  When you use both hoses together, it takes only 4 days to fill your pool.  How long would it take if you used only your own hose?  What is $x$?
+
+We have that $z = 4$.
+\[ 4y + 4x = xy \]
+And then $y = x - 6$ so
+\[ 4(x - 6) + 4x = x(x - 6) \]
+\[ 8x - 24 = x^2 - 6x \]
+\[ x^2 - 14x + 24 = 0 \]
+\[ (x - 2)(x - 12) = 0 \]
+
+There are two roots, but $x = 2$ leads to the non-sensical answer that $y = -4$.  So we will settle on $x = 12$, then $y = 6$.  We know $z = 4$ and indeed
+\[ \frac{1}{12} + \frac{1}{6} = \frac{1}{4} \]
+or if you prefer
+\[ 6 \cdot 4 + 12 \cdot 4 = 6 \cdot 12 \]
+
+\subsection*{electricity}
+Here's a problem involving electricity but we will tell you the analysis so you don't need to known any physics.  In fact, you could just skip ahead to the equation.
+
+The current $I$ that flows along a wire is equal to the difference in voltage $V$ across the two ends, divided by the resistance $R$.
+\[ I = \frac{V}{R} \ \ \ \ \ \ \ \ V = IR \]
+
+Imagine that the wire itself has negligible resistance, but there are two things called resistors $R$ hooked up in an arrangement called \emph{parallel}.  If you connect a battery (voltage $V$) to the two wires on the ends of this circuit
+\begin{center} \includegraphics [scale=0.6] {resistors.png} \end{center}
+there will be some total current ($I_T$) that flows.  Those electrons go either one way or the other across the two resistors.  So the current is what adds
+\[ I_T = I_1 + I_2 \]
+\[ \frac{V}{R_T} = \frac{V}{R_1} + \frac{V}{R_2} \]
+
+Which is a long-winded way of saying that the reciprocal of the resistance adds.
+\[ \frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} \]
+
+Suppose we're given that $R_2 = R_1 + 3$ and that $R_T = 2$.  I want to use $r$ for $R_1$.  We have
+\[ \frac{1}{r} + \frac{1}{r+3} = \frac{1}{2} \]
+Naturally we want to find $r$.  Multiply out
+\[ (r + r + 3)(2) = r(r + 3) \]
+\[ r^2 -r - 6 = 0 \]
+\[ (r-3)(r+2) = 0 \]
+So $r = 3, -2$.  We choose $r = 3$ and then $R1 = 3$, $R2 = 6$ and
+\[ 1/3 + 1/6 = 3/6 = 1/2 \]
+Checks.
+
+\subsection*{river travel}
+
+You travel from home to market on a river that flows at 2 km/hr.  Your motorboat goes at a constant speed, and the distance to market downriver is 12 km.
+
+Then you drop off your bananas, and immediately turn around and come back home.  The total travel time is 8 hr.  
+
+How fast does the boat go in still water?
+
+\emph{Solution}.
+
+Let $v$ be the velocity of the boat.  On the trip downriver the speed (with respect to the shore) is $v + 2$, while coming home it is $v - 2$.  Let $t$ be the time going to market and $t'$ be the time coming home.
+
+Velocity $\times$ time equals distance.  We can write two equations:
+
+\[ 12 = (v + 2) t \]
+\[ 12 = (v - 2) t' \]
+
+Plus we have
+\[ t + t' = 8 \]
+
+We can eliminate $t$ by isolating it in the first two equations and then adding.
+
+\[ \frac{12}{v+2} + \frac{12}{v-2}= t + t' = 8 \]
+
+Now it's just rearranging
+\[ 12(v - 2 + v + 2) = 8(v - 2)(v + 2) \]
+\[ 12(2v) = 8(v - 2)(v + 2) \]
+We have a quadratic:
+\[ 3v = v^2 - 4 \]
+\[ v^2 - 3v - 4 = 0 \]
+\[ (v - 4)(v + 1) = 0 \]
+
+Factoring works for this example.  
+
+The velocity must be positive, and of the two roots, only one is positive.  
+
+$v = 4$ so the velocity downriver is $6$ km/hr and upriver it is $2$ km/hr.  The trip downriver takes 2 hr and upriver it takes 6 hr for a total of 8 hr.
+
+Here is an approach that runs into problems:  substitute for $t'$ right away.
+\[ 12 = (v + 2) t \]
+\[ 12 = (v - 2) (8 - t) \]
+Multiplying out
+\[ 12 = vt + 2t \]
+\[ 12 = 8v - vt - 16 + 2t \]
+We might add and get rid of $vt$.  Or we could equate the two right-hand sides and get rid of $2t$.  But in either case we will still have both $v$ and $t$ and only a single equation.
+
+Graphing often adds insight:
+\begin{center} \includegraphics [scale=0.5] {river_hyper.png} \end{center}
 
 \subsection*{gravity}
 Many problems for quadratics involve gravity because the distance an object falls under gravity goes like $t^2$.  That was Galileo's famous discovery.  He used an inclined ramp and a water clock.  
@@ -254,9 +374,9 @@ $\bar{v}$ is the average velocity during the interval between $0$ and $t$.  Sinc
 So that's why there is a factor of one-half in the basic formula.
 \[ x = \frac{1}{2}at^2 + v_0 t + x_0 \]
 
-\subsection*{back to gravity}
+\subsection*{gravity}
 
-Again, the equation for gravity is
+The equation for gravity is
 \[ h = \frac{1}{2}g t^2 + v_0 t + h_0 \]
 
 This says that if we throw an object like a rock or a cannonball straight up into the air, the height at time $t$ depends on the acceleration due to gravity $g$, the initial velocity $v_0$ in the upward direction, and the initial height $h_0$ relative to the earth's surface.
@@ -264,17 +384,17 @@ This says that if we throw an object like a rock or a cannonball straight up int
 For gravity we have only two directions in one dimension, up and down.  The constant $g$ is negative while $v_0$ and $h$ are positive, because the force of gravity points down while we have defined up as positive.  We can rewrite this as
 \[ h = -16t^2 + vt + h_0 \]
 
-Here the units of velocity $v$ are feet per second, $h$ is in feet, and $g$ is $-32$ feet per second per second.  (If this were a physics book we'd use meters, and then $g$ would be $-10$ meters per second per second.
+Here the units of velocity $v$ are feet per second, $h$ is in feet, and $g$ is $-32$ feet per second per second.  (If this were a physics book we'd use meters, and then $g$ would be $-10 \ m/s^2$.
 
-Suppose the initial height is $h_0 = 96$, which means that you are almost $100$ feet in the air, perhaps on a platform or the top of a cliff, and the initial velocity is upward at $16$ feet per second.  That's a little more than 20 miles per hour.
+Suppose the initial height is $h_0 = 96$, which means that you are almost $100$ feet in the air, perhaps on a platform or the top of a cliff, and the initial velocity is upward at $32$ feet per second.  That's about 25 miles per hour.
 
 Clearly the rock will go up to some maximum height and then come down.  The question asks first, at what time is the height a maximum?  Recall the formula for the vertex.
-\[ m = -\frac{b}{2a} = -\frac{v_0}{2(-16)} = \frac{16}{32} = \frac{1}{2} \]
+\[ m = -\frac{b}{2a} = -\frac{v_0}{2(-16)} = \frac{32}{32} = 1 \]
 
-The rock reaches its maximum height at $1/2$ second and that height is
-\[ h = -16(1/2)^2 + 16(1/2) + 96 = 112 \]
+The rock reaches its maximum height at $1$ second and that height is
+\[ h = -16(1)^2 + 32(1) + 96 = 112 \]
 
-My little brother throws 20 miles per hour.  Suppose you could talk a professional baseball player into climbing up there with you and throwing vertically up at 64 feet per second.  A fun fact is that $15$ mph is exactly $22$ feet per second.
+My little brother throws 25 miles per hour.  Suppose you could talk a professional baseball player into climbing up there with you and throwing vertically up at 64 feet per second.  A fun fact is that $15$ mph is exactly $22$ feet per second.
 \[ 64 \ \frac{22}{15} \approx 95 \]
 about 95 miles per hour, a fastball.
 
@@ -410,114 +530,5 @@ The potential energy at the top is equal to the kinetic energy at the bottom.
 \[ v^2 = 2gh = 64 h \]
 \[ v =  8 \sqrt{h} \]
 which is what we had before.
-
-\subsection*{line and a parabola}
-
-Suppose we have generic parabola and a generic line in the plane, of just the sort we've been studying.
-
-Here are the two most common possibilities.  The line crosses the parabola at two points or it doesn't cross at all
-\begin{center} \includegraphics [scale=0.40] {para31.png} \end{center}
-
-The other two possibilities both have a single point of intersection.  The tangent line at a point (left panel), and a vertical line (right panel).  In the latter case, the line has an undefined slope.
-
-\begin{center} \includegraphics [scale=0.40] {para32.png} \end{center}
-
-The line that just touches a curve at a point is called the tangent to the curve at that point, and this is a major topic of study in calculus.
-
-Here's an example with actual numbers.
-
-\begin{center} \includegraphics [scale=0.40] {quad6.png} \end{center}
-
-The parabola is in red with its vertex at $x = -b/2a = -1$ and roots at $x = -3, 1$.  Three lines are shown, one crosses the curve at two points (blue), one does not cross at all (orange) and one is the tangent to the curve (green), touching only the point $(0,-3)$.
-
-We will show how to find the equation of the green line easily.
-
-As a reminder, suppose we have two lines
-\[ y = k_1x + u \]
-\[ y = k_2x + v \]
-
-If we want to know where they meet, we are looking for some point $(x,y)$ that solves both.  Since the $x$'s and the $y$'s are equal we get
-\[ k_1 x + u = y = k_2 x + v \]
-and we just solve for $x$.
-
-The problem is to do the same thing with a quadratic and a line.  
-
-We have the line $y = kx + u$ and the parabola $y = ax^2 + bx + c$ and we set the two $y$'s equal to obtain
-\[ kx + u = y = ax^2 + bx + c \]
-
-Group terms
-\[ ax^2 + (b - k)x + (c - u) = 0 \]
-
-This is another quadratic and can be solved in the usual way, namely the roots are
-\[ x = m \pm \ \sqrt{m^2 - (c-u)/a)} \]
-
-The crucial observation is this:  the line that is \emph{tangent} to the curve at $(x,y)$ only touches at that single point.  That's what tangent means.
-
-Therefore, we are interested in the case where the equation we wrote has only one solution.  That only happens if the discriminant is zero.
-
-The square root is what gives us two solutions.  If the square root goes away there is only one solution and we have therefore
-\[ x = m = -\frac{b - k}{2a} \]
-\[ 2ax = - b + k \]
-\[ k = 2ax + b \]
-
-This is the slope of the tangent line to a parabola at the point $(x,y)$.  The slope is proportional to $x$, which makes sense.  The curve slopes more steeply upward, as $x$ gets bigger.
-
-I can't help pointing out that at the vertex, the slope is $k = 0$.  So that means
-\[ 2ax + b = 0 \]
-\[ x = - \frac{b}{2a} \]
-We have calculated $m$ again (and got the same answer).
-
-The tangent to the curve $ax^2 + bx + c$ has the slope $2ax + b$.  You might guess that the $2$ in the slope comes from the power of $2$ in the parabola, and you'd be right.
-
-\subsection*{note about $i$}
-We said that if $4ac > b^2$ we'll have the square root of a negative number.  We called the term under the square root, $D$, the discriminant.
-
-What people did was to invent a new kind of number $i$ with the property that $i^2 = -1$, so $\sqrt{-1} = i$.
-
-Then any negative square root can be written as $\sqrt{-N} = \sqrt{N} \cdot \sqrt{-1} = Ni$.
-
-We had this as an example:  
-\[ x^2 + 2x + 2 = 0 \]
-$a = 1$, $b = 2$ and $c = 2$.  Then
-\[ b^2 - 4ac = 4 - 8 = -4 \]
-The roots are
-\[ x = -1 \pm \ \frac{\sqrt{-4}}{2} = -1 \pm i \]
-
-If we write the equation out using the roots
-\[ (x - s)(x - t) \]
-\[ = (x - (- 1 + i))(x - (-1 - i)) \]
-\[ = ((x + 1) - i))((x + 1) + i) \]
-we have four terms:
-\[ = (x + 1)^2 + i (x+1) - i (x+1) - i^2 \]
-The two terms in the middle cancel and the last one is $+1$:
-\[ = (x + 1)^2 + 1 = x^2 + 2x + 2 \]
-
-A real discussion about what $i$ \emph{means} will have to wait.  But the point to notice is that when we have roots containing $i$ they are always symmetric, it is always
-\[ (p + qi)(p - qi) = p^2 + q^2 \]
-And when multiplying out the terms with $i$ cancel.
-
-\subsection*{extra}
-
-You may want (or be required) to know the fancy version of the quadratic formula:
-\[ x = -\frac{b}{2a} \pm \ \frac{\sqrt{b^2 - 4ac}}{2a} \]
-
-It is relatively easy convert between the two forms.  Starting with
-\[ x = m \pm \ \sqrt{m^2 - c/a} \]
-
-substitute for $m$
-\[ x = - \frac{b}{2a} \pm \ \sqrt{(\frac{b}{2a})^2 - c/a} \]
-
-The key is now to put the last term $-c/a$ over the same denominator as the first term under the square root, $(2a)^2 = 4a^2$.  To do that, multiply by $4a$ on top and bottom
-\[ x = - \frac{b}{2a} \pm \ \sqrt{(\frac{b}{2a})^2 - \frac{4ac}{4a^2}} \]
-
-We have $4a^2$ in the denominator which can come out from under the square root and simplify to
-\[ x = - \frac{b}{2a} \pm \ \frac{\sqrt{b^2 - 4ac}}{2a}  \]
-
-However, I really prefer
-\[ x = m \pm \ \sqrt{m^2 - c/a} \]
-
-especially since you must already know the formula for $m$, and the $c/a$ part is visible in
-\[ x^2 + \frac{b}{a} x + \frac{c}{a} =  0 \]
-
 
 \end{document}
