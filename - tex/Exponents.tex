@@ -12,7 +12,7 @@
 \graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
-\title{Powers}
+\title{Exponents}
 \date{}
 
 \begin{document}
@@ -29,12 +29,11 @@ The first few powers of $2$ are
 \[ 2 \cdot 2 \cdot 2 \cdot 2 = 4 \cdot 4 = 16 \]
 
 The exponent is a new notation we introduce where rather than write $2 \cdot 2 \cdot 2 \cdot 2$, instead we count the number of copies of $2$ that should be multiplied together and write that next to the number:
-\[ 2^2 = 4 \ \ \ \ \ \ \ \ \ \ 2^3 = 8 \]
-\[ 2^4 = 16 \ \ \ \ \ \ \ \ \ \ 2^{10} = 1024 \]
+\[ 2^2 = 4 \ \ \ \ \  2^3 = 8 \ \ \ \ \ \ 2^4 = 16 \ \ \ \ \ 2^{10} = 1024 \]
 
 Sometimes people will say "multiply 2 by itself that many times" but the tiny problem there is that once you reach 4 you no longer have 2 any more except in the multiplier.  It may be confusing.
 
-The exponent is written to the right and as a superscript (it is often made a little smaller in size).  This can be done for \emph{any} number.
+The exponent is written to the right and as a superscript (it is usually made a little smaller in size).  This can be done for \emph{any} number.
 \[ 3^2 = 9 \ \ \ \ \ \ \ \ \ \ 3^3 = 27 \ \ \ \ \ \ \ \ \ \ 3^4 = 81 \]
 \[ 10^2 = 100 \ \ \ \ \ \ \ \ \ \ 10^6 = 1000000 \]
 
@@ -62,17 +61,16 @@ In the example above, you must not try to add together the exponents $3$ and $2$
 
 \subsection*{extensions}
 When multiplying two numbers, the exponents add.  When dividing two numbers, the exponents subtract.
-\[ \frac{8}{4} = \frac{2^3}{2^2} = 2^3 \cdot 2^{-2} \]
-\[ = 2^{3-2} = 2^1 = 2 \]
+\[ \frac{8}{4} = \frac{2^3}{2^2} = 2^3 \cdot 2^{-2} = 2^{3-2} = 2^1 = 2 \]
 
 Here's a picture from Lara Alcock's \emph{Mathematics rebooted}.
 \begin{center} \includegraphics [scale=0.6] {exponents_extended.png} \end{center}
 
-In the middle we have the sequence $2 \ 4 \ 8 \ 16$ and the equivalent sequence above it:  $2^1 \ 2^2 \ 2^3 \ 2^4$.  Moving to the right consists of multiplying by $2$ and adding $1$ to the exponent.  But moving to the left consists of dividing by $2$ and subtracting $1$ from the exponent.
+In the middle we have the sequence $2 \ 4 \ 8 \ 16$ and the equivalent sequence above it:  $2^1 \ 2^2 \ 2^3 \ 2^4$.  Moving to the right consists of multiplying by $2$ and for the power, adding $1$ to the exponent.  But moving to the left consists of dividing by $2$ and subtracting $1$ from the exponent.
 
-So what number lies to the left of $2$.  Well, $1 \cdot 2 = 2$.  So $1$ must be equal to $2^{1 - 1}$.  But that's $2^0$.  How to conceive of multiplying a number by itself zero times?
+So what number lies to the left of $2$?  Well, $1 \cdot 2 = 2$.  So $1$ must be equal to $2^{1 - 1}$.  But that's $2^0$.  How to conceive of multiplying a number by itself zero times?
 
-My advice:  don't try to visualize what's happening.  It's just a (very) convenient new notation.
+My advice:  don't try to visualize what's happening.  It's just a very convenient new notation.
 
 Here's another thought.  Suppose we imagine that exponents don't have to be just $\{1, 2, 3 \dots \}$ but might be negative integers or fractions or even zero. 
 
@@ -135,7 +133,7 @@ We can write this result as an inequality
 
 \[ 1.414 < \sqrt{2} < 1.415 \]
 
-$\sqrt{2}$ is a new kind of number called an \emph{irrational} number.  The name means there is no rational number (no fraction) which is exactly equal to $\sqrt{2}$.  We'll see why in another write-up.  
+$\sqrt{2}$ is a new kind of number called an \emph{irrational} number.  The name means there is no rational number (no fraction) which is exactly equal to $\sqrt{2}$.  We'll see why another time.  
 
 Since any finite decimal is a rational number, the implication is that the sequence $\sqrt{2} = 1.414...$ continues forever without repeating.
 
@@ -144,7 +142,7 @@ Extend the exponent notation to square roots in the following way.  We're lookin
 We also want to write $n$ as a power of $2$:
 \[ 2^p \cdot 2^p = 2^1 = 2 \]
 
-Using the addition rule, we see that $p + p = 1$.  Clearly $p = 1/2$ so the square root of $2$ should be written as
+Using the addition rule, we see that $p + p = 1$.  Clearly $2p = 1$ so $p = 1/2$ and then the square root of $2$ should be written as
 \[ 2^{1/2} \cdot 2^{1/2} = 2^1 = 2 \]
 
 Decimals also work fine as exponents so we can write
@@ -161,13 +159,13 @@ The \emph{logarithm} is just a power or exponent, using a particular base. It ha
 Suppose we know (never mind how yet) that $0.30103$ is the power of $10$ that is needed to make $2$.  That is
 \[ 2 = 10^{0.30103} \]
 
-We say that $0.30103$ is the logarithm of $2$ to the base $10$. ($0.30103$ is only approximately correct.)  
+We say that $0.30103$ is the logarithm to the base $10$ of the number $2$, or equivalently, the logarithm of $2$ to the base $10$. ($0.30103$ is only approximately correct.)  
 
 Logarithm is a fancy word for exponent, which is a fancy word for power. We could say that $3$ is the logarithm of $8$ to the base $2$, since $2^3 = 8$.  It's the same idea.  
 
 The base of the logarithm is indicated in the following way.  If $b^p = n$ then we write
 \[ \log_b (n) = p \]
-or sometimes the parentheses are left out
+Sometimes the parentheses are left out
 \[ \log_b n = p \]
 
 Suppose we also know that
@@ -178,7 +176,16 @@ Then, to multiply $2 \cdot 3$, we have
 
 If we also happen to know that $0.77814$ is the logarithm of $6$ to the base $10$, then we have our answer.
 
-Back in the days of Kepler and Newton, when multiplication was carried out by hand, and it was common to multiply together 6 or 7 digit numbers, it was much easier to look up their logarithms in a table (a collection of logarithms), add them, and then find the number corresponding to that logarithm (called the anti-logarithm) in another table.  
+Back in the days of Kepler and Newton, when multiplication was carried out by hand, and it was common to multiply together 6 or 7 digit numbers, it was much easier to look up their logarithms in a table (a collection of logarithms), add them, and then find the number corresponding to that logarithm (called the anti-logarithm) in another table.
+
+\[ 1.189207115 \cdot 1.189207115 = 1.414213562 \]
+
+Since can look up in a table of values that 
+\[ \log_{10} (1.189207115) = 0.0752574989 \] 
+we can do that multiplication by adding two copies of the logarithm
+\[ 0.0752574989 + 0.0752574989 = 0.15051499783 \]
+ and then look up in another table that 
+ \[ \log_{10} 1.414213562 = 0.1505149978 \]
 
 We don't do things this way any more, so why are we talking about logarithms?  We'll explain why, but first we need one more powerful idea.
 

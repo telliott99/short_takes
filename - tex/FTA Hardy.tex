@@ -21,11 +21,13 @@
 
 %[my-super-duper-separator]
 
-We will prove that every integer $n$ that is not prime has a \emph{unique} prime factorization (not counting the factors of $n$ itself, and $1$).  
+We will prove that every integer $n$ which is not prime has a \emph{unique} prime factorization.  (Normally, we do not worry about the factors of $1$ and $n$ itself). 
 
-This is also called \emph{the fundamental theorem of arithmetic}.  As the name says, it's fundamental, so it will be worth some effort for the proof.  The classic approach from Euclid is straightforward, but relies on some tricky preliminary work.  The approach shown here is due to G.H. Hardy.
+Of course this makes good sense.  If a number is even, with its last digit in $\{ 0, 2, 4, 6, 8 \}$, then it is even and that's the end of it.  If we should imagine that there were two \emph{different} factorizations, surely 2 must be included in each of them.  But this is true for every factor of $n$.
 
-The list of the prime factors of $n$ go like this:
+This theorem is also called \emph{the fundamental theorem of arithmetic}.  As the name says, it's fundamental, so it will be worth some effort for the proof.  The classic approach from Euclid is straightforward, but relies on some tricky preliminary work. The approach given here is from the famous English mathematician, G.H. Hardy.
+
+The list of the prime factors of $n$ goes like this:
 \[ n = p_1 \cdot p_2 \dots p_k \]
 
 A factor may be repeated.  An example is:
@@ -47,7 +49,7 @@ Sometimes the factors can be hard to find.
 
 At first it seems easy.  I found two factors of $3$, leaving $13717421$.
 
-I used Python to show that $3607$ and $3803$ are the two prime factors of that number, which once found, are easily confirmed.  Factoring is a hard problem.
+I was forced to use Python to show that $3607$ and $3803$ are the two prime factors of that number, which once found, are easily confirmed.  Factoring is a hard problem.
 
 \subsection*{preliminary}
 
@@ -57,7 +59,7 @@ $a$ times $k$ is exactly equal to $n$ with no remainder.
 
 Take care to distinguish $a|b$ ($a$ divides $b$) from $a/b$ ($a$ divided by $b$).
 
-If there is a second number $m$ such that $a$ also evenly divides $m$, we write $a|m$ and naturally
+If there is a second number $m$ such that $a$ also evenly divides $m$, we write $a|m$ and naturally there is a $j$ such that
 \[ a \cdot j = m \]
 
 Addition or subtraction of $m + n$ gives
@@ -110,7 +112,7 @@ This already says something strong.  Imagine what it would mean for $3$ to be a 
 
 \subsection*{inequality}
 
-Consider $p_1$, the least factor in the factorization of $n$, $p_1 p_2 \dots p_k$.  
+Consider $p_1$, the least factor in the factorization of $n = p_1 \cdot p_2 \dots p_k$.  
 
 It is certainly possible that $p_1 \cdot p_1 = n$.  This happens when $n$ is a perfect square, like $9 = 3 \cdot 3$.  Since the $p$'s and $q$'s are distinct, at most, this is true of $p_1$ or $q_1$ but not both.  
 
@@ -123,7 +125,7 @@ Now, $p_1^2 = n$ and $q_1^2 < n$ so
 \[ p_1^2 \cdot q_1^2 < n^2 \]
 \[ p_1 \cdot q_1 < n \]
 
-The other possibility is that $p_1 \cdot p_1 < n$  The above inequality still holds.  In all cases, $p_1 \cdot q_1 < n$.
+The other possibility is that $p_1 \cdot p_1 < n$ and the same is true for $q$.  The above inequality still holds.  In all cases, $p_1 \cdot q_1 < n$.
 
 We also know that neither $p_1$ nor $q_1$ is equal to zero, since they are factors of $n$.  So $p_1 \cdot q_1 > 0$ and we can write:
 \[ 0 < p_1 \cdot q_1 < n \]

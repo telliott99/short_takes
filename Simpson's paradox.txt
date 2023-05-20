@@ -43,7 +43,7 @@ Another famous example involves batting averages for two baseball players, Derek
 Jeter       12/ 48 = 0.250     183/582 = .314     195/630 = .310
 Justice    104/411 = 0.253      45/140 = .321     149/551 = .270
 
-David Justice had a slightly better RBI than Jeter in both years, but when the data are combined he is 40 points lower than Derek Jeter.
+David Justice had a slightly better average than Jeter in both years, but when the data are combined he is 40 points lower than Derek Jeter.
 
 The explanation is that although their averages are pretty similar in both years and both were much lower in 1995, Derek Jeter had a small number of at-bats in a relatively poor year for him in 1995, while David Justice had a small number at-bats in a relatively good year in 1996.
 

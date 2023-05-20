@@ -1,0 +1,142 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Latest proof of the Pythagorean theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Recently (April, 2023) I came across an article by Keith McNulty, referenced on Hacker News.  It's an analysis of a very recent proof of the Pythagorean theorem by two teenagers from New Orleans named Calcea Johnson and Ne'Kiya Jackson.
+
+\url{https://keith-mcnulty.medium.com/heres-how-two-new-orleans-teenagers-found-a-new-proof-of-the-pythagorean-theorem-b4f6e7e9ea2d}
+
+I don't have a reference to an original publication, the article simply refers to a presentation at a meeting.  
+
+McNulty claims that the proof involves trigonometry and that this is novel --- ``[it] might make a few established mathematicians eat their words...because their proof uses trigonometry."
+
+Trigonometry contains two sorts of theorems, those which depend only on the properties of similar triangles, and those which also depend on the Pythagorean theorem.  The law of sines is an example of the first type, and the law of cosines is an example of the second.
+
+Naturally, one could not use anything which depends on the Pythagorean theorem to prove the theorem, that would be circular logic.
+
+What this proof mainly does is to use similar triangles, plus the law of sines.  Therefore I think McNulty's claim is wrong. 
+
+ It's still worth taking a look.  The really novel part is the use of infinite series.  We're going to use a geometric series:
+ 
+\[ S = 1 + r + r^2 + \dots + r^n + r^{n+1} + \dots \]
+The sum of the first $n$ terms of such a series is
+\[ S_n = 1 + r + r^2 + \dots + r^n \]
+Provided $|r| < 1$, as $n$ gets large, the terms beyond $r^n$ become negligible, so $S_n$ gets closer and closer to the true sum, $S$.  Now,
+\[ (1 - r) \cdot S_n = 1 - r^{n+1} \]
+a classic "telescoping" series, and if $r^{n+1}$ and subsequent terms are small enough then
+\[ (1 - r) \cdot S_n = 1 \]
+\[ S \approx S_n \approx \frac{1}{1-r} \]
+
+\subsection*{construction}
+
+The idea of the new proof is that a right triangle with angle $\theta$ (magenta dot) can be combined with scaled versions of itself to give a different right triangle with angle $2 \theta$, as shown in the figure.
+
+\begin{center} \includegraphics [scale=0.4] {pythagoras17.png} \end{center}
+
+All the smaller triangles are similar.  We will work out the lengths of these pieces in terms of the original triangle's sides.
+
+Let the secant ($\sec \theta$) be $S = c/b$ and the tangent $T = a/b$.  Then the small triangles have sides:
+
+\[ x = 2aS, \ \ \ \ \ \ p = 2a T \]
+\[ d = pS = 2aST, \ \ \ \ \ \ v = pT = 2aT^2 \]
+\[ y = vS = 2aST^2, \ \ \ \ \ \ q = vT = 2aT^3 \]
+\[ e = qS = 2aST^3, \ \ \ \ \ \ w = qT = 2aT^4 \]
+\[ z = wS = 2aST^4, \ \ \ \ \ \ r = wT = 2aT^5 \]
+
+The last value to check is
+\[ f = rS = 2aST^5 \]
+
+Let us call the top side of the whole large right triangle $C$ and the bottom side $A$.  We have that
+\[ A = x + y + z + \dots\]
+\[ C = c + d + e + f \dots \]
+
+Looking at the above results, A and C (minus the first term, $c$) are geometric series with the same ratio, $T^2$.
+
+\[ x = 2aS, \ \ \ \ y = 2aST^2, \ \ \ \  z = 2aST^4 \]
+\[ d = 2aST, \ \ \ \ e = 2aST^3, \ \ \ \  f = 2aST^5 \]
+
+As we said, the sum of a geometric series with ratio $r$ and initial term $1$ is $1/(1-r)$, provided that $|r| < 1$.  Here $T = a/b$  If $b > a$ then $T > 1$ and then $1/T^2 < 1$, so the series converges.  If $a > b$ then just swap $a$ and $b$.  We deal with the case $a = b$ at the end.
+
+The sum for initial term $k$ is 
+\[ S = k \cdot \frac{1}{1-r} \]
+
+This series has ratio $T^2$ so its sum is
+\[A = 2aS \cdot \frac{1}{1-T^2} \]
+
+Recalling that $S = c/b$ and $T = a/b$ so 
+\[ aS = ac/b = cT \]
+and then
+\[ A = 2cT \cdot \frac{1}{1-T^2} \]
+
+The other series is
+\[ d + e + f + \dots = 2aST \cdot \frac{1}{1-T^2} \]
+
+Using again the relation $aS = ac/b = cT$ we obtain 
+ \[ d + e + f + \dots = \frac{2cT^2}{1 - T^2} \]
+
+The whole of the top side $C$ is $c + d + e + f + \dots$
+\[ C = c + \frac{2cT^2}{1 - T^2} \]
+\[ = c \ (1 + \frac{2T^2}{1 - T^2} ) = c \cdot \frac{1 + T^2}{1 - T^2}  \]
+
+We can finally form the ratio $A/C$, canceling the factor of $1 - T^2$.
+\[ \frac{A}{C} = \frac{2cT}{c(1 + T^2)} \]
+\[ = \frac{2a/b}{1 + a^2/b^2} \]
+\[ = \frac{2ab}{a^2 + b^2} \]
+
+The ratio $A/C$ is also the sine of the double angle $2 \theta$.
+
+\subsection*{law of sines}
+
+In any triangle, drop the altitude from vertex $C$ to the copposite side.
+\begin{center} \includegraphics [scale=0.4] {triangle5.png} \end{center}
+
+\[ \sin A = \frac{h}{b} \]
+\[ \sin B = \frac{h}{a} \]
+So
+\[ b \sin A = a \sin B \]
+The law of sines follows:
+\[ \frac{b}{\sin B} = \frac{a}{\sin A} \]
+
+Apply the law of sines to the isosceles (double) triangle with angle $2 \theta$ and sides $c$ and $2a$:
+
+\[ \frac{\sin 2 \theta}{2a} = \frac{\sin (90-\theta)}{c} = \frac{\cos \theta}{c} = \frac{b}{c^2} \]
+\[ \sin 2 \theta = \frac{2ab}{c^2} \]
+
+Substituting the ratio of $A/C$ for the left-hand side:
+\[ \frac{2ab}{a^2 + b^2} = \frac{2ab}{c^2} \]
+
+The Pythagorean theorem immediately follows.
+
+Finally, we must handle the case where $a = b$.  Then the small triangles are all isosceles as well.  So $\theta = 45^{\circ}$ and $2 \theta = 90^{\circ}$ and a square is formed with sides $c$.  
+
+The ratio of opposing sides $C/A =  c/c = 1 = \sin 2 \theta$.  
+
+The law of sines gives
+\[ \frac{\sin 2 \theta}{2a} = \frac{\sin \theta}{c} \]
+Since $\sin 2 \theta = 1$ and $\sin \theta = a/c$
+\[ \frac{1}{2a} = \frac{a/c}{c} \]
+\[ c^2 = 2a^2 \]
+\[ = a^2 + b^2 \]
+
+$\square$
+
+\end{document}

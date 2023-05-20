@@ -12,7 +12,7 @@
 \graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
-\title{Quadratics, gently}
+\title{Quadratics problems}
 \date{}
 
 \begin{document}
@@ -76,6 +76,28 @@ We take only the positive square root, but to explain that will take more time t
 
 There is a limit to the final, or terminal velocity.  It comes not from gravity but from air resistance.  Someone who jumps from an airplane or gets thrown out through a window of the Nakatomi Plaza has a terminal velocity of about $180$ feet per second or $120$ miles per hour.
 
+\subsection*{the golden ratio}
+The golden ratio or mean is a famous proportion between the length and width of a rectangle that "looks nice".  It is derived as follows.
+
+Make a rectangle with length $x$ and width equal to $1$.  The ratio of length to width is then just $x$.
+
+Draw a square using the side of the rectangle with length $x$, right next to the original rectangle.  This forms a larger rectangle with length $x + 1$, and the ratio of length to width for this rectangle is $(x+1)/x$.
+
+For the golden ratio, these two ratios should be the same.  That is
+\[ x = \frac{x + 1}{x} \]
+\[ x^2 = x + 1 \]
+\[ x^2 - x - 1 = 0 \]
+
+We use the simple version of the quadratic formula.  We have $a = 1$, $b = -1$ and $c = - 1$.
+\[ m = - \frac{b}{2a} = \frac{1}{2} \]
+and the roots are
+\[ s,t = m \pm \sqrt{m^2 - c} \]
+\[ = \frac{1}{2} \pm \sqrt{\frac{1}{4} + 1} \]
+\[ = \frac{1}{2} \pm \frac{\sqrt{5}}{2} \]
+The lengths are positive numbers so the ratio should also be positive.  We take the first root.
+\[ \phi = \frac{1 + \sqrt{5}}{2}  \]
+$\phi$ is the golden ratio and its value is about $1.618$.
+
 \subsection*{maximizing profit}
 You are the producer of a Broadway show.  The theater seats 120 people and you have priced the tickets at \$10 each.  You always fill the theater.
 
@@ -85,9 +107,9 @@ It costs you \$200 to rent the theater and another \$200 to pay the cast, so the
 
 \$800 per show.  That seems pretty good.
 
-Your cousin Vinnie has an idea.  If you raise the price you'll make more money, but you'll also sell fewer tickets.  Acme Consulting has done a study which says that for every \$1 increase in the ticket price you'll have two empty seats.
+Your cousin Vinnie has an idea:  if you raise the price you'll make more money.  However, you'll also sell fewer tickets.  Acme Consulting has done a study which says that for every \$1 increase in the ticket price you'll have two empty seats.
 
-As a red-blooded American, \emph{of course} you want the maximum profit.  What should you do?  There's clearly money to be made, if you raise the ticket price \$1, you'll sell 119 seats at \$11 for \$1309, giving a net profit of \$909.
+As a red-blooded American, \emph{of course} you want the maximum profit.  What should you do?  There's clearly money to be made, if you raise the ticket price \$1, you'll sell 118 seats at \$11 for \$1298, giving a net profit of \$898.
 
 Call the price increase $x$.  You will sell $n - 2x$ seats at a ticket price of $T + x$ for a profit
 \[ P = (n - 2x)(T + x) - 400 \]
@@ -530,5 +552,79 @@ The potential energy at the top is equal to the kinetic energy at the bottom.
 \[ v^2 = 2gh = 64 h \]
 \[ v =  8 \sqrt{h} \]
 which is what we had before.
+
+\subsection*{incircle and smaller circles}
+
+Acheson presents this problem (though he does not show the solution).  The algebra defeated me for quite a long time, but I finally got it.
+
+We are given only the radii of the small circles, $a,b$ and $c$, and are asked to find $r$, which I have written as $R$.
+
+\begin{center} \includegraphics [scale=0.4] {Acheson_G163.png} \end{center}
+
+\emph{Solution}.
+
+Let the relevant half-angles at the vertices be $\alpha, \beta$, and $\gamma$.  These are half angles, so they sum to be one right angle.  Therefore, any one angle is complementary to the sum of the other two, and the sine of one is the cosine of the sum of the other two. 
+
+\[ \sin \alpha = \cos \beta + \gamma = \cos \beta \cos \gamma - \sin \beta \sin \gamma \]
+
+Our previous work with this problem (in the geometry book)
+\begin{center} \includegraphics [scale=0.5] {double_scoop1.png} \end{center}
+
+showed that 
+\[ \sin \theta = \frac{R - r}{R + r}, \ \ \ \ \ \ \cos \theta = \frac{2\sqrt{Rr}}{R + r} \]
+
+Draw similar triangles involving the centers of the two circles to get this result.
+
+We can apply this to the current problem, giving similar formulas for $\alpha$, $\beta$ and $\gamma$ in terms of the radii $a, b$ and $c$ as well as $R$.
+
+So the expression for $\sin \alpha$ above can be written as 
+\[ \frac{R - a}{R + a} = \frac{2\sqrt{Rb}}{R + b} \cdot \frac{2\sqrt{Rc}}{R + c} - \frac{R - b}{R + b} \cdot \frac{R - c}{R + c} \]
+
+Rearranging:
+\[ (R-a)(R+b)(R+c) + (R+a)(R-b)(R-c) = 4R \sqrt{bc} \cdot (R + a) \]
+
+The first term is
+\[ (R-a)(R+b)(R+c) \]
+\[ = (R-a)(R^2 + Rb + Rc + bc) \]
+\[ = R^3 + R^2b + R^2c + Rbc -R^2a - Rab - Rac - abc \]
+
+The second term is 
+\[ (R+a)(R-b)(R-c) \]
+\[ = (R+a)(R^2 - Rb - Rc + bc) \]
+\[ = R^3 - R^2b - R^2c + Rbc + R^2a - Rab - Rac + abc \]
+
+The sum has four cancelations and four terms remaining:
+\[ 2R^3 + 2Rbc - 2Rab - 2Rac =  4R \sqrt{bc} \cdot (R + a) \]
+
+We can factor out $2R$
+\[ R^2 + bc - ab - ac =  2 (R + a) \sqrt{bc} \]
+\[ R^2 + bc - ab - ac =  2R \ \sqrt{bc} + 2a \sqrt{bc} \]
+
+This is a quadratic in $R$:
+\[ R^2 - 2 \sqrt{bc} \ R + bc - ab - ac - 2a \sqrt{bc} \]
+
+The discriminant is
+\[ 4bc - 4(bc - ab - ac - 2a \sqrt{bc}) \]
+
+with another cancelation
+\[ 4ab + 4ac + 8a \sqrt{bc} \]
+
+The $4$ comes out from the square root as $2$ and we have
+\[ R = \frac{2 \sqrt{bc} \pm 2 \sqrt{ab + ac + 2a \sqrt{bc}}}{2} \]
+\[ R = \sqrt{bc} \pm \sqrt{ab + ac + 2a \sqrt{bc}} \]
+
+But what is under the square root is a perfect square, namely
+\[ ab + ac + 2a \sqrt{bc} = (\sqrt{ab} + \sqrt{ac})^2 \]
+
+We have
+\[ R = \sqrt{bc} \pm (\sqrt{ab} + \sqrt{ac}) \]
+
+We will disregard the negative sign and obtain finally
+\[ R = \sqrt{bc} + \sqrt{ab} + \sqrt{ac} \]
+
+$\square$
+
+As expected, it is symmetric in $a,b$ and $c$.
+
 
 \end{document}
