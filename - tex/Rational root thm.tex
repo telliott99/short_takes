@@ -22,29 +22,37 @@
 %[my-super-duper-separator]
 
 Consider this polynomial with integer coefficients:
-\[ a_n x^n + \dots + a_1 x + a_0 = 0 \]
+\[ a_0 + a_1 x + \dots + a_n x^n = 0 \]
 
-The theorem says that \emph{if} there is a rational root $p/q$ of this equation (a solution), then it must be true that $p|a_0$ ($p$ is a divisor of $a_0$) and $q|a_n$.  That is, there exist integers $x$ and $y$ such that $xp = a_0$ and $yq = a_n$.
+The theorem says that \emph{if} there is a rational root $p/q$ of this equation (a solution), then it must be true that $p|a_0$ ($p$ is a divisor of $a_0$) and $q|a_n$.  
 
-As usual, we require that $p/q$ be in "lowest" terms, so that there is no remaining common factor.
+As usual, we require that $p/q$ be in "lowest" terms, so that there is no remaining common factor.  $p$ and $q$ are coprime.
 
 \emph{Proof}.
 
-The solution can be written as
-\[ a_n (p/q)^n + \dots + a_1 (p/q) + a_0 = 0 \]
+The proposed solution can be written as
+\[ a_0 + a_1 (p/q) + \dots + a_n (p/q)^n = 0 \]
 
 Multiply by $q^n$
-\[ a_n p^n + \dots + a_1 p q^{n-1} + a_0 q^n = 0 \]
+\[ a_0 q^n + a_1 p q^{n-1} + \dots + a_n p^n = 0 \]
 
-Now simply isolate the last term
-\[ a_n p^n + \dots + a_1 p q^{n-1} = - a_0 q^n \]
+Now simply isolate the first term
+\[ a_1 p q^{n-1}  + \dots + a_n p^n = - a_0 q^n \]
 
 Factor out $p$ on the left-hand side:
-\[ p(a_n p^{n-1} + \dots + a_1 q^{n-1}) = - a_0 q^n \]
+\[ p(a_1 q^{n-1} + \dots + a_n p^{n-1}) = - a_0 q^n \]
 
-Since $p$ divides the product on the right-hand side, it must divide either $a_0$ or $q$.  But $p$ is co-prime to $q$.  Therefore $p|a_0$.
+Since $p$ divides the product on the left-hand side, it must divide either $a_0$ or $q$.  But $p$ is co-prime to $q$.  Therefore $p|a_0$.
 
 An analogous argument shows that $q|a_n$.
+
+\subsection*{caution}
+I have written the polynomial starting with $a_0$ so that the index will increase from left-to-right.
+
+However, we usually write simple polynomials with the higher powers first:
+\[ a_n x^n + \dots + a_1 x + a_0 = 0 \]
+
+Our result says that the numerator of any rational solution must evenly divide $a_0$, the constant at the end, and further that the denominator of any rational solution must evenly divide the cofactor of the highest power of $x$, i.e. $a_n$
 
 \subsection*{applications}
 
@@ -53,23 +61,31 @@ Consider
 
 The solution is $\sqrt{2}$.  
 
-For a rational solution $p/q$, it must be that $p$ divides $-1$ (so is equal to $\pm 1$), and $q$ divides $2$.  The possibilities are $1/1, 1/2$, and their negatives, but none of the four solves the equation.  Thus, there is no solution in the rational numbers.
+For a rational solution $p/q$, it must be that $p$ divides $-2$ and $q$ divides $1$.   This means that $p \in \{ 1,-1,2,-2 \}$ and $q = 1$.
+
+But none of the four forms $p/q$ solves the equation.  Thus, there is no solution in the rational numbers.
 
 Consider the cube root:
 
 \[ x^3 - 2 = 0 \]
 
-The same analysis holds.  None of the possible solutions is an actual one.  The cube root of $2$ is irrational.
+The same analysis holds.  None of the possible solutions is an actual one.  The cube root of $2$ is also irrational.
 
-Consider
+Now consider
 \[ 7x^3 - 3x^2 + 14x - 6 = 0 \]
 
-$q$ is either $1$ or $7$ and $p$ is either $1,2$ or $3$ so the possibilities are
+We have that $q$ is either $1$ or $7$ and $p$ is either $1,2$ or $3$  or one of their negatives, so the possibilities are
 
 \[ 1/1, 2/1, 3/1, 6/1, 1/7, 2/7, 3/7, 6/7 \]
 together with their negatives.  
 
-We will discover that $x = 3/7$ is a solution.  Which means that $7x - 3$ must factor out of the equation.  By "long division" we factor to obtain:
+By trial and error, we discover that $x = 3/7$ is a solution since
+\[ 7 (3/7)^3 - 3(3/7)^2 + 14(3/7) - 6 = 0 \]
+\[ \frac{27}{49} - \frac{27}{49} + \frac{42}{7} - 6 = 0 \ \ \ \checkmark \]
+
+Which means that $7x - 3$ must factor out of the equation, so that $x = 3/7$ gives zero for that term.  
+
+By "long division" we factor to obtain:
 
 \[ = (7x - 3)(x^2 + 2) \]
 
