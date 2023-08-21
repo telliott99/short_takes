@@ -1,0 +1,263 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Vertex and roots}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{min/max value}
+We start with the standard form for a quadratic
+\[ y = ax^2 + bx + c \]
+
+We have been told that the vertex of the graph lies at the point with
+\[ x = - \frac{b}{2a} \]
+We might call that point $x_m$ for min/max but I prefer to just call it $m$: 
+\[ x = m = - \frac{b}{2a} \]
+It's the $x$-value at the vertex.  If you like, you can also figure out the value of $y$ at the vertex by plugging in to the equation, but we won't do that.
+
+Instead, we want to focus on the zeros or roots of the equation, those values of $x$ that give $y = 0$.  (We ignore the complication that for some equations, some graphs, they may not cross the $x$-axis so there are no such values in the normal way of thinking.  We'll explain later).
+
+\[ 0 = ax^2 + bx + c \]
+And having that $0$ immediately suggests 
+\[ 0 = x^2 + \frac{b}{a}x + \frac{c}{a} \]
+
+The same $x$-values that give zero in the first equation also give zero in the second one, but the second is simpler to solve.
+
+\subsection*{average of $s$ and $t$}
+Here is the equation we wrote previously using the zeros $s$ and $t$
+\[ 0 = (x - s)(x - t) \]
+\[ 0 = x^2 - (s + t)x + st \]
+Compare with
+\[ 0 = x^2 + \frac{b}{a}x + \frac{c}{a} \]
+
+If these are two forms of the \emph{same} equation, then the cofactors of $x$ must match:
+\[ - (s + t) = \frac{b}{a} \]
+\[ s + t =  - \frac{b}{a} \]
+And if, as we said, the vertex $x = m$ is the average of $s$ and $t$
+\[ m = \frac{1}{2} (s + t)\]
+\[  = \frac{1}{2} (- \frac{b}{a}) = - \frac{b}{2a} \]
+So that explains where the formula for the vertex $m$ comes from.
+
+The other part $c/a$ must also match.  That is
+\[ \frac{c}{a} = st \]
+we'll come back to that.
+
+\subsection*{completing the square}
+We have 
+\[ m = - \frac{b}{2a} \]
+Re-arranging:
+\[ -2m = \frac{b}{a} \]
+Let us plug that into the standard form
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
+\[ x - 2mx = - \frac{c}{a} \]
+We want the left-hand side be a perfect square.
+\[ (x + \text{ something })^2 \]
+
+The trick is to see that if we add $m^2$ it will work with $m$ as the something
+\[ x - 2mx + m^2 = (x - m)^2 \]
+Of course, we must add $m^2$ on both sides of the original equation so from
+\[ x - 2mx = - \frac{c}{a} \]
+we get
+\[ x - 2mx + m^2 = m^2 - \frac{c}{a} \]
+\[ (x - m)^2 = m^2 - \frac{c}{a} \]
+Now it's just a little algebra.  We take the square root, which means we can have either the positive or the negative branch.
+\[ x - m = \pm \ \sqrt{m^2 - c/a} \]
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+
+This is a second formula to memorize.  If you plug in the value of $m$ (i.e. $m = -b/2a$) and also $c/a$, then it will give us the roots of the equation that we started with.
+
+\subsection*{problems}
+In the previous write-up we had this problem
+\[ y = -16t^2 + 64t + 144 \]
+and we want to know the time $t$ when $y = 0$ so
+\[ 0 = -16t^2 + 64t + 144 \]
+Divide both sides by $16$
+\[ 0 = -t^2 + 4t + 9 \]
+$m = -b/2a = 2$ and the roots are
+\[ x = 2 \pm \ \sqrt{4 - 4(-1)(9)} = 2 \pm \sqrt{40} \]
+It's not a round number but $2 + \sqrt{40}$ is about $8.3$ seconds.  Notice that we pick the branch with a positive square root because we are interested only in positive values of $t$.
+
+The sum of two numbers is 18 and their product is 56.  What are they?
+
+\[ u + v = 18 \]
+\[ uv = 56 \]
+
+\[ u(18 - u) = 56 \]
+\[ u^2 - 18u + 56 = 0 \]
+
+The factors of $56$ are $2 \cdot 28$, $4 \cdot 14$, and $7 \cdot 8$.
+\[ 4 + 14 = 18 \]
+so
+\[ (u - 4)(u - 14) = 0 \]
+
+The numbers are $4$ and $14$.
+
+The product of two consecutive positive odd numbers is $255$.  Find the numbers.
+
+Odd numbers can be described as $2n+1$ for some $n$, since that is one more than the even number $2n$.  So we have
+\[ (2n + 1)(2n + 3) = 255 \]
+\[ 4n^2 + 8n + 3 = 255 \]
+\[ 4n^2 + 8n - 252 = 0 \]
+We are looking for zeros.  So we can divide by $4$:
+\[ n^2 + 2n - 63 = 0 \]
+Two numbers multiply to give $-63$ and add to give $2$:
+\[ (n + 9)(n - 7) = 0 \]
+The roots are $-9, 7$.  
+
+But we specified positive numbers which means $n = 7$.  The numbers are $2 \cdot 7 + 1 = 15$ and $17$, easily confirmed.
+
+Alternatively we can write the numbers as $2n + 1$ and $2n - 1$ and then
+\[ (2n + 1)(2n - 1) = 255 \]
+This gives a simpler solution.
+\[ 4n^2 - 1 = 255 \]
+\[ n^2 = 64 \]
+\[ n = \pm 8 \]
+Again $n > 0$ so $n = 8$ and the numbers are $2n - 1 = 15$ and $2n + 1 = 17$.
+
+\subsection*{quadratic formula}
+I use the formula
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+because it's relatively simple, but the one you will find in your book doesn't use $m$, it uses $a,b$ and $c$.
+
+Let us plug in $m = -b/2a$ and see what we get.
+\[ x = - \frac{b}{2a} \ \pm \ \sqrt{(\frac{-b}{2a})^2 - \frac{c}{a}} \]
+
+The trick is to put$c$ over the same denominator as everything else
+\[ x = - \frac{b}{2a} \ \pm \ \sqrt{(\frac{-b}{2a})^2 - \frac{4ac}{4a^2}} \]
+We multiplied the last term by $4a$ on top and bottom.
+
+So then
+\[ x = - \frac{b}{2a} \ \pm \ \sqrt{\frac{b^2}{(2a)^2} - \frac{4ac}{(2a)^2}} \]
+Factor out the square root of $(2a)^2$
+\[ x = - \frac{b}{2a} \ \pm \ \frac{1}{2a} \sqrt{(-b)^2 - 4ac} \]
+And then combine everything over the common denominator so finally
+\[ x = \frac{- b \ \pm \ \sqrt{b^2 - 4ac}}{2a} \]
+
+This is the quadratic formula which has been memorized by generations of algebra students.  I really prefer
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+but it's the same thing.
+
+\subsection*{alternative approach}
+There is a different way to get the quadratic formula.  We said that $m$ lies exactly halfway between $s$ and $t$.  Let the distance from $m$ to $s$ (or to $t$) be $d$.  Then
+\[ m - d = s \ \ \ \ \ \ \ m + d = t \]
+\[ (m - d)(m + d) = st \]
+\[ m^2 - d^2 = st \]
+So we have a formula for $d^2$ in terms of $m$, $s$ and $t$.
+\[ d^2 = m^2 - st \]
+
+But remember we know that
+\[ \frac{c}{a} = st \]
+and said we'd come back?  So
+\[ d^2 = m^2 - c/a \]
+\[ d = \pm \ \sqrt{m^2 - c/a} \]
+and then the roots are
+\[ s = m - d = m - \sqrt{m^2 - c/a} \]
+\[ t = m + d = m + \sqrt{m^2 - c/a} \]
+And that, I hope, shows the meaning of the quadratic formula.
+
+The roots lie an equal distance $d$ on either side of the vertex at $m$, and that distance is given by what's under the square root.
+
+\subsection*{complex numbers}
+Let us take a look at what is under the square root.  Here, it is probably simpler to use $a,b$ and $c$.  
+
+The expression we have is called the \emph{discriminant}
+\[ D = b^2 - 4ac \]
+
+Depending on the particular example, $D$ may be positive, negative, or even zero.  And if it is the case that $D < 0$, then we'll have the square root of a negative number.
+
+There are no real numbers with that property.  And this corresponds to the case where the graph does not cross the $x$-axis.  Then, there are no roots.
+
+Notice that if $a > 0$, so the graph opens up, then by making $c$ more and more positive we can eventually make $4ac > b^2$.  We can always shift the graph up above the $x$-axis by adding more to $c$.
+
+The way we explain these weird roots is to define $i$ as a special number with the property $i = \sqrt{-1}$, or equivalently $i^2 = -1$, so then if $D < 0$, let's say
+\[ D = -p^2 \]
+where $p^2$ is a positive real number, then
+\[ \sqrt{D} = ip \]
+So we have that the roots are
+\[ s = m - ip \]
+\[ t = m + ip \]
+Take a look at $s$ times $t$
+\[ st = (m + ip)(m - ip) \]
+\[ = m^2 - i^2 p^2 \]
+but remember $i^2 = -1$ so
+\[ st = m^2 + p^2 \]
+
+and we get the standard form as
+\[ 0 =  (x - s)(x - t) \]
+\[ = x^2 - (s + t)x + st \]
+$m$ is the average of $s$ and $t$, meaning that $2m = s + t$, and we computed just now $st = m^2 + p^2$ so
+\[ 0 = x^2 - 2m + m^2 + p^2 \]
+\[ = (x - m)^2 + p^2 \]
+The $i$ has gone away.
+
+This is a perfectly valid equation for $y$
+\[ y = (x - m)^2 + p^2 \]
+but it only has solutions as long as $y >= 0$!  It is possible to have $m$ and $p$ both zero, so then $y = x^2$.  But there is no way to have $y < 0$ because it is the sum of two squares, which are both either $0$ or positive but never negative.
+
+Which is another way of saying that the graph does not cross the $x$-axis.  There is no $x$ such that $y < 0$.
+
+\subsection*{shifting the vertex}
+
+We won't prove it, but just say that any quadratic (in fact, any formula) can be re-written in a form like:
+\[ (y - k) = a(x - h)^2 \]
+where $a$ is the shape factor, as usual, and $(h,k)$ is the point where the vertex lies.  (We abandon our favorite symbol $m$ for this part).
+
+Multiplying out
+\[ y - k = ax^2 - 2ahx + ah^2 \]
+\[ y = ax^2 - 2ahx + ah^2 + k \]
+
+by comparison with the standard form
+\[ y = ax^2 + bx + c \]
+we have that 
+\[ b = -2ah \]
+\[ h = - \frac{b}{2a} \]
+Which matches what we said before.  The $x$-value at the vertex is 
+\[ x = h = - \frac{b}{2a} \]
+
+\subsection*{intersection}
+
+You have a parabola and a line and want to know where (or if) they intersect.  Write the equation of the line as
+\[ y = kx + y_0 \]
+To make life easier, we will consider a parabola that is translated to have its vertex at the origin so
+\[ y = ax^2 \]
+
+We are interested in the $x$-values that give equal $y$.  So
+\[ kx + y_0 = ax^2 \]
+
+Gather like terms
+\[ 0 = ax^2 + - kx - y_0 \]
+We have a quadratic.  So 
+\[ m = - \frac{-k}{2a} = \frac{k}{2a} \]
+
+And the roots are
+\[ x = \frac{k}{2a}  \ \pm \ \sqrt{(\frac{k}{2a} )^2} \]
+\[ = \frac{k}{2a}  \pm \frac{k}{2a}  \]
+\[ = 0, \frac{k}{a} \]
+
+The interesting thing is when there is only a single root, a single intersection.  That happens when the line is the tangent to the parabola at the point of intersection.
+
+There
+\[ x = \frac{k}{2a} \]
+\[ k = 2ax \]
+The slope of the tangent line is $2ax$, which matches the result given by calculus.
+
+
+
+
+\end{document}

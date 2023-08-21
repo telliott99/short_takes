@@ -1,0 +1,58 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Exponentials}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We start to explore functions more systematically.  You already know powers like $x^2$ and $x^3$ and in general, we can write
+\[ y = ax^n \]
+where $a$ is some constant, $x$ is the independent variable, and $n$ is a positive integer.  So if $a = 2$ and $n = 3$ 
+\[ y = 2x^3 \]
+is a \emph{cubic} function because of that power of $3$.  Various powers of $x$ can be combined into what are called \emph{polynomials} like
+\[ y = ax^2 + bx + c \]
+
+The next major class of functions are the \emph{exponential} functions like $y = b^x$, where $b$ is some constant called the \emph{base} and $x$ is again, the independent variable.  A simple example is 
+\[ y = 2^x \]
+We can get some idea about this function by trying different values of $x$.
+\begin{center} \includegraphics [scale=0.4] {exp1.png} \end{center}
+
+We sketch the graph by filling in between the points $(x,2^x)$ obtained for integer values of $x$.  It's important to remember that $x$ doesn't have to be an integer.  For example $x = 1/2$ is perfectly legal, so then $y = 2^{1/2}$.
+
+What does it mean to say that $y = 2^{1/2}$?  The meaning becomes clear when we square both sides.
+\[ y^2 = 2^{1/2} \cdot 2^{1/2} = 2 \]
+The last step follows from the basic rule for exponents of a common base.  Then
+\[ y = \sqrt{y^2} = 2^{1/2} = \sqrt{2}  \]
+
+So that's the first step in thinking about exponentials as functions:  $x$ can have values that are not integers.
+
+The exponent be negative, as well.
+\[ y = 2^{-x} \]
+We can get some idea about this one by multiplying on top and bottom as follows:
+\[ y = 2^{-x} \cdot \frac{2^{x}}{2^{x}} = \frac{2^0}{2^{x}} = \frac{1}{2^{x}} \]
+So $2^{-x}$ is the inverse of $2^{x}$.
+\begin{center} \includegraphics [scale=0.4] {exp2.png} \end{center}
+In this figure the red curve is the graph of $y = 2^{-x}$ and the blue curve is $y = 2^x$.  They are mirror images.
+
+This form of the exponential is called the negative exponential or exponential decay.
+
+
+
+
+\end{document}
