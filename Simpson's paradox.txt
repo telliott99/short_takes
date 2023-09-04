@@ -38,10 +38,10 @@ https://en.wikipedia.org/wiki/Simpson%27s_paradox
 
 Another famous example involves batting averages for two baseball players, Derek Jeter and David Justice in 1995 and 1996.
 
-           1995                1996               combined
+         1995              1996             combined
 
-Jeter       12/ 48 = 0.250     183/582 = .314     195/630 = .310
-Justice    104/411 = 0.253      45/140 = .321     149/551 = .270
+Jeter     12/ 48 = 0.250   183/582 = .314   195/630 = .310
+Justice  104/411 = 0.253    45/140 = .321   149/551 = .270
 
 David Justice had a slightly better average than Jeter in both years, but when the data are combined he is 40 points lower than Derek Jeter.
 

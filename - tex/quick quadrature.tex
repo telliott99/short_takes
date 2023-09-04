@@ -1,0 +1,167 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Archimedes' Quadrature}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Quadrature refers to area, in particular to a method that can find the area of a plane figure.  Consider the parabola $y = x^2$ with its vertex at the origin.  (For simplicity we will not worry yet about the shape factor $a$).
+\begin{center} \includegraphics [scale=0.4] {qq1.png} \end{center}
+Pick any two points on the parabola $P$ and $Q$, then find the vertical line $RT$ that lies exactly halfway in between.
+
+Let the $x$-coordinates of $Q$ and $P$ be $u$ and $v$, respectively.  Then, the $y$-coordinates of $Q$ and $P$ are $u^2$ and $v^2$.
+
+Notice that $RT$ produces two smaller triangles of equal area, since they have the common base $RT$ and equal height.  That height is half the horizontal distance between $P$ and $Q$
+\[ h = \frac{u-v}{2} \]
+
+It is a moderate challenge to find the length of $RT$.  The $x$-coordinates of the points $R,T$ and the intersection of $RT$ with the $x$-axis are all the same:  the average of $u$ and $v$ or $(u + v)/2$.
+
+Since $T$ is also on the curve its $y$-coordinate is the square of the $x$-coordinate $[(u + v)/2]^2$.  
+
+The $y$-coordinate of $R$ is the average of those for $P$ and $Q$ or $(u^2 + v^2)/2$. 
+
+Finally, the length of $RT$ is difference of those two $y$-coordinates:
+\[ b = \frac{u^2 + v^2}{2} - [\frac{u + v}{2}]^2 \]
+\begin{center} \includegraphics [scale=0.4] {qq1.png} \end{center}
+
+Before proceeding to the area calculation, we can simplify this expression.
+\[ 4b = 2u^2 + 2v^2 - u^2 - 2uv - v^2 \]
+\[ = u^2 - 2uv + v^2 = (u - v)^2 \]
+The area of each small triangle is $hb/2$ so the area of $\triangle PQT$ is 
+\[ A = hb = \frac{u-v}{2} \cdot \frac{(u - v)^2}{4} \]
+\[ = \frac{1}{8} (u - v)^3 \]
+
+That's a pretty simple result.
+
+We ask, what would happen if we repeat the process?  Subdivide $PT$ and $TQ$.  Let $w$ be the $x$-coordinate of the original bisector.  Then the new distance is $u - w = (u - v)/2$.
+\[ A' \stackrel{?}{=} \frac{1}{8} (\frac{u-v}{2})^3 \]
+
+This is not quite right yet.  The reason is that we have here the area for the two new triangles between $T$ and $Q$.  But there are also two new triangles between $P$ and $T$.  So actually
+\[ A' = 2 \cdot \frac{1}{8} (\frac{u-v}{2})^3 \]
+\[ A' = 2 \cdot \frac{1}{8} \cdot \frac{1}{8} (u - v)^3 \]
+\[ A' = \frac{1}{4} A \]
+Doing it yet again would yield
+\[ A'' = \frac{1}{4} A' = \frac{1}{16} A \]
+
+Thanks to a suggestion from Eudoxus of Cnidus, we repeat this until the area just above the curve is \emph{exhausted}:
+
+\[ \Delta A = A' + A'' + \dots = \]
+\[ = \ [ \ \frac{1}{4} + \frac{1}{16} + \dots \ ] \ A \]
+This is a geometric series with $r = 1/4$ and first term $a = 1/4$ and its sum is known to be
+\[ \frac{a}{1 - r} = \frac{1/4}{3/4} = \frac{1}{3} \]
+so 
+\[ \frac{A + \Delta A}{A} = \frac{4}{3} \]
+
+The total area between the curve and the secant $PQ$ is equal to $4/3$ times the area of $\triangle PTQ$.
+
+\begin{center} \includegraphics [scale=0.4] {qq1.png} \end{center}
+
+\subsection*{checking our work}
+
+We check this with a combination of simple calculus and not-so-simple algebra.  The area below the curve is the integral:
+\[ \int_v^u x^2 \ dx = \frac{1}{3} (u^3 - v^3) \]
+We find a factor of $u - v$ in the above equation:
+\[ A_{\int} =  \frac{1}{3} (u - v)(u^2 + uv + v^2) \]
+
+Earlier, we determined that the $\triangle PTQ$ has area 
+\[ \frac{1}{8} (u- v)^3 \]
+
+The trapezoid or box formed by $PQ$, the verticals, and the $x$-axis has for its average height the $y$-value of the point $R$:
+\[ h = \frac{u^2 + v^2}{2} \]
+and width $u - v$ so its area is
+\[ A_{\text{box}} = (u-v) \cdot \frac{u^2 + v^2}{2} \]
+
+The areas are
+\[ A_{\text{box}} = A_{\int} + \frac{4}{3} A_{\triangle} \]
+
+We factor $u-v$ from each before re-writing the last equation as
+\[ \frac{u^2 + v^2}{2}  = \frac{1}{3} (u^2 + uv + v^2) + \frac{4}{3} \cdot  \frac{1}{8} \cdot (u-v)^2 \]
+Working with the right-hand side, we clearly we have a factor of $1/3$, and that has me a little worried as there certainly is not one on the left.
+
+\[ = \frac{1}{3} (u^2 + uv + v^2 + \frac{(u-v)^2}{2}) \]
+We have from that second term $(u^2 - 2uv + v^2)/2$ which gives not only a cancelation but also factors of $3/2$:
+\[ = \frac{1}{3} \cdot \frac{3}{2}(u^2 + v^2) = \frac{(u+v)^2}{2} \]
+And that's a relief.  $\checkmark$
+
+\subsection*{halfway point}
+The slope of the tangent to the curve at point $T$ is twice the $x$-coordinate of $T$, times $a$ if present (see below).  That's just $2 \cdot (u + v)/2 = u + v$.
+
+The slope of the secant $PQ$ from analytic geometry is the same:
+\[ \frac{\Delta y}{\Delta x} = \frac{u^2 - v^2}{u - v} = u + v \]
+
+\subsection*{slope of the tangent}
+At this point, you might ask just why it is that if we pick two points and find the third point whose $x$ is midway, that the slope of the secant through the two points is equal to the slope of the curve at $x$.  
+
+A French mathematician named Roberval had a beautiful answer for that.
+\begin{center} \includegraphics [scale=0.4] {para20.png} \end{center}
+
+The geometric definition of the parabola is to draw a line called the directrix and also pick a point $F$, the focus.  Then every point on the parabola $P$ has the same distance to $F$ as vertically down to $D$ on the directrix.  
+
+Since the direction of ``motion'' must keep these distances the same, it follows that the tangent bisects $\angle FPD$.  It follows that $FPDI$ is a parallelogram.
+
+As a result the slope of the tangent line $PI$ is $2ax^2/x = 2ax$.
+
+A second approach comes from calculus.  Literally the first thing we do is to find the slope of the secant for two nearby points (separated by $\Delta x$), that satisfy a quadratic equation $y = ax^2$.
+\[ f'(x) = \frac{a(x+\Delta x)^2 - ax^2}{\Delta x} \]
+\[ = \frac{2ax \Delta x + (\Delta x)^2}{\Delta x} \]
+\[ = 2ax + \Delta x \]
+
+The magic is that we can let $\Delta x$ ``tend'' to zero (despite having it in the denominator the moment before), and then this becomes the slope of the tangent line, which is $2ax$.
+
+A third approach is to write the equations for a line that intersects a parabola.
+\[  y = kx + y_0 \]
+\[ y = ax^2  \]
+So
+\[ ax^2 - kx - y_0 = 0 \]
+The roots are
+\[ x = \frac{k \ \pm \sqrt{k^2 - 4ay_0}}{2a} \]
+
+It is possible that there are no solutions, one solution, or two.  The case of one solution is the tangent line, and that happens when the discriminant is zero.
+\[ x = \frac{k}{2a} \]
+\[ k = 2ax \]
+
+\subsection*{parallel lines}
+In \emph{Infinite Powers}, Strogatz describes this problem from the reverse direction.  He says that Archimedes starts with the secant and then moves that line parallel to find where it just touches the curve.
+
+We have our two points and a line with slope
+\[ \frac{u^2 - v^2}{u - v} = u + v \]
+and now we want the intersection(s) of a line with this slope and the curve
+\[ y = x^2 = (u + v)x + y_0 \]
+We want the point where there is a single solution.  
+
+Although it seems that we must find $y_0$, we don't have to, because it is a constant.  For the sake of completeness, though, we will.  Plug the point $(u,u^2)$ into the equation of the line
+\[ y = (u+v)x + y_0 \]
+\[ u^2 = (u+v)u + y_0 \]
+\[ y_0 = -uv \]
+\[ y = (u+v)x - uv \]
+You can easily confirm that both $(u,u^2)$ and $(v,v^2)$ satisfy this equation.
+
+Solving our problem
+\[ y = x^2 = (u + v)x - uv \]
+\[ x^2 - (u+v)x + uv = 0 \]
+This is a quadratic in $x$ which has a single solution when 
+\[ x = \frac{u+v}{2} \]
+$x$ lies halfway between $u$ and $v$, as we said.
+
+\subsection*{factor of $a$}
+A factor of $a$ in the equation $y = ax^2$ stretches all $y$-values and all the areas in the $y$-direction.  The simplest way to deal with this is to do a variable substitution $y/a = u$ and then follow what we did here.
+
+In interpreting the areas, every area will have a factor of $a$ to add back, from the stretching, and those will cancel.  We leave that as an exercise.
+
+\end{document}
