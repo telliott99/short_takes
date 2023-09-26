@@ -1,0 +1,60 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{figures}{/Users/telliott/Github-Math/figures/}}
+
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Algebra of the ellipse}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+Below is an ellipse which crosses the $x$-axis at $(\pm a,0)$ and the $y$-axis at $(0,\pm b)$.  By definition, the distances from every point on the ellipse to the two foci,  $(\pm c,0)$, combined, is a constant, $L$.
+\begin{center} \includegraphics [scale=0.3] {ellipse.png} \end{center}
+
+Note that if $(x,y) = (a,0)$ then the two distances are $a-c$ and $a+c$ which add up to $L = 2a$.  
+
+If the point is $(x,y) = (0,b)$ then by the Pythagorean theorem we have:
+\[ 2\sqrt{b^2 + c^2} = L = 2a \]
+\[ a^2 = b^2 + c^2 \]
+\[ b^2 = c^2 - a^2 \]
+We'll come back to this.
+
+This example has $a = 2.5$ and $b = 2$.  
+
+$2.5^2 - 2^2 = 6.25 - 4 = 2.25 = 1.5^2$.  So even though the ratio is pretty moderate $a/b = 5/4$, the foci are still at $3/5 \cdot a$.
+
+For any general point we can write another equation using Pythagoras twice:
+\[ L = \sqrt{(x + c)^2 + y^2} + \sqrt{(x - c)^2 + y^2}  = 2a \]
+Rearrange
+\[ \sqrt{(x + c)^2 + y^2}  = 2a -  \sqrt{(x - c)^2 + y^2}  \]
+Square
+\[ (x + c)^2 + y^2 = 4a^2 - 4a  \sqrt{(x - c)^2 + y^2} + (x - c)^2 + y^2 \]
+Cancel $y^2$, $x^2$ and $c^2$
+\[ 2xc = 4a^2 - 4a  \sqrt{(x - c)^2 + y^2} - 2xc \]
+Rearrange and cancel $4$
+\[ a\sqrt{(x - c)^2 + y^2} = a^2 -xc \]
+Square again
+\[ a^2(x-c)^2 + a^2y^2 = a^4 - 2a^2xc + x^2c^2 \]
+Expand
+\[ a^2x^2 - 2a^2xc + a^2c^2 + a^2y^2 = a^4 - 2a^2xc + x^2c^2 \]
+Cancel $ - 2a^2xc$
+\[ a^2x^2 + a^2c^2 + a^2y^2 = a^4 + x^2c^2 \]
+Rearrange and factor
+\[ (a^2 - c^2)x^2 + a^2y^2 = a^2(a^2 - c^2) \] 
+Substitute (from way back):
+\[ b^2 x^2 + a^2y^2 = a^2 b^2 \]
+Finally
+\[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1  \]
+
+\end{document}
