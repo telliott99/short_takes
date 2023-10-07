@@ -9,7 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 
-\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
 \title{Quadratics}
@@ -482,6 +482,23 @@ This says that for \emph{any} quadratic, the $x$-coordinate of the vertex, which
 The most basic thing we are asked to do with a quadratic is to find the position of the vertex, which always gives the minimum (or maximum) value for $y$.
 
 If you also want the $y$-value, just plug $x = -b/2a$ into the equation and do the arithmetic.
+
+You might be given an equation in standard form and asked to convert it to the $a(x-h)^2 = y - k$ form.  Let's start with the answer.
+\[ (x - 4)^2 = y - 3 \]
+The vertex is at $(4,3)$.  Multiply out:
+\[ x^2 - 8x + 16 = y - 3 \]
+\[ x^2 - 8x + 19 = y \]
+To go from this to the desired form, first put the constant with $y$.
+\[ x^2 - 8x = y - 19 \]
+Then, \emph{complete the square}.  Take half the cofactor of $x$, square it, and add on both sides:
+\[ x^2 - 8x + 16 = y - 19 + 16 = y - 3 \]
+\[ (x - 4)^2 = y - 3 \]
+If there is a factor of $a$ with $x^2$, you'll need to take that into account.  Divide the cofactor of $x$ by $a$ before you find half and square.
+\[ 2x^2 + 4x + 6 = y \]
+\[ 2(x^2 + 2x) = y - 6 \]
+Note that we add $2 \cdot 1$ on the right.
+\[ 2(x^2 + 2x + 1) = y - 6 + 2 = y - 4 \]
+\[ 2(x + 1)^2 = y - 4 \]
 
 \subsection*{line and a parabola}
 
