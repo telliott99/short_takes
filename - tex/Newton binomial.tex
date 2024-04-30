@@ -9,7 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 
-\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+\graphicspath{{/Users/telliott/Github-math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
 \title{Newton and the binomial}
@@ -65,6 +65,16 @@ Then just bring $n$ up into the numerator
 \[ + \frac{(m/n)}{1} \frac{(m/n-1)}{2} \frac{(m/n-2)}{3} Q^3 + \cdots \] 
 Substitute $r$ for $m/n$
 \[ (1 + Q)^r = 1 + r Q  + r \frac{(r-1)}{2} Q^2 + r \frac{(r-1)}{2} \frac{(r-2)}{3} Q^3 + \cdots \] 
+
+Note that each term can be written as a product of something times the previous term.
+
+$\circ$ The 2nd term is $m/n \ Q$ times the first.
+
+$\circ$ The 3rd term is $(m-n)/2n \ Q$ times the second.
+
+$\circ$ The 4th term is $(m-2n)/3n \ Q$ times the second.
+
+One can see how the cofactors with $m$ and $n$ change in each new term.
 
 This is the binomial with $x = Q$.
 

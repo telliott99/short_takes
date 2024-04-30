@@ -1,0 +1,82 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangent to conic section}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+
+{https://maa.org/sites/default/files/kung11010356273.pdf}
+
+A general equation for any conic section is
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+
+If $(x_0,y_0)$ lies on the conic section, then it satisfies the above equation.  Now, he says, let
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(x-x_0)^2 + B(x-x_0)(y - y_0) + C(y-y_0)^2 \]
+
+If the right-hand side is not zero, then this is the equation of a line passing through $(x_0,y_0)$ where no other point on the line is on the conic section.  In other words, it is the equation of the tangent line.
+
+The example given is
+\[ x^2 - xy + y^2 - 7 = 0 \]
+
+The point $(-1,2)$ is on the curve.
+
+Plugging into what we had above, the tangent line through $(-1,2)$  is
+\[ x^2 - xy + y^2 - 7 = (x+1)^2 - (x+1)(y-2) + (y-2)^2 \]
+\[ -7 = 2x + 1 +2 x - y + 2 - 4y + 4 \]
+\[ 5y = 4x + 14 \]
+\[ y = \frac{4}{5} x + \frac{14}{5} \]
+
+\begin{center} \includegraphics [scale=0.4] {tan_conic.png} \end{center}
+
+A second example is the unit circle.  We have
+\[ x^2 + y^2 - 1 = 0 = (x-x_0)^2 + (y - y_0)^2 \]
+\[ -1 = -2xx_0 + x_0^2 - 2yy_0 + y_0^2 \]
+\[ 2yy_0 = -2xx_0 + x_0^2 + y_0^2 + 1 \]
+\[ y = - \frac{x_0}{y_0} \ x + \ [ \ \frac{x_0^2}{2y_0} + \frac{y_0}{2} + 1 \ ] \]
+The \emph{slope} of the tangent to a unit circle at any point $(x,y)$ is $-x/y$.
+
+The easiest calculus derivation uses implicit differentiation:
+\[ 2x \ dx + 2y dy = 0 \]
+\[ \frac{dy}{dx} = - \frac{x}{y} \]
+\checkmark
+
+And for the general parabola in standard orientation
+\[ ax^2 + bx + c - y = 0 \]
+write
+\[ ax^2 + bx + c - y = a(x-x_0)^2 + b(x-x_0) - (y - y_0) \]
+And we have a problem in this case, because the $y$ term disappears.
+
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+is a parabola if $B^2 = 4AC$.  So for example, 
+\[ x^2 + 2xy + y^2 + x - y + 4 = 0 \]
+is a parabola, tilted to the left with respect to the $y$-axis.
+
+So then
+\[ x^2 + 2xy + y^2 + x - y + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 + x - x_0 - y + y_0 \]
+\[ x^2 + 2xy + y^2 + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 - x_0 + y_0 \]
+\[ 4 =  -2x x_0 + x_0^2 - 2x_0y  - 2xy_0 + 2x_0 y_0 - 2yy_0 + y_0^2 - x_0 + y_0 \]
+\[ 2x_0y + 2yy_0 =  -2x x_0 + x_0^2  - 2xy_0 + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \]
+\[ 2(x_0 + y_0) y = (-2x_0 - 2y_0 ) x + x_0^2 + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \]
+\[ 2(x_0 + y_0) y = (-2x_0 - 2y_0 ) x +  (x_0 + y_0)^2  - x_0 + y_0 - 4 \]
+which says the slope of the tangent is everywhere $-1$ which can't be right.
+
+
+\end{document}
