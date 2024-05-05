@@ -20,41 +20,37 @@
 \maketitle
 \Large
 
-Let's begin with the standard picture from analytical geometry, courtesy of Fermat and Descartes.
+Start with the standard picture from analytical geometry, courtesy of Fermat and Descartes.  Pick a point for the origin.  Draw orthogonal $x$- and $y$-axes. 
 \begin{center} 
-\includegraphics [scale=0.14] {rot1.png}
-\includegraphics [scale=0.14] {rot2.png}
+\includegraphics [scale=0.15] {rot1.png}
+\includegraphics [scale=0.15] {rot2.png}
+\end{center}
+The point $P$ lies a distance $r$ from the origin. In the $xy$-coordinate system, $P = (x,y)$ and $r^2 = x^2 + y^2$.
+\begin{center} 
+\includegraphics [scale=0.15] {rot3.png}
+\includegraphics [scale=0.15] {rot4.png}
 \end{center}
 
-We have a point $P$ that lies a distance $r$ from the origin.  We draw orthogonal axes called $x$ and $y$.  Re-using the names, in the $xy$-coordinate system, $P = (x,y)$.
+Now consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise by an angle $\theta$.  In the new system, $P = (u,v)$.  
 
-\begin{center} 
-\includegraphics [scale=0.14] {rot3.png}
-\includegraphics [scale=0.14] {rot4.png}
-\end{center}
-
-Now consider some other coordinate system $u,v$, also with orthogonal axes but rotated counter-clockwise by an angle $\theta$.  In the new system, $P = (u,v)$.  
-
-Our goal is to find a formula that relates $x$ and $y$ to $u$ and $v$.
+We will find a formula to give $u$ as a function of $x$ and $y$, that is $u = f(x,y)$.  Simlarly, $v = g(x,y)$. (We already know that the length $r$ must be the same in both systems so $x^2 + y^2 = u^2 + v^2$).
 \begin{center} \includegraphics [scale=0.18] {rot5.png} \end{center}
 
-We're going to draw a line that makes $x$ the \emph{hypotenuse} of a right triangle.  That's the blue line in the figure above.  This is the key step.
-
-Now, just fill in a rectangle.
+The first and key step is to draw a line that makes $x$ the \emph{hypotenuse} of a right triangle.  That's the blue line in the figure above.  Now, just fill in a rectangle with sides parallel to the $u,v$-axes.
 \begin{center} \includegraphics [scale=0.18] {rot6.png} \end{center}
 
-Finally, put some labels on the segments of lines.
+Notice $\theta$ is the angle between $y$ and $v$ axes (top).  Label segments of lines.
 \begin{center} \includegraphics [scale=0.18] {rot7.png} \end{center}
 \[ u' = x \cos \theta \ \ \ \ \ \ \ \ \ u'' = y \sin \theta \]
 \[ v' = y \cos \theta \ \ \ \ \ \ \ \ \ v'' = x \sin \theta \]
 
-We can write $u$ as the sum of two segments:
+We can therefore write $u$ as the sum of two segments:
 \[ u = u' + u'' = x \cos \theta + y \sin \theta \]
 
 We write $v$ as the difference of two segments.
 \[ v = v' - v'' = y \cos \theta - x \sin \theta \]
 
-A convenient notation is to write this as a matrix that multiplies a vector:
+A convenient notation is to put them in a matrix that multiplies a vector:
 \[
 \begin{bmatrix}  
 \ \ \cos \theta & \sin \theta \\
@@ -71,20 +67,56 @@ v
 \end{bmatrix}
 \]
 
-This is the matrix for counter-clockwise rotation of coordinates,  $R_{ccw}$
+This is $R_{ccw}$, the matrix for counter-clockwise rotation of coordinates, (from $x,y$ to $u,v$).
 
-However, alternatively, this can be viewed as a clockwise rotation of the point $P$.
+Another view is that this is a clockwise rotation of the point $P$.
 
-How about rotation in the other direction?  
+How about rotation in the other direction?  This amounts to finding functions that turn $u,v$ into $x,y$.  It's easy when you know how.  We have:
 
-If you know about matrices, you will realize that the two matrices must be inverses.  To invert a $2 \times 2$ matrix, transpose it and divide by the determinant (which is 1 here).  So
+\[ x = u \cos t - v \sin t \]
+\[ y = u \sin t + v \cos t \]
+We manipulate the equations so that the second term on the right-hand side is identical but with opposite sign.  Then just add.
+
+Multiply the first equation by $\cos t$ and the second by $\sin t$.  Addition gives:
+\[ x \cos t + y \sin t = u (\cos^2 t + \sin^2 t) - v \sin t \cos t + v \sin t \cos t \]
+\[ = u \]
+
+Multiply the first equation by $- \sin t$ and the second by $\cos t$ and add
+\[ - x \sin t + y \cos t = v \]
 
 \[
-R_{cw}
+\begin{bmatrix}  
+\cos \theta & - \sin \theta \\
+\sin \theta & \ \ \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+u \\
+v
+\end{bmatrix}
 =
 \begin{bmatrix}  
-\cos \theta & -\sin \theta \\
-\sin \theta & \ \  \cos \theta
+x \\
+y
+\end{bmatrix}
+\]
+The matrix above is $R_{cw}$.
+
+If you know about matrices, you will realize that the two matrices must be inverses, since rotating first one direction and then the other leaves the point unchanged.
+\[ R_{ccw} \ R_{cw} = I \]
+
+To invert a $2 \times 2$ matrix, transpose it and divide by the determinant (which is 1 here).  So
+
+\[
+R_{ccw}
+=
+\frac{1}{|R_{cw}|} \cdot R_{cw}^T
+= R_{cw}^T
+\]
+\[
+=
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
 \end{bmatrix}
 \]
 
@@ -124,15 +156,13 @@ We can also check to make sure that these work correctly with the unit vectors. 
 The rotated unit vector $\hat{\mathbf{j}}$ lies in the second quadrant.
 
 \subsection*{Stewart}
-I found a nice method in Stewart which depends on knowing the sum of angles formulas.
+Probably the easiest method I have I found, in Stewart, depends on knowing the sum of angles formulas.
 \begin{center} \includegraphics [scale=0.4] {sum_angles_6.png} \end{center}
 \newpage
 It goes like this.
 \begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
 
-Here, we have the standard $xy$-coordinates in black.  The rotated $uv$-coordinate system is in red, with a rotation angle $\theta$ in the counter-clockwise direction.
-
-The ray to the point $P$ has length $r$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
+Let the ray to the point $P$ have length $r$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
 \[ u = r \cos \phi \]
 \[  v = r \sin \phi \]
 while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
@@ -140,10 +170,8 @@ while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta
 \[ y = r \sin (\theta + \phi) \]
 Now, use the sum formula for cosine: 
 \[ x = r \cos \theta \cos \phi - r \sin \theta \sin \phi \]
-We have from above that
-\[ u = r \cos \phi \]
-\[ v = r \sin \phi \]
-So
+
+Plug in from above:
 \[ x = u \cos \theta - v \sin \theta \]
 It's as easy as that.
 
@@ -152,9 +180,9 @@ In the same way:
 \[ = r \sin \theta \cos \phi + r \cos \theta \sin \phi \]
 \[ = u \sin \theta + v \cos \theta \]
 
-Notice that here we have $x,y$ in terms of $u,v$.  So this derivation gives $R_{cw}$.
+Notice that here we have $x,y$ in terms of $u,v$.  So this derivation naturally gives $R_{cw}$.
 
-\subsection*{algebraic interconversion}
+\subsection*{another view of CCW and CW rotation}
 Given $x = f(x,y)$ and $y = g(x,y)$, we wish to convert these to $u = f'(x,y)$ and $v = g'(x,y)$
 
 One way is to switch symbols $x,y$ for $u,v$, and at the same time, substitute $-\theta$ for $\theta$.  What this amounts to is relabeling our diagram with $x,y$ being the rotated axes, and then rotating in the opposite direction (cw rather than ccw).
@@ -170,20 +198,9 @@ switch
 \[ v = x \sin -\theta + y \cos -\theta \]
 \[ v = -x \sin \theta + y \cos \theta \]
 
-Straightforward computation is easy as well.
-
-\[ x = u \cos t - v \sin t \]
-\[ y = u \sin t + v \cos t \]
-Multiply the first equation by $\cos t$ and the second by $\sin t$ and add:
-\[ x \cos t + y \sin t = u (\cos^2 t + \sin^2 t) - v \sin t \cos t + v \sin t \cos t \]
-\[ = u \]
-
-Multiply the first equation by $- \sin t$ and the second by $\cos t$ and add
-\[ - x \sin t + y \cos t = v \]
-
 \subsection*{vectors}
 
-Another way is to start from vectors and matrices and remember that we have a $2 \times 2$ matrix.
+Finally, another way is to guess.  Start from vectors and matrices and remember that we have a $2 \times 2$ matrix.
 
 Suppose the angle is $\theta = 0$.  Then we want the matrix to be the identity matrix
 
