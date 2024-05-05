@@ -20,6 +20,157 @@
 \maketitle
 \Large
 
+Let's begin with the standard picture from analytical geometry, courtesy of Fermat and Descartes.
+\begin{center} 
+\includegraphics [scale=0.14] {rot1.png}
+\includegraphics [scale=0.14] {rot2.png}
+\end{center}
+
+We have a point $P$ that lies a distance $r$ from the origin.  We draw orthogonal axes called $x$ and $y$.  Re-using the names, in the $xy$-coordinate system, $P = (x,y)$.
+
+\begin{center} 
+\includegraphics [scale=0.14] {rot3.png}
+\includegraphics [scale=0.14] {rot4.png}
+\end{center}
+
+Now consider some other coordinate system $u,v$, also with orthogonal axes but rotated counter-clockwise by an angle $\theta$.  In the new system, $P = (u,v)$.  
+
+Our goal is to find a formula that relates $x$ and $y$ to $u$ and $v$.
+\begin{center} \includegraphics [scale=0.18] {rot5.png} \end{center}
+
+We're going to draw a line that makes $x$ the \emph{hypotenuse} of a right triangle.  That's the blue line in the figure above.  This is the key step.
+
+Now, just fill in a rectangle.
+\begin{center} \includegraphics [scale=0.18] {rot6.png} \end{center}
+
+Finally, put some labels on the segments of lines.
+\begin{center} \includegraphics [scale=0.18] {rot7.png} \end{center}
+\[ u' = x \cos \theta \ \ \ \ \ \ \ \ \ u'' = y \sin \theta \]
+\[ v' = y \cos \theta \ \ \ \ \ \ \ \ \ v'' = x \sin \theta \]
+
+We can write $u$ as the sum of two segments:
+\[ u = u' + u'' = x \cos \theta + y \sin \theta \]
+
+We write $v$ as the difference of two segments.
+\[ v = v' - v'' = y \cos \theta - x \sin \theta \]
+
+A convenient notation is to write this as a matrix that multiplies a vector:
+\[
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}  
+u \\
+v
+\end{bmatrix}
+\]
+
+This is the matrix for counter-clockwise rotation of coordinates,  $R_{ccw}$
+
+However, alternatively, this can be viewed as a clockwise rotation of the point $P$.
+
+How about rotation in the other direction?  
+
+If you know about matrices, you will realize that the two matrices must be inverses.  To invert a $2 \times 2$ matrix, transpose it and divide by the determinant (which is 1 here).  So
+
+\[
+R_{cw}
+=
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\]
+
+We can also check to make sure that these work correctly with the unit vectors. Recall that rotation of a point CCW is the same as rotation of the coordinate system CW, so we use $R_{cw}$:
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+1 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}  
+\cos \theta \\
+\sin \theta
+\end{bmatrix}
+\]
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+0 \\
+1
+\end{bmatrix}
+= 
+\begin{bmatrix}  
+- \sin \theta \\
+\ \ \cos \theta
+\end{bmatrix}
+\]
+
+The rotated unit vector $\hat{\mathbf{j}}$ lies in the second quadrant.
+
+\subsection*{Stewart}
+I found a nice method in Stewart which depends on knowing the sum of angles formulas.
+\begin{center} \includegraphics [scale=0.4] {sum_angles_6.png} \end{center}
+\newpage
+It goes like this.
+\begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
+
+Here, we have the standard $xy$-coordinates in black.  The rotated $uv$-coordinate system is in red, with a rotation angle $\theta$ in the counter-clockwise direction.
+
+The ray to the point $P$ has length $r$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
+\[ u = r \cos \phi \]
+\[  v = r \sin \phi \]
+while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
+\[ x = r \cos (\theta + \phi) \]
+\[ y = r \sin (\theta + \phi) \]
+Now, use the sum formula for cosine: 
+\[ x = r \cos \theta \cos \phi - r \sin \theta \sin \phi \]
+We have from above that
+\[ u = r \cos \phi \]
+\[ v = r \sin \phi \]
+So
+\[ x = u \cos \theta - v \sin \theta \]
+It's as easy as that.
+
+In the same way:
+\[ y = r \sin (\theta + \phi) \]
+\[ = r \sin \theta \cos \phi + r \cos \theta \sin \phi \]
+\[ = u \sin \theta + v \cos \theta \]
+
+Notice that here we have $x,y$ in terms of $u,v$.  So this derivation gives $R_{cw}$.
+
+\subsection*{Solve for u and v algebraically}
+We have already given a method to convert these formulas to functions $u = f(x,y)$ and $v = f(x,y)$.
+
+An easy way to do it algebraically is to switch $x,y$ for $u,v$, and at the same time, substitute $-\theta$ for $\theta$.  What this amounts to is relabeling our diagram with $x,y$ being the rotated axes, and then rotating in the opposite direction (cw rather than ccw).
+\[ x = u \cos \theta - v \sin \theta \]
+switch
+\[ u = x \cos -\theta - y \sin -\theta \]
+\[ = x \cos \theta + y \sin \theta \]
+(Recall that $\cos - x = \cos x$ and $\sin - x = - \sin x$).
+
+For $y$
+\[ y = u \sin \theta + v \cos \theta \]
+switch
+\[ v = x \sin -\theta + y \cos -\theta \]
+\[ v = -x \sin \theta + y \cos \theta \]
+
+\subsection*{vectors}
 How to rotate a vector through an angle $\theta$ (counter-clockwise)?  Probably the simplest way is to memorize the matrix for rotation, and then test it by rotating unit vectors through $90^{\circ}$.  The matrix is
 
 \[
@@ -79,7 +230,10 @@ Rotating the points counter-clockwise is equivalent to rotating the coordinate s
 \end{bmatrix}
 \]
 
+What follows is my original version of the first derivation.
+
 \subsection*{standard derivation}
+
 Here is a second derivation with a sort of minimalist diagram of rotation
 \begin{center} \includegraphics [scale=0.4] {min_rotation.png} \end{center}
 
@@ -94,47 +248,6 @@ All the triangles in the diagram are similar, with small angle $t$.
 I find this hard to remember.  You will know that you've done it right if you have both $x$ and $y$ as the \emph{hypotenuse of a right triangle}.  Start with the one for $x$ and then rotate the triangle the other direction about the point $(x,0)$.  Stretch to fit.
 
 Here we are rotating the coordinate system counter-clockwise.  Hence, the minus sign is in the formula for the \emph{vertical} component, $v$.
-
-\subsection*{Stewart}
-I found a nice method in Stewart that depends on knowing the sum of angles formulas, which I urge you to memorize.
-\begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
-
-Here, we have the standard $xy$-coordinates in black.  The rotated $uv$-coordinate system is in red, with a rotation angle $\theta$ in the counter-clockwise direction.
-
-The ray to the point $P$ has length $r$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
-\[ u = r \cos \phi \]
-\[  v = r \sin \phi \]
-while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
-\[ x = r \cos (\theta + \phi) \]
-Now, use the sum formula for cosine: 
-\[ x = r \cos \theta \cos \phi - r \sin \theta \sin \phi \]
-But we have from above that
-\[ u = r \cos \phi \]
-\[ v = r \sin \phi \]
-So
-\[ x = u \cos \theta - v \sin \theta \]
-It's as easy as that.
-
-In the same way:
-\[ y = r \sin (\theta + \phi) \]
-\[ = r \sin \theta \cos \phi + r \cos \theta \sin \phi \]
-\[ = u \sin \theta + v \cos \theta \]
-
-The only trick here is that we have $x,y$ in terms of $u,v$.
-
-\subsection*{Solve for u and v}
-To convert these formulas to functions $u = f(x,y)$ and $v = f(x,y)$, there is a hard way and an easy way.  The easy way is to switch $x,y$ for $u,v$ and at the same time, substitute $-\theta$ for $\theta$.  What this amounts to is relabeling our diagram with $x,y$ being the rotated axes, and then rotating in the opposite direction (cw rather than ccw).
-\[ x = u \cos \theta - v \sin \theta \]
-switch
-\[ u = x \cos -\theta - y \sin -\theta \]
-\[ = x \cos \theta + y \sin \theta \]
-(Recall that $\cos - x = \cos x$ and $\sin - x = - \sin x$).
-
-For $y$
-\[ y = u \sin \theta + v \cos \theta \]
-switch
-\[ v = x \sin -\theta + y \cos -\theta \]
-\[ v = -x \sin \theta + y \cos \theta \]
 
 \subsection*{examples}
 Consider $y = x^2$ and rotate through an angle of $45^{\circ}$ cw.  The points are rotated cw and the coordinate system ccw, so the minus sign is in the expression for $x'$.

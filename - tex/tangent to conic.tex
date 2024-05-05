@@ -58,25 +58,34 @@ The easiest calculus derivation uses implicit differentiation:
 \[ \frac{dy}{dx} = - \frac{x}{y} \]
 \checkmark
 
-And for the general parabola in standard orientation
+For the general parabola in standard orientation:
 \[ ax^2 + bx + c - y = 0 \]
 write
 \[ ax^2 + bx + c - y = a(x-x_0)^2 + b(x-x_0) - (y - y_0) \]
 And we have a problem in this case, because the $y$ term disappears.
+\[ c = - 2ax_0 x + ax_0^2 - bx_0 - y_0 \]
+If we did have a $+y$ on the right-hand side then the slope would be correct, since the minus sign would go leaving $2ax_0 x$ on the left-hand side.
 
+So if we retreat to the equation for a parabola in any orientation, the equation from above is:
 \[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
-is a parabola if $B^2 = 4AC$.  So for example, 
+which is a parabola \emph{if} $B^2 = 4AC$.  So for example, 
 \[ x^2 + 2xy + y^2 + x - y + 4 = 0 \]
 is a parabola, tilted to the left with respect to the $y$-axis.
 
-So then
+If we apply the method described in the link:
 \[ x^2 + 2xy + y^2 + x - y + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 + x - x_0 - y + y_0 \]
+$x$ and $y$ cancel
 \[ x^2 + 2xy + y^2 + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 - x_0 + y_0 \]
+
+Next multiply out and cancel
 \[ 4 =  -2x x_0 + x_0^2 - 2x_0y  - 2xy_0 + 2x_0 y_0 - 2yy_0 + y_0^2 - x_0 + y_0 \]
-\[ 2x_0y + 2yy_0 =  -2x x_0 + x_0^2  - 2xy_0 + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \]
-\[ 2(x_0 + y_0) y = (-2x_0 - 2y_0 ) x + x_0^2 + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \]
-\[ 2(x_0 + y_0) y = (-2x_0 - 2y_0 ) x +  (x_0 + y_0)^2  - x_0 + y_0 - 4 \]
-which says the slope of the tangent is everywhere $-1$ which can't be right.
+Group the terms with $y$ on the left and $x$ on the right:
+\[ \ [ \ 2x_0 + 2y_0 \ ] \ y =  \ [ \ -2 x_0 - 2y_0 \ ] \ x + \ [ \ x_0^2  + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \ ] \]
+\[ \ [ \ 2x_0 + 2y_0 \ ] \ y =  \ [ \ -2 x_0 - 2y_0 \ ] \ x + \ [ \ (x_0 + y_0)^2 \ ] \ - \ [ \ x_0 + y_0 \ ]  - 4 \]
+
+Except for that trailing $4$ we can get lots of cancelations.  However, what this says is that
+\[ y = -x + k \]
+which is clearly wrong.  The slope of the tangent is not $-1$ everywhere.
 
 
 \end{document}
