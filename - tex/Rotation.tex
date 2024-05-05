@@ -154,10 +154,10 @@ In the same way:
 
 Notice that here we have $x,y$ in terms of $u,v$.  So this derivation gives $R_{cw}$.
 
-\subsection*{Solve for u and v algebraically}
-We have already given a method to convert these formulas to functions $u = f(x,y)$ and $v = f(x,y)$.
+\subsection*{algebraic interconversion}
+Given $x = f(x,y)$ and $y = g(x,y)$, we wish to convert these to $u = f'(x,y)$ and $v = g'(x,y)$
 
-An easy way to do it algebraically is to switch $x,y$ for $u,v$, and at the same time, substitute $-\theta$ for $\theta$.  What this amounts to is relabeling our diagram with $x,y$ being the rotated axes, and then rotating in the opposite direction (cw rather than ccw).
+One way is to switch symbols $x,y$ for $u,v$, and at the same time, substitute $-\theta$ for $\theta$.  What this amounts to is relabeling our diagram with $x,y$ being the rotated axes, and then rotating in the opposite direction (cw rather than ccw).
 \[ x = u \cos \theta - v \sin \theta \]
 switch
 \[ u = x \cos -\theta - y \sin -\theta \]
@@ -170,8 +170,33 @@ switch
 \[ v = x \sin -\theta + y \cos -\theta \]
 \[ v = -x \sin \theta + y \cos \theta \]
 
+Straightforward computation is easy as well.
+
+\[ x = u \cos t - v \sin t \]
+\[ y = u \sin t + v \cos t \]
+Multiply the first equation by $\cos t$ and the second by $\sin t$ and add:
+\[ x \cos t + y \sin t = u (\cos^2 t + \sin^2 t) - v \sin t \cos t + v \sin t \cos t \]
+\[ = u \]
+
+Multiply the first equation by $- \sin t$ and the second by $\cos t$ and add
+\[ - x \sin t + y \cos t = v \]
+
 \subsection*{vectors}
-How to rotate a vector through an angle $\theta$ (counter-clockwise)?  Probably the simplest way is to memorize the matrix for rotation, and then test it by rotating unit vectors through $90^{\circ}$.  The matrix is
+
+Another way is to start from vectors and matrices and remember that we have a $2 \times 2$ matrix.
+
+Suppose the angle is $\theta = 0$.  Then we want the matrix to be the identity matrix
+
+\[
+\begin{bmatrix}  
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+\]
+
+That naturally means that $\cos \theta$ is for entries along the diagonals and $\sin \theta$ at the other positions.
+
+We also want to rotate the unit vector $\hat{\mathbf{i}}$, to become unit vector $\hat{\mathbf{j}}$.
 
 \[
 \begin{bmatrix}  
@@ -179,7 +204,7 @@ How to rotate a vector through an angle $\theta$ (counter-clockwise)?  Probably 
 \sin \theta & \ \  \cos \theta
 \end{bmatrix}
 \]
-Test it
+
 \[
 \begin{bmatrix}  
 0 & -1 \\
