@@ -1,4 +1,4 @@
-\documentclass[11pt, oneside]{article} 
+	\documentclass[11pt, oneside]{article} 
 \usepackage{geometry}
 \geometry{letterpaper} 
 \usepackage{graphicx}
@@ -20,26 +20,87 @@
 \maketitle
 \Large
 
-Start with the standard picture from analytical geometry, courtesy of Fermat and Descartes.  Pick a point for the origin.  Draw orthogonal $x$- and $y$-axes. 
+\subsection*{introduction}
+
+In thinking about conic sections they are often presented in \emph{standard} orientation.  For example $y = ax^2$ or $x^2 + y^2 = r^2$ and also
+\[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \ \ \ \ \ \ \ \ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
+which are the equations of a parabola, a circle, an ellipse, and a hyperbola, respectively.  Each is centered at the origin.
+
+The parabola opens up.  If $a > b$ the ellipse has its long dimension along the $x$-axis.  The hyperbola (with $a = b = c$) is as shown in the figure as the red curve.
+
+\includegraphics [scale=0.20] {rot0.png}
+
+But that hyperbola can be \emph{rotated}.  In fact, the familiar equation $xy = 1$ is the same shape, rotated by $45^{\circ}$ (green curve above).  The point of closest approach to the center is the same for each $\sqrt{2}$, and the axes are perpendicular --- a consequence of having $a = b = c$.
+
+We want to understand how to transform equations into their rotated versions.
+
+\subsection*{basic idea}
+
+Start with the standard picture from analytical geometry, courtesy of Fermat and Descartes.  Pick a point for the origin.  Draw perpendicular $x$- and $y$-axes (the fancy word is orthogonal). 
 \begin{center} 
-\includegraphics [scale=0.15] {rot1.png}
-\includegraphics [scale=0.15] {rot2.png}
+\includegraphics [scale=0.13] {rot1.png}
+\includegraphics [scale=0.13] {rot2.png}
 \end{center}
 The point $P$ lies a distance $r$ from the origin. In the $xy$-coordinate system, $P = (x,y)$ and $r^2 = x^2 + y^2$.
 \begin{center} 
-\includegraphics [scale=0.15] {rot3.png}
-\includegraphics [scale=0.15] {rot4.png}
+\includegraphics [scale=0.13] {rot3.png}
+\includegraphics [scale=0.13] {rot4.png}
 \end{center}
 
-Now consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise by an angle $\theta$.  In the new system, $P = (u,v)$.  
+Now consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise by an angle $\theta$.  In the new system, $P = (u,v)$.
 
-We will find a formula to give $u$ as a function of $x$ and $y$, that is $u = f(x,y)$.  Simlarly, $v = g(x,y)$. (We already know that the length $r$ must be the same in both systems so $x^2 + y^2 = u^2 + v^2$).
-\begin{center} \includegraphics [scale=0.18] {rot5.png} \end{center}
+We will find a formula to give $u$ as a function of $x$ and $y$ (and also $\theta$), abbreviated $u(x,y,\theta)$.  Similarly, we will get $v (x,y,\theta)$.  
 
-The first and key step is to draw a line that makes $x$ the \emph{hypotenuse} of a right triangle.  That's the blue line in the figure above.  Now, just fill in a rectangle with sides parallel to the $u,v$-axes.
-\begin{center} \includegraphics [scale=0.18] {rot6.png} \end{center}
+We will also get $x(u,v,\theta)$ and $y (u,v,\theta)$.  This can be understood as rotation of the coordinate system CW.
 
-Notice $\theta$ is the angle between $y$ and $v$ axes (top).  Label segments of lines.
+This can be done algebraically, but we do it in other ways as well.  In fact, the first approach (a visual derivation) gives the formulas going from $u,v$ to $x,y$.
+
+Before we get into the specifics, note that a rotation of the coordinate system CCW, from $x,y$-axes to $u,v$-axes, can equally be viewed as the rotation of the point $P$, or a vector from the origin to $P$ in the opposite, CW direction.
+
+We will adopt the convention that when we rotate the coordinate system CCW, the operation is carried out by an operator $R_{ccw}$.  We'll define $R$ below.  Here we simply observe that the $R_{ccw}$ operator rotates points and vectors CW, as strange as that sounds.
+
+\subsection*{Stewart}
+Probably the easiest method I have found, in Stewart, depends on knowing the sum of angles formulas.
+\begin{center} \includegraphics [scale=0.5] {sum_angles_6.png} \end{center}
+
+It goes like this.
+\begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
+
+Let the point $P$ lie on the unit circle, with $r = 1$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
+\[ u = \cos \phi \]
+\[  v = \sin \phi \]
+while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
+\[ x = \cos (\theta + \phi) \]
+\[ y = \sin (\theta + \phi) \]
+Now, use the sum formula for cosine: 
+\[ x = \cos \theta \cos \phi - \sin \theta \sin \phi \]
+
+Plug in from above:
+\[ x = u \cos \theta - v \sin \theta \]
+It's as easy as that.
+
+In the same way:
+\[ y = \sin (\theta + \phi) \]
+\[ = \sin \theta \cos \phi + \cos \theta \sin \phi \]
+\[ = u \sin \theta + v \cos \theta \]
+
+We have $x,y$ in terms of $u,v$.  So this derivation naturally gives $R_{cw}$.
+
+\subsection*{drawing rectangles}
+
+\begin{center} \includegraphics [scale=0.15] {rot5.png} \end{center}
+
+Next we look at two methods that work by drawing rectangles that help us to see the pieces.
+
+The key step of the first approach is to draw a line that \emph{makes x the hypotenuse} of a right triangle.  That's the blue line in the figure above.
+\begin{center} \includegraphics [scale=0.15] {rot6.png} \end{center}
+
+Then, draw the adjacent side of the rectangle to make $y$ the hypotenuse of a right triangle.  
+
+$\theta$, the angle between $x$ and $u$ axes, is also the angle between $y$ and $v$ axes.  Note the angle near $P$ in the diagram.
+
+Basic trigonometry gives:
+\[ \sin \theta = \frac{v''}{x} = \frac{u''}{y} \ \ \ \ \ \ \   \cos \theta = \frac{u'}{x} = \frac{v'}{y} \]
 \begin{center} \includegraphics [scale=0.18] {rot7.png} \end{center}
 \[ u' = x \cos \theta \ \ \ \ \ \ \ \ \ u'' = y \sin \theta \]
 \[ v' = y \cos \theta \ \ \ \ \ \ \ \ \ v'' = x \sin \theta \]
@@ -47,8 +108,10 @@ Notice $\theta$ is the angle between $y$ and $v$ axes (top).  Label segments of 
 We can therefore write $u$ as the sum of two segments:
 \[ u = u' + u'' = x \cos \theta + y \sin \theta \]
 
-We write $v$ as the difference of two segments.
+And write $v$ as the difference of two segments.
 \[ v = v' - v'' = y \cos \theta - x \sin \theta \]
+
+\subsection*{matrix form}
 
 A convenient notation is to put them in a matrix that multiplies a vector:
 \[
@@ -67,22 +130,11 @@ v
 \end{bmatrix}
 \]
 
-This is $R_{ccw}$, the matrix for counter-clockwise rotation of coordinates, (from $x,y$ to $u,v$).
+This is $R_{ccw}$, the matrix for counter-clockwise rotation of coordinates, from $x,y$-axes to $u,v$-axes.
 
-Another view is that this is a clockwise rotation of the point $P$.
+We can look at this transformation in a different way, namely that this is a clockwise rotation of the point $P$.
 
-How about rotation in the other direction?  This amounts to finding functions that turn $u,v$ into $x,y$.  It's easy when you know how.  We have:
-
-\[ x = u \cos t - v \sin t \]
-\[ y = u \sin t + v \cos t \]
-We manipulate the equations so that the second term on the right-hand side is identical but with opposite sign.  Then just add.
-
-Multiply the first equation by $\cos t$ and the second by $\sin t$.  Addition gives:
-\[ x \cos t + y \sin t = u (\cos^2 t + \sin^2 t) - v \sin t \cos t + v \sin t \cos t \]
-\[ = u \]
-
-Multiply the first equation by $- \sin t$ and the second by $\cos t$ and add
-\[ - x \sin t + y \cos t = v \]
+We can also write $R_{cw}$:
 
 \[
 \begin{bmatrix}  
@@ -99,9 +151,27 @@ x \\
 y
 \end{bmatrix}
 \]
-The matrix above is $R_{cw}$.
 
-If you know about matrices, you will realize that the two matrices must be inverses, since rotating first one direction and then the other leaves the point unchanged.
+It's just a matter of moving a minus sign.  In vector terms, the operation is called a transpose.
+
+\subsection*{algebraic manipulation}
+
+We will find two functions that turn $u,v$ into $x,y$.  It's easy when you know how.  We have:
+
+\[ u = x \cos \theta + y \sin \theta \]
+\[ v = -x \sin \theta + y \cos \theta \]
+
+To solve for $x$ we need to lose $y$.  
+
+Multiply the first equation by $\cos \theta$ and the second by $- \sin \theta$ and add.  The terms with $y$ in them cancel.
+\[ u \cos \theta - v \sin \theta =  x (\cos^2 \theta + \sin^2 \theta) = x \]
+
+Also, multiply the first equation by $\sin \theta$ and the second by $\cos \theta$ and add:
+\[ u \sin \theta + v \cos \theta = y (\cos^2 \theta + \sin^2 \theta) = y \]
+
+In matrix form, this is $R_{cw}$, which we gave above.
+
+If you know about matrices, you will realize that the two matrices must be inverses, since rotating first one direction and then the other, by the same angle, leaves the point unchanged.
 \[ R_{ccw} \ R_{cw} = I \]
 
 To invert a $2 \times 2$ matrix, transpose it and divide by the determinant (which is 1 here).  So
@@ -155,33 +225,6 @@ We can also check to make sure that these work correctly with the unit vectors. 
 
 The rotated unit vector $\hat{\mathbf{j}}$ lies in the second quadrant.
 
-\subsection*{Stewart}
-Probably the easiest method I have I found, in Stewart, depends on knowing the sum of angles formulas.
-\begin{center} \includegraphics [scale=0.4] {sum_angles_6.png} \end{center}
-\newpage
-It goes like this.
-\begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
-
-Let the ray to the point $P$ have length $r$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
-\[ u = r \cos \phi \]
-\[  v = r \sin \phi \]
-while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
-\[ x = r \cos (\theta + \phi) \]
-\[ y = r \sin (\theta + \phi) \]
-Now, use the sum formula for cosine: 
-\[ x = r \cos \theta \cos \phi - r \sin \theta \sin \phi \]
-
-Plug in from above:
-\[ x = u \cos \theta - v \sin \theta \]
-It's as easy as that.
-
-In the same way:
-\[ y = r \sin (\theta + \phi) \]
-\[ = r \sin \theta \cos \phi + r \cos \theta \sin \phi \]
-\[ = u \sin \theta + v \cos \theta \]
-
-Notice that here we have $x,y$ in terms of $u,v$.  So this derivation naturally gives $R_{cw}$.
-
 \subsection*{another view of CCW and CW rotation}
 Given $x = f(x,y)$ and $y = g(x,y)$, we wish to convert these to $u = f'(x,y)$ and $v = g'(x,y)$
 
@@ -200,7 +243,7 @@ switch
 
 \subsection*{vectors}
 
-Finally, another way is to guess.  Start from vectors and matrices and remember that we have a $2 \times 2$ matrix.
+Another approach is to guess.  Start from vectors and matrices and remember that we have a $2 \times 2$ matrix.
 
 Suppose the angle is $\theta = 0$.  Then we want the matrix to be the identity matrix
 
@@ -213,7 +256,25 @@ Suppose the angle is $\theta = 0$.  Then we want the matrix to be the identity m
 
 That naturally means that $\cos \theta$ is for entries along the diagonals and $\sin \theta$ at the other positions.
 
-We also want to rotate the unit vector $\hat{\mathbf{i}}$, to become unit vector $\hat{\mathbf{j}}$.
+If the angle is $90^{\circ}$ we want to rotate the unit vector $\hat{\mathbf{i}}$, to become unit vector $\hat{\mathbf{j}}$.  That means we want
+
+\[
+\begin{bmatrix}  
+0 & -1 \\
+1 & \ \ 0
+\end{bmatrix}
+\begin{bmatrix}  
+1 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}  
+0 \\
+1
+\end{bmatrix}
+\]
+
+Putting it all together
 
 \[
 \begin{bmatrix}  
@@ -221,6 +282,8 @@ We also want to rotate the unit vector $\hat{\mathbf{i}}$, to become unit vector
 \sin \theta & \ \  \cos \theta
 \end{bmatrix}
 \]
+
+For $\theta = 90^{\circ}$:
 
 \[
 \begin{bmatrix}  
@@ -272,49 +335,147 @@ Rotating the points counter-clockwise is equivalent to rotating the coordinate s
 \end{bmatrix}
 \]
 
-What follows is my original version of the first derivation.
+\subsection*{another way}
+We can look at this in a different way.  Write
+\[
+\begin{bmatrix}  x \\ y \end{bmatrix}
+=
+x
+\begin{bmatrix}  1 \\ 0 \end{bmatrix}
++
+y
+\begin{bmatrix}  0 \\ 1 \end{bmatrix}
+\]
+In this representation, the vector $\langle x,y \rangle$ is a linear combination of the unit vectors $\mathbf{\hat{i}} =\ \langle 1,0 \rangle$ and $\mathbf{\hat{j}}  =\ \langle 0,1 \rangle$.
 
-\subsection*{standard derivation}
+To rotate the point, we just want to use a different set of unit vectors.  The new unit vectors (for the rotated axes) are $\langle \cos \theta,\sin \theta \rangle$ and $\langle -\sin \theta,\cos \theta \rangle$.  
 
-Here is a second derivation with a sort of minimalist diagram of rotation
-\begin{center} \includegraphics [scale=0.4] {min_rotation.png} \end{center}
+If you compute their lengths, it is clear that they are, in fact, unit vectors.
+\[
+\begin{bmatrix}  x' \\ y' \end{bmatrix}
+=
+x
+\begin{bmatrix}  \cos \theta \\ \sin \theta \end{bmatrix}
++
+y
+\begin{bmatrix}  -\sin \theta \\ \ \ \cos \theta \end{bmatrix}
+\]
+Written as a matrix multiplication, this is
+\[
+\begin{bmatrix}  x' \\ y' \end{bmatrix}
+=
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta 
+\end{bmatrix}
+\begin{bmatrix}  x \\ y \end{bmatrix}
+\]
 
-We draw the horizontal $x$-axis and the rotated $u$-axis.  The angle between them is $t$.  We plot our point and then draw perpendiculars to both axes.  To finish the set-up, we draw perpendiculars from the point $(x,0)$ as shown.
+\subsection*{another rectangle picture}
+At the risk of confusing you, there is another rectangle picture which gives $x(u,v,\theta)$ and $y(u,v,\theta)$.
 
-Once the drawing is rendered, we are almost done.  Now we just work our way through.
-\[ u = u_1 + u_2 = x \cos t + y \sin t \]
+Recall that previously we drew a rectangle whose sides made $x$ and $y$ the hypotenuse of two different right triangles.
 
-All the triangles in the diagram are similar, with small angle $t$.
-\[ v = -v_2 + v_1 = -  x \sin t + y \cos t \]
+The new approach makes both $u$ and $v$ the hypotenuse of two different right triangles.
 
-I find this hard to remember.  You will know that you've done it right if you have both $x$ and $y$ as the \emph{hypotenuse of a right triangle}.  Start with the one for $x$ and then rotate the triangle the other direction about the point $(x,0)$.  Stretch to fit.
+\begin{center} \includegraphics [scale=0.18] {rot8.png} \end{center}
 
-Here we are rotating the coordinate system counter-clockwise.  Hence, the minus sign is in the formula for the \emph{vertical} component, $v$.
+We leave it as an exercise to derive $x(u,v,\theta)$ and $y(u,v,\theta)$.  These equations have already been introduced above.
 
-\subsection*{examples}
-Consider $y = x^2$ and rotate through an angle of $45^{\circ}$ cw.  The points are rotated cw and the coordinate system ccw, so the minus sign is in the expression for $x'$.
+\subsection*{examples:  parabola}
 
-\[ x' = 1/\sqrt{2} (x - y) \]
-\[ y' = 1/\sqrt{2} (x + y) \]
+Consider $y = x^2$ rotated through an angle of $45^{\circ}$.
+
+We need expressions for $x$ and $y$ in terms of $u$ and $v$.  Let us just try $R_{cw}$ and see where we get.
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+u \\
+v
+\end{bmatrix}
+=
+\begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+\]
+
+\[ x = u \cos \theta - v \sin \theta \]
+\[ v = u \sin \theta + v \cos \theta \]
+
+Furthermore, $\cos \theta = \sin \theta = 1/\sqrt{2}$.
+\[ x = 1/\sqrt{2} (u - v) \]
+\[ y = 1/\sqrt{2} (u + v) \]
+
 so
-\[ y' = x'^2 \]
-\[ 1/\sqrt{2} \cdot (x + y) = 1/2  \cdot (x - y)^2 \]
-\[ x + y = 1/\sqrt{2}  \cdot (x - y)^2 \]
-\begin{center} \includegraphics [scale=0.4] {rot_para.png} \end{center}
+\[ y = x^2 \]
+\[ 1/\sqrt{2} \cdot (u + v) = (\frac{1}{\sqrt{2}})^2  \cdot (u - v)^2 \]
+\[ \sqrt{2} (u + v) = (u - v)^2 = u^2 - 2uv + v^2 \]
+\[ u^2 - 2uv + v^2 - \sqrt{2}u - \sqrt{2}v  = 0 \]
 
-Here's another form --- both rotated and translated.
-\begin{center} \includegraphics [scale=0.4] {quad4.png} \end{center}
+Desmos doesn't like $u$ and $v$ so just for the graph, we must substitute $x$ and $y$:
+\[ x^2 - 2xy + y^2 - \sqrt{2} x - \sqrt{2} v  = 0 \]
+
+\begin{center} \includegraphics [scale=0.2] {rot_para2.png} \end{center}
+
+We've got a parabola rotated $45^{\circ}$ CW.  Its center is still at the origin.
+
+We said that $R_{cw}$ rotates the coordinate system CW but vectors and points in the opposite direction.  What happened?  Notice that $u,v$ were on the left side of the matrix equation above.  In other words, the parabola in the panel above was rotated by $45^{\circ}$ CCW to give $y = x^2$.
+
+\subsection*{examples:  hyperbola}
+
+The standard equation of a hyperbola is usually given as
+\[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
+
+Yet the simplest hyperbola is $xy=1$.  What's the explanation?  We gave part of the answer in the introduction.  Here is a more complete explanation.
 
 Going back to our first result:
-\[ x' = x \cos \theta - y \sin \theta \]
-\[ y' = x \sin \theta + y \cos \theta \]
+\[ x = u \cos \theta - v \sin \theta \]
+\[ v = u \sin \theta + v \cos \theta \]
 
-Let $x'y' = 1$, that is, the graph is a hyperbola.  We turn through an angle of $45^{\circ}$ cw.
-\[ (x \cos \theta - y \sin \theta)(x \sin \theta + y \cos \theta) \]
-\[ \frac{1}{2} \cdot (x - y)(x + y) \]
-\[ 2  = (x^2 - y^2) \]
+\[ (u \cos \theta - v \sin \theta)(u \sin \theta + v \cos \theta) \]
+\[ \frac{1}{2} \cdot (u - v)(u + v) \]
+\[ 2  = (u^2 - v^2) \]
+
+Again, switch to $x,y$ for Desmos:
 \begin{center} \includegraphics [scale=0.4] {hyper2.png} \end{center}
-When this guy is rotated by $45$ ccw, it becomes the familiar graph of $xy=1$.
+
+When this guy is rotated by $45$ CCW, it becomes the familiar graph of $xy=1$.
 \begin{center} \includegraphics [scale=0.5] {hyper3.png} \end{center}
+
+The $R_{cw}$ matrix operates on $u,v$, the first form, rotating the \emph{points} ccw to give the familiar $xy=1$.
+
+\subsection*{finding the angle}
+
+Suppose we are given a conic section like:
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+and we wish to rotate it to the standard orientation.
+
+Take the equations for $R_{cw}$:
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+and substitute.  As a preliminary
+\[ x^2 = u^2 \cos^2 \theta - 2uv \sin \theta \cos \theta + v^2 \sin^2 \theta \]
+\[ xy = u^2 \sin \theta \cos \theta + uv \cos^2 \theta - uv \sin^2 \theta - v^2 \sin \theta \cos \theta \]
+\[ y^2 = u^2 \sin^2 \theta + 2uv \sin \theta \cos \theta + v^2 \cos^2 \theta \]
+
+We only need to consider the terms that have $xy$ in them.  Remembering to pick up $A$, $B$, $C$ we have for the cofactors of $xy$:
+\[ -2A \sin \theta \cos \theta + B \cos^2 \theta - B \sin^2 \theta + 2C \sin \theta \cos \theta \]
+What is needed is to make this term zero.
+\[ (C-A) (2 \sin \theta \cos \theta) + B (\cos^2 \theta - \sin^2 \theta) = 0 \]
+The sum of angles formulas come in handy now:
+\[ (C-A) (\sin 2 \theta) + B (\cos 2 \theta) = 0 \]
+\[ \cot 2 \theta = \frac{A-C}{B} \]
+
+The hyperbola $xy = 1$ has both $A$ and $C$ equal to zero, while $B$ is just $1$.  What angle has a cotangent of zero?  The one whose cosine is zero, namely $\pi/2$ or $90^{\circ}$.  That is $2 \theta$, so our final answer is $45^{\circ}$.
+
+For the other example
+\[ x^2 - 2xy + y^2 - \sqrt{2} x - \sqrt{2} v  = 0 \]
+First note that $B^2 = 4AC$ so this passes the parabola test.  Then, again we need $\cot 2 \theta = 0$, with the same angle as the final answer.
 
 \end{document}
