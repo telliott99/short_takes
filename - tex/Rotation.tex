@@ -405,6 +405,36 @@ The $y$-intercept is
 
 In standard orientation, the slope is zero at the vertex but here, the graph is angled $45^{\circ}$ CW.
 .
+\subsection*{general equation}
+
+Let us try to write a somewhat general equation for a conic section in terms of the cone and the plane.
+
+For the cone, let 
+\[ cr = z \]
+\[ c^2 r^2 = z^2 = c^2 x^2 + c^2 y^2 \]
+The larger $c$ is, the steeper the cone.
+
+For the normal vector to the plane, we keep things simple by making the vector perpendicular to the $x$-axis.  Let the $y$-component be $1$ and then adjust the tilt of the plane, with the $z$ component as $k$.  We have
+\[  y + kz + d = 0 \]
+where $d$ is a scalar that adjusts the position of the plane but not its orientation.
+
+The bigger $k$ is, the shallower the angle of the plane.  There will be an inverse relationship between $c$ and $k$ when we have a parabola for the intersection.
+
+Solve for the plane equation for $z$:
+\[ z = \frac{1}{k} \cdot (- 1)(y + d) \]
+\[ z^2 = \frac{1}{k^2} \cdot (y^2 + 2dy + d^2) \]
+\[ = c^2 x^2 + c^2 y^2 \]
+
+This becomes
+\[ c^2k^2 x^2 + (c^2k^2-1) y^2 - 2dy - d^2 = 0 \]
+
+There is no term that mixes $x$ and $y$ (we're oriented due north).  To have a parabola, we must make $y^2$ go away so
+\[ c^2k^2 - 1 = 0 \]
+which means that $k = 1/c$, as suspected.  The steeper the cone, the shallower the normal vector for the plane, in order to have a parabola.
+
+Finally
+\[ y = \frac{x^2}{2d} - \frac{d}{2} = 0 \]
+
 \section*{matrix form}
 
 Rotation is a great topic to use for an introduction to matrix multiplication.
@@ -669,34 +699,5 @@ Written as a matrix multiplication, this is
 T 
 \begin{bmatrix}  x \\ y \end{bmatrix}
 \]
-
-\section*{addendum}
-
-\subsection*{general equation}
-
-Let us try to write a somewhat general equation for a conic section in terms of the cone and the plane.
-
-For the cone, let 
-\[ cr = z \]
-\[ c^2 r^2 = z^2 = c^2 x^2 + c^2 y^2 \]
-The larger $c$ is, the steeper the cone.
-
-For the normal vector to the plane, we keep things simple by making the vector perpendicular to the $x$-axis.  Let the $y$-component be $1$ and then adjust the tilt of the plane, with the $z$ component as $k$.  We have
-\[  y + kz + d = 0 \]
-where $d$ is a scalar that adjusts the position of the plane but not its orientation.
-
-The bigger $k$ is, the shallower the angle of the plane.  There will be an inverse relationship between $c$ and $k$ when we have a parabola for the intersection.
-
-Solve for the plane equation for $z$:
-\[ z = \frac{1}{k} \cdot (- 1)(y + d) \]
-\[ z^2 = \frac{1}{k^2} \cdot (y^2 + 2dy + d^2) \]
-\[ = c^2 x^2 + c^2 y^2 \]
-
-This becomes
-\[ c^2k^2 x^2 + (c^2k^2-1) y^2 - 2dy - d^2 = 0 \]
-
-There is no term that mixes $x$ and $y$ (we're oriented due north).  To have a parabola, we must make $y^2$ go away so
-\[ c^2k^2 - 1 = 0 \]
-which means that $k = 1/c$, as suspected.  The steeper the cone, the shallower the normal vector for the plane, in order to have a parabola.
 
 \end{document}
