@@ -24,14 +24,61 @@
 
 {https://maa.org/sites/default/files/kung11010356273.pdf}
 
-A general equation for any conic section is
+The equation below is a general form for any conic section
 \[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
 
-If $(x_0,y_0)$ lies on the conic section, then it satisfies the above equation.  Now, he says, let
+If the point $P = (x_0,y_0)$ lies on the conic section, then it satisfies the above equation.
+
+Next, Kung says, let
 \[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
 \[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(x-x_0)^2 + B(x-x_0)(y - y_0) + C(y-y_0)^2 \]
 
-If the right-hand side is not zero, then this is the equation of a line passing through $(x_0,y_0)$ where no other point on the line is on the conic section.  In other words, it is the equation of the tangent line.
+We've simply taken the higher powers of the conic and plugged in $(x - x_0)$ and $(y - y_0)$.
+
+One thing to note is that if $x = x_0$ and $y = y_0$ (we're at $P$), then the right-hand side is zero.  So $P$ is on the conic since now we have
+\[ Ax_0^2 + Bx_0y_0 + Cy_0^2 + Dx_0 + Ey_0 + F = 0 \]
+
+If the right-hand side is not zero (not both $x = x_0$ and $y = y_0$), there are some consequences.  No other point on the conic can satisfy the equation, since any point on the conic makes the left-hand side equal to zero.
+
+Also, we lose all the higher power terms when multiplying out.  Canceling the common terms: 
+
+\[ Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(-2x_0 x + x_0^2) + B(-y_0 x - x_0 y + x_0y_0) + C(-2y_0 y + y_0^2) \]
+
+Gathering terms we have
+\[ (2Ax_0 + By_0 + D)x  + (B x_0 + 2Cy_0 + E) y \]
+\[  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ - Ax_0^2 - B x_0 y_0 - C y_0^2 + F = 0    \]
+
+This equation is linear in $x$ and $y$.  It is the equation of a line.
+
+So we have the equation of a line passing through $(x_0,y_0)$ where no other point on the line is on the conic section.  In other words, it is the equation of the tangent line to the curve.
+
+A more sophisticated treatment, given in the article, is that the equation of any line can be parametrized.
+
+Suppose $x = x_0 + \lambda_1 t$ and $y = y_0 + \lambda_2 t$ then
+\[ (x - x_0) = \lambda_1 t \]
+\[ (y - y_0) = \lambda_2 t \]
+Substituting into Kung's equation
+
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(x-x_0)^2 + B(x-x_0)(y - y_0) + C(y-y_0)^2 \]
+
+we have
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ (A \lambda_1^2 + B\lambda_1 \lambda_2 + C \lambda_2^2) t^2 = Kt^2  \]
+
+If $t = 0$, we're at $(x_0,y_0)$.  
+
+If $t \ge 0$, and $K = 0$, then each point on the line satisfies the conic section.  (i.e. it is degenerate).  
+
+If both $K \ne 0$ and $t \ne 0$ then the left-hand side equals $Kt^2$ and is not zero.
+ 
+ So no point on the conic
+ \[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+other than $(x_0,y_0)$ satisfies the condition
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = Kt^2 \]
+
+No other point on the conic is also on the line, and no other point on the line also belongs to the conic.
 
 The example given is
 \[ x^2 - xy + y^2 - 7 = 0 \]
@@ -56,36 +103,24 @@ The \emph{slope} of the tangent to a unit circle at any point $(x,y)$ is $-x/y$.
 The easiest calculus derivation uses implicit differentiation:
 \[ 2x \ dx + 2y dy = 0 \]
 \[ \frac{dy}{dx} = - \frac{x}{y} \]
-\checkmark
 
 For the general parabola in standard orientation:
 \[ ax^2 + bx + c - y = 0 \]
 write
-\[ ax^2 + bx + c - y = a(x-x_0)^2 + b(x-x_0) - (y - y_0) \]
-And we have a problem in this case, because the $y$ term disappears.
-\[ c = - 2ax_0 x + ax_0^2 - bx_0 - y_0 \]
-If we did have a $+y$ on the right-hand side then the slope would be correct, since the minus sign would go leaving $2ax_0 x$ on the left-hand side.
+\[ ax^2 + bx + c - y = a(x-x_0)^2 \]
+\[ bx + c - y = -2ax_0 x + x_0^2 \]
+\[ (2 a x_0 + b)x + c - x_0^2 = y \]
 
-So if we retreat to the equation for a parabola in any orientation, the equation from above is:
-\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
-which is a parabola \emph{if} $B^2 = 4AC$.  So for example, 
-\[ x^2 + 2xy + y^2 + x - y + 4 = 0 \]
-is a parabola, tilted to the left with respect to the $y$-axis.
+And indeed $2 a x_0 + b$ is the slope of the tangent to the general parabola at $(x_0,y_0)$.
 
-If we apply the method described in the link:
-\[ x^2 + 2xy + y^2 + x - y + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 + x - x_0 - y + y_0 \]
-$x$ and $y$ cancel
-\[ x^2 + 2xy + y^2 + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2 - x_0 + y_0 \]
+As a final example
+\[ x^2 + 2xy + y^2 + x - y + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2  \]
+\[ x - y + 4 = -2x x_0  + x_0^2 - 2y_0 x - 2 x_0 y + 2 x_0 y_0 - 2 y_0 y + y_0^2 \]
 
-Next multiply out and cancel
-\[ 4 =  -2x x_0 + x_0^2 - 2x_0y  - 2xy_0 + 2x_0 y_0 - 2yy_0 + y_0^2 - x_0 + y_0 \]
-Group the terms with $y$ on the left and $x$ on the right:
-\[ \ [ \ 2x_0 + 2y_0 \ ] \ y =  \ [ \ -2 x_0 - 2y_0 \ ] \ x + \ [ \ x_0^2  + 2x_0 y_0 + y_0^2 - x_0 + y_0 - 4 \ ] \]
-\[ \ [ \ 2x_0 + 2y_0 \ ] \ y =  \ [ \ -2 x_0 - 2y_0 \ ] \ x + \ [ \ (x_0 + y_0)^2 \ ] \ - \ [ \ x_0 + y_0 \ ]  - 4 \]
 
-Except for that trailing $4$ we can get lots of cancelations.  However, what this says is that
-\[ y = -x + k \]
-which is clearly wrong.  The slope of the tangent is not $-1$ everywhere.
+\begin{center} \includegraphics [scale=0.20] {tan_conic2.png} \end{center}
+
+Sliding the sliders, the line stays on the parabola.  It works!.
 
 
 \end{document}

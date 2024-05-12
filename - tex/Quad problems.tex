@@ -76,28 +76,6 @@ We take only the positive square root, but to explain that will take more time t
 
 There is a limit to the final, or terminal velocity.  It comes not from gravity but from air resistance.  Someone who jumps from an airplane or gets thrown out through a window of the Nakatomi Plaza has a terminal velocity of about $180$ feet per second or $120$ miles per hour.
 
-\subsection*{the golden ratio}
-The golden ratio or mean is a famous proportion between the length and width of a rectangle that "looks nice".  It is derived as follows.
-
-Make a rectangle with length $x$ and width equal to $1$.  The ratio of length to width is then just $x$.
-
-Draw a square using the side of the rectangle with length $x$, right next to the original rectangle.  This forms a larger rectangle with length $x + 1$, and the ratio of length to width for this rectangle is $(x+1)/x$.
-
-For the golden ratio, these two ratios should be the same.  That is
-\[ x = \frac{x + 1}{x} \]
-\[ x^2 = x + 1 \]
-\[ x^2 - x - 1 = 0 \]
-
-We use the simple version of the quadratic formula.  We have $a = 1$, $b = -1$ and $c = - 1$.
-\[ m = - \frac{b}{2a} = \frac{1}{2} \]
-and the roots are
-\[ s,t = m \pm \sqrt{m^2 - c} \]
-\[ = \frac{1}{2} \pm \sqrt{\frac{1}{4} + 1} \]
-\[ = \frac{1}{2} \pm \frac{\sqrt{5}}{2} \]
-The lengths are positive numbers so the ratio should also be positive.  We take the first root.
-\[ \phi = \frac{1 + \sqrt{5}}{2}  \]
-$\phi$ is the golden ratio and its value is about $1.618$.
-
 \subsection*{maximizing profit}
 You are the producer of a Broadway show.  The theater seats 120 people and you have priced the tickets at \$10 each.  You always fill the theater.
 
@@ -243,7 +221,7 @@ The current $I$ that flows along a wire is equal to the difference in voltage $V
 \[ I = \frac{V}{R} \ \ \ \ \ \ \ \ V = IR \]
 
 Imagine that the wire itself has negligible resistance, but there are two things called resistors $R$ hooked up in an arrangement called \emph{parallel}.  If you connect a battery (voltage $V$) to the two wires on the ends of this circuit
-\begin{center} \includegraphics [scale=0.6] {resistors.png} \end{center}
+%\begin{center} \includegraphics [scale=0.6] {resistors.png} \end{center}
 there will be some total current ($I_T$) that flows.  Those electrons go either one way or the other across the two resistors.  So the current is what adds
 \[ I_T = I_1 + I_2 \]
 \[ \frac{V}{R_T} = \frac{V}{R_1} + \frac{V}{R_2} \]
@@ -299,16 +277,28 @@ The velocity must be positive, and of the two roots, only one is positive.
 
 $v = 4$ so the velocity downriver is $6$ km/hr and upriver it is $2$ km/hr.  The trip downriver takes 2 hr and upriver it takes 6 hr for a total of 8 hr.
 
-Here is an approach that runs into problems:  substitute for $t'$ right away.
+Here is another approach.  Substitute for $t'$ right away.
 \[ 12 = (v + 2) t \]
 \[ 12 = (v - 2) (8 - t) \]
 Multiplying out
 \[ 12 = vt + 2t \]
 \[ 12 = 8v - vt - 16 + 2t \]
-We might add and get rid of $vt$.  Or we could equate the two right-hand sides and get rid of $2t$.  But in either case we will still have both $v$ and $t$ and only a single equation.
+
+Add to get rid of $vt$
+\[ 24 = 8v - 16 + 4t \]
+Factor out a $4$
+\[ 6 = 2v - 4 + t \]
+Above, we have $t = 12/(v+2)$ so
+\[ 6(v+2) = (v+2)(2v-4) + 12 \]
+\[ 6v + 12 = 2v^2 - 8 + 12 \]
+Factor out $2$
+\[ 3v + 6 = v^2 - 4 + 6 \]
+\[ v^2 - 3v - 4 = 0 \]
+\[ (v - 4)(v + 1) = 0 \]
+We obtain the same result.
 
 Graphing often adds insight:
-\begin{center} \includegraphics [scale=0.5] {river_hyper.png} \end{center}
+%\begin{center} \includegraphics [scale=0.5] {river_hyper.png} \end{center}
 
 \subsection*{gravity}
 Many problems for quadratics involve gravity because the distance an object falls under gravity goes like $t^2$.  That was Galileo's famous discovery.  He used an inclined ramp and a water clock.  
@@ -358,7 +348,7 @@ According to the internet, $s$ is from the Latin "spatium", for "space, room, or
 
 Suppose we plot velocity as a \emph{function of time} with $v$ on the $y$-axis and $t$ on the $x$-axis.
 
-\begin{center} \includegraphics [scale=0.35] {velocity_time_3.png} \end{center}
+%\begin{center} \includegraphics [scale=0.35] {velocity_time_3.png} \end{center}
 
 Since the velocity is constant, the result is a straight horizontal line.  
 
@@ -373,7 +363,7 @@ This example has constant acceleration.  Here, we say that $v$ is a constant fun
 \[ v = at \]
 where $a$ is the acceleration.  It is the slope of the line.
 
-\begin{center} \includegraphics [scale=0.35] {velocity_time_4.png} \end{center}
+%\begin{center} \includegraphics [scale=0.35] {velocity_time_4.png} \end{center}
 What about the distance?  It turns out that the distance is once again the area under the curve.
 
 If $a$ is non-zero and constant, then $v$ changes at a constant rate.  Starting from $0$, the final velocity will be $v = at$, but the distance traveled is no longer the product 
@@ -495,7 +485,7 @@ In the end, we want to maximize
 where $v$ is a constant for a given cannon and amount of gunpowder, etc.
 
 Just to explore a little, scale the problem so that $v = 1$, and come up with a simpler name for the variable $v_x$, like $s$.  Then take a look in Desmos
-\begin{center} \includegraphics [scale=0.5] {quad4.png} \end{center}
+%\begin{center} \includegraphics [scale=0.5] {quad4.png} \end{center}
 
 The curve doesn't look like a standard parabola (it actually is one, but rotated by an angle).  It seems that the maximum comes at roughly $s = 0.7$.  That's a hint, because we know that $1/\sqrt{2} \approx 0.7$.
 
@@ -523,7 +513,7 @@ So $v_x^2$ is one-half of $v^2$ and equal to $v_y^2$.  Hence $v_x = v_y$.
 Think about a ramp or inclined plane at some angle $\theta$ to the vertical.  Place a block of lead on the ramp and it slides down to the bottom.  We ignore friction.  
 
 The vertical height is $h$, and the length of the ramp is $L$.  It always helps to draw a picture.
-\begin{center} \includegraphics [scale=0.4] {incline.png} \end{center}
+%\begin{center} \includegraphics [scale=0.4] {incline.png} \end{center}
 
 It is a remarkable fact that forces (and most everything) can be converted easily between different coordinate systems.  
 
@@ -559,7 +549,7 @@ Acheson presents this problem (though he does not show the solution).  The algeb
 
 We are given only the radii of the small circles, $a,b$ and $c$, and are asked to find $r$, which I have written as $R$.
 
-\begin{center} \includegraphics [scale=0.4] {Acheson_G163.png} \end{center}
+%\begin{center} \includegraphics [scale=0.4] {Acheson_G163.png} \end{center}
 
 \emph{Solution}.
 
@@ -568,7 +558,7 @@ Let the relevant half-angles at the vertices be $\alpha, \beta$, and $\gamma$.  
 \[ \sin \alpha = \cos \beta + \gamma = \cos \beta \cos \gamma - \sin \beta \sin \gamma \]
 
 Our previous work with this problem (in the geometry book)
-\begin{center} \includegraphics [scale=0.5] {double_scoop1.png} \end{center}
+%\begin{center} \includegraphics [scale=0.5] {double_scoop1.png} \end{center}
 
 showed that 
 \[ \sin \theta = \frac{R - r}{R + r}, \ \ \ \ \ \ \cos \theta = \frac{2\sqrt{Rr}}{R + r} \]
