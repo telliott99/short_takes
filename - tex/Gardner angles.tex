@@ -1,0 +1,131 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Gardner's angles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is a puzzle I came across on the internet.
+
+\url{https://www.theguardian.com/science/alexs-adventures-in-numberland/2014/oct/21/martin-gardner-mathematical-puzzles-birthday}
+
+It is attributed to Martin Gardner.
+
+\begin{center} \includegraphics [scale=0.25] {gardner1.png} \end{center}
+
+\emph{To prove}.
+
+Use elementary geometry to show that $\angle A + \angle B = \angle C$.
+
+\subsection*{geometric solutions}
+I found another version of this problem on the web.  Given three identical squares arranged as follows:
+\begin{center} \includegraphics [scale=0.6] {gardner7.png} \end{center}
+\[ \angle AOC + \angle BOC = \ \text{?} \]
+
+The solution is to be obtained without measurements or using trigonometry.
+
+As in so many problems, the key is to draw an inspired diagram, one that extends the figure somehow.  In this one, a major hint was provided, namely, a grid of squares.
+\begin{center} \includegraphics [scale=0.45] {gardner6b.png} \end{center}
+
+So let's draw the same two angles on that grid and form a triangle.  The right triangle with $\angle A$ (black) has a base of $3$ and opposite side of $1$, while that with $\angle B$ (red) has a base of $2$ and opposite side of $1$.
+\begin{center} \includegraphics [scale=0.45] {gardner8.png} \end{center}
+Connecting the distant points, we form a second triangle with $\angle A$, congruent to the first.
+
+We can fill in many of the other angles using the theorem on alternate interior angles, as well as the fact that $AC$ and $CB$ are the diagonals of congruent rectangles.
+\begin{center} \includegraphics [scale=0.45] {gardner9.png} \end{center}
+
+Notice that the angle at $C$ is basically a rotated version of one vertex of a square, that is, a right angle.  
+
+$\circ$ \ State this proof using sums of angles.
+
+$\circ$ \ Furthermore $\angle CAB = \angle CBA$.  Why?
+
+$\circ$ \ Thus, two copies of $\angle A + \angle B$ sum to a right angle.  Why?
+
+So, the sum of one of each is one-half of a right angle.
+
+$\square$
+
+For a second geometric approach we draw a different rectangle.
+\begin{center} \includegraphics [scale=0.25] {gardner3.png} \end{center}
+
+The long side of the rectangle is equal to $2 \sqrt{2}$ and is twice the short side, which is just the diagonal of the original unit square.
+
+Therefore, the right triangle containing $\angle D$ is similar to the right triangle containing $\angle B$.  We conclude that $\angle B = \angle D$.
+
+Since $\angle A + \angle D = \angle C$, it follows that $\angle A + \angle B = \angle C$.
+
+$\square$
+
+\subsection*{algebra}
+
+Let's label some other angles.
+
+\begin{center} \includegraphics [scale=0.30] {gardner2.png} \end{center}
+
+I see two equations we can write (using alternate interior angles):
+\[ B = A + x \]
+\[ C = A + x + y = B + y \]
+
+If we can show that $A = y$, then it follows that $B = x + y$ so $C = A + B$.
+
+Notice that the sides of a right triangle containing $\angle A$ (blue) are in the ratio $1:3$.
+
+\begin{center} \includegraphics [scale=0.5] {gardner10.png} \end{center}
+
+Draw additional squares to extend the two adjacent sides of $\angle y$ (red).  With the appropriate scaling, we can draw a right triangle containing $\angle y$, where the opposite side has a length equal to the diagonal of a square, and the base has a length $3$ times that.  
+\begin{center} \includegraphics [scale=0.5] {gardner11.png} \end{center}
+
+That is, the ratio is $1:3$.  This is the same as for the right triangle containing $\angle A$.  Since the two triangles are similar, the angles are equal.
+
+$\square$
+
+One can carry out the same proof with a simpler diagram.  Divide the unit square into four small squares with side lengths equal to one-half.  Draw the diagonals in one of those smaller squares.
+
+\begin{center} \includegraphics [scale=0.4] {gardner5.png} \end{center}
+
+The resulting small triangles, formed by crossing diagonals in a square, are all congruent.  We don't need to do any algebra.
+
+Thus, $a$ is one-quarter of the length of the long diagonal.  If we were doing algebra we would say that $4a = \sqrt{2}$ so $a = 1/2 \sqrt{2}$.
+
+The angle which we called $y$ before, formed here by line segments in red, lies in a right triangle with opposite side $a$ and adjacent side $3a$, so its tangent is $1/3$.  
+
+This is the same as the tangent of the angle we called $A$ before, which is formed by the blue line segment and the base of the large square.  
+
+The two marked angles are part of similar right triangles, so they are equal.
+
+\subsection*{sum of angles:  tangents}
+
+Let each square be a unit square.  Clearly $\tan C = 1, \tan B = 1/2$ and $\tan A = 1/3$.
+
+Recall the sum of angles formulas:
+\[ \sin s + t = \sin s \cos t + \cos s \sin t \]
+\[ \cos s + t = \cos s \cos t - \sin s \sin t \]
+
+So
+\[ \tan s + t = \frac{\sin s \cos t + \cos s \sin t}{\cos s \cos t - \sin s \sin t} \]
+Multiply through by $1/\cos s \cos t$ on top and bottom to obtain
+\[ \tan s + t = \frac{\tan s + \tan t}{1 - \tan s \tan t} \]
+
+\[ \tan A = \frac{1/2 + 1/3}{1 - 1/2 \cdot 1/3} \]
+which does indeed equal $1$.  
+
+Since the inverse tangent is a single-valued function over the interval $[0,\pi/2]$, and $\tan A = \tan B + C$, it follows that $\angle A = \angle B + \angle C$.
+
+\end{document}

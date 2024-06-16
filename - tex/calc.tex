@@ -1,0 +1,200 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Secrets of calculus}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+The slope of the line drawn through two points is simply the change in $y$ divided by the change in $x$:
+\[ \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} \]
+It doesn't matter which point we call $(x_1,y_1)$ or $(x_2,y_2)$.
+
+The idea here is to pick a point on a curve and then let the second point get closer and closer to it.
+\begin{center} \includegraphics [scale=0.4] {diff_quotient_1.png} \end{center}
+
+Suppose we have a function $f(x)$, let's say $f(x) = x^2$.
+
+Then the point $(x,f(x))$ is on the curve.  The goal is to find the slope of the tangent line to the curve $f(x)$.  That slope is going to depend on $x$, because this is a curve, so the slope changes along the curve.
+
+Move a little bit left or right on the curve by $\Delta x = h$, so we arrive at the point $((x + h), f(x + h))$.  It doesn't matter whether $h$ is positive or negative.  
+
+Calculate the slope of the secant that connects the two points:
+\[ \frac{\Delta y}{\Delta x} = \frac{f(x + h) - f(x)}{(x + h) - x} \]
+\[ = \frac{f(x + h) - f(x)}{h} \]
+
+The brilliant idea is to say:  what happens if we make $h$ small?  Really really small?  Then, the two points approach each other, and this line gets closer and closer being a tangent line.  
+
+We know the earth is curved, but it is locally flat.  This is the same idea.
+
+We call that slope of the tangent line $f'(x)$ and write:
+\[ f'(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h} \]
+
+This fancy-looking thing is \emph{just another function}.  It contains $h$ of course,  $f(x)$ and $f(x + h)$.  that's it.
+
+At the end of the process, we will think about what happens when $h$ gets really small, $h \rightarrow 0$.  Now, we can't really let $h$ go all the way to zero (why not?), but we can let it get \emph{as small as we please}.  That's the secret.
+
+\subsection*{first example}
+The simplest function with variable slope is $x^2$.
+
+Let's write the equation without stating the limit part.  We have
+\[ f'(x) = \frac{1}{h} \cdot \ [ \ f(x + h) - f(x) \ ] \]
+\[ = \frac{1}{h} \cdot \ [ \ (x + h)^2 - x^2 \ ] \]
+\[ = \frac{1}{h} \cdot \ [ \ x^2 + 2xh + h^2 - x^2 \ ] \]
+\[ = \frac{1}{h} \cdot \ [ \ 2xh + h^2  \ ] \]
+It got simpler!  That's always nice.  Even better, now every term in the brackets has an $h$ in it so we can divide through by $h$, which leaves simply
+\[ = 2x + h  \]
+
+Let us think about the limit.  What happens when $h$ gets really really really small?  It becomes insignificant.  The slope will be just $2x$.  
+
+If, instead of $x^2$, we had $f(x) = ax^2$, where $a$ is a constant, then every term above would have an extra $a$.  We can factor $a$ out (it can even come outside the limit) and then multiply the result by $a$ at the end.  It's good practice to do the calculation once yourself and see.
+
+The answer is the slope of the tangent to the curve $y = ax^2$:
+\[ f'(x) = 2ax \]
+
+Finally, we need to choose a particular point at which to evaluate this thing.  Suppose $x = c$, then the slope is $2ac$.
+
+\subsection*{integer powers}
+$f'(x)$ is called the derivative of $f(x)$.  Let's do $x^3$.
+\[ f'(x) = \frac{1}{h} \cdot \ [ \ (x + h)^3 - x^3 \ ] \]
+\[ = \frac{1}{h} \cdot \ [ \ x^3 + 3x^2h + 3xh^2 + h^3 - x^3 \ ] \]
+\[ = \frac{1}{h} \cdot \ [ \ 3x^2h + 3xh^2 + h^3 \ ] \]
+\[ = 3x^2 + 3xh + h^2 \]
+And then as $h \rightarrow 0$, we get that 
+\[ f'(x) = 3x^2 \]
+Again, the answer is surprisingly simple.  There's a pattern here.  Ignoring the possible constant $a$ in front:
+
+$\circ$ \ If the function is $x^2$ the derivative is $2x$.
+
+$\circ$ \ If the function is $x^3$ the derivative is $3x^2$.
+
+It may not surprise you to learn that the derivative of $x^4$ is $4x^3$ and so on.  
+
+The derivative of $f(x) = x$ is just 1, multiplied by $a$ if there was a constant.  We know that from algebra.
+
+\subsection*{square root}
+
+If you know this notation for square root:
+\[ f(x) = x^{1/2} \]
+you may not be surprised to learn that the rule we had previously still works.  Multiply by the original power out front and then take away 1 from the exponent.
+\[ f'(x) = \frac{1}{2} \cdot x^{-1/2} = \frac{1}{2 \sqrt{x}} \]
+That's the same thing.
+
+\subsection*{area}
+The first big idea of calculus is that with this function, called the \emph{difference quotient}, we can get the slope of the tangent, which is the rate at which the function is increasing at the point $x = c$.
+\[ f'(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h} \]
+
+The second big idea is that the function $f(x)$ and the area under the curve have the same relationship, but in reverse.  In other words, the area grows like $f(x)$.  The derivative of the area is the function $f(x)$.
+
+\begin{center} \includegraphics [scale=0.4] {FTC_geometric2.png} \end{center}
+I'm going to use the notation $A(x)$ for the area.  You can see that area is going to depend on where we start and stop, where we draw the verticals.
+
+If $A(x)$ is the (as yet unknown) function that describes the area under the curve $f(x)$, then the derivative of $A(x)$ \emph{is} $f(x)$:
+\[ A'(x) = f(x) \]
+It's that simple.
+
+If we know $f(x)$ it can be hard to find $A(x)$, sometimes it is impossible.
+
+But what we will do is have a little black book where we write down a list of functions and their derivatives.  
+
+Then when we want to know the area under some curve, we look to see if the function is one of the derivatives we know.
+
+\subsection*{a first area problem}
+I'll work an example of an area calculation.  We're going to find the area of the square between $x = 0$ and $x = 1$, and $y = 0$ and $y = 1$.  Of course, we know the answer, the area is just $1$.  But we are going to break it up into two parts.
+
+For the first one, we find the area under the curve $y = x^2$ between $0$ and $1$.
+\begin{center} \includegraphics [scale=0.5] {x_squared_plot.png} \end{center}
+
+We write
+\[ \int_0^1 x^2 \ dx \]
+
+That's a new symbol, the integral sign $\int$, and also it has bounds on it, the $0$ and the $1$.  Further, there is that new notation $dx$.  I am not going to explain the $\int$ symbol nor $dx$ now.
+
+However, the bounds should not be surprising, since the area accumulated will depend on where we start and stop.  
+
+We will just say that
+\[ \int f(x) \ dx = A(x) \]
+if and only if $f(x)$ is the derivative of $A(x)$.
+
+Integrating the function $f(x)$ means simply to find the function $A(x)$ such that the derivative of $A(x)$ is $f(x)$.
+
+So we have the function $x^2$ and we want its integral.  We know the function $x^3$ and know that its derivative is $3x^2$.  Divide by 3:
+\[ \ [ \ \frac{x^3}{3} \ ] ' = x^2 \]
+We're writing brackets with a prime after, to indicate that we're talking the derivative $f'(x)$.
+
+Because $\int f(x) = A(x)$ if and only if $A'(x) = f(x)$:  I assert that
+\[ \int x^2 \ dx = \frac{x^3}{3} \]
+
+which we must evaluate at the two bounds, subtracting the starting point from the ending point.  We write
+\[ \int_0^1 x^2 \ dx = \frac{x^3}{3} \bigg|_0^1  \]
+\[ = \frac{1}{3} - 0 = \frac{1}{3} \]
+That's how you do an area problem.
+
+\subsection*{the rest of the box}
+For the last step, we need one more derivative, which is $x$ to the $3/2$ power.  This is simply
+\[ f(x) = x \cdot \sqrt{x} \]
+Finding $f'(x)$ for this will yield to exactly the same procedure as we used above for the simple square root.  By the power rule:
+\[ [ \ x^{3/2} \ ] ' = \frac{3}{2} x^{1/2} \]
+so
+\[  [ \ \frac{2}{3} \ x^{3/2} \ ] ' = x^{1/2} \]
+and then
+\[ \int x^{1/2} \ dx = \frac{2}{3} \ x^{3/2}  \]
+
+Here's why we did that.  If you take the function $x^2$, the inverse function of that is $\sqrt{x}$ or $x^{1/2}$.  The area of the other region in the box, the area above $x^2$ in this plot
+\begin{center} \includegraphics [scale=0.5] {x_squared_plot.png} \end{center}
+
+is exactly the area beneath the curve $\sqrt{x}$ (between 0 and 1) in this one.
+\begin{center} \includegraphics [scale=0.3] {square_root_plot.png} \end{center}
+
+We need, in other words, to calculate
+\[  \int_0^1 x^{1/2} \ dx \]
+which is why we just found the derivative of $x^{3/2}$.  Evaluate between the two bounds to obtain 
+\[  \int_0^1 x^{1/2} \ dx = \frac{2}{3} \ x^{3/2}  \bigg|_0^1 = \frac{2}{3} \]
+
+Add the results for the two regions
+\[ \frac{1}{3} + \frac{2}{3} = 1 \]
+as one would hope.
+
+\subsection*{other calculations}
+This is just put here for documentation.  Feel free to skip the rest of this write-up.
+
+We will calculate the derivative of the square root function
+\[ f'(x) = \frac{1}{h} \cdot \ [ \ \sqrt{x + h} - \sqrt{x} \ ] \]
+I don't know how to do that subtraction.  But there's a trick.  Multiply by what is called the conjugate
+\[ f'(x) = \frac{1}{h} \cdot \ [ \ \sqrt{x + h} - \sqrt{x} \ ] \cdot  \ \frac{\sqrt{x + h} + \sqrt{x}}{\sqrt{x + h} + \sqrt{x}}\]
+
+That looks pretty wild.  But what we have in the numerator is basically $(p - q)(p + q) = p^2 - q^2$, which makes everything simple.
+\[ f'(x) = \frac{1}{h} \cdot \ \frac{x + h - x}{\sqrt{x + h} + \sqrt{x}} \] 
+\[ =  \frac{1}{h} \cdot \ \frac{h}{\sqrt{x + h} + \sqrt{x}} \] 
+\[ =  \frac{1}{\sqrt{x + h} + \sqrt{x}} \] 
+And then as $h \rightarrow 0$, we get that 
+\[ f'(x) = \frac{1}{2 \sqrt{x}} \]
+What a relief.
+
+I decided to do the $3/2$ power as well:
+
+\[ f'(x) = \frac{1}{h} \cdot \ [ \  (x + h) \sqrt{x + h} - x \sqrt{x} ) \ ] \] 
+\[ = \frac{1}{h} \cdot \ [ \  (x + h) \sqrt{x + h} - x \sqrt{x}) \ ] \cdot \frac{ (x + h) \sqrt{x + h} + x \sqrt{x}}{ (x + h) \sqrt{x + h} + x \sqrt{x}}\] 
+\[ = \frac{1}{h} \cdot \ \frac{(x+h)^3 - x^3}{(x + h) \sqrt{x + h} + x \sqrt{x}} \]
+\[ = \frac{1}{h} \cdot \ \frac{3x^2h + 3xh^2 +h^3}{(x + h) \sqrt{x + h} + x \sqrt{x}} \]
+\[ = \frac{3x^2 + 3xh + h^2}{(x + h) \sqrt{x + h} + x \sqrt{x}} \]
+What happens when $h \rightarrow 0$?  Then
+\[ f'(x) = \frac{3x^2}{2 x \sqrt{x }} \]
+\[ = \frac{3}{2} \cdot \sqrt{x} \]
+
+
+\end{document}

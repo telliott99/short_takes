@@ -1,0 +1,235 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangents}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here's a problem I found on Twitter (\#GeometrySnacks).
+\begin{center} \includegraphics [scale=0.6] {tangent_prob.png} \end{center}
+
+Assume that the curve is a circle, the enclosing box is a square, and the hypotenuse of the pink triangle is the tangent to the curve at some point $T$ which is not shown explicitly.  The base is bisected at the yellow dot, which we will call $P$.  Since this is a unit circle and $RS$ is bisected, the coordinates of $P$ are $(1/2,-1)$.
+
+Since two tangent lines meet at $P$, it follows that the length of the line segment $PT$ is equal to $RP$, giving an isosceles triangle $\triangle RPT$.  But it is given that the base is bisected, hence another isosceles triangle is $\triangle PST$.
+
+\begin{center} \includegraphics [scale=0.4] {tangent_prob2.png} \end{center}
+
+\subsection*{clever solution}
+
+I worked on this problem and obtained the correct solution, but there is an easier way which I did not see.  Perhaps you will find it, if you try before reading any further.
+
+The key to the short solution is to see that there is \emph{another} pair of tangents in the problem: $QT$ and the vertical from $Q$ to the $x$-axis.  So these two distances are also equal.
+
+It follows that the hypotenuse of $\triangle QPS$ is composed of two segments, one equal to $x$, and one equal to $1 - y$, so the Pythagorean theorem gives
+
+\[ (x + (1 - y))^2 = x^2 + y^2 \]
+\[ x^2 + x - xy + x + 1 - y - xy - y + y^2 = x^2 + y^2 \]
+
+Canceling and grouping like terms
+\[ 2x - 2xy - 2y + 1  = 0  \]
+\[ x + \frac{1}{2} = y(x + 1) \]
+\[ y = \frac{x + 1/2}{x + 1} \]
+
+But we are given that $x = 1/2$ so
+\[ y = \frac{2}{3} \]
+
+The area is
+\[ A = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{2}{3} =  \frac{1}{6}  \]
+
+\subsection*{tangent to a circle}
+
+In general, if we know the slope of the hypotenuse, we can use that to get the altitude and thus the area of the pink triangle from $\Delta y = \text{slope} \cdot \Delta x$, where $\Delta x$ is half the side of the square.
+
+We might use the fact (from geometry) that the product of the slopes of two perpendicular lines, such as the radius and tangent to the circle at that point, is equal to $-1$.  
+
+For a circle centered on the origin, the radius to any point on the circle $T = (x,y)$ has slope $y/x$.  Hence the tangent at $T$ has slope $-x/y$.  If the circle is not centered on the origin, there will be a correction factor.
+
+Write the equation of the tangent line in terms of the slope $m$ as
+\[ m =  \frac{y - (-1)}{x - 1/2} \]
+
+Using the expression from above for $m$ we have 
+
+\[ -\frac{x}{y} =  \frac{y - (-1)}{x - 1/2} \]
+\[ y^2 + y = -x^2 + \frac{1}{2} x \]
+
+Since $x^2 + y^2 = 1$ everywhere on the circle,
+\[ y + 1 = \frac{1}{2} x  \]
+
+This is a relationship between the $x$- and $y$- values at $T$, but it is clearly not the equation of the tangent line, since $(1/2,-1)$ is not a solution.  
+
+The trick here is to use the information from the circle \emph{again}:
+
+\[ \sqrt{1 - x^2} = \frac{1}{2} x - 1 \]
+\[ 1 - x^2 = \frac{1}{4}x^2 - x + 1 \]
+\[ \frac{5}{4}x^2 - x = 0 \]
+\[ (\frac{5}{4}x - 1) \cdot x = 0 \]
+
+This has two solutions, $x = 0$ and $x = 4/5$, which are indeed the points of tangency as the following analysis will confirm.
+
+Then $y = \sqrt{1 - x^2} = -3/5$ (the minus sign because this is the fourth quadrant).  So the slope is 
+\[ \frac{-x}{y} = \frac{-4/5}{-3/5} = \frac{4}{3} \]
+
+which we confirm by the point-slope form:
+
+\[ m = \frac{-3/5 - (-1)}{4/5 - 1/2} = \frac{2/5}{3/10} = \frac{4}{3} \]
+
+So $\Delta y$ for the pink triangle is one-half that.
+
+\subsection*{tangent from an exterior point}
+
+Here's a somewhat longer general approach.
+
+Place the origin of coordinates at the center of a unit circle $x^2 + y^2 = 1$.  Then the point $P = (1/2,-1)$.  The lower point of tangency is $(0,-1)$.
+
+We can draw a line from $P$ to any point on the circle, label it $(x,y)$.  The slope of the line
+is $m$ and the equation of the line is
+\[ \frac{y - (-1)}{x - 1/2} = m \]
+
+The key insight is that, for the right value of $m$, the resulting line will be the tangent, and then there will be only one $(x,y)$ which solves the equation above and also lie on the circle.  
+
+Substitute for $y$ from the equation of the circle $y = \sqrt{1 - x^2}$.
+
+\[ \frac{\sqrt{1 - x^2} + 1}{x - \frac{1}{2}} = m \]
+\[ \sqrt{1 - x^2} = m(x - \frac{1}{2}) - 1 \]
+
+Square both sides
+\[ 1 - x^2 = (mx - \frac{1}{2}m - 1)^2 \]
+\[ = m^2 x^2 - \frac{1}{2}m^2x - mx - \frac{1}{2}m^2x +  \frac{1}{4}m^2 + \frac{1}{2}m - mx + \frac{1}{2}m + 1   \]
+Cancel the one and combine three pairs of terms
+\[ -  x^2 = m^2 x^2 - m^2x - 2mx  +  \frac{1}{4}m^2 + m   \]
+Group by powers of $x$:
+\[ (1 + m^2)x^2 - (m^2 + 2m)x + (m + \frac{1}{4}m^2)  = 0 \]
+
+This is a quadratic in $x$.  There will be one solution when the discriminant is equal to zero.
+
+\[ (m^2 + 2m)^2 = (4)(1 + m^2)(m + \frac{1}{4}m^2) \]
+\[ (m^2 + 2m)^2 = (1 + m^2)(4m + m^2) \]
+\[ m^4 + 4m^3 + 4m^2 = 4m + m^2 + 4m^3 + m^4 \]
+
+Luckily, there are two cancellations:
+\[ 4m^2 = 4m + m^2 \]
+\[ (3m - 4)m = 0 \]
+
+One solution is $m=0$.  We knew that:  the horizontal line through $P$ is the other tangent.  
+
+The solution we want is $m = 4/3$.
+
+Knowing the slope of the tangent line and $\Delta x = 1/2$, we find
+\[ \Delta y = \frac{4}{3} \cdot \frac{1}{2} \]
+\[ = \frac{2}{3} \]
+
+The area is then
+\[ A = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{2}{3} = \frac{1}{6}  \]
+
+\subsection*{other points}
+
+We have that the slope is $4/3$ and one point on the line is $P=(1/2,-1)$.  
+
+The $y$-intercept $y_0$ is
+\[ (-1) = \frac{4}{3} \cdot \frac{1}{2} + y_0 \]
+
+which means that $y_0 = -5/3$ and the equation of the line is
+\[ y = \frac{4}{3}x - \frac{5}{3} \]
+
+The $x$-intercept is 
+\[ y = 0 = \frac{4}{3}x - \frac{5}{3} \]
+\[ x = \frac{5}{4} \]
+
+We check to see that $-y_0/x_0$ gives the correct slope, $\Delta y/\Delta x = 4/3$.
+
+We find the $y$-coordinate of the top of the triangle when $x = 1$ so
+\[ y = \frac{4}{3}(1) - \frac{5}{3} = - \frac{1}{3} \]
+
+So the side of the triangle is $-1/3 - (-1) = 2/3$, as we found before.
+
+Last, we want the point on the circle.  We use the original idea that the product of the slopes is $-1$, so the point $(x,y)$ would be $(4,-3)$ except that this needs to be normalized to have a length of $1$.  
+
+That normalization constant is $\sqrt{3^2 + 4^2} = 5$ so finally
+
+\[ T = (\frac{4}{5}, -\frac{3}{5}) \]
+
+This point satisfies the equation of the circle and it lies on the line since
+\[ -\frac{3}{5} = \frac{4}{3} \cdot \frac{4}{5} - \frac{5}{3}  \]
+\[ -9 = 16 - 25 \]
+
+$\circ$
+
+There are a number of similar 3-4-5 right triangles in the final figure.
+\begin{center} \includegraphics [scale=1] {tangent_prob1.png} \end{center}
+
+\subsection*{complete general equation}
+
+The algebra was simplified somewhat above by the fact that the exterior point had coordinates $(1/2,-1)$.  The general case has $(x,y)$ on the circle and we will use $(h,k)$ for the point.
+
+We will also allow the circle to have any radius $r > 0$.
+
+The slope is
+\[ m = \frac{y - k}{x - h} \]
+
+and $y = \sqrt{r^2 - x^2}$ so
+\[ m(x - h) + k = \sqrt{r^2 - x^2} \]
+
+Square both sides
+\[ m^2(x - h)^2 + 2m(x-h)k + k^2 = r^2 - x^2 \]
+
+\[ m^2x^2 - 2m^2xh + m^2h^2 + 2m(x-h)k + k^2 = r^2 - x^2 \]
+\[ (m^2 + 1) x^2 - 2m(mh - k) x + m^2h^2 - 2mhk + k^2 - r^2 = 0 \]
+
+There's a repeated term:  $(mh - k)$ in the $x^1$ and$(mh - k)^2$ in the $x^0$ power, but it doesn't help with what comes below because of the extra $1$ at the end.
+
+The discriminant should be zero, since for a given $m$ we want a unique $x$ and $y$ on the circle.
+\[ 4m^2(mh - k)^2 = 4(m^2 + 1)(m^2h^2 - 2mhk + k^2 - r^2) \]
+
+This would be a fourth power of $m$ (as well as a third), but it works out.  First, cancel the $4$
+\[ m^2(mh - k)^2 = (m^2 + 1)(m^2h^2 - 2mhk + k^2 - r^2) \]
+
+The left-hand side is
+\[ m^2(m^2h^2 - 2mhk + k^2) = m^4h^2 - 2m^3hk + m^2k^2 \]
+
+The right-hand side is
+\[ (m^2 + 1)(m^2h^2 - 2mhk + k^2 - r^2) \]
+\[ = m^4h^2 - 2m^3hk + m^2 k^2 - m^2 + m^2h^2 - 2mhk + k^2 - r^2 \]
+
+After canceling the entire left-hand side
+\[ 0 = -m^2 + m^2h^2 - 2mhk + k^2 - r^2 \]
+\[ (h^2 - 1)m^2  - 2hkm + (k^2 - r^2) = 0 \]
+
+Plugging into the quadratic equation:
+\[ \frac{2hk \pm \sqrt{4h^2k^2 - 4(h^2 - 1)(k^2 - r^2)}}{2(h^2 - 1)} \]
+\[ \frac{hk \pm \sqrt{h^2k^2 - (h^2 - 1)(k^2 - r^2)}}{(h^2 - 1)} \]
+\[ \frac{hk \pm \sqrt{h^2 + k^2 - r^2}}{(h^2 - 1)} \]
+
+This is a general expression for the slope of the tangent to the circle, centered at the origin, from a point $(h,k)$.
+
+Now, $h^2 + k^2$ must be $ \ge r^2$, otherwise there is no real solution.  There is no tangent from an interior point.
+
+In the case of equality, we would have that the slope is 
+\[ m = \frac{hk}{h^2 - 1} = \frac{hk}{-k^2} = -\frac{h}{k} \]
+
+The slope of the tangent at a point $(h,k)$ on the circle is $-h/k$.
+
+In this problem we have $k = -1$ so this is just
+\[ \frac{-h \pm h}{h^2 - 1} \]
+
+Plugging in $h = 1/2$, one answer is $m=0$, and the other is
+\[ m = \frac{-2(1/2)}{1/4 - 1} = \frac{-1}{-3/4} = \frac{4}{3}  \]
+
+This matches our previous work.
+
+\end{document}

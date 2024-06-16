@@ -1,0 +1,236 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Multiplication}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+Arithmetic starts with the natural numbers, $ \{ 1,2,3 \dots \}$, which can be constructed by starting with $1$ as the smallest such number and then adding $1$ to it repeatedly.  
+\[ 1 + 1 = 2 \]
+\[ 2 + 1 = 3 \]
+\[ 3 + 1 = 4 \]
+\[ \dots \]
+
+Some people say that $0$, invented by Indian mathematicians, should be considered a natural number, and some people don't (I mean that even famous people like Euler and Peano disagree). 
+
+We solve this conflict by calling $\{1,2,3 \dots \}$ the \emph {positive integers}.
+
+We can also form the negative integers, which have a minus sign for each of these \emph{counting} numbers.  The negative integers are = $\{ -1,-2,-3 \dots \}$.  
+
+Together with $0$ and the positive integers, all together these are just called the integers:  $\{ \dots, -3, -2, -1, 0, 1, 2, 3 \dots \}$.
+
+To make life simpler, we will work only with the positive integers here, and we are not going to think about subtraction, either.  These can be added easily after we establish some basic properties.
+
+\subsection*{multiplication}
+
+Addition of two numbers $a + b$ means to start with $a$ ones and then add to it successively as many ones as $b$ contains.  The number line is a very convenient way of visualizing this operation.
+
+\begin{center} \includegraphics [scale=0.3] {number_line.png} \end{center}
+
+Multiplication can be thought of as repeated addition.
+
+\begin{verbatim}
+2 + 2 = 4
+2 + 2 + 2 = 6
+2 + 2 + 2 + 2 = 8
+...
+\end{verbatim}
+
+We are really just adding ones, over and over again.
+
+Four twos are eight.  So we write $4 \times 2 = 8$, or later on, $4 \cdot 2 = 8$.  We can visualize the result of that operation as follows.
+\begin{center} \includegraphics [scale=0.8] {comm_addition.png} \end{center}
+The picture makes clear how it is that two fours are also eight.
+\[ 4 \cdot 2 = 2 \cdot 4 \]
+
+This result is general, it's a \emph{law}, and it's called the commutative law of multiplication.
+
+This law and its kin are generally not worth worrying about until a more advanced stage, with one exception.  The distributive law of multiplication says that:
+\[ a(b + c) = ab + ac \]
+As an example
+\[ 7 \cdot 7 = 7 \cdot 2 + 7 \cdot 5 \]
+\[ = 14 + 35 = 49 \]
+
+If you can just remember the multiples of $5$ then you can figure out lots of other products using this law.
+
+\subsection*{table of results}
+
+We want to build up a table of results for multiplication of small single-digit numbers, often called a "times table."  First we write
+
+\begin{verbatim}
+ 1  2  3  4  5  6  7  8  9 10
+ 2  4  6  8 10 12 14 16 18 20
+\end{verbatim}
+
+On the first line we have one of the numbers being multiplied, say $4$, and at the left of the second row we write the other number being multiplied, here it is $2$.  Each number in the second row is the product of the number above it, and $2$.
+
+Mathematics is really about patterns.  Here we notice a pattern.  The last digit of each of the results on the second line is $2\  4\  6\  8\  0$, and then the pattern repeats.  We guess that if we were to carry out this process until we got tired of it, we would never find a multiple of $2$ that had any other digit in the last place.  So we can recognize any number that is a multiple of $2$ by that property.
+
+Why not continue with $3$?
+\begin{verbatim}
+ 1  2  3  4  5  6  7  8  9 10 11 12 13
+ 3  6  9 12 15 18 21 24 27 30 33 36 39
+\end{verbatim}
+
+We have another pattern but it's different.  Between $3 \cdot 1$ and $3 \cdot 10$, all ten digits appear in the last place of the results.  So we can't just look at the last digit to find out if a number is a multiple of $3$.  
+
+The pattern that we do have is this:  the digits of any number divisible by $3$ add up to be $3$, $6$ or $9$.  The very last one looks like an exception:  $3 + 9 = 12$, but then we continue one step further with $1 + 2 = 3$.  
+
+We just have to continue adding digits together until only one digit remains and then ask if it is one of $\{3,6,9\}$.  If it is, then the number is a multiple of $3$.
+
+On to $4$.  Let us combine all the results in one table.
+
+\begin{verbatim}
+ 1  2  3  4  5  6  7  8  9 10
+ 2  4  6  8 10 12 14 16 18 20
+ 3  6  9 12 15 18 21 24 27 30
+ 4  8 12 16 20 24 28 32 36 40
+\end{verbatim}
+
+All the multiples of $4$ are also multiples of $2$.  They are all even numbers.  There is also a pattern in the last digits:  $4\  8\  2\  6\  0$, which then repeats.
+
+Next up:  $5$
+
+\begin{verbatim}
+ 1  2  3  4  5  6  7  8  9 10
+ 2  4  6  8 10 12 14 16 18 20
+ 3  6  9 12 15 18 21 24 27 30
+ 4  8 12 16 20 24 28 32 36 40
+ 5 10 15 20 25 30 35 40 45 50
+\end{verbatim}
+
+The multiples of $5$ end in $5$ or $0$.
+
+Here is another interesting pattern.  The string of values that goes across starting from $2$ in the second row ($2 \ 4 \ 6 \ 8 \dots$) is exactly the same as the string of values that goes down starting from $2$ in the second column.
+
+This also happens with $3\ 4 \ 5$ and so on.  So our table duplicates (almost all) the values --- all except the perfect squares ($2^2, 3^2 \dots$).  We want to remove the duplicates to make the whole thing easier to write out.
+
+We notice something else.  Even though we were not explicitly constructing a times table for $6\ 7 \ 8\ 9\ 10$, yet it is starting to appear.  As an example, can you find the multiples of $9$?
+
+\begin{verbatim}
+ 1  2  3  4  5  6  7  8  9 10
+ 2  4  6  8 10 12 14 16 18 20
+ 3  6  9 12 15 18 21 24 27 30
+ 4  8 12 16 20 24 28 32 36 40
+ 5 10 15 20 25 30 35 40 45 50
+\end{verbatim}
+
+Let's rearrange the table, throwing away duplicates and also shortening it to end with multiples of $9$ (because multiples of $10$ are so easy).
+
+\begin{verbatim}
+  1  2  3  4  5 
+  2  4  .  .  .
+  3  6  9  .  .
+  4  8 12 16  .
+  5 10 15 20 25
+  6 12 18 24 30
+  7 14 21 28 35
+  8 16 24 32 40
+  9 18 27 36 45
+\end{verbatim}
+
+Here is yet another pattern.  When we removed the duplicate entries, each row stops at the square of the first value.  $2^2 = 4$, $3^2 = 9$, $4^2 = 16$, $5^2 = 25$.
+
+Let us now fill in the squares up to $9^2$:
+
+\newpage
+\begin{verbatim}
+  1  2  3  4  5  6  7  8  9
+  2  4  .  .  .  .  .  .  .
+  3  6  9  .  .  .  .  .  .
+  4  8 12 16  .  .  .  .  .
+  5 10 15 20 25  .  .  .  .
+  6 12 18 24 30 36  .  .  .
+  7 14 21 28 35  . 49  .  .
+  8 16 24 32 40  .  . 64  .
+  9 18 27 36 45  .  .  . 81
+\end{verbatim}
+
+What's left?  We have 6 more spaces.  Let's see if we can find some more patterns to help us fill in the blanks.  Start with $9$.  Do you notice anything about the multiples of $9$?  
+
+Something is happening like what happened with $3$.  Adding the digits always gives $9$.  (Next year, we will use algebra to prove that this always works).  That means we have a method to easily recognize any number that is a multiple of $9$.
+
+In addition, let us use the following shortcut, based on the distributive law.  To compute the next multiple of $9$, add $10$ and then subtract $1$.
+
+\begin{verbatim}
+45 + (10 - 1) = 54
+54 + (10 - 1) = 63
+63 + (10 - 1) = 72
+72 + (10 - 1) = 81
+\end{verbatim}
+
+Again, the digits always add to $9$.
+
+For $8$, adding $8$ to $40$ is pretty easy.  Then do a variation of the trick from $9$  Namely
+\begin{verbatim}
+40 + (10 - 2) = 48 = 8.6
+48 + (10 - 2) = 56 = 8.7
+\end{verbatim}
+
+The last one is $7 \cdot 6 = 7 \cdot (5 + 1) = 35 + 7 = 42$.
+
+\begin{verbatim}
+  1  2  3  4  5  6  7  8  9
+  2  4  .  .  .  .  .  .  .
+  3  6  9  .  .  .  .  .  .
+  4  8 12 16  .  .  .  .  .
+  5 10 15 20 25  .  .  .  .
+  6 12 18 24 30 36  .  .  .
+  7 14 21 28 35 42 49  .  .
+  8 16 24 32 40 48 56 64  .
+  9 18 27 36 45 54 63 72 81
+\end{verbatim}
+
+This is the form of the table that you should learn.  But don't stress about it.  Until you do, make a copy and tape it above your desk.  When you need an answer it is OK to look it up.  
+
+But also, every day you should practice for one or two minutes.  But don't practice the whole thing.  Just do the hard part:
+
+\begin{verbatim}
+   5  6  7  8  9
+5 25  .  .  .  .
+6 30 36  .  .  .
+7 35 42 49  .  .
+8 40 48 56 64  .
+9 45 54 63 72 81
+\end{verbatim}
+
+Someday you find yourself wondering whether $7$ is a divisor of $65$ or not.
+
+Just recall the distributive law.  $7 \cdot 10 = 70$.  So the next smallest multiple of $7$ is $70 - 7 = 63$.  And the next smallest is $70 - 14 = 56$.
+
+How about $84$?  Again, $7 \cdot 10 = 70$, adding $14$ more gives $84$.  So yes, $84$ is a multiple of $7$.  And so is $91$ and $98$ and that gets you to $7 \cdot 10 + 7 \cdot 5 = 70 + 35 = 105$.
+
+Adding or subtracting a number times one or two from the same number times $10$ or $20$ is a useful method for finding bigger products.
+
+You will also want to learn the squares.
+
+\begin{verbatim}
+2  3  4  5  6  7  8  9
+4  9 16 25 36 49 64 81 
+\end{verbatim}
+
+We do a little algebra:
+\[ (n + 1)^2 = n^2 + 2n + 1 \]
+
+So for any $n$ like $7$, the next square
+
+\begin{verbatim}
+8.8 = 7.7 + 2.7 + 1 = 7.7 + 15
+9.9 = 8.8 + 2.8 + 1 = 8.8 + 17
+\end{verbatim}
+
+\end{document}

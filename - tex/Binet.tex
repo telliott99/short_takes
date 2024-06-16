@@ -1,0 +1,257 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Phi and Binet's formula}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The classic derivation of $\phi$ (often written as the capital letter $\Phi$) is to start with a square inside a rectangle.  Drawing the fourth side of the square also forms a second rectangle, one whose long side is the same length as the square.  
+\begin{center} \includegraphics [scale=0.8] {phi.png} \end{center}
+
+We can re-size the entire drawing so that the short side of the smaller rectangle has unit length.  The ratio of long to short side for that rectangle is $\phi$.  We want to find the value(s) of $\phi$ such that the ratio of side lengths is the same for both rectangles.
+\[ \frac{\phi}{1} = \frac{\phi + 1}{\phi} \]
+\[ \phi^2 = 1 + \phi \]
+\[ \phi^2 - \phi - 1 = 0 \]
+This quadratic has two solutions.  The vertex of the graph is at $-b/2a = 1/2$.  We just look up the quadratic formula and fill in:
+\[ \phi, \psi = \frac{1}{2}  \pm \ \frac{\sqrt{5} }{2} \]
+
+We take $\phi$ to be the positive branch and $\psi$ to be the negative one, and note that since $\psi < 0$ it doesn't satisfy the physical constraint that lengths are always positive, so their ratio is also positive.
+
+For future use, we also compute
+\[ \phi - \psi = \sqrt{5} \]
+
+We can also compute the powers of $\phi$:
+\[ \phi^2 = 1 + \phi \]
+\[ \phi^3 = \phi + \phi^2 = 1 + 2 \phi \]
+\[ \phi^4 = \phi + 2 \phi^2 = 2 + 3 \phi \]
+\[ \phi^5 = 2 \phi + 3 \phi^2 = 3 + 5 \phi \]
+\[ \phi^6 = 3 \phi + 5 \phi^2 = 5 + 8 \phi \]
+
+The powers of $\psi$ are exactly the same, since $\psi^2 = 1 + \psi$.
+
+It looks like we're getting the Fibonacci numbers.  That sequence is defined by the recurrence:
+\[ F_{n-2} + F_{n-1} = F_n \]
+starting with 
+\[ F_1 = 1, \ \ \ \ \ F_2 = 1 \]
+so
+\[ F_3 = 2, \ \ \ \ \ F_4 = 3, \ \ \ \ \ F_5 = 5, \ \ \ \ \ F_6 = 8 \]
+and so on.
+
+Since $\psi$ is a solution of the original quadratic equation, it generates exactly the same sequence.  So then, for example
+\[ \phi^5 - \psi^5 = 3 + 5 \phi - (3 + 5 \psi) \]
+\[ = 5 (\phi - \psi) \]
+\[ = 5 \sqrt{5} \]
+
+If you do the same thing with 
+\[ \phi^4 - \psi^4 = 2 + 3 \phi - (2 + 3 \psi) \]
+\[ = 3 \sqrt{5} \]
+
+So it seems that
+\[ \phi^n - \psi^n = \sqrt{5} \cdot F_n \]
+\[ F_n = \frac{1}{\sqrt{5}} \cdot (\phi^n - \psi^n) \]
+
+This is called Binet's formula.  
+
+We can prove the formula by induction.  First, the  base case.  As we said $\phi - \psi = \sqrt{5}$ so $F_1 = 1$, which is certainly correct.  
+
+Since we need both $F_{n-2}$ and $F_{n-1}$ to compute $F_n$ using the recurrence, we should do the next one also as part of the base case.  Namely
+
+\[ \frac{1}{\sqrt{5}} \cdot (\phi^2 - \psi^2) \]
+\[ = \frac{1}{\sqrt{5}} \cdot \ [ \ 1 + \phi - (1 + \psi) \] 
+\[ =  \frac{1}{\sqrt{5}} \cdot (\phi - \psi) \]
+\[ = 1 \]
+
+So then we assume that the following two equations are correct
+\[ F_{n-2} = \frac{1}{\sqrt{5}} \cdot (\phi^{n-2} - \psi^{n-2}) \]
+\[ F_{n-1} = \frac{1}{\sqrt{5}} \cdot (\phi^{n-1} - \psi^{n-1}) \]
+and now, compute $F_n$:
+
+\[ F_{n-2} + F_{n-1} = \frac{1}{\sqrt{5}} \cdot (\phi^{n-2} + \phi^{n-1} -  \psi^{n-2} - \psi^{n-1}  ) \]
+
+This will match the formula, provided that
+\[ \phi^{n-2} + \phi^{n-1} = \phi^n \]
+Factoring, we obtain
+\[ \phi^n = \phi^2(\phi^{n-2}) \]
+\[ = (1 + \phi)(\phi^{n-2}) \]
+\[ = \phi^{n-2} + \phi^{n-1} \]
+
+And the same applies to $\psi$.
+
+This completes the proof.  $\square$
+
+\subsection*{cancellation}
+Our formula is
+\[ F_n = \frac{1}{\sqrt{5}} \cdot (\phi^n - \psi^n) \]
+
+It is strange to see that factor of $\sqrt{5}$, since it is irrational, and the formula is supposed to produce integers.  If you just see the formula and haven't been through the derivation it seems weird.
+
+There must be some kind of cancellation.  We look at the powers of $\phi$ and $\psi$ again (say, $n = 5$).
+
+\[ \phi^5 = 3 + 5 \phi \]
+\[ \psi^5 = 3 + 5 \psi \]
+
+So the difference is then
+\[ \phi^5 - \psi^5 = 5(\phi - \psi) = 5 \ \sqrt{5} \]
+This is true for every power of $\phi^n - \psi^n$.
+
+\subsection*{generating functions}
+
+I came across a couple of posts talking about the generating function for the Fibonacci sequence (references at the end).
+
+A generating function is a function like this:
+\[ F(x) = \sum_{n=0}^{\infty} f(n) \ x^n \]
+
+It is an infinite series whose cofactors are the terms of the sequence:  $f(0), f(1) \dots$.  We do not yet know what form $f$ will take, so we don't know what $F(x)$ really looks like either, yet.
+
+Generating functions are one of those places where math gets too complicated for me (in terms of justifying results), but let's just accept the definition and see where things go.
+
+For the Fibonacci sequence, we say that $f(0) = 0$ (we start counting from 1).   And we want the values of $f(1), f(2), f(3)$ to be equal to $1,1,2$ and so on.
+
+Then we do the following trick.
+\[ F(x) =  \sum_{n=0}^{\infty} f(n) \ x^n \]
+\[  = f(0) + \sum_{n=1}^{\infty} f(n) \ x^n \]
+As we said, $f(0)$ is just zero so
+\[ F(x) = \sum_{n=1}^{\infty} f(n) \ x^n \]
+
+And, since $f(1) = 1$, the first term is just $x$ and
+\[ F(x) = x + \sum_{n=2}^{\infty} f(n) \ x^n \]
+
+Now
+\[ f(n) = f(n-2) + f(n-1) \]
+ (this is our recurrence relationship), so we can substitute
+\[ F(x) = x + \sum_{n=2}^{\infty} \ [ \ f(n-1) +  f(n-2) \ ] \   x^n \]
+and break it up into two sums
+\[ = x +  \sum_{n=2}^{\infty} f(n-1) \ x^n +  \sum_{n=2}^{\infty} f(n-2) \ x^n \]
+
+Focusing on the first term on the right-hand side we factor out one $x$
+\[ \sum_{n=2}^{\infty} f(n-1) \ x^n = x \ \sum_{n=2}^{\infty} f(n-1) \ x^{n-1}\]
+Substitute $m = n-1$:
+\[ =  x \sum_{m=1}^{\infty} f(m) \ x^{m} = x F(x) \]
+
+(Notice the changed lower bound of the summation).  But $m$ is just a dummy variable, so as a shortcut you can think of substituting $n$ for $n-1$ above.
+
+For the last term on the right we have
+\[  \sum_{n=2}^{\infty} F_{n-2} \ x^n = x^2  \sum_{n=2}^{\infty} F_{n-2} \ x^{n-2}\]
+Substitute $n = n - 2$:
+\[ =  x^2 \sum_{n=0}^{\infty} F_n \ x^n = x^2 F(x) \]
+
+which gives, finally
+\[ F(x) = x + x F(x) + x^2 F(x) \]
+solve for $F(x)$:
+\[ (1 - x - x^2) \ F(x) = x \]
+\[ F(x) = \frac{x}{1 - x  - x^2} \]
+
+This completes the first part.
+
+\subsection*{quadratic}
+
+Now, we need to solve (i.e. factor)
+\[ -x^2 - x + 1 \]
+This is (almost) the same as
+\[ \phi^2 - \phi - 1 = 0 \]
+Both equations have the same discriminant ($\sqrt{5}$) and also the entire numerator is the same.  But there is a minus sign in the solutions to the new one because the cofactor of $x^2$ is negative.
+
+The quadratic equation gives the values of $x$ which make this equation equal to zero.
+\[ x = \frac{1 \pm \ \sqrt{5}}{-2} \]
+\[ = - ( \frac{1}{2} \pm \ \frac{\sqrt{5}}{2} ) \]
+\[ = - \frac{1}{2} \pm \ \frac{\sqrt{5}}{2}  \]
+Now 
+\[ - \frac{1}{2} - \ \frac{\sqrt{5}}{2} = - \phi \]
+\[ - \frac{1}{2} + \ \frac{\sqrt{5}}{2} = - \psi \]
+
+That is, $x = - \phi, x = - \psi$ are solutions. 
+
+We re-write the quadratic as
+\[ (x + \phi)(x + \psi) \]
+and so
+\[ F(x) = \frac{x}{(x + \phi)(x + \psi)} \]
+
+Note:  it is equally true that $-\phi$ and $-\psi$ are solutions for
+\[ (-1)(x + \phi)(x + \psi)  = 0 \]
+
+The second reference below adopts the latter as the correct factorization, without comment.  
+
+We adopt their solution and explain why, at the end.
+
+\subsection*{partial fractions}
+
+We can make further progress more by the method of partial fractions.  The product in the denominator is just what we would have if we were trying to add two fractions:
+\[ \frac{A}{x + \phi} + \frac{B}{x + \psi} = - \frac{x}{(x + \phi)(x +\psi)} \]
+where the terms $A$ and $B$ yet to be determined.
+
+Multiply both sides by $(x + \phi)(x + \psi)$ to obtain
+\[ A(x + \psi) + B(x + \phi) = - x \]
+
+Now, use the solutions we just found.  If $x = - \phi$ then
+\[ A(-\phi + \psi)  = \phi \]
+\[ - A(\phi - \psi)  = \phi  \]
+Recall that $\phi - \psi = \sqrt{5}$ so
+\[ A = - \frac{1}{\sqrt{5}} \ \phi \]
+
+similarly, if $x = - \psi$ then
+\[ \psi = B (- \psi + \phi)  \]
+\[ = \sqrt{5} B \]
+\[ B = \frac{1}{\sqrt{5}} \ \psi \]
+
+We have then
+\[ F(x) = \frac{1}{\sqrt{5}} \ ( - \frac{\phi}{x + \phi} + \frac{\psi}{x + \psi}  )\]
+
+One of the properties of $\phi$ and $\psi$ is that
+\[ \phi \cdot \psi = (\frac{1}{2} + \frac{\sqrt{5}}{2}) \cdot  (\frac{1}{2} - \frac{\sqrt{5}}{2}) = - 1 \]
+
+Multiply top and bottom on the left by $\psi$ and on the right by $\phi$:
+\[ F(x) = \frac{1}{\sqrt{5}} \ ( - \frac{\phi}{x + \phi} + \frac{\psi}{x + \psi}  )\]
+\[ = \frac{1}{\sqrt{5}} \ ( - \frac{-1}{\psi x - 1} + \frac{-1}{\phi x - 1}  )\]
+\[  = \frac{1}{\sqrt{5}} \ ( - \frac{1}{1 - \psi x} + \frac{1}{1 - \phi x}  )\]
+Switch the order of terms
+\[ F(x)  = \frac{1}{\sqrt{5}} \ (\frac{1}{1 - \phi x}  - \frac{1}{1 - \psi x} )\]
+
+And then, finally, recall that 
+\[ \frac{1}{1 - r} = 1 + r + r^2 + \dots \]
+for $-1 < r < 1$.
+
+So our equation for $F(x)$ is \emph{really} the sum of two power series.
+\[ F(x) = \frac{1}{\sqrt{5}} \ [ \  ( 1 + \phi x + \phi^2x^2 + \dots)  - (1 + \psi x + \psi^2 x^2 + \dots)  )\]
+\[ = \frac{1}{\sqrt{5}} \sum_{n=0}^{\infty} \ (\phi^n - \psi^n) x^n \ ] \]
+
+We are to obtain the Fibonacci sequence from the cofactors of $x$.  As you can see, the nth Fibonacci number will be
+\[ \frac{1}{\sqrt{5}} \ (\phi^n - \psi^n)  \]
+This is Binet's formula, again.
+
+I think guessing the pattern and the proof by induction was a lot simpler.
+
+\subsection*{discussion}
+
+When I first worked this problem, I obtained $\psi^n - \phi^n$ in parentheses, above.  I looked for an error causing the change in sign without success.  The references I looked at include:
+
+\url{https://towardsdatascience.com/why-is-the-closed-form-of-the-fibonacci-sequence-not-used-in-competitive-programming-674b805da341}
+
+\url{https://austinrochford.com/posts/2013-11-01-generating-functions-and-fibonacci-numbers.html}
+
+The second reference gives the factorization of $-x^2 - x + 1$ as $-(x + \phi)(x + \psi)$, without comment.  If we could make sense of that choice, it would solve the sign problem.
+
+Naturally, \emph{any} quadratic could have additional constant factors.  So
+\[ (x + \phi)(x + \psi) = 0 \]
+and
+\[ (-1)(x + \phi)(x + \psi) = 0 \]
+have exactly the same solutions.
+
+Choosing the $+$ branch of the factorization leads to solutions that are "correct" but give negative integers.  By definition, the Fibonacci sequence is positive.  This is what justifies the choice of the $(-1)$ times the factorization given by the quadratic formula.
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Divide by 7}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+There are easy tests to determine whether some number is even (ends in an even digit or 0), is divisible by 5 (ends in 0 or 5), or is divisible by 3, or 9 (the sum of the digits is divisible by 3, or 9).  By divisible, here we mean evenly divisible, with no remainder.
+
+Those for 7 are less well-known.  I think the best (easiest) rule is to split off the last digit from a number, then multiply that digit by 2, and finally, subtract the result from the truncated part.  If the number lies between 70 and 140, it is relatively easy to subtract 70 and then ask whether the remainder is a multiple of 7 that we already know (e.g. 98 = 70 + 28).
+
+\url{https://en.wikipedia.org/wiki/Divisibility_rule}
+
+\subsection*{examples}
+
+$91 \rightarrow 9 - (2 \cdot 1) = 7$
+
+$259 \rightarrow 25 - (2 \cdot 9) = 7$
+
+$11501 \rightarrow 1150 - (2 \cdot 1) = 1148 \rightarrow 114 - (2 \cdot 8) = 98 = 70 + 28$
+
+$98 \rightarrow 9 - (2 \cdot 8) = -7$
+
+In some problems you may end up with zero, or even a negative number, but that's OK since $-7 + 7 = 0$ and $0 + 7 = 7$.  In modular arithmetic, it's the same number.
+
+\subsection*{Why does this work?}
+
+We will need a preliminary result.  If $a + b = n$, and some divisor $d$ divides two of these, then it will also divide the third one.
+
+Examples.  7 divides both 21 and 35, and it also divides $21 + 35 = 56$. Also, $42 - 14 = 28$.  Since 7 divides both 14 and 28 it divides 42.
+
+Now let's look again at what the method gave us for 91:
+
+$91 \rightarrow 9 - (2 \cdot 1) = 7$
+
+Doing this with proper bookkeeping, we started with 91 and then subtracted $20 + 1 = 21$.  The result is 70.
+
+Now 7 divides 21 which is what we subtracted.  And 7 also divides the result, which is 70.  So 7 divides the original number, 91.
+
+$91 \rightarrow 91 - 1 = 90 - (20 \cdot 1) = 70 = 7 \cdot 10$
+
+We don't have to ask directly whether 7 divides 70, we can ignore the trailing zero.  That power of 10 doesn't matter, because 7 doesn't divide 10 or 100 or indeed any power of 10.  
+
+And that's because all powers of 10 have as their only prime factors 2 and 5.  We're not going to find a factor of 7 in there.
+
+Thus, we have turned the problem of does 7 divide 91 into the problem of does 7 divide 7.  
+
+When the last digit is more than 1, we're just subtracting 21 times something, so it still works.  Compare:
+
+$259 \rightarrow 25 - (2 \cdot 9) = 7$
+
+$259 \rightarrow 250 - (20 \cdot 9) = 70 = 7 \cdot 10$
+
+The other rules can be explained in the same way.  
+
+\subsection*{11}
+
+For 11 we're supposed to subtract 1 times the last digit.
+
+$143 \rightarrow 14 - (1 \cdot 3) = 11$
+
+$143 \rightarrow 140 - (10 \cdot 3) = 110 = 11 \cdot 10$
+
+That's like subtracting the last digit times 11.
+
+\subsection*{13}
+
+For 13 we add 4 times the last digit.
+
+$312 \rightarrow 31 + (4 \cdot 2) = 39 = 13 \cdot 3$
+
+$312 \rightarrow 310 + (40 \cdot 2) = 390 = 13 \cdot 3 \cdot 10$
+
+Since we started by subtracting 1, that's like adding the last digit times 39, which is $13 \cdot 3$.
+
+\subsection*{17}
+
+For 17 we subtract 5 times the last digit.
+
+$442 \rightarrow 440 - (50 \cdot 2) = 340 = 17 \cdot 2 \cdot 10$
+
+Again, we start by subtracting 1.  So that's like subtracting the last digit times 51, which is $17 \cdot 3$.
+
+\subsection*{19}
+
+For 19 we add 2 times the last digit.
+
+$551 \rightarrow 550 + (20 \cdot 1) = 570 = 19 \cdot 3 \cdot 10$
+
+That's like adding the last digit times 19.
+
+
+\end{document}

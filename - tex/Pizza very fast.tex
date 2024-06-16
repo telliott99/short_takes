@@ -1,0 +1,81 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Pizza very fast}
+\date{}
+
+\begin{document}
+\maketitle
+\large
+
+%[my-super-duper-separator]
+
+I found this problem in Acheson's \emph{The Wonder Book of Geometry}.  It is called the ``pizza theorem".  
+\begin{center} \includegraphics [scale=0.65] {Acheson_G111.png} \end{center}
+
+Consider a circular pizza pie.  Choose a point \emph{anywhere} in the disk.  Draw two perpendicular chords crossing at the point, with any orientation, and then fill in with two more chords that bisect the angles, giving a total of four chords, evenly spaced at $45^{\circ}$.
+
+Form the sum of the areas of alternate slices.  Above, the two collections are shaded to tell them apart.  The total dark area is always equal to the total light area.  The pizza is evenly divided, even though the slices are wonky.
+
+\url{https://en.wikipedia.org/wiki/Pizza_theorem}
+
+The proof as usually presented uses a rotation, but the subtleties are sometimes ignored.  I found a simple geometric proof using translation.
+
+\subsection*{analysis}
+
+Call the point where the four chords cross the \emph{grid center}.  If the grid center is also the circle center, then obviously the theorem is true.
+
+Use movement along a diagonal of the circle, say vertically, to reach this starting position (left panel, below).  The grid center is the black dot and the circle center is the red one:
+\begin{center} \includegraphics [scale=0.3] {pizza7b.png} \end{center}
+It is clear that the sum of alternating segments amounts to exactly half the area, from the mirror-image symmetry across the vertical.
+
+The key is to look at a horizontal movement, e.g. to the right, along one of the chords but no longer on a diagonal of the circle (magenta arrow, right panel).  Label the chord centers of the angled pair of perpendicular chords as $P$ and $Q$.  
+
+As the chords slide, their length changes, but any chord center is constrained to lie on the perpendicular bisector of the chord, which runs through the center of the circle.  Parallel chords of a circle have the same perpendicular bisector, and the starting and ending configurations are parallel.
+\begin{center} \includegraphics [scale=0.3] {pizza7b.png} \end{center}
+
+For any change $\Delta x$ horizontally to the right, $OQ$ gets smaller and $OP$ gets larger.  Crucially, they change by the same amount, namely $\sqrt{2} \ \Delta x$.  (There is an equal $\Delta y$ to add to $\Delta x$ to give $\Delta OP$ or $\Delta OQ$).  $OPRQ$ is a rectangle (because there are four right angles at the vertices), and the sum of two adjacent sides is constant, $OQ + OP = PR + QR$.
+\begin{center} \includegraphics [scale=0.3] {pizza12.png} \end{center}
+
+The distance between the chord center and the grid center is related to the lengths of the arms of each chord.  If we call that distance $\delta$ then for example
+\[ \delta_{cd} = \frac{c - d}{2} \]
+and so on.  ($c - d$ is the length of a centered region straddling the chord center).
+
+But $\delta_{cd}$ is one side of the rectangle and $\delta_{gh}$ is the other.  It follows from what we had above that $\delta_{cd} + \delta_{gh}$ is constant.  Finally, the chord center of $ab$ moves horizontally, so the distance $\delta_{ab}$ to the grid center does not change either.  
+
+By analyzing the starting position for the horizontal movement
+\begin{center} \includegraphics [scale=0.3] {pizza7.png} \end{center}
+it is not hard to show that $\delta_{ab} = \sqrt{2} \ \delta_{cd}$ there, and since $\delta_{cd} = \delta_{gh}$ as well, we obtain
+\[ \sqrt{2} \ \delta_{ab} = \delta_{cd} + \delta_{gh} \]
+
+\subsection*{changes in area}
+
+Let us look at some changes in area.  The four ``shaded" areas in the figure below are labeled with Roman numerals.
+\begin{center} \includegraphics [scale=0.3] {pizza4b.png} \end{center}
+As the grid moves to the right, there is a gain of shaded area from $h, c$ and $b$, and a loss of shaded area from $a, g$ and $d$.  If we approximate these areas as rectangles, and notice that the width of the $ab$ rectangle is greater by a factor of $\sqrt{2}$, we have that the change in area is
+\[ \Delta A = (c - d) \Delta x + (h - g) \Delta x + \sqrt{2} \ (b - a) \Delta x \]
+Factor out $\Delta x$ and divide by $2$
+\[ \frac{1}{2} \cdot \frac{\Delta A}{\Delta x} = \frac{c - d}{2} + \frac{h - g}{2} + \sqrt{2} \ \frac{b - a}{2}  \]
+Look at the terms on the right-hand side.  The first two components are $\delta_{cd} + \delta_{gh}$ while the third is $- \delta_{ab}$.  Compared to what's above this is zero, so $\Delta A = 0$.
+
+$\square$
+
+I claim that any point and orientation within the circle can be reached by vertical plus horizontal movements.  Since these do not change the relative area, the equal apportionment of areas holds.
+
+One detail is that the curved ends of each chord are exactly the same shape and always change shaded area in opposite ways, so they cancel.  (For example, as $gh$ moves to the right, the end at $h$ increases and the end at $g$ decreases shaded area, and these are equal).
+
+There is also a giant mess at the grid center.  Make a drawing of the center blown up large and form pointy extensions.  By symmetry these cancel for each pair of chord arms.
+
+
+\end{document}

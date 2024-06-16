@@ -1,0 +1,177 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Ptolemy's theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:Ptolemy}
+
+Ptolemy was a Greek astronomer and geographer who lived at Alexandria in the 2nd century AD (died c. 168 AD).  That is nearly 500 years after Euclid.  Ptolemy was a popular name for Egyptian pharaohs in earlier centuries.
+
+Our Ptolemy is known for many works including his book the \emph{Almagest}, and important to us, for a theorem in plane geometry concerning cyclic quadrilaterals.  These are 4-sided polygons all of whose vertices lie on a circle.  Recall that any triangle lies on a circle, so this is a restriction on the fourth vertex of the polygon.
+
+\begin{center} \includegraphics [scale=0.5] {pt1.png} \end{center}
+
+Consider a cyclic quadrilateral $ABCD$.  Draw the diagonals $AC$ and $BD$.  Ptolemy's theorem says that if we take the products of the two pairs of opposing sides and add them, the result is equal to the product of the diagonals.
+
+\[ AB \cdot CD + BC \cdot AD = AC \cdot BD \]
+
+\emph{Proof}.  (adapted from wikipedia).
+
+\url{https://en.wikipedia.org/wiki/Ptolemy%27s_theorem}
+
+\begin{center} \includegraphics [scale=0.5] {pt2.png} \end{center}
+
+Let the angle $s$ (red dot) subtend arc $AB$ and the angle $t$ (black dot) subtend arc $CD$.  Then the central $\angle DPC = s + t$ and it has $\sin s + t$.  The other central $\angle APD$ has the same sine, as it is supplementary to $s + t$.
+
+Let the components of the diagonals be $AC = q + s$ and $BD = p + r$.  
+
+\begin{center} \includegraphics [scale=0.5] {pt3.png} \end{center}
+
+Twice the areas of the four small triangles will then be equal to
+
+\[ 2A = (pq + qr + rs + sp) \sin s + t \]
+
+Simple algebra will show that 
+
+\[ (pq + qr + rs + sp) = (p + r)(q + s) = AC \cdot BD \]
+
+The product of the diagonals times the sine of either central angle is equal to twice the area of the quadrilateral.  
+
+We're on to something.  Now, the great idea.  
+
+\begin{center} \includegraphics [scale=0.5] {pt4.png} \end{center}
+
+Move $D$ to $D'$, such that $AD' = CD$ and $CD' = AD.$  
+
+$\triangle ACD \cong \triangle ACD$  by SSS, so they have the same area.  Therefore the area of $ABCD$ is equal to the area of $ABCD'$.
+
+Some of the angles switch with the arcs.  In particular, angle $t$ (black dot) now subtends arc $AD'$.  As a result $s + t$ is the measure of the whole angle at vertex $C$.  The whole angle at vertex $A$ is supplementary, and the sine of the whole angle at vertex $A$ is equal to that at $C$.
+
+So twice the area of $\triangle ABD'$ is $AB \cdot AD' \cdot \sin s + t$, and twice that of $\triangle BCD'$ is $BC \cdot CD' \cdot \sin s + t$.  Add these two areas, equate them with the previous result, and factor out the common term $\sin s + t$:
+
+\[ AC \cdot BD = AB \cdot AD' + BC \cdot CD' \]
+
+But $AD' = CD$ and $CD' = AD$ so
+
+\[ AC \cdot BD = AB \cdot CD + BC \cdot AD \]
+
+This is Ptolemy's theorem. 
+
+$\square$
+
+\begin{center} \includegraphics [scale=0.5] {pt1.png} \end{center}
+
+\subsection*{corollaries}
+
+Here are just a few of the results that follow from this remarkable theorem.
+
+\textbf{equilateral triangle}
+
+\begin{center} \includegraphics [scale=0.4] {Ptolemy4.png} \end{center}
+
+Inscribe an equilateral triangle in a circle and pick any point on the circle.
+
+\[ qs = ps + rs \]
+\[ q = p + r \]
+
+\textbf{Pythagorean theorem}
+
+Let the quadrilateral be a rectangle.  The the sum of squares of opposing sides is
+\[ a^2 + b^2 \]
+
+Triangles made by opposing diagonals are congruent, so the diagonals are equal in length.  The diagonal is the hypotenuse, hence
+\[ a^2 + b^2 = h^2 \]
+
+\textbf{golden mean in the pentagon}
+
+\begin{center} \includegraphics [scale=0.3] {Ptolemy5.png} \end{center}
+
+Take four vertices of the regular pentagon and draw two diagonals.  From the theorem, we have
+\[ b \cdot b = a \cdot a + a \cdot b \]
+\[ \frac{b^2}{a^2} = 1 + \frac{b}{a} \]
+
+Rather than use the quadratic equation, rearrange and add $1/4$ to both sides to "complete the square":
+\[ \frac{b^2}{a^2} - \frac{b}{a} + \frac{1}{2^2} = 1 + \frac{1}{2^2} \]
+
+So
+\[ (\frac{b}{a} - \frac{1}{2})^2  = \frac{5}{4} \]
+\[ \frac{b}{a} - \frac{1}{2}  = \pm \ \frac{\sqrt{5}}{2} \]
+\[ \frac{b}{a}  = \frac{1 \pm \sqrt{5}}{2} \]
+
+This ratio $b/a$ is known as $\phi$, the golden mean.
+
+\subsection*{sum of angles}
+
+We will use Ptolemy's theorem to derive the formula for the sine of the sum of angles $\alpha$ and $\beta$.
+
+Surowski gives this as a theorem but only gives hints for the proof.  One is this:  in the figure below $AC$ is a diameter of the circle.
+
+\begin{center} \includegraphics [scale=0.5] {further_p39.png} \end{center}
+
+\emph{Proof}.
+
+Ptolemy's theorem is that the product of opposing sides, summed, is equal to the product of the diagonals.
+\[ AD \cdot BC + AB \cdot DC = AC \cdot BD \]
+
+As we said, in this special example, $AC$ is a diameter.  Therefore, the entire angles at vertices $B$ and $D$ are right angles, by Thales' theorem.  Then, by complementary angles we have that $\sin \angle ACB = \cos \alpha$ and $\sin \angle ACD = \cos \beta$.
+
+We begin by finding an expression for $\sin \alpha + \beta$.
+
+We recall this proof:
+
+\begin{center} \includegraphics [scale=0.5] {further_p30.png} \end{center}
+
+The peripheral $\angle BAC$ is one-half the central angle subtending the same arc, $\angle BOC$.  This is sometimes called the \hyperref[sec:peripheral_angle]{\textbf{inscribed angle theorem}}.
+
+Since $OB$ and $OC$ are radii of the circle, $BOC$ is isosceles, and since $OP$ is the altitude of an isosceles triangle, $\angle POC$ is one-half the central angle and thus equal to $\angle BAC$.
+
+We find the sine of $\angle POC$ as 
+\[ \sin \angle POC = \frac{PC}{OC} = \frac{BC}{2 OC} = \frac{BC}{d} \]
+
+where $d$ is the diameter of the circle.  
+
+We saw this important result previously (\hyperref[sec:sine_secant]{\textbf{here}}), and we used it in the \hyperref[sec:eyeball_theorem]{\textbf{eyeball theorem}}.  
+
+The sine of a peripheral angle is equal to the chord it cuts off, divided by the diameter.
+
+Going back to the problem:
+
+\begin{center} \includegraphics [scale=0.5] {further_p39.png} \end{center}
+
+Ptolemy's theorem says that:
+\[ AD \cdot BC + AB \cdot DC = AC \cdot BD \]
+
+by the work above: 
+\[ \sin \alpha + \beta = \frac{BD}{d} = \frac{BD}{AC} \]
+
+Take the formula from Ptolemy, and let $AC = d$.  
+
+Now, divide by $d^2$.  The right-hand side is what we seek, $\sin \alpha + \beta$.  The left-hand side is
+\[  = \frac{AD}{d} \cdot \frac{BC}{d} + \frac{AB}{d} \cdot \frac{DC}{d}  \]
+
+By the definitions of elementary trigonometry:
+\[ = \cos \beta \sin \alpha + \cos \alpha \cdot \sin \beta  \]
+
+This is indeed the formula for the sine of the sum of angles.
+
+$\square$
+
+\end{document}

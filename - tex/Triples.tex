@@ -1,0 +1,354 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Pythagorean triples}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+The simplest right triangle with integer sides is a $3,4,5$ right triangle:
+\[ 3^2 + 4^2 = 5^2 \]
+
+but of course any multiple $k$ will work
+\[ (3k)^2 + (4k)^2 = (5k)^2 \]
+However, that's not so interesting.  The triples which are not multiples of another triple are called \emph{primitive}.  There is a small table of triples in this discussion of Euclid X:29 by Joyce:
+
+\url{https://mathcs.clarku.edu/~djoyce/elements/bookX/propX29.html}
+
+\begin{center} \includegraphics [scale=0.4] {triples_joyce.png} \end{center}
+
+We can see that the entries in each column are similar.  For example, in  the first column
+\[ (3,4,5) \ \ \ (5,12,13) \ \ \ (7,24,25) \ \ \ (9,40,41) \]
+
+The values $a_n$ differ by a constant:
+
+In column 1, the $\Delta$ is $2$:
+\[ a_{n+1} = a_n + 2 \]
+
+In the second and third columns, $\Delta$ is $6$ and $10$, respectively for the $a_n$.
+
+For $b$ and $c$ the $\Delta$ each step is the same but the scale ratchets upward (as it must since we don't want shared factors).  For the first column, the rule is
+\[ \Delta = 4 + 4k \]
+
+The first difference is $8$, then $12$, then $16$ and so on.
+
+It is conventional to write $a$ as odd.  We observe that, in the table, $b$ is even and $c$ is odd.
+
+\subsection*{factors}
+
+Which brings us to a first, elementary rule about squares:  if $n$ is even then so is $n^2$, while if $n$ is odd then so is $n^2$.  To see this, write $n = 2k$ for $k \in 1,2,3 \dots$ as the definition of an even number.  Then $n^2 = 4k^2$, which is even.  
+
+On the other hand, if $n$ is odd, write $n = 2k + 1$ with $k \in 0, 1, 2 \dots$, so $n^2 = 4k^2 + 4k + 1$, which is odd.  Since there are only these two cases, we can conclude that the converse is also true:  an even square comes from an even number, etc.
+
+As a result, we find that for the triples we care about, $a$ and $b$ are not both even, because $a^2$ and $b^2$ would be even, as would $c^2$, so then $c$ would be even, and the triple would not be primitive.
+
+\subsection*{more about the table}
+
+In column 2, the $\Delta$ for $a_n$ is $6$, in column 3 it is $10$, and in column 4 it is $14$.
+
+In column 2 we have differences of $12$, $16$ and so on for $b$ and $c$.
+\[ \Delta = 8 + 4k \]
+
+The table is set up so that the rows have the same $\Delta$ for $b$ and $c$.
+
+There are other rules.
+
+The difference in the first $b$ or $c$ from each column to the next is $4$ for $b$ and $12, 20, 28$ etc. for $c$; and the difference for the first $a$ is $12$ also $12,20,28$.
+
+There is some underlying formula to explain all this regularity, and we aim to find it.
+
+\subsection*{even and odd}
+
+Let us go back to 
+\[ a^2 + b^2 = c^2 \]
+
+We said that $a$ and $b$ cannot both be even, because then $c$ would be even.  Or rather, they can, but in that case we are not interested.
+
+The other possible cases are, either $a$ and $b$ both odd, or one is even and one odd.  In the first case we have that $c$ is even because odd plus odd is even.  So then
+
+\[ (2i + 1)^2 + (2j + 1)^2 = (2k)^2 \]
+\[ 4i^2 + 4i + 4j^2 + 4j + 2 = 4k^2 \]
+
+The left-hand side is not evenly divisible by $4$, but the right-hand side is.  This is impossible.  Hence one of $a$ and $b$ is even and one odd.  Let $a$ be odd, as we saw in the table above.
+
+\subsection*{more about factoring}
+
+Rearrange the equation:
+\[ b^2 = c^2 - a^2  = (c + a)(c - a) \]
+
+Since $b$ is even, we can write $b = 2t$
+\[ 4t^2 = (c + a)(c - a) \]
+
+Now we come to an argument about common factors.  There are some basic facts we can deduce.  Let
+\[ p + q = r \]
+Suppose that $p$ and $q$ share a common factor, $f$.  So then
+\[ fj + fk = f(j + k) = r \] 
+
+By the fundamental theorem of arithmetic, if $f$ is a factor of the left-hand side, it is also a factor of $r$.  In a similar way, suppose that $p$ and $r$ share a common factor, $f$.  Then
+\[ r - p = fk - fj = f(k-j) = q \] 
+
+and again, all three must have the common factor.  But we have agreed that these cases do not interest us.
+
+The same argument applies to squares, since if there is a common factor, it will be present as $f^2$.
+
+We conclude that $a$, $b$ and $c$ are all relatively prime.  No two of them can share a common factor.
+
+Let us go back to 
+\[ 4t^2 = (c + a)(c - a) \]
+\[ t^2 = \frac{(c + a)}{2} \cdot \frac{(c - a)}{2} \]
+
+Recall that $a$ and $c$ are both odd, so their sum and difference are both even.  Therefore
+the two factors on the right-hand side are integers, while $t^2$ is a perfect square, namely, that of $t$.  
+
+Furthermore, those two factors have no common factor, by the argument we just made.
+
+The crucial inference is that both factors are themselves perfect squares.  
+
+That is, there exist integers $u$ and $v$ such that
+\[ m^2 =  \frac{(c - a)}{2} \]
+\[ n^2 =  \frac{(c + a)}{2} \]
+with $n > m$.
+
+Adding
+\[ m^2 + n^2 = c \]
+Subtracting
+\[ n^2 - m^2 = a \]
+
+Go back again to
+\[ 4t^2 = (c + a)(c - a) \]
+\[ = m^2 n^2 \]
+\[ 2t = mn = b \]
+
+We have not limited $m$ and $n$ in any way except to say that they are not equal so one is larger than the other $ > m$.  Every primitive triple must have an integer $m$ and $n$ with these properties:
+
+\[ c = m^2 + n^2, \ \ \ \ \ a = n^2 - m^2, \ \ \ \ \ \ b^2 = 2mn \]
+
+So finally not only do $m$ and $n$ exist with these properties, but any integer $m$ and $n$ will satisfy the Pythagorean condition:
+
+\[ a^2 + b^2 = (n^2 - m^2)^2 + (2mn)^2 \]
+\[ = n^4 - 2n^2m^2 + m^4 + 4n^2m^2 \]
+\[ = n^4 + 2n^2m^2 + m^4 \]
+\[ = (n^2 + m^2)^2 = c^2 \]
+
+So any integer $m$, $n$, with $n > m$ will work.
+
+For 3-4-5, $n = 2$, $m=1$.
+
+This is a proof that this formula gives all Pythagorean triples.
+
+\subsection*{another derivation}
+
+Start with our favorite:
+\[ \sin^2 x + \cos^2 x = 1 \]
+\[ \tan^2 x + 1 = \frac{1}{\cos^2 x} \]
+\[ \cos^2 x = \frac{1}{1 + \tan^2 x} \]
+
+And then, the double-angle formula for sine:
+\[ \sin 2s = 2 \sin s \cos s \]
+\[ = 2 \frac{\sin s}{\cos s} \cos^2 s \]
+\[ = 2 \tan s \ \frac{1}{1 + \tan^2 s} \]
+
+Let $a = \tan s$, then
+\[ \sin 2s = \frac{2a}{1 + a^2} \]
+
+\subsection*{cosine}
+
+\[ \cos 2s = \cos^2 s - \sin^2 s \]
+\[ = \ [ \ \frac{\cos^2 s}{\cos^2 s} - \frac{\sin^2 s}{\cos^2 s} \ ] \ \cos^2 s \]
+\[ = \ [ \ \frac{1 - \tan^2 s}{1 + \tan^2 s} \ ] \]
+ 
+so
+\[ \cos 2s = \frac{1 - a^2}{1 + a^2} \]
+
+In general, $a$ can be anything.  But if $a$ is a rational number, then we can obtain the corresponding sides of a right triangle with rational lengths as well.  
+
+The sides are:  $2a, 1 - a^2$ with the hypotenuse:
+\[ \sqrt{4a^2 + (1 - 2a^2 + a^4)} \]
+\[ \sqrt{1 + 2a^2 + a^4)} \]
+\[ = 1 + a^2 \]
+
+Suppose $a = \frac{2}{3}$.  Then, we have side lengths:  $\frac{4}{3} = \frac{12}{9},\frac{5}{9}$, and $\frac{13}{9}$, which can be converted to integers:  $12, 5, 13$.
+
+In general, if $a = \tan s = p/q$ then the sides are
+\[ \frac{2p}{q}, \ \ \ \ \ \ 1 - \frac{p^2}{q^2}, \ \ \ \ \ \ 1 +\frac{p^2}{q^2} \]
+which as integers will be
+\[ 2pq, \ \ \ \ \ \ q^2 - p^2, \ \ \ \ \ \ q^2 + p^2 \]
+
+This formula was found by Euclid.
+
+\url{https://en.wikipedia.org/wiki/Pythagorean_triple}
+
+If $p$ and $q$ are two odd integers the sum and difference of squares is even so we can write
+\[ pq, \ \ \ \ \ \ \frac{q^2 - p^2}{2}, \ \ \ \ \ \ \frac{q^2 + p^2}{2} \]
+
+\subsection*{Courant}
+
+The fundamental equation can be rewritten in terms of two rational numbers as
+\[ (\frac{a}{c})^2 + (\frac{b}{c})^2 = 1 \]
+
+Let $x = a/c$ and $y = b/c$ and then
+\[ x^2 + y^2 = 1 \]
+
+In other words, if $x$ and $y$ are rational numbers the point $(x,y)$ lies on the unit circle.
+
+Now for some algebra
+\[ y^2 = 1 - x^2 = (1 + x)(1 - x) \]
+\[ \frac{y}{1 + x} = \frac{1 - x}{y} \]
+
+Courant says, define these two equivalent expressions as equal to $t$.  And before going further note that since $t$ is the ratio of two rational numbers, it is also rational.  Let that $t = u/v$.
+
+Then we can write
+\[ x + ty = 1 \]
+\[ y = t(1 + x) \]
+
+And then "we find immediately" some expressions for $x$ and $y$.  I get there, but more slowly.
+
+If we take the first equation and substitute for $y$
+\[ x + t^2(1+x) = 1 \]
+\[ x + t^2x = 1 - t^2 \]
+\[ x = \frac{1 - t^2}{1 + t^2 } \]
+
+and then 
+\[ y = t(1 + x) \]
+\[ = t(1 + \frac{1 - t^2}{1 + t^2 }) \]
+\[ = t(\frac{1 + t^2 + 1 - t^2}{1 + t^2 }) \]
+\[ = \frac{2t}{1 + t^2} \]
+
+Going back to $u$ and $v$:
+
+\[ x = \frac{1 - t^2}{1 + t^2} = \frac{1 - (u/v)^2}{1 + (u/v)^2} \]
+\[ = \frac{v^2 - u^2}{v^2 + u^2} \]
+
+and
+\[ y = \frac{2(u/v)}{1 + (u/v)^2} = \frac{2uv}{v^2 + u^2} \]
+
+Going back to $a,b$ and $c$
+\[ \frac{a}{c} = \frac{v^2 - u^2}{v^2 + u^2} \]
+\[ \frac{b}{c} =  \frac{2uv}{v^2 + u^2} \]
+
+\subsection*{the result}
+
+Being careful, we recognize there could be a common factor of $r$ top and bottom, but if we insist on lowest terms then
+\[ a = v^2 - u^2 \]
+\[ b = 2uv \]
+\[ c = v^2 + u^2 \]
+
+This formula for triples is in Euclid's \emph{Elements}.  These are often written in terms of $m$ and $n$ but we've followed Courant's derivation.
+
+\subsection*{more}
+
+Going back to Joyce's table of triples:
+
+\begin{center} \includegraphics [scale=0.4] {triples_joyce.png} \end{center}
+
+We can explain the first column
+\[ (3,4,5) \ \ \ (5,12,13) \ \ \ (7,24,25) \ \ \ (9,40,41) \]
+
+using this graphic
+\begin{center} \includegraphics [scale=0.4] {odd_numbers2.png} \end{center}
+
+\[ n^2 + (2n + 1) = (n + 1)^2 \]
+where $2n + 1$ is the count of dark blue squares in the top column plus the rightmost row.
+
+Of course, this is just basic algebra.  However, if that odd number is also a perfect square we have that
+\[ 2n + 1 = a^2 \]
+so 
+\[ (n + 1)^2 = n^2 + a^2 \]
+Every odd number, when squared, gives an odd perfect square:
+
+\[ 3^2 = 9 \]
+\[ 5^2 = 25 \]
+\[ 7^2 = 49 \]
+
+So every odd number ($\ge 3$) is the basis for one of the entries.  Its two paired values in the triple can be computed as
+\[ b = \frac{a^2 - 1}{2}, \ \ \ \ c = b + 1 \]
+
+We can also explain the first diagonal
+\[ (8,15,17) \ \ \ (12,35,37) \ \ \ (16,63,65) \ \ \ (20,99,101) \]
+The first value is $4n$ for $n = 2, 3, 4 \dots$.
+
+The other two values are $4n^2 \pm 1$.  This works because
+\[ (4n^2 + 1)^2 = (4n^2 - 1)^2 + (4n)^2 \]
+The fourth powers cancel and the ones cancel and we have
+\[ 8n^2 = -8n^2 + 16n^2 \]
+which is correct.
+
+\subsection*{code}
+
+Here is a Python script to generate triples by exhaustive search:
+
+\url{https://gist.github.com/telliott99/b543f41d84155bc9171df68b6350e256}
+
+And here is one that implements Euclid's formula:
+
+\url{https://gist.github.com/telliott99/144c1a7e90740eb1614ca8ceb5bdeed9}
+
+Here is some output ($m,n,a,b,c$) from the second script, sorted on $m$ and $n$:
+
+\begin{verbatim}
+> python triples2.py
+  1   2   3   4   5 
+  1   4   8  15  17 
+  1   6  12  35  37 
+  1   8  16  63  65 
+  1  10  20  99 101 
+  1  12  24 143 145 
+  1  14  28 195 197 
+  2   3   5  12  13 
+  2   5  20  21  29 
+  2   7  28  45  53 
+  2   9  36  77  85 
+  2  11  44 117 125 
+  2  13  52 165 173 
+  3   4   7  24  25 
+  3   8  48  55  73 
+  3  10  60  91 109 
+  3  14  84 187 205 
+  4   5   9  40  41 
+  4   7  33  56  65 
+  4   9  65  72  97 
+  4  11  88 105 137 
+
+\end{verbatim}
+
+There are some interesting patterns in lists of triples.  Here is one:
+
+\begin{verbatim}
+   3    4    5 
+   5   12   13 
+   7   24   25 
+   9   40   41 
+  11   60   61 
+  13   84   85 
+  15  112  113 
+  17  144  145 
+  19  180  181 
+  21  220  221 
+  23  264  265 
+  25  312  313 
+  27  364  365 
+\end{verbatim}
+
+For every step $\Delta a = 2$, we get $\Delta b$ increasing in steps of $4$, with $c = b + 1$.  If we think of the step size as $4 + 4k$, then the first entry matches as well.
+
+In terms of $m$ and $n$, we have $b = 2mn$ so $mn$ goes like $2, 6, 12, 20 \dots$, which looks like $n = m+1$, starting with $m=1$.  Each step of $1$ in $m$ gives a step of $4$ in $2mn = b$.
+
+\[ a = n^2 - m^2 = (m+1)^2 - m^2 = 2m + 1 \]
+\[ c = n^2 + m^2 = (m+1)^2 + m^2 = 2m^2 + 2m + 1 \]
+
+This explains the $\Delta$ of $2$ for $a$.  We can also explain the steps for $c$.
+
+\end{document}

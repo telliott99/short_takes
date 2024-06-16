@@ -1,0 +1,185 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{figures}{/Users/telliott/Github-Math/figures/}}
+
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Rotation}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+\subsection*{introduction}
+The \emph{conic sections} are so named because they can be formed as the intersection of a plane and a right circular cone\footnote{A right circular cone has for its base a circle, each point of which is the same distance from the vertex of the cone.  Thus, a line from the vertex to the center of the circle is perpendicular to the plane of the circle.  If the cone is infinite, pick for a base all the points at the same arbitrary distance from the vertex.}.  These curves --- circle, ellipse, parabola and hyperbola --- are usually presented in \emph{standard} orientation.
+
+For example, $y = ax^2$ (with $a > 0$) is a parabola with its center at the origin, opening up.  The curve $x = ay^2$ is not materially different, since we obtain the previous curve merely by exchanging $x$ for $y$.
+
+$y = ax^2 + bx + c$ has its center displaced but still opens up. By completing the square to give $a(x + b/2a)^2$ plus a constant and then substituting simply $x$ for what's in the parentheses we obtain a parabola of the \emph{same shape} as the original, translated to the origin. In fact, any conic not centered at the origin will have terms $(x-h)$ and/or $(y-k)$ which can be replaced by $x$ and $y$ to move the center to the origin.
+
+$x^2 + y^2 = r^2$ is a circle with its center at the origin. 
+\[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \ \ \ \ \ \ \ \ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
+are respectively, the equations of an ellipse, and a hyperbola.  Each is centered at the origin.
+
+If $a > b$ the ellipse has its long dimension along the $x$-axis.  
+
+The hyperbola (with $a = b$, and rearranged as $x^2 - y^2 = c$, is shown in the graph below as the red curve.
+\begin{center}  \includegraphics [scale=0.20] {rot0.png} \end{center}
+All of these are in standard orientation.  They have either the $x$- or the $y$-axis as an axis of symmetry. 
+
+But that hyperbola can be \emph{rotated}.  In fact, the familiar equation $xy = 1$ is a hyperbola, rotated by $45^{\circ}$ (green curve in the figure above above).  The point of closest approach to the center is the same for each, $\sqrt{2} \approx 1.4 $, and the arms are perpendicular --- a consequence of having $a = b$.
+
+Any conic can be rotated.  You could even rotate a circle, but the graph wouldn't look any different.  :)  Here is a rotated ellipse.
+\begin{center}  \includegraphics [scale=0.20] {rot0b.png} \end{center}
+
+And here is a rotated parabola.
+\begin{center} \includegraphics [scale=0.2] {rot9.png} \end{center}
+
+We want to understand how to transform equations of graphs from their rotated versions to standard form, and back again.  One clue is to notice the presence of terms that mix $x$ and $y$, such as $-xy$ in the equation for the rotated ellipse, above.  Not all rotated forms have $xy$ terms, but many do.
+
+\subsection*{basic idea}
+
+Start with the standard picture from analytical geometry, courtesy of Fermat and Descartes.  Pick a point in the \emph{Cartesian plane} for the origin.  Draw perpendicular $x$- and $y$-axes (the fancy word is orthogonal). 
+\begin{center} 
+\includegraphics [scale=0.13] {rot1.png}
+\includegraphics [scale=0.13] {rot2.png}
+\end{center}
+
+The point $P$ lies a distance $r$ from the origin. In the $xy$-coordinate system, $P = (x,y)$.  Drop the vertical from $P$ to the $x$-axis, then the intersection with the $x$-axis lies $x$ units from the origin.  Similarly, $P$ is $y$ units from the $x$-axis. 
+
+\begin{center} 
+\includegraphics [scale=0.13] {rot3.png}
+\includegraphics [scale=0.13] {rot4.png}
+\end{center}
+
+Now consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise (CCW) by an angle $\theta$.  In the new system, $P = (u,v)$.  Of course the length of the vector to $P$ is still $r$.
+
+We will find a formula to give $u$ as a function of $x$ and $y$ (and also $\theta$), abbreviated $u(x,y,\theta)$.  Similarly, we will get $v (x,y,\theta)$.  
+
+There are also equations that go in the opposite direction, namely $x(u,v,\theta)$ and $y (u,v,\theta)$.  This can be understood as rotation of the coordinate system CW, or as rotation CCW by an angle $- \theta$.
+
+Before getting into specifics, note that a rotation of the coordinate system CCW, from $x,y$-axes to $u,v$-axes, can equally be viewed as the rotation of the point $P$ or a vector from the origin to $P$, in the opposite direction, i.e. CW.  $P$ gets closer to the ``horizontal'' $u$-axis than it was to the $x$-axis.
+
+Although we end up rotating points and vectors and the graphs of conic sections, the equations are typically derived by thinking about rotations of the coordinate system.
+
+\section*{visual derivations}
+
+\subsection*{Stewart}
+Probably the easiest method I have found, in Stewart, depends on knowing the sum of angles formulas.
+\begin{center} \includegraphics [scale=0.5] {sum_angles_6.png} \end{center}
+
+It goes like this.  Label the angle between the vector to $P$ and the $u$-axis as $\phi$.
+\begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
+
+Let the point $P$ lie on the unit circle, with $r = 1$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
+\[ u = \cos \phi \ \ \ \ \ \ \ \   v = \sin \phi \]
+while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
+\[ x = \cos (\theta + \phi)  \ \ \ \ \ \ \ \    y = \sin (\theta + \phi) \]
+Now, use the sum formula for cosine: 
+\[ x = \cos \theta \cos \phi - \sin \theta \sin \phi \]
+Plug in from $u = \cos \phi$ and $v = \sin \phi$:
+\[ x = u \cos \theta - v \sin \theta \]
+
+In the same way:
+\[ y = \sin (\theta + \phi) \]
+\[ = \sin \theta \cos \phi + \cos \theta \sin \phi \]
+\[ = u \sin \theta + v \cos \theta \]
+
+These are equations that start from $(u,v)$ coordinates and yield $(x,y)$ coordinates.  Re-stating them
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+We will call this transformation the action of the \emph{operator} $T$
+\[ T \langle u,v \rangle = \langle x,y \rangle \]
+
+We choose $T$ to remember that the minus sign is in the top equation:  It is more usual to call the operator $R$ with a subscript like $R_{cw}$, but there are two problems.  One must remember where the minus sign goes, and there is always confusion between rotation of vectors and rotation of the coordinate system, which are opposites.
+
+We compute the square of the length to the origin:
+\[ x^2 + y^2 = (u \cos \theta - v \sin \theta)^2 + (u \sin \theta + v \cos \theta)^2 \]
+\[ = u^2 \cos^2 \theta - 2uv \sin \theta \cos \theta + v^2 \sin^2 \theta + u^2 \sin^2 \theta + 2uv \sin \theta \cos \theta + v^2 \cos^2 \theta \]
+\[ = u^2 \cos^2 \theta + v^2 \sin^2 \theta + u^2 \sin^2 \theta  + v^2 \cos^2 \theta \]
+we have $u^2$ and $v^2$ separately multiplying $\sin^2 \theta + \cos^2 \theta = 1$.  Thus
+\[ x^2 + y^2 = u^2 + v^2 = r^2 \]
+
+\subsection*{drawing rectangles}
+
+Next we look at two methods that work by drawing rectangles to help us see the pieces.
+
+The key step of the first approach is to draw a line that \emph{makes x the hypotenuse} of a right triangle.  That's the blue line in the figure below.
+\begin{center} \includegraphics [scale=0.15] {rot5.png} \end{center}
+\begin{center} \includegraphics [scale=0.15] {rot6.png} \end{center}
+
+Then, draw the adjacent side of the rectangle to make $y$ the hypotenuse of a (different) right triangle.  
+
+$\theta$, the angle between $x$ and $u$ axes, is also the angle between $y$ and $v$ axes.  Note the angle near $P$ in the diagram.  This comes easily from the properties of right triangles and the vertical angles theorem.  On the other hand, it is also a trivial consequence of the fact that the axes are orthogonal:  $x \perp y$ and $u \perp v$.
+
+Basic trigonometry gives:
+\[ \sin \theta = \frac{v''}{x} = \frac{u''}{y} \ \ \ \ \ \ \   \cos \theta = \frac{u'}{x} = \frac{v'}{y} \]
+\begin{center} \includegraphics [scale=0.18] {rot7.png} \end{center}
+\[ u' = x \cos \theta \ \ \ \ \ \ \ \ \ u'' = y \sin \theta \]
+\[ v' = y \cos \theta \ \ \ \ \ \ \ \ \ v'' = x \sin \theta \]
+
+We can therefore write $u$ as the sum of two segments:
+\[ u = u' + u'' = x \cos \theta + y \sin \theta \]
+
+And write $v$ as the difference of two segments:
+\[ v = v' - v'' = y \cos \theta - x \sin \theta \]
+
+I will call this operator $B$ because the minus sign is in the second (bottom) equation:
+\[ B \langle x,y \rangle = \langle u,v \rangle \]
+
+\subsection*{another rectangle picture}
+There is a different rectangle picture which gives $x(u,v,\theta)$ and $y(u,v,\theta)$.  Above, we drew a rectangle whose sides made $x$ and $y$ the hypotenuse of two different right triangles.
+
+Instead, we now draw lines (and a rectangle) to make $u$ and $v$ the hypotenuse of two different right triangles.
+
+\begin{center} \includegraphics [scale=0.18] {rot8.png} \end{center}
+
+We leave it as an exercise to derive $x(u,v,\theta)$ and $y(u,v,\theta)$.  These equations are the same as given in Stewart's method.
+
+\section*{algebra}
+
+We can manipulate $u(x,y,\theta$ and $v(x,y,\theta)$ to find $x(u,v,\theta)$ and $v(x,y,\theta)$ algebraically.  We can also do the reverse.
+
+\[ u = x \cos \theta + y \sin \theta \]
+\[ v = -x \sin \theta + y \cos \theta \]
+
+To solve for $x$ we need to lose $y$.  
+
+Multiply the first equation by $\cos \theta$ and the second by $- \sin \theta$ and add.  The terms with $y$ in them cancel.
+\[ u \cos \theta - v \sin \theta =  x (\cos^2 \theta + \sin^2 \theta) = x \]
+
+Also, multiply the first equation by $\sin \theta$ and the second by $\cos \theta$ and add:
+\[ u \sin \theta + v \cos \theta = y (\cos^2 \theta + \sin^2 \theta) = y \]
+
+\subsection*{CW rotation is CCW rotation by minus $\theta$}
+Above we've given the equations to interconvert $x(u,v,\theta)$ plus $y(u,v,\theta)$ and $u = (x,y,\theta)$ plus $v(x,y,\theta)$.  
+
+Another way to derive the second from the first is to switch symbols $x,y$ for $u,v$, and at the same time, substitute $-\theta$ for $\theta$.  
+
+What this amounts to is to think of $x,y$ as being the rotated axes, but rotated in the opposite direction (CW rather than CCW).
+\[ x = u \cos \theta - v \sin \theta \]
+switch
+\[ u = x \cos -\theta - y \sin -\theta \]
+\[ = x \cos \theta + y \sin \theta \]
+(Recall that $\cos - x = \cos x$ and $\sin - x = - \sin x$).
+
+For $y$
+\[ y = u \sin \theta + v \cos \theta \]
+switch
+\[ v = x \sin -\theta + y \cos -\theta \]
+\[ v = -x \sin \theta + y \cos \theta \]
+
+When we substitute $-\theta$ for $\theta$, the $\sin \theta$ term switches signs, but the cosine term does not.  The reason is that sine is an odd function, $\sin -t = - \sin t$, while cosine is even, $cos -t = \cos t$.
+
+\end{document}

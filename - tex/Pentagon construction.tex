@@ -1,0 +1,335 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Constructing a pentagon}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+\subsection*{regular pentagon}
+The regular pentagon has five sides of equal length.  
+
+By rotational symmetry, we can say that the total of the three angles at each vertex is the same, and the central angles such as $\angle EBD$ are all equal.
+
+By the external angle theorem we know that the extension of $AB$, for example, forms an angle of $360/5 = 72$ with the next side, $BC$, so the vertex angle is supplementary, $180 - 72 = 108$  (Here, we suppress the degree notation).  
+
+Alternatively by drawing the pentagon inscribed in a circle and measuring the central angle for one of the triangles at $72$, then, the two peripheral angles sum to $108$ and the vertex angle is equal to two peripheral angles, with the same result.
+\begin{center} \includegraphics [scale=0.35] {pent3b.png} \end{center}
+
+We continue to count up angles.  $\triangle ABC$ is isosceles, so $\angle BAC \cong \angle BCA$ (black dots).  The measure of each is one-half of $180 - 108$ which equals $36$.  By the same reasoning, all of the angles to the left and right at each vertex have the same measure.
+
+Let the flanking angles be $t$ and the central angles be $s$.  Then in $\triangle ABC$ we have $4t + s$, but in $\triangle BED$ we have $2t + 3s$.  Hence $2t = 2s$, so $t = s$.  By the triangle sum formula $5t = 180$ so $t= 36$.
+
+A major result is that the figure contains five parallelograms (actually, each is a rhombus, with four equal sides).  One way to show this is to see that the vertex angles of the central, smaller pentagon are equal to $3t$.  It follows that in $AQDE$, for example, opposite vertices have equal angles, so the figure is a parallelogram.  But in a parallelogram, opposing sides are equal, thus each of the similar line segments such as $AQ$ or $QD$ is equal in length to one of the sides.
+
+Each of the five internal chords is the base of one of five congruent triangles containing two sides and a vertex, so they are all equal in length.  By counting up the angles in $\angle ACD$ plus $\angle CDE$ we get 180.  It follows that $AC \parallel ED$, which we saw already from the parallelograms.
+\begin{center} \includegraphics [scale=0.35] {pent3b.png} \end{center}
+
+Since entire chords are equal and the sides of the parallelograms are all equal, each of the small parts remaining, such as $BP$, are equal to their counterparts.
+
+The small, central pentagon is a regular pentagon, so all of its vertex angles are equal, and their measure is $3t$.  Therefore the supplementary angles marked in magenta are equal and their measure is $2t$.
+
+Thus, $\triangle BPQ$ is isosceles and is similar to $\triangle BED$ by SAS similarity.
+Let the side length of the small, central pentagon (e.g. $PQ$) be equal to $1$ and the length $BP$ be equal to $x$, so the ratio of the long side to the base in $\triangle BPQ$ is just $x$.  
+
+$BE$ is equal to $2x + 1$ and $DE = AQ$ is equal to $x + 1$ so by equal ratios in similar triangles
+\[ x = \frac{2x + 1}{x + 1} \]
+\[ x^2 + x = 2x + 1 \]
+\[ x^2 - x - 1 = 0 \]
+We will re-label $x$ as $\phi$.  The solution to this quadratic equation is $\phi = \frac{1}{2}(1 + \sqrt{5})$.  The second solution is negative, so we will not worry about it here, where we are concerned with ratios of lengths.
+
+In any isosceles triangle with vertex angle $36$, the ratio of either of the equal sides to the base is $\phi$.
+
+\subsection*{algebra with $\phi$}
+
+We first verify that $\phi$ solves the equation
+\[ \phi^2 = \frac{1}{4}(6 + 2 \sqrt{5}) = \frac{1}{2}(3 + \sqrt{5}) \]
+\[ = 1 + \frac{1 + \sqrt{5}}{2} = \phi + 1 \]
+
+Other rearrangements include
+\[ \phi^2 - \phi - 1 = 0 \]
+\[ \phi^2 = 1 + \phi \]
+
+Next
+\[ \phi = \frac{1}{\phi} + 1 \]
+\[ \frac{1}{\phi} = \phi - 1 \]
+\[ \phi = \frac{1}{\phi - 1} \]
+\[ \phi = \phi^2 - 1 = (\phi + 1)(\phi - 1) \]
+
+Squaring
+\[ \phi - 1 = \frac{1}{\phi} \]
+\[ (\phi - 1)^2 = \frac{1}{\phi^2} = \frac{1}{1 + \phi} \]
+
+\subsection*{a little trigonometry}
+We have that the ratio of $BE$ to $ED$ is equal to $\phi$, so the inverse ratio is $1/\phi$.  
+
+One-half of that is the sine of one-half the central angle, $36/2 = 18$.
+\[ \sin 18 = \frac{1}{2 \phi} \]
+
+If the pentagon is inscribed in a circle then the length of the side $s$ is the chord formed by an inscribed angle of $36$ or $s = 2r \sin 36$.  
+
+The double angle formulas allow us to get to $\sin 36$ and so find $s$ in terms of $r$, but we also have some constructions that work.  We look at one of those now.
+
+\subsection*{construction 1}
+
+Wikipedia gives two methods to construct a regular pentagon.   I have redrawn their first figure.
+
+The approach is to inscribe the pentagon in a unit circle ($CD = 1$).  Draw perpendicular radii (or diameters) and divide the right horizontal radius in half at $M$, so length $m = 1/2$.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const1.png} \end{center}
+
+Draw $DM$.  Bisect $\angle CMD$.  
+
+Extend the bisector to the vertical diagonal $CD$.  Finally, draw the horizontal to intersect the circle at $P$.  We label the lengths with single letters to make the algebra more intuitive.
+
+We claim that $DP$ or $s$ is one side of a regular inscribed pentagon.  We will first verify that the construction gives the correct side length.
+
+\subsection*{calculation}
+
+Let the length of $DM$ (magenta line) be $x$.  By the Pythagorean theorem
+\[ x^2 = m^2 + 1^2 = (\frac{1}{2})^2 + 1^2 = \frac{5}{4} \]
+\[ x = \frac{\sqrt{5}}{2} \]
+
+Next we invoke the angle bisector theorem:
+\[ \frac{t}{m} = \frac{u + t}{x + m} \]
+\[ \frac{t}{1/2} = \frac{1}{\sqrt{5}/2 + 1/2} \]
+\[ t = \frac{1}{1 + \sqrt{5}} = \frac{1}{2 \phi} \]
+\begin{center} \includegraphics [scale=0.4] {pent_const1.png} \end{center}
+We note in passing that $t$ has the value of the sine of $18$.  Next:
+
+\[ v^2 = 1^2 - t^2 \]
+We haven't drawn the hypotenuse for the above triangle, but its base is the dotted red line.
+\[ u^2 = (1 - t)^2 = 1 - 2t + t^2 \]
+so then
+\[ s^2 = u^2 + v^2 \]
+\[ = 2 - 2t = 2 - \frac{1}{\phi} \]
+
+Since $1/\phi = \phi - 1$, the right-hand side is $3 - \phi$ and the result is finally:
+\[ s = \sqrt{3 - \phi} \]
+
+Now consider the $\angle CDP$, that is one-half of the vertex angle of a pentagon, namely, one-half of $108$ or $54$.  The cosine of that angle is side $s$ divided by the diameter, or $s/2$.
+
+The same value is also the sine of the complementary angle, $36$.  I get that sine $36$ is equal to $\sqrt{3 - \phi}/2$.  We will use trigonometry to derive the same result.
+
+Another way to look at this is to consider a pentagon inscribed into a unit circle.  Since there are five sides, the central angle is $72$ and one-half that is $36$.  So the red line is the cosine of $36$ and the sine of $36$ is one-half the side length.
+
+\begin{center} \includegraphics [scale=0.4] {pentagon_const2.png} \end{center}
+
+The figure claims that
+\[ \cos 36 = \frac{1 + \sqrt{5}}{4} = \frac{\phi}{2} \]
+We do not derive this here.
+
+However, let's check by squaring both results and adding:
+\[ (\frac{\sqrt{3 - \phi}}{2})^2 + (\frac{\phi}{2})^2 = \frac{1}{4} (3 - \phi + \phi^2) \]
+but $\phi^2 - \phi = 1$ so the result is just $1$, as we expect.
+
+Writing what we have so far all in the same place:
+
+$\circ \ $ $\sin 18 = 1/2 \phi$
+
+$\circ \ $ $\cos 18 = \sqrt{2 + \phi}/2$ (see below)
+
+$\circ \ $ $\sin 36 =  \sqrt{3 - \phi}/2$
+
+$\circ \ $ $\cos 36 = \phi/2$
+
+Recall the half-angle formulas:
+\[ \cos A = \sqrt{\frac{1 + \cos 2A}{2}} \]
+so 
+\[ \cos^2 18 = \frac{1 + \phi/2}{2} \]
+\[ \cos 18 = \sqrt{\frac{2 + \phi}{4}} = \frac{ \sqrt{2 + \phi}}{2} \]
+
+We can check this using our favorite identity, as follows:
+\[ (\frac{1}{2 \phi})^2 + \frac{1 + \phi/2}{2} \]
+\[ = \frac{1}{4} ( \frac{1}{\phi^2} + 2 + \phi) \]
+
+Go back to the definition:
+\[ \phi^2 = 1 + \phi \]
+\[ \phi = \frac{1}{\phi} + 1 \]
+\[ \frac{1}{\phi^2} = (\phi - 1)^2 = \phi^2 - 2 \phi + 1 = 2 - \phi \]
+Substituting into what's in the parentheses above immediately yields the correct answer, $1$.
+
+We also confirm that
+\[ \sin 36 = 2 \sin 18 \cos 18 \]
+\[ = 2 \cdot \frac{1}{2 \phi} \cdot \frac{\sqrt{2 + \phi}}{2} = \frac{\sqrt{2 + \phi}}{2 \phi} \]
+
+Algebra with $\phi$ can get pretty weird.  Let's just go backwards from the answer.  We must have
+\[  \frac{\sqrt{3 - \phi}}{2} =  \frac{\sqrt{2 + \phi}}{2 \phi} \]
+\[ \phi \sqrt{3 - \phi} = \sqrt{2 + \phi} \]
+\[ \phi^2(3 - \phi) = 2 + \phi \]
+Working with the left-hand side:
+\[ = (\phi + 1)(3 - \phi) \]
+\[ = -\phi^2 + 2 \phi + 3 \]
+\[ = - \phi - 1 + 2 \phi + 3 = 2 + \phi \]
+which checks.
+
+\subsection*{trigonometry}
+
+So now we actually have all the pieces and might follow Archimedes method.  However, I want to show a fancy trick that's specific to $18$ degrees.  Later we'll adjust to $36$.
+
+A preliminary result:  the triple angle formula for the cosine of three times the angle.
+
+\subsection*{cos 3A}
+
+We use the standard angle sum formula in a new version:
+\[ \cos 3A = \cos 2A \cos A - \sin 2A \sin A \]
+
+so then a second application of the formula gives
+\[ \cos 3A = (\cos^2 A - \sin^2 A) \cos A - (2 \sin A \cos A) \sin A \]
+\[ = (2 \cos^2 A - 1) \cos A - 2 \cos A (1 - \cos^2A) \]
+
+Just count up the terms.  We have
+\[ \cos 3A = 4 \cos^3 A - 3 \cos A \]
+
+$\square$
+
+This result can also be obtained by de Moivre's theorem:
+\[ \cos nx + i \sin nx = (\cos x + i \sin x)^n \]
+
+We have
+\[ \cos 3x + i \sin 3x = (\cos x + i \sin x)^3 \]
+\[ = \cos^3 x + 3i \cos^2 x \sin x + 3i^2 \cos x \sin^2 x + i^3 \sin^3 x \]
+
+We only need the real part, which is
+\[ \cos 3x = \cos^3 x - 3 \cos x \sin^2 x \]
+\[ = \cos^3 x - 3 \cos x (1 - \cos^2 x) \]
+which simplifies to the same result.
+
+\subsection*{sine of 18 degrees}
+
+Let $A = 18$.  Then
+\[ 5A = 90 \]
+\[ 2A = 90 - 3A \]
+\[ \sin 2A = \cos 3A \]
+
+Plug in the previous result
+\[ \sin 2A =  4 \cos^3 A - 3 \cos A \]
+\[ 2 \sin A \cos A - 4 \cos^3 A + 3 \cos A = 0 \]
+
+Each term contains one copy of $\cos A$, and since that is non-zero, we simply multiply by $1/\cos A$ on both sides, giving
+
+\[ 2 \sin A - 4 \cos^2 A + 3 = 0 \]
+\[ 2 \sin A - 4 (1 - \sin^2 A) + 3 = 0 \]
+\[ 4 \sin^2A + 2 \sin A - 1 = 0 \]
+
+Now we have a quadratic in $\sin A$.  The roots are
+\[ \sin A = \frac{-2 \pm \ \sqrt{4 + 16}}{8} \]
+\[ = \frac{-2 \pm 2 \sqrt{5}}{8} \]
+
+We take the positive root because $\sin A > 0$ in the first quadrant.
+\[ \sin 18 = \frac{-1 + \sqrt{5}}{4} \]
+\[ = \frac{1}{2} \cdot \frac{\sqrt{5} - 1}{2} \]
+
+This is almost $\phi$.
+\[ \phi - 1 = \frac{\sqrt{5} - 1}{2} \]
+so
+\[ \sin 18 = \frac{\phi - 1}{2} \]
+
+and since we showed earlier that
+\[ \frac{1}{\phi} = \phi - 1 \]
+
+the previous result can be re-written as
+\[ \sin 18 =  \frac{1}{2 \phi} \]
+
+\subsection*{construction 2, starting from a side length}
+
+Wikipedia gives another method for constructing a regular pentagon, this time starting from a given side length, $AB$.  The first part is straightforward.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const3.png} \end{center}
+
+Draw two congruent circles with a radius of length $AB$ centered at $A$ and $B$.  Construct the perpendicular bisector $FG$ (not shown).  Construct the perpendicular from $A$ to meet the circle centered on $A$, at $H$.
+
+We will construct two more circles.  The first one is centered at $G$ with radius $GH$, intercepting the extension of $AB$ at $J$.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const4.png} \end{center}
+
+\begin{center} \includegraphics [scale=0.4] {pent_const5.png} \end{center}
+
+The second one is centered at $B$ with radius $BJ$.  The intersection with the previous circle (at $E$) and with the perpendicular at $D$ are vertices of the pentagon.  
+
+The last vertex, at $C$, can be constructed by laying off arcs of the distance $DE$ from $D$ and $B$, or by repeating the construction with a large circle centered on $A$.
+
+\subsection*{why this works}
+
+It is claimed that 
+\[ \frac{BJ}{AB} = \frac{AB}{AJ} = \phi \]
+
+Let's see.  
+
+\[ AB = 1, \ \ \ \ \ \ AG = \frac{1}{2} \]
+\[ AH = AB = 1 \]
+\[ GJ = GH = \sqrt{1^2 + (\frac{1}{2})^2} = \frac{\sqrt{5}}{2}  \]
+\[ BJ = GJ + \frac{1}{2} = \phi \]
+
+\begin{center} \includegraphics [scale=0.4] {pent_const5.png} \end{center}
+
+and
+\[ AJ = BJ - 1 = \phi - 1 \]
+\[ \frac{AB}{AJ} = \frac{1}{\phi - 1} = \frac{\phi}{\phi^2 - \phi} = \phi \]
+
+So we can confirm that the ratios are correct.  Now we just need to connect the lengths in the diagram to sides of triangles in our view of the pentagon with internal chords. 
+
+\begin{center} \includegraphics [scale=0.4] {three_triangles_2.png} \end{center}
+
+The top vertex is easy.
+\[ AD = BD = BJ = \phi \]
+while $AB = 1$ so the ratio is $\phi$, which matches the red triangle.
+
+For vertex $E$, we must show that $BE = \phi$.  But $BE = BJ = \phi$.
+
+We verify that $D$ is placed correctly, as follows.  $D$ lies on the perpendicular bisector of $AB$ and is also a distance $\phi$ away from both $A$ and $B$,  forming an isosceles triangle with long sides $\phi$ and short side $1$.
+
+We could try to verify that $D$ is placed correctly by proving that the base $DE = 1$ to complete the triangle.  But this seems difficult, and it's easy to show that $\triangle ABE$ has two sides of length $1$ and one, $BE$, of length $\phi$.  Since this triangle is congruent to the short fat ones we find in a pentagon of side length $1$, we're done.
+
+$\square$
+
+\subsection*{construction 3}
+
+The third construction I have is from
+
+\url{https://hypertextbook.com/eworld/chords/#table1}
+
+which describes what is contained in Ptolemy's book \emph{The Almagest}.
+
+\begin{center} \includegraphics [scale=0.3] {pent_const2.png} \end{center}
+
+Once again, we divide the radius in half:  $a = r/2$.  The hypotenuse $BE$ is marked out so that $EF = BE$.  Then the second hypotenuse, $BF$ is claimed to be the side of a pentagon inscribed in a unit circle and $BE$ is the side of the decagon.
+
+If we let $r=1$ and $a = 1/2$ then
+\[ x + a = \sqrt{(\frac{1}{2})^2 + 1)} = \frac{\sqrt{5}}{2}  \]
+so
+\[ x = \frac{\sqrt{5}}{2}  - \frac{1}{2} = \phi - 1 \]
+and then $BF$ or
+\[ y = \sqrt{1^2 + (\phi - 1)^2} \]
+\[ = \sqrt{1 + \phi^2 - 2 \phi + 1} \]
+but $\phi^2 - \phi = 1$ so we have
+\[ y = \sqrt{3 - \phi} \]
+
+$BF = y$ is supposed to be the side of a pentagon and that matches what we had before.  $BE = x$ is supposed to be the side of a decagon.  We check that by recalling that the side of the pentagon is twice the sine of $36$, which matches.
+
+So the side of the decagon is twice the sine of 18 which is simply $1/\phi$.  We must show that this is equal to $\phi - 1$.  But we did this already, back near the beginning.  
+\[ \phi^2 = 1 + \phi \]
+\[ \phi = \frac{1}{\phi} + 1 \]
+
+And that's it.
+
+This completes the first part of Ptolemy's \emph{Almagest}, described in the link above.  We will look at the rest of it elsewhere.
+
+
+
+
+
+\end{document}

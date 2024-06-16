@@ -1,0 +1,208 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Estimating pi}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{hexagon geometry}
+We're going look at some of the math behind the estimation of the value of pi by Archimedes, using his method of inscribed and circumscribed polygons.  And then we'll compare that to what is reported about the methods of two early Chinese mathematicians, as well as two pairs of formulas that are closely related.
+
+Since Archimedes started with a hexagon, so will we.
+
+We will do the problem in two ways, first by counting up the perimeter of hexagons in and around a circle of diameter $1$, whose circumference is $\pi$.  Then second, by counting up the area of hexagons for a circle with radius $1$, with the area of that circle also equal to $\pi$.
+
+Here is the first case:
+\begin{center} \includegraphics [scale=0.4] {pi_calc1.png} \end{center}
+
+The angle labeled with the magenta dot is equal to $\pi/6$ or $30^{\circ}$, since the whole angle at $R$ is right and the angle at $Q$ is $\pi/3$.
+
+The formula for the perimeter is 
+\[ p = n \sin \phi \]
+and since $\sin \pi/6 = 1/2$, our first estimate for $\pi$ by this method is $6 \cdot 1/2 = 3$.  We have used lower case $p$ for the inscribed hexagon.
+
+As we work through the algorithm, for this approach we will take one side length of an $n$-gon as the sine of the angle at the periphery.  The first round is $RQ$ over $PQ$ with $PQ = 1$, and the second round is $SQ$ over $1$.
+\begin{center} \includegraphics [scale=0.4] {pi_calc2.png} \end{center}
+
+The other estimate (an upper bound) comes from the circumscribed case.  The angle labeled with the magenta dot is still $\pi/6$ but the geometry has changed.  
+\begin{center} \includegraphics [scale=0.4] {pi_calc3.png} \end{center}
+
+$RS$ over $OS$ with $OS = 1/2$ is the tangent of the angle.  We really want $RQ$.  The ratio of $RQ$ to $1$ is equal to the ratio of $RS$ to $1/2$.
+
+Hence the formula for the perimeter of the circumscribed case is
+\[ P = n \tan \phi \]
+where we have used a capital $P$ to signify the polygon circumscribing the circle.
+
+\subsection*{initial estimates}
+
+We can get initial estimates by using the dimensions of equilateral triangles (we could also use trigonometry).
+
+\begin{center} \includegraphics [scale=0.4] {pi_calc5.png} \end{center}
+
+The easiest to remember is the one on the left:  the half-side is $1$, the full side is $2$ and the altitude is $\sqrt{3}$.  
+
+In the middle is our first case, the inscribed perimeter calculation with a side length of $1/2$.  For a $6$-gon, this gives a perimeter $p = 3$.  
+
+The tangent of $\pi/6$ is $1/\sqrt{3}$ so the total perimeter for the circumscribed hexagon is $2 \sqrt{3}$, which is about $3.46$.  We can also get this from the scaled triangles.  The triangle now has an altitude of length $1/2$ rather than the side length.  That's the right-hand triangle in the figure above.
+
+The side has length $1/\sqrt{3}$ so $6$ of those gives the same answer.
+
+For the area approach, the radius is changed to be equal to $1$, so that the total area of the circle, which of course is $\pi r^2$, will also be equal to $1$.  
+
+\begin{center} \includegraphics [scale=0.4] {pi_calc6.png} \end{center}
+For the inscribed case, the side length is $1$, and we get an area for each small triangle of $\sqrt{3}/4$.  The total area is then $6$ times that or $3/2 \cdot \sqrt{3}$ which is about 2.59.
+
+If you look back at the circumscribed hexagon, the altitude is $1$ so that is the figure on the right in the diagram above.  The area is $1/\sqrt{3}$ times $6$ or $2 \sqrt{3}$ which is about $3.46$.
+
+To summarize, let us use the labels $p$ and $a$ for the inscribed case, and $P$ and $A$ for the circumscribed case.  We have calculated that
+\[ p = 3, \ \ \ \ \ \ P = 2 \sqrt{3} \]
+\[ a = 3/2 \cdot \sqrt{3}, \ \ \ \ \ \ A = 2 \sqrt{3} \]
+
+\subsection*{Archimedes}
+
+Archimedes method to find bounds for $\pi$ involved repeated bisection of an angle using two formulas:
+\[ \cot \phi = \cot 2 \phi + \csc 2 \phi \]
+
+This first formula comes from the angle bisector theorem:
+\begin{center} \includegraphics [scale=0.4] {angle_bisector_r2.png} \end{center}
+
+From similar triangles 
+\[ \frac{d}{c} = \frac{b}{a} \]
+
+A little algebra:
+\[ \frac{c+d}{c}  = \frac{a+b}{a} \]
+\[ \frac{a}{c} = \frac{a+b}{c+d} = \frac{a}{c+d} + \frac{b}{c+d} \]
+\[ \cot \phi = \cot 2 \phi + \csc 2 \phi \]
+
+The second is from the Pythagorean theorem:
+\[ \csc \phi = \sqrt{1 + \cot^2 \phi} \]
+
+The perimeter of the polygon of $n$ sides inscribed in a circle of diameter equal to $1$ is $n \sin \phi$, and for a circumscribed polygon it is $n \tan \phi$, where $\phi = \pi/n$.
+
+Each round of the algorithm consists of an addition, followed by a square, an addition of $1$ and a square root.  
+
+To convert to the sine of the angle at each step would also require an inversion, but that is not required for getting to the next round.
+
+\subsection*{Liu Hui}
+
+Another method is just to use the Pythagorean theorem.  Let $AC$ be the chord for an $n$-gon.
+
+\begin{center} \includegraphics [scale=0.4] {pi_calc4.png} \end{center}
+
+Then the distance from $B$ to the circle is
+\[ BD = OC - \sqrt{OC^2 - BC^2} \]
+
+$CD$ is the chord for the $2n$-gon and its length is
+\[ CD = \sqrt{BD^2 + BC^2} \]
+
+Each round of angle-halving has three squares (one is used twice), two square roots and several additions and subtractions.
+
+\subsection*{perimeter} 
+
+There are two other paired formulas that have been used to calculate perimeters and areas for polygons when the number of sides is doubled.  What follows is a quick derivation, I've written more extensively about these elsewhere.
+
+We need the double-angle formulas.  I am going to write them with different notation than usual.  Let $S,C$ and $T$ be the sine, cosine and tangent of the double angle, and let their primed versions be the respective versions for the single angle.  Then the formulas for sine and cosine are
+\[ S = 2S'C' \]
+\[ C = C'^2 - S'^2 = 2C'^2 - 1 \]
+
+The cotangent of the double angle is
+\[ \frac{1}{T} = \frac{C}{S} = \frac{2C'^2}{S} - \frac{1}{S} \]
+\[ = \frac{2C'^2}{2S'C'} - \frac{1}{S} = \frac{1}{T'} - \frac{1}{S}  \]
+\[ \frac{1}{T'} = \frac{1}{T} + \frac{1}{S} \]
+
+This is just Archimedes formula from the bisected angle theorem.
+
+\subsection*{perimeters}
+
+Now we want to calculate perimeters.  Let $p$ be the perimeter of the inscribed polygon and $P$ be the perimeter of the circumscribed polygon, and as before, let the primed versions be those when the number of sides has doubled (and the angle halved).
+
+The first case is $p = nS$ and the second is $P = nT$.  When we double the number of sides then $p' = 2nS'$ and $P' = 2nT'$.  Let us rearrange these (with Archimedes formula in mind) and see what we get.
+
+\[ \frac{1}{T} = \frac{n}{P} \]
+\[ \frac{1}{S} = \frac{n}{p} \]
+so
+\[ \frac{1}{T'} = \frac{1}{T} + \frac{1}{S} = \frac{n}{p} + \frac{n}{P} \]
+but also
+\[ \frac{1}{T'} = \frac{2n}{P'} \]
+
+Equate the two and cancel $n$ to obtain:
+\[ \frac{2}{P'} = \frac{1}{p} + \frac{1}{P} = \frac{p + P}{pP} \]
+\[ P' = 2 \frac{pP}{p + P} \]
+
+We also need $p'$.  This part isn't obvious, but because it looks simple, let's try
+\[ \frac{p'}{P'} = \frac{2nS'}{2nT'} =  C' \]
+
+Another equation that involves $C'$ is $S=2S'C'$ so
+\[ \frac{p'}{P'} = \frac{S}{2S'} = \frac{p/n}{p'/n} = \frac{p}{p'} \]
+\[ p'^2 = pP' \]
+
+Use the first equation to get $P'$ and then the second one to get $p'$.
+
+\subsection*{area}
+
+Using the same notation, with $a$ and $A$ for inscribed and circumscribed area, and primes to denote the result after doubling.  Geometric analysis shows that
+\[ a = n \sin \theta \cos \theta = nSC \]
+\[ A = nT \]
+
+So then
+\[ aA = n^2 S^2 \]
+\[ nS = \sqrt{aA} \]
+Using the basic formula again
+\[ a' = 2nS'C' \]
+but $2S'C' = S$ so
+\[ a' = nS = \sqrt{aA} \]
+(and notice $a' = p$).
+\[ a'^2 = aA \]
+
+The other one is 
+\[ A' = 2nT' = 2n \frac{ST}{S + T} \]
+\[ = 2 \cdot \frac{nS \cdot nT}{nS + nT} \]
+\[ = 2 \cdot \frac{a'A}{a' + A} \]
+
+These formulas are similar but different.  With the perimeter we use the equation with the inverses to get $P'$ and then the square root to get $p'$.  With the area we use the equation with the square root to get $a'$ and then the inverses to get $A'$.
+
+\subsection*{calculations}
+
+It turns out that the perimeter and area methods do the same calculations.
+
+Ordered by the error from the true value (worst to best), the approximations to $\pi$ that we started with were:
+\[ a = 3/2 \cdot \sqrt{3} \]
+\[ A = 2 \sqrt{3} \]
+\[ P = 2 \sqrt{3} \]
+\[ p = 3 = \sqrt{3} \cdot \sqrt{3} \]
+
+We see that $A = P$ and we had as a side result just above that $a' = p$.
+
+So in any one round,by the perimeter method, we should calculate first $P'$ and then $p'$.  Next, use the shortcuts that $A' = P'$, then and $a' = p$ (from the previous round).
+
+In other words, the two methods do the same calculation but one is just a step ahead of the other.
+
+\subsection*{summary}
+
+Although the perimeter and angle formulas may seem attractive, and although the formulas that just use Pythagoras are fairly simple, Archimedes' method is the best.
+
+That method consists, simply enough, of addition followed by a square root.  When a perimeter or area is required, then you invert to obtain the result.
+
+The perimeter and angle formulas go repeatedly through cycles of inversion.  For that reason, they are not as efficient.
+
+The Chinese (i.e. Pythagorean) method has multiple square roots.
+
+So even after many years, Archimedes has all these guys beat.
+
+\end{document}

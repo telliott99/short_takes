@@ -1,0 +1,76 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{RMS voltage}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+I got to thinking about how voltage is typically reported.  According to wikipedia
+
+\url{https://en.wikipedia.org/wiki/Mains_electricity}
+
+in the US and Canada the nominal voltage for a standard circuit should be 120V at source ($\pm \ 5$ \%).  They go on to say that  
+
+\begin{quote}{Historically 110 V, 115 V and 117 V have been used at different times and places in North America.}\end{quote}
+
+In a circuit run with alternating current (AC), the voltage varies as a sine wave.  So it's obvious that we need something a bit more sophisticated to talk about \emph{the} voltage.
+
+One way would be to talk about the average voltage.  In calculus, we define the average of a function over an interval as
+\[ \frac{\int_{x_1}^{x_2} f(x) \ dx}{x_2 - x_1} \]
+
+This has a remarkably simple value for the sine and cosine functions.  Namely, since $\int \sin x \ dx = - \cos x$, the integral over the interval $[0 .. \pi/2]$ is
+\[ I = - \cos x \bigg |_0^{\pi/2} = (- 0) - (- 1) = 1 \]
+
+Because of symmetry we can pick any interval that is a multiple of $\pi/2$.
+
+The average value is the maximum value ($1$) divided by $\pi/2$, that is to say, multiplied by $2/\pi$.  When thinking about this it is helpful to remember that the average is less than the maximum.
+
+\subsection*{correct calculation}
+
+The problem is that this is not what is done.  For historical reasons, we calculate the RMS, the \emph{root mean square}.  
+
+This means exactly what it says, namely, square the values (for a discrete problem), calculate the mean, and then take the square root.
+
+For a continuous function like the sine, we use integration to find the average.  The first part of the calculation is to integrate
+\[ I = \int \sin^2 x \ dx \]
+then divide the result $I$ by the interval to find the mean, and then take the square root.
+
+This integral is probably the first non-trivial integral encountered in learning calculus, and can be solved in several ways.  We will do it by guessing.  With a prime to indicate the derivative, use the formula
+\[ [uv ]' = u'v + uv' \]
+
+Here what we want is to find the derivative of this product:
+\[ [ \sin x \cos x ]' = - \cos^2 x + \sin^2 x \]
+\[ = -1 + 2 \sin^2 x \]
+
+Integrate both sides and all of a sudden, we have the integral we want
+\[ \sin x \cos x = -x + 2 \int \sin^2 x \ dx \]
+so
+\[ I = \int \sin^2 x \ dx = \frac{1}{2} ( x + \sin x \cos x ) \]
+
+Over the interval $[0 .. \pi/2]$ we have simply
+\[ I = \frac{1}{2} \ [ \ (\pi/2 + 0) - (0 + 0) \ ] = \frac{\pi}{4} \]
+
+Dividing by the length of the interval gives $1/2$ and then taking the square root we get $1/\sqrt{2}$
+
+In other words the maximum and nominal voltage are simply related by this factor, $\sqrt{2}$.  The maximum voltage for a 120V circuit is about 170V.
+
+Of course the actual voltage depends on a number of practical factors, which we ignore.
+
+
+\end{document}

@@ -1,0 +1,235 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Heron and Excircles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+I came across some sophisticated ``elementary'' notes on geometry on the web, including an introduction to \emph{excircles}.  We can use excircles to simplify derivation of Heron's formula.  This relates the area of any triangle to one-half of its perimeter, the \emph{semi-perimeter} $s$, and the three sides:
+\[ A = \sqrt{s (s-a)(s-b)(s-c)} \]
+
+We develop a simple proof of Heron's theorem in this chapter that utilizes similar triangles and a construction with an excircle.  An algebraic excursion is delayed until \hyperref[sec:Heron_formula]{\textbf{later}}, when we also look at Brahmagupta.  At the end of the chapter we also look at Heron's original proof.
+
+\subsection*{incircle}
+The \emph{incircle} of a triangle is contained within and just touches (is tangent to) each of the three sides.  It can be constructed by bisecting the angle at each vertex, and finding the point $M$ where the bisectors meet.  $M$ is then the center of the incircle.  
+
+\emph{Proof}.  Let the triangle be $\triangle ABC$ with side $a$ opposite vertex $A$, etc., as usual, and let $AM$ be the bisector of $\angle A$, $BM$ the bisector of $\angle B$, and so on.  Drop perpendiculars from $M$ to the sides at $F$, $G$ and $H$.
+
+\begin{center} \includegraphics [scale=0.15] {heron5b.png} \end{center}  
+
+Long ago we proved that each pair of perpendiculars from an angle bisector forms two congruent right triangles, by hypotenuse-leg in a right triangle (HL), so, for example, $\triangle AMG \cong \triangle AMH$.  Thus, the two perpendiculars from any point on the bisector to the rays of the bisected angle are equal (\hyperref[sec:bisector_equidistant_sides]{\textbf{here}}).  
+
+But we can do the same for any pair of sides.  Therefore all three distances are equal, and we can then draw the circle, called the incircle, with that distance as the radius $r$.  $MF = MG = MH$.  $\square$
+
+Let the two congruent right triangles containing the half-angle at vertex $A$ have base $AG = AH = x$, and the two at $B$  base $y$ and the two at $C$ base $z$.  (These are not labeled as such in the diagram, we will see why in a minute).
+
+The perimeter is $p = 2x + 2y + 2z$, and so the \emph{semi-perimeter} $s$ is
+\[ s = x + y + z = \frac{a + b + c}{2} \]
+
+Since $a = y + z$, using the equation above we can write
+\[ s = x + a \]
+from which
+\[ x = s - a \]
+and this explains the labels in the figure above. 
+
+In addition, the area of the triangle is
+\[ A = xr + yr + zr = r(x + y + z) = rs \]
+
+A commonly used notation for area is $\mathcal{A} = (ABC)$, so we rewrite this as
+\[ (ABC) = rs \]
+
+We will see terms like $s-a$, $s-b$, etc. again.  We note that 
+\[ s - a = \frac{a+b+c}{2} - a = \frac{-a + b + c}{2} \]
+Subtract side $a$ from $s$ on the left and change the sign on $a$ in the formula for the semi-perimeter.
+
+Another useful result that we will come back for later is
+\[ (s - a) + (s - b) + (s - c) = 3s - (a + b + c) \]
+\[ = s \]
+
+\subsection*{excircles}
+
+\begin{center} \includegraphics [scale=0.15] {heron7.png} \end{center}
+Any triangle has a single incircle and three excircles, one for each side of the triangle.  The excircle opposite $\angle C$ is formed by extending sides $a$ and $b$ (i.e. $BC$ and $AC$ above) and then finding the circle that is tangent to those two extensions and also tangent to side $c$.
+
+Let $N$ be the center of the excircle on side $c$.  $N$ lies on the bisector of the original $\angle C$.  This follows from the fact that $CD$ and $CE$ are tangent to this excircle.
+
+Since $AD$ and $AJ$ are also tangents to the excircle from point $A$, if the angle supplementary to $\angle A$ (i.e. $\angle DAB$) is bisected, then the intersection of that with the bisector of $\angle C$ occurs at $N$.
+
+\begin{center} \includegraphics [scale=0.15] {heron7.png} \end{center}
+Drop the vertical to side $c$ at $J$, or to either of the extensions at $D$ and $E$, to find the radius $R = ND = NE = NJ$.  (If we were to look at more than one excircle we might use a subscript like $R_c$.)
+
+A surprising, simple relationship can be found:
+\[ R \cdot (s-c) = (ABC) \]
+We now have two expressions for the area
+\[ rs = R \cdot (s-c)  \]
+We show how to derive this result below and use it for our key proof.
+
+\subsection*{tangent length}
+The length of the tangents $CD = CE$ is just $s$.
+\begin{center} \includegraphics [scale=0.15] {heron6.png} \end{center}
+
+\emph{Proof}.
+
+The two tangents $CD = CE$.  Let the length of each be $t$.  Then
+\[ 2t = CD + CE \]
+\[ = AD + (s-a) + (s-c) + BE + (s-b) + (s-c) \]
+\[ = AJ + (s-a) + (s-c) + BJ + (s-b) + (s-c) \]
+But $AJ + BJ = c$ so
+\[ 2t = c + (s-a) + (s-c) + (s-b) + (s-c) \]
+\[ = s + (s-a) + (s-c) + (s-b) \]
+\[ = 2s \]
+Hence the length of the entire tangent is just $s$.
+
+$\square$
+
+We also have that 
+\[ CD = s = AD + (s - a) + (s - c) \]
+Compare with our previous result
+\[ s = (s - a) + (s - b) + (s - c) \]
+Thus
+\[ AD = s - b \]
+
+Thus it turns out that the lengths of all these tangents, 3 pairs to the excircle and 3 pairs to the incircle, are particularly simple.  
+
+For example, the points of tangency $J$ and $H$ divide the side length $c$ into the same two lengths:
+\[ AD = AJ =  BH = s - b \]
+and
+\[ BE = BJ = AH = s - a \]
+
+\subsection*{another construct}
+\begin{center} \includegraphics [scale=0.18] {incircle2.png} \end{center}
+
+Extend the sides of $\triangle ABC$ a distance $a$ past vertex $A$ and so on.  
+
+Then one can draw a circle whose center is also the incenter of the triangle, that passes through the ends of all of the extended line segments.
+
+\emph{Proof}.  Draw the right triangle with one side equal to $r$, the radius of the incircle, and the other side extending through $A$, as shown.  The second side has length $s - a + a = s$.  
+
+Therefore the hypotenuse of every such right triangle is the same, and this is the radius of the large circle.  $\square$
+
+\subsection*{Heron's formula}
+
+Since $ND \perp CD$ and $MG \perp CG$, we have a pair of similar right triangles, namely one with sides $R$ and $s$, and the other with sides $r$ and $s - c$.
+\begin{center} \includegraphics [scale=0.15] {heron10.png} \end{center}
+The proportion is:
+\[ \frac{r}{R} = \frac{s-c}{s} \]
+which justifies what we wrote previously:
+\[ rs = R (s-c) \]
+
+This leads to a beautiful, simple proof of Heron's formula.  
+
+The angle between two tangents from the same point is bisected by the line through the center of the circle.  Thus $\angle DAB$ is bisected by $AN$ and also $\angle BAC$ is bisected by $AM$.
+
+It follows that $\angle NAM$ is a right angle.
+
+So $\angle DAN$ is complementary to $\angle MAG$, since their sum is one right angle, and therefore, $\triangle ADN \sim \triangle MGA$.
+
+The ratios of interest are:
+\[ \frac{s-b}{R} = \frac{r}{s-a} \]
+\[ r = \frac{(s-a)(s-b)}{R} \]
+\[ rs = \frac{s(s-a)(s-b)}{R} \]
+
+\begin{center} \includegraphics [scale=0.15] {heron10.png} \end{center}
+
+Combining with our previous result:
+\[ (rs)^2 = s(s-a)(s-b)(s-c) \]
+But $rs$ is the area of the triangle $ABC$.
+
+\[ \mathcal{A}^2 = s(s-a)(s-b)(s-c) \]
+\[ \mathcal{A} =  \sqrt{s(s-a)(s-b)(s-c)} \]
+
+$\square$
+
+This is Heron's formula.  Very elegant.
+
+The formula can also be obtained by computing areas in different ways, as described in the link above.  Here is an idea of the proof.
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.16] {heron9.png} \end{center}
+Again using parentheses to signify area, we have that the quadrilateral $ADNEB$ consists of two pairs of equal triangles, so that its area is twice that of $\triangle ANB$:
+\[ (ADNEB) = 2 (\triangle ANB) = Rc \]
+
+The area of quadrilateral $CDNE$ is twice that of $\triangle CDN$:
+\[ (CDNE) = 2 (\triangle CDN) = Rs \]
+
+The area of $\triangle ABC$ is simply the difference:
+\[ (\triangle ABC) = (CDNE) - (ADNEB) \]
+\[ = Rs - Rc = R(s-c) \]
+
+This is the same relationship we obtained by determining the total length of the tangent $CD = s$ and then noting similar triangles $\triangle ADN \sim \triangle MGA$.
+
+\subsection*{Heron's proof}
+
+Lastly we go through Heron's proof of the eponymous theorem (as given by Paul Yiu).  I've stolen the diagram, but switched labels on a few of the points.  
+
+The triangle is $\triangle ABC$ with incircle radii $OD$, $OE$ and $OF$.
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+$BT$ is drawn equal in length to $AD$, so that the whole length $CT = s$.
+
+Two right triangles are drawn on the diameter of a circle $LC$, so $B$ and $O$ lie on the circle and $\angle LBC = \angle LQC $ are right angles.
+
+As usual, the whole triangle is the sum of three pairs of equal triangles whose total base is the semiperimeter and altitude is equal to the radius $EO$.  $CT$ is drawn to be equal to the semiperimeter, hence the area of the triangle is $CT \cdot OE$.
+
+The total angle at $L$ is equal to $\angle AOD$.  
+
+\emph{Proof}.  Because $\angle L$ and $\angle BOC$ are opposing angles in a quadrilateral inscribed into a circle, they are supplementary.  But the components of $\angle BOC$ ($\angle BOE$ and $\angle COE$) are, together with $\angle AOD$, one-half the total angle at $O$.  Thus $\angle BOC + \angle AOD$ are together equal to two right angles and $\angle BOC$ is supplementary also to $\angle AOD$.  Hence $\angle L = \angle AOD$.  $\square$
+
+As a result, we have two pairs of similar right triangles:  $\triangle CBL \sim \triangle AOD$ and $\triangle LBK \sim EKO$ (since $OE \parallel BL$).
+
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+Now we follow quite a chain of ratios.
+
+From the first pair of similar triangles ($\triangle CBL \sim \triangle AOD$), we have the ratio of bases as
+\[ \frac{BC}{BL} = \frac{AD}{DO} \]
+Rearranging:
+\[ \frac{BC}{AD} = \frac{BL}{DO} \]
+Substituting $BT = AD$ and $EO = DO$
+\[ \frac{BC}{BT} = \frac{BL}{EO} \]
+
+From the second pair ($\triangle LBK \sim EKO$) we have
+\[ \frac{BL}{BK} = \frac{OE}{KE} \]
+\[ \frac{BL}{OE} = \frac{BK}{KE} \]
+Hence
+\[ \frac{BC}{BT} = \frac{BK}{KE} \]
+The rest is relatively straightforward.
+
+Adding $1$ to both sides
+\[ \frac{BC+BT}{BT} = \frac{BK+KE}{KE} \]
+\[ \frac{CT}{BT} = \frac{BE}{KE} \]
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+
+Rearranging
+\[ CT = BT \cdot \frac{BE}{KE} \]
+Multiply top and bottom by $CE$:
+\[ CT = BT \cdot \frac{BE}{KE} \cdot \frac{CE}{CE} \]
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+
+$\triangle COK$ is right, thus $OE^2 = CE \cdot KE$ (in conventional notation $h^2 = de$).
+
+So then
+\[ OE^2 \cdot CT = BT \cdot BE \cdot CE \]
+\[ OE^2 \cdot CT = AD \cdot BE \cdot CE \]
+\[ OE^2 \cdot CT^2 = AD \cdot BE \cdot CE \cdot CT \]
+$\square$
+
+This is Heron's theorem.
+
+
+\end{document}

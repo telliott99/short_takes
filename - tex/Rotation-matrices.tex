@@ -1,0 +1,350 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{figures}{/Users/telliott/Github-Math/figures/}}
+
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Rotation}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+Matrix multiplication works like this
+\begin{center} \includegraphics [scale=0.35] {mm1.png} \end{center}
+where the entry in row $i$ column $j$ of the result is computed from the dot product of row $i$ from the matrix times column $j$ from the second one\footnote{The dot product of $\langle x,y \rangle$ and $\langle p,q \rangle$ is $px + qy$.}.  In the case of vectors, there is only a single column to worry about.
+
+The way I visualize matrix multiplication is to write it like this:
+
+\[
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\ \ \
+\begin{bmatrix}  
+.  \\
+.
+\end{bmatrix}
+\]
+
+To find the first value in the result (what we're going to call $u$) multiply the row to the left by the column above: 
+\[ \langle \cos \theta, \sin \theta \rangle \cdot \langle x,y \rangle = x \cos \theta + y \sin \theta = u \]
+
+This is called the \emph{dot product}.  Multiply term by term and then add to obtain the result.  Do the second one:
+\[ \langle -\sin \theta, \cos \theta \rangle \cdot \langle x,y \rangle = - x \sin \theta + y \cos \theta = v \]
+
+A convenient notation is to write the equations as a matrix multiplying a vector.  We have two sets:
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+u \\
+v
+\end{bmatrix}
+=
+\begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+\]
+
+
+\[
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}  
+u \\
+v
+\end{bmatrix}
+\]
+
+We adopt the unconventional strategy of naming the matrices after the position of the minus sign, $T$ when it is on top, and $B$ when it is on the bottom.  The advantage is there is never any question about where the sign is in the matrix.
+
+We had:
+\[ T  \langle u,v \rangle = \langle x,y \rangle \]
+\[ B  \langle x,y \rangle = \langle u,v \rangle \]
+
+The two ways of writing a vector,  $\langle x,y \rangle$, and 
+\[
+\begin{bmatrix}  
+x \\
+y
+\end{bmatrix}
+\]
+
+are equivalent for our purposes.
+
+$T$ changes $(u,v)$ into $(x,y)$.  It rotates the coordinate system CW and vectors CCW.   One way to test is
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \ \cos \theta
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}  
+\cos \theta \\
+\sin \theta
+\end{bmatrix}
+\]
+
+The unit vector $\mathbf{\hat{i}} = \langle 1, 0 \rangle$ (one unit straight out along the $x$-axis) has been rotated into the first quadrant.
+
+It is even simpler to test with the particular case of $\theta = \pi/2$ because then
+\[ 
+T=
+\begin{bmatrix}  
+0 & -1 \\
+1 & \ \ 0
+\end{bmatrix}
+\]
+
+\[
+\begin{bmatrix}  
+0 & -1 \\
+1 & \ \ 0
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}  
+0 \\
+1
+\end{bmatrix}
+\]
+
+The unit vector $\mathbf{\hat{i}}$ has been rotated CCW into $\mathbf{\hat{j}}$.
+
+\[
+\begin{bmatrix}  
+0 & -1 \\
+1 & \ \ 0
+\end{bmatrix}
+\begin{bmatrix}
+0 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}  
+-1 \\
+\ \ 1
+\end{bmatrix}
+\]
+
+The unit vector $\mathbf{\hat{j}}$ has been rotated CCW into $-\mathbf{\hat{i}}$.
+
+The difference between $T$ and $B$ is just a matter of moving a minus sign.  
+
+\[
+\begin{bmatrix}  
+\ \ 0 & 1 \\
+- 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+0 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}  
+1 \\
+0
+\end{bmatrix}
+\]
+
+The unit vector $\mathbf{\hat{j}}$ has been rotated CW into $\mathbf{\hat{i}}$.
+
+\[
+\begin{bmatrix}  
+\ \ 0 &1 \\
+-1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+-1 \\
+\ \ 0
+\end{bmatrix}
+=
+\begin{bmatrix}  
+0 \\
+1
+\end{bmatrix}
+\]
+
+The unit vector $-\mathbf{\hat{i}}$ has been rotated CW into $\mathbf{\hat{j}}$.
+
+In vector terms, converting $T$ to $B$ is called finding the transpose.  It is simple for this case because all the terms have the same absolute value and we have a 2 x 2 matrix.  It is just a matter of moving the minus sign.
+
+\[
+\begin{bmatrix}  
+a & b \\
+c & d
+\end{bmatrix}^T
+=
+\begin{bmatrix}  
+a & c \\
+b & d
+\end{bmatrix}
+\]
+
+If you know about matrices, you will realize that the two matrices must be inverses, since rotating first one direction and then the other, by the same angle, leaves the point unchanged.
+\[ T \cdot  B= I \]
+
+To invert a $2 \times 2$ matrix, transpose it and divide by the determinant (which is 1 here).
+
+The transpose of $T$, called $T^T$ or $T$ transpose, is just $B$, which is also $T^{-1}$, $T$ inverse.
+
+\[
+\begin{bmatrix}  
+0 & -1 \\
+1 & \ \ 0
+\end{bmatrix}^T
+=
+\begin{bmatrix}  
+\ \ 0 & 1 \\
+-1 & 0
+\end{bmatrix}
+\]
+
+\subsection*{rotation by $+ \theta$ then $- \theta$}
+Substituting $- \theta$ for $\theta$ changes $T$ to $B$:
+\[
+\begin{bmatrix}  
+\cos -\theta & -\sin - \theta \\
+\sin - \theta & \ \  \cos - \theta
+\end{bmatrix}
+=
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+- \sin \theta &  \cos \theta
+\end{bmatrix}
+\]
+
+\[ TB = I \]
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+\ \ \cos \theta & \sin \theta \\
+- \sin \theta &  \cos \theta
+\end{bmatrix}
+=
+\begin{bmatrix}  
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+\]
+We get the identity matrix, as required.
+\[ I \langle x,y \rangle = \langle x,y \rangle \]
+
+\subsection*{rotation by $\theta$ then $\phi$}
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta
+\end{bmatrix}
+\begin{bmatrix}  
+\cos \phi & - \sin \phi \\
+\sin \phi & \ \ \cos \phi
+\end{bmatrix}
+=
+\]
+\[ =
+\begin{bmatrix}  
+\ \ \cos \theta \cos \phi -  \sin \theta \sin \phi & - \sin \theta \cos \phi - \cos \theta \sin \phi \\
+- \sin \theta \cos \phi - \cos \theta \sin \phi & \ \ cos \theta \cos \phi -  \sin \theta \sin \phi 
+\end{bmatrix}
+\]
+\[
+=
+\begin{bmatrix}  
+\cos \theta + \phi & - \sin \theta + \phi \\
+\sin \theta + \phi & \ \ \cos \theta + \phi
+\end{bmatrix}
+\]
+Rotation by $\theta$ followed by rotation by $\phi$ gives the same result as rotation by $\theta + \phi$ in one step.
+
+Incidentally, we have recovered the sum of angles formulas.  Sum of angles is inherent in the rotation of axes formulas.
+
+\subsection*{linear combinations}
+We can look at this in one final way.  Write
+\[
+\begin{bmatrix}  x \\ y \end{bmatrix}
+=
+x
+\begin{bmatrix}  1 \\ 0 \end{bmatrix}
++
+y
+\begin{bmatrix}  0 \\ 1 \end{bmatrix}
+\]
+In this representation, the vector $\langle x,y \rangle$ is a linear combination of the unit vectors $\mathbf{\hat{i}} =\ \langle 1,0 \rangle$ and $\mathbf{\hat{j}}  =\ \langle 0,1 \rangle$.
+
+Then suppose we decide to use a different set of unit vectors.  The new ones (for the rotated axes) are $\langle \cos \theta,\sin \theta \rangle$ and $\langle -\sin \theta,\cos \theta \rangle$.  
+
+If you compute their lengths, it is clear that they are, in fact, unit vectors.  If you compute the dot products, it's clear that they are orthogonal.  (Two vectors are orthogonal $\iff$ their dot product is zero).
+
+In the new basis:
+\[
+\begin{bmatrix} 
+u \\ 
+v 
+\end{bmatrix}
+=
+x
+\begin{bmatrix}  \cos \theta \\ \sin \theta \end{bmatrix}
++
+y
+\begin{bmatrix}  -\sin \theta \\ \ \ \cos \theta \end{bmatrix}
+\]
+Written as a matrix multiplication, this is
+\[
+\begin{bmatrix}  u \\ v\end{bmatrix}
+=
+\begin{bmatrix}  
+\cos \theta & -\sin \theta \\
+\sin \theta & \ \  \cos \theta 
+\end{bmatrix}
+\begin{bmatrix}  x \\ y \end{bmatrix}
+\]
+\[ \begin{bmatrix}  u \\ v\end{bmatrix}
+=
+T 
+\begin{bmatrix}  x \\ y \end{bmatrix}
+\]
+
+\end{document}

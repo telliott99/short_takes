@@ -1,0 +1,239 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Quadratic equation}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+A quadratic is an equation which contains $x^2$ (or whatever the independent variable is named), but no higher powers of $x$.  The constant coefficients of the powers are usually given as
+\[ y = ax^2 + bx + c \]
+
+The graph of a quadratic is a parabola.  These curves are symmetric about a vertical axis that passes through the vertex (the most extreme value) of the parabola.  For an equation like the one above, where $y$ grows like positive $x^2$, the shape of the curve is a cup that opens up.  The vertex is the lowest point on the curve.
+
+\begin{center} \includegraphics [scale=0.4] {para8.png} \end{center}
+
+Often, our main interest is to find the points where the curve passes through the line $y = 0$.  
+\[ ax^2 + bx + c = 0 \]
+
+Depending on the values of the constants, there may be two, one (duplicated) or zero values for $x$ on the real number line which give $y = 0$.  These are called the \emph{roots} of the equation.  The famous quadratic equation gives a formula to determine such points, and we will look at that in a bit, but there is a simpler equation which we want to talk about first.
+
+We divide both sides by $a$.  $0/a$ equals zero, so that gives
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
+
+Momentarily, call the new constants $b'$ and $c'$
+\[ x^2 + b'x + c' = 0 \]
+
+This new equation has a different shape ($a$ is called the shape factor).  We have effectively re-scaled $y$ by the factor $1/a$.  In the figure, the original curve is red and the re-scaled one is blue.
+
+\begin{center} \includegraphics [scale=0.30] {roots.png} \end{center}
+
+The point is that the values of $x$ that make this equation true ($y = 0$) are unchanged by re-scaling.
+
+Let us suppose that the values of $x$ which make $y = 0$ are $s$ and $t$.  Write:
+\[ (x - s)(x - t) = 0 \]
+
+Multiplying the whole thing by $1/a$ will not change the values of $x$ which give $y = 0$.
+\[ \frac{1}{a} (x - s)(x - t) = 0 \]
+
+We can see that this equality holds precisely when $x = s$ or $x = t$.  
+
+Rather than use new letters, and rather than use primes, I am going to re-define the letters $b$ and $c$.  Namely, we will assume that we've done the first step (division by the cofactor of $x^2$) already, and now we have
+\[ x^2 + bx + c = 0 \]
+
+The connection between the two equations can be discovered by multiplying out
+\[ x^2 - sx -tx + st = 0 \]
+\[ x^2 - (s + t)x + st = 0 \]
+
+We see that
+\[ b = - (s + t) \]
+\[ c = st \]
+
+$-b$ is the sum of $s$ and $t$ and $c$ is their product $st$.  Dividing the first by $-2$, we say that the \emph{mean} $m$ of $s$ and $t$ is
+\[ m = \frac{s + t}{2} = - \frac{b}{2} \]
+
+The mean, or average, of $s$ and $t$ is equal to $-b/2$ (which is $-b/2a$ with the original notation).  
+
+Crucially, because of the symmetry of the parabola, this value $m$ lying between the two roots is the $x$-coordinate of the vertex.  The two roots lie the same distance from $m$.  Let that distance be $d$.  Then
+\[ s = m - d \]
+\[ t = m + d \]
+Their product is
+\[ st = c = m^2 - d^2 \]
+Rearranging, we get
+\[ d = \pm \ \sqrt{m^2 - c} \]
+
+\subsection*{summary}
+
+We have worked out three steps for finding the roots of a quadratic equation.
+
+$\circ$ \ divide through by $a$ to get $x^2 + bx + c = 0$.
+
+$\circ$ \ find $m = -b/2$.
+
+$\circ$ \ find $d = \sqrt{m^2 - c}$
+
+$\circ$ \ $s, t = m \pm d$.
+
+\subsection*{examples}
+
+Let us construct a simple example.  Suppose the roots are $1$ and $3$, then
+\[ (x - 1)(x - 3) = 0 \]
+\[ x^2 - 4x + 3 = 0 \]
+
+The simple procedure of guessing which two integers multiply to give $3$ and add to give $-4$ will do here.  The $x$-coordinate of the vertex is at $x = m = -b/2 = 2$, which gives $y = -1$ and that means that the vertex is at $(2,-1)$.
+
+How about if we move the whole graph up by two units?  Now the roots are $x$ such that
+\[ x^2 - 4x + 5 = 0 \]
+
+Guessing won't help here.  We find
+\[ m = - (-4)/2 = 2 \]
+$m$ has not changed.
+\[ m \pm d = m \pm \sqrt{m^2 - c'} \]
+\[ = 2 \pm \sqrt{4 - 5} = 2 \pm \sqrt{-1} \]
+
+What happened?  The original vertex was at $(2,-1)$.  By shifting up, the vertex has moved above the $x$-axis to $(2,1)$.  The parabola still opens up, but it does not cross the $x$-axis any more.  Both roots are imaginary.
+
+Notice that
+\[ m = \frac{1}{2} (s + t) \]
+\[ = \frac{1}{2} (2 - \sqrt{-1} + 2 + \sqrt{-1}) \]
+\[ = \frac{4}{2} = 2 \]
+
+And
+\[ c = st = (2 + \sqrt{-1})(2 - \sqrt{-1}) \]
+\[ = 4 + 1 = 5 \]
+
+Everything checks.
+
+\subsection*{standard approach}
+
+The standard approach to quadratic roots is to use the quadratic equation:
+\[ s,t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+defined in terms of the original, un-scaled equation:
+\[ ax^2 + bx + c = 0 \]
+
+Most students find it difficult to memorize this equation.  The above method has little to memorize.  Just use the symmetry of the graph to find the mean between the roots and then find $d$.
+
+The main advantage actually came in the first step.  Recall that we divided through by $a$, taking advantage of the fact that this does not change the values of the roots.  Let's do the same for the quadratic equation:
+
+\[ \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+\[ = - \frac{b}{2a} \pm \frac{1}{2} \ \sqrt{(b/a)^2 - 4c/a} \]
+\[ = - \frac{b}{2a} \pm \sqrt{(b/2a)^2 - c/a} \]
+\[ = - \frac{b'}{2} \pm \sqrt{(b'/2)^2 - c'} \]
+
+Substitute $m = -b'/2$ (recognizing that $m^2 = (-b'/2)^2 = (b'/2)^2$), to obtain finally
+\[ s,t = m \pm \sqrt{m^2 - c'} \]
+
+\subsection*{derivation}
+
+It won't hurt to see a derivation of the quadratic equation, even if we decide not to use it to solve problems.
+
+Suppose we have
+\[ y = ax^2 + bx + c \]
+When $y = 0$:
+\[ ax^2 + bx + c = 0 \]
+
+As before, multiply through by $1/a$ but now place the constant term on the right-hand side:
+\[ x^2 + \frac{b}{a} x = - \frac{c}{a} \]
+
+We want to write the left-hand side as a perfect square.  Something like
+\[ (x + p)^2 = x^2 + 2xp + p^2 \]
+What should $p$ be?
+
+If we compare the cofactor of the $x$ term, in our problem we have $b/a$ and in the example we have $2p$.  So $2p = b/a,  \ p = b/2a$ and then $(x + p)$ is like $(x + b/2a)$ so finally $(x + p)^2$ is like
+\[ (x + \frac{b}{2a})^2 = x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 \]
+
+The key insight is that in the original left-hand side (three equations back)
+\[ x^2 + \frac{b}{a} x \]
+
+the third term is missing, but \emph{we can fix it}.  To maintain equality, simply add the same thing on both sides:
+\[ x^2 + \frac{b}{a} x + (\frac{b}{2a})^2  = -\frac{c}{a} + (\frac{b}{2a})^2 \]
+
+So now the left-hand side is a perfect square:
+\[ (x + \frac{b}{2a})^2 = -\frac{c}{a} + (\frac{b}{2a})^2 \]
+\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{c}{a} + (\frac{b}{2a})^2} \]
+
+Multiplying top and bottom of the first term under the square root gives a common factor of $4a^2$:
+\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{4ac}{4a^2} + (\frac{b}{2a})^2} \]
+
+which can come out of the square root and then matches what's in the second term on the left-hand side:
+\[ x + \frac{b}{2a} = \pm \frac{\sqrt{-4ac + b^2}}{2a} \]
+which we rearrange slightly to give the standard \emph{quadratic formula}:
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+This formula always works to find the roots of an equation, if they exist.  The quantity under the square root is called the discriminant
+\[ D = b^2 - 4ac \]
+If $D < 0$ then $\sqrt{D}$ does not exist in the real numbers and there is no $x$ such that $y = 0$.  That corresponds to the case where the parabola does not cross the $x$-axis.
+
+If $D = 0$ then there is a single (duplicated) root, and the graph just touches the $x$-axis.
+
+\subsection*{another view}
+
+A different manipulation to consider is the case when we care about the shape of the curve but want to translate the whole thing so its vertex lies at the origin.  Obviously, then the root becomes just $0$.
+
+It turns out that any parabola with its vertex at a point other than the origin, can be described by the formula
+\[ y - k = a(x - h)^2 \]
+
+Moving the graph amounts to shifting the values of $x$ and $y$ by some constants $h$ and $k$, for every point on the curve.
+
+For example, to move the vertex up by two units to $(0,2)$, add $2$ to the value of $ax^2$ for every $x$.  The result is
+\[ y = ax^2 + k \]
+
+where $k$ is the amount of vertical shift.  This can be rearranged to 
+\[ (y - k) = ax^2 \]
+
+The vertex is at $y = 2$ (positive), but the formula says to subtract $k$ from $y$, which is a bit counter-intuitive.
+
+Changes in $x$ are taken into account \emph{before} squaring.  For a parabola whose vertex is on the $x$-axis, the formula becomes
+\[ y = a(x-h)^2 \]
+
+If you try this for a vertex at $(1,0)$, and plot the values, you will see that this is correct.  For example, $x$ values symmetric on each side of the vertex yield the same $y$, in the proportion $a(\Delta x)^2$, where $\Delta x = x - h$.
+
+So the general formula for a parabola with its vertex at the point $(h,k)$ is
+\[ y - k = a(x - h)^2 \]
+
+Multiplying out:
+\[ y - k = a(x^2 - 2xh + h^2) \]
+\[ y = ax^2 - 2ah x + ah^2 + k \]
+
+In this form the cofactors are usually simplified as
+\[ y = ax^2 + bx + c \]
+which we are used to seeing.
+
+Comparing the two, we see that the cofactors of the $x$ term must be equal:
+\[ -2ahx = bx \]
+\[ h = -\frac{b}{2a} \]
+
+and the constant terms must be equal as well
+\[ c = ah^2 + k \] 
+\[ k = c - ah^2 \]
+\[ = c - \frac{b^2}{4a} \]
+
+We can check this as follows.  The first equation is commonly used to find the vertex for a given parabola.  The $x$-value of the vertex is $h = -b/2a$.  This is what we called the mean, lying equidistant between the two roots, in the first part of this write-up.
+
+Then the $y$-coordinate ($k$) can obtained by plugging into the given equation:
+\[ k = a(-\frac{b}{2a})^2 + b(-\frac{b}{2a}) + c \]
+\[ k - c = \frac{b^2}{4a} - \frac{b^2}{2a} \]
+\[ = - \frac{b^2}{4a}  \]
+which matches what we had above.
+
+
+
+
+
+\end{document}

@@ -1,0 +1,78 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Heron's formula}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+In this short write-up we will derive Heron's formula for the area of a triangle in terms of the \emph{semi-perimeter}.  Start by drawing the altitude in any triangle (if obtuse, use the vertex with the obtuse angle).
+\begin{center} \includegraphics [scale=0.2] {heron3.png} \end{center}
+
+\[ x^2 + h^2 = b^2 \]
+\[ (a - x)^2 + h^2 = c^2 \]
+Subtract the first from the second
+\[  (a - x)^2  - x^2 = c^2 - b^2 \]
+\[ a^2 - 2ax = c^2 - b^2 \]
+\[ c^2 = a^2 + b^2 - 2ax \]
+Straightforward, this is the Pythagorean theorem with a correction term.
+
+Let $\angle C$ be the angle opposite side $c$.  Since $x = b \cos C$:
+\[ c^2 = a^2 + b^2 - 2ab \cos C \]
+The law of cosines.  
+
+However, we will leave our result as $2ax$ and move on to write an expression for the area $A$.  Going back to the right triangle:
+\[ h^2 = b^2 - x^2 \]
+\[ h = \sqrt{b^2 - x^2} \]
+\[ = \sqrt{b^2 - (\frac{a^2 + b^2 - c^2}{2a})^2} \]
+Now find the area (or twice that):
+\[ 2A = ah \]
+So
+\[ 2A = a \sqrt{b^2 - (\frac{a^2 + b^2 - c^2}{2a})^2} \]
+
+This seems pretty complicated, but notice, we have $a^2$ on the bottom under a square root, so we can cancel the leading factor of $a$.
+
+Put the $b^2$ term on top of a common denominator:
+\[ 2A = a \sqrt{\frac{4a^2b^2}{4a^2} - (\frac{a^2 + b^2 - c^2}{2a})^2} \]
+\[ 4A = \sqrt{4a^2b^2 - (a^2 + b^2 - c^2)^2} \]
+\[ 16A^2 = 4a^2b^2 - (a^2 + b^2 - c^2)^2 \]
+
+Now comes the part that makes this derivation beautiful.  We will use the difference of squares:
+\[ 16A^2 = \ [ \ 2ab + (a^2 + b^2 - c^2) \ ] \ [ \ 2ab - (a^2 + b^2 - c^2) \ ]  \]
+\[  = \ [ \ (a + b)^2 - c^2 \ ] \ [ \ c^2 - (a - b)^2 \ ]  \]
+and then again
+\[ 16A^2 = (a + b + c)(a + b - c)(c - (a - b))(c + a - b) \]
+\[ = (a + b + c)(a + b - c)(c - a + b)(c + a - b) \]
+
+We're basically done.  The semi-perimeter $s$ is
+\[ s = \frac{a + b + c}{2} \]
+\[ 2s = a + b + c \]
+Thus
+\[ 2(s-c) = a + b - c \]
+and so on.
+
+We had
+\[ 16A^2 = (a + b + c)(a + b - c)(c - a + b)(c + a - b) \]
+So
+\[ A^2 = s (s - a)(s - b)(s - c) \]
+\[ A = \sqrt{s (s - a)(s - b)(s - c)} \]
+$\square$
+
+This formula for the area of a triangle in terms of the three sides is ascribed to Hero of Alexandria.
+
+\end{document}

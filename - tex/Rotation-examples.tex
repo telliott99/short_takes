@@ -1,0 +1,403 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{figures}{/Users/telliott/Github-Math/figures/}}
+
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Rotation}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+Consider $y = x^2$ rotated through an angle of $45^{\circ}$.
+
+We need expressions for $x$ and $y$ in terms of $u$ and $v$.  Let us just try what we called the $T$ matrix and see where we get ($T$ because the minus sign is in the top, or first equation).
+
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+Furthermore, $\cos \theta = \sin \theta = 1/\sqrt{2}$.  Let $k = \sqrt{2}$.
+
+\[ x = \frac{u-v}{k} \]
+\[ y = \frac{u + v}{k} \]
+
+so
+\[ y = x^2 \]
+\[ \frac{u + v}{k} = \frac{1}{k}^2  \cdot (u - v)^2 \]
+\[ k(u + v) = (u - v)^2 = u^2 - 2uv + v^2 \]
+\[ u^2 - 2uv + v^2 - ku - kv  = 0 \]
+
+Desmos doesn't like $u$ and $v$ so just for the graph, we must change symbols to $x$ and $y$:
+\begin{center} \includegraphics [scale=0.2] {rot_para2.png} \end{center}
+
+We've got a parabola with its vertex still at the origin, rotated $45^{\circ}$ CW.
+
+\subsection*{hyperbola}
+
+The standard equation of a hyperbola is usually given as
+\[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
+Let $a=b=2$
+\[ x^2 - y^2 = 2 \]
+
+Going back to $T$:
+\[ x = u \cos \theta - v \sin \theta \]
+\[ x^2 = u^2 \cos^2 \theta - 2uv \sin \theta \cos \theta + v^2 \sin^2 \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+\[ y^2 = u^2 \sin^2 \theta + 2uv \sin \theta \cos \theta + v^2 \cos^2 \theta \]
+So
+\[ x^2 - y^2 = u^2 \cos^2 2 \theta - 4uv \sin \theta \cos \theta - v^2 \cos^2 2 \theta = 2 \]
+If $\theta = 45^{\circ}$, $\cos 2 \theta = \cos 90^{\circ} = 0$:
+\[ - 2uv = 2 \]
+So 
+\[ uv = -1 \]
+
+Again, switch to $x,y$ for Desmos:
+\begin{center} \includegraphics [scale=0.2] {hyper2b.png} \end{center}
+
+It can be confusing to understand which direction we've gone.  We used the $T$ operator which takes points in terms of $u$ and $v$ as input and gives points as $x$ and $y$.  
+
+However, the way we used it, we started with $x,y$ points and ended up with $u,v$, which is CW.   We started with $x^2 - y^2 = 2$ and rotated to give $uv = - 1$.
+
+\subsection*{degenerate conics}
+
+Suppose we are given a conic section like:
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \] 
+
+First note that the quantity $B^2 - 4AC$ is called the discriminant of a conic.  It's easy to remember by analogy to the quantity $b^2 - 4ac$ in the equation for the roots of a quadratic.  Provided that the conic is not degenerate
+
+\url{https://en.wikipedia.org/wiki/Degenerate_conic}
+
+then if and only if $B^2 = 4AC$ is the conic a parabola.  This quantity is invariant under translation or rotation.  See below.
+
+Examples of degenerate conics include:  $x^2 - y^2 = 0$, $x^2 = c$, $x^2 = 0$, $x^2 + y^2 = 0$.  The first is just the pair of lines with $x= \pm \ y$, the second a pair of lines $x = \pm \ c$, the third is the line $x = 0$ and the fourth is a ``circle'' with zero radius.
+
+\subsection*{finding the angle of rotation}
+
+We wish to rotate
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+to the standard orientation.  
+
+Take the equations for $T$ again:
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+and substitute.  As a preliminary
+\[ x^2 = u^2 \cos^2 \theta - 2uv \sin \theta \cos \theta + v^2 \sin^2 \theta \]
+\[ xy = u^2 \sin \theta \cos \theta + uv \cos^2 \theta - uv \sin^2 \theta - v^2 \sin \theta \cos \theta \]
+\[ y^2 = u^2 \sin^2 \theta + 2uv \sin \theta \cos \theta + v^2 \cos^2 \theta \]
+
+We only need to consider the terms that have $uv$ in them.  Remembering to pick up $A$, $B$, $C$ we have for the cofactors of $uv$:
+\[ -2A \sin \theta \cos \theta + B \cos^2 \theta - B \sin^2 \theta + 2C \sin \theta \cos \theta \]
+What is needed is to make this term zero.
+\[ (C-A) (2 \sin \theta \cos \theta) + B (\cos^2 \theta - \sin^2 \theta) = 0 \]
+The sum of angles formulas come in handy now:
+\[ (C-A) (\sin 2 \theta) + B (\cos 2 \theta) = 0 \]
+\[ \cot 2 \theta = \frac{A-C}{B} \]
+
+The hyperbola $xy = 1$ has both $A$ and $C$ equal to zero.  What angle has a cotangent of zero?  The one whose cosine is zero, namely $\pi/2$ or $90^{\circ}$.  That is $2 \theta$, so our final answer is $45^{\circ}$.
+
+Go back to the first example
+\[ x^2 - 2xy + y^2 - \sqrt{2} x - \sqrt{2} v  = 0 \]
+
+First note that $B^2 = 4AC$ so this passes the parabola test.  Then, again we have $A - C = 1 - 1 = 0$ so that makes $\cot 2 \theta = 0$, with the same angle as the final answer.
+
+Finally, in the introductory writeup we had a rotated ellipse ($B^2 < 4AC$):
+\[ x^2 - xy + y^2 - 7 = 0 \]
+Once again $A - C = 0$ so the angle is $45^{\circ}$.
+
+\subsection*{$B^2 - 4AC$ is invariant}
+
+We claim that the expression $B^2 - 4AC$ is invariant under both rotation and translation.  Rotation is harder so we'll do that first.
+
+Take $T$, let's call the output $x',y'$.
+\[ x' = x \cos \theta - y \sin \theta \ \ \ \ \ \ \ \ y' = x \sin \theta + y \cos \theta \]
+
+Simplify the notation by using $c$ for $\cos \theta$ and $s$ for $\sin \theta$:
+\[ x' = xc - ys \ \ \ \ \ \ \ \ y' = xs + yc \]
+Suppressing the prime notation, substitute into
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+
+We will give only the terms with $x^2$, $xy$ and $y^2$:
+\[ A(xc - ys)^2 + B(xc - ys)(xs + yc) + C(xs + yc)^2 \]
+\[ = A(x^2c^2 - 2xycs + y^2s^2) + B(x^2cs + xyc^2 - xys^2 - y^2cs) \]
+\[ \ \ \ \ \ \ \ \ \ \ + C(x^2s^2 + 2xycs + y^2c^2) \]
+
+Gather like terms for each power:
+\[ x^2(Ac^2 + Bcs + Cs^2) \]
+\[ + xy(-2Acs + Bc^2 - Bs^2 + 2Ccs) \]
+\[ + y^2(As^2 - Bcs + Cc^2) \]
+
+By making the coefficients of $xy$ equal to zero, we found an expression for the rotation angle to the standard orientation.  Here we need all three sets of terms.
+
+Using primes again for just a moment:
+\[ A' = (Ac^2 + Bcs + Cs^2) \]
+\[ B' = (-2Acs + Bc^2 - Bs^2 + 2Ccs) \]
+\[ C' = (As^2 - Bcs + Cc^2) \]
+
+We will multiply $A'$ times $C'$:
+\[(Ac^2 + Bcs + Cs^2)(As^2 - Bcs + Cc^2) \]
+
+We will have 9 terms
+\[ = A^2c^2s^2 - ABc^3s + ACc^4 + ABcs^3 - B^2c^2s^2 + BCc^3s \]
+\[ \ \ \ \ \ \ \  \ \ + ACs^4 - BCcs^3 + C^2c^2s^2 \]
+
+Let's arrange them in order
+
+$A^2c^2s^2$
+
+$AB(c^3s - cs^3)$
+
+$AC(c^4 + s^4)$
+
+$B^2(-c^2s^2)$
+
+$BC(cs^3-c^3s)$
+
+$C^2c^2s^2$
+
+The second one is $B'^2$.  Set up the multiplication:
+\[ (-2Acs + Bc^2 - Bs^2 + 2Ccs)(-2Acs + Bc^2 - Bs^2 + 2Ccs)  \]
+
+We will have 16 terms, including two copies of each of six products:
+\[ 2 \ [ \ - 2ABc^3s + 2ABcs^3 - 4ACc^2s^2 - B^2c^2s^2 + 2BCc^3s - 2BCcs^3 \ ] \]
+
+plus  four squared terms:
+\[ 4A^2c^2s^2 + B^2c^4 + B^2s^4 + 4C^2c^2s^2 \]
+
+Let's arrange them in order
+
+$4A^2c^2s^2$
+
+$4ABcs^3 - 4ABc^3s$
+
+$8AC(-c^2s^2)$
+
+$B^2(c^4 + s^4) - 2B^2c^2s^2$
+
+$4BCc^3s - 4BCcs^3$
+
+$4C^2c^2s^2$
+
+If we subtract $4$ of the first set from the second set, clearly the $A^2$, $AB$, $BC$, and $C^2$ terms cancel.  What's left are the $B^2$ and $AC$ terms.
+
+We have
+\[ B^2(c^4 + s^4 - 2c^2s^2 + 4c^2s^2) \]
+\[ = B^2(c^4 + s^4 + 2c^2s^2) \]
+\[ = B^2(c^2 + s^2)^2 = B^2 \]
+
+And finally
+\[ -8ACc^2s^2 - 4AC(c^4 + s^4) \]
+\[ = -4AC(2c^2s^2 + c^4 + s^4) = -4AC \]
+
+And that's it.  Plugging the rotated coordinates into the original expression yields the same thing back again.  $B^2 - 4AC$ is \emph{invariant under rotation}.
+
+For translation, we start with
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+
+and translate
+\[ A(x-h)^2 + B(x-h)(y-k) + C(y-k)^2 + D(x-h) + E(y-k) + F = 0 \]
+
+The only terms with high powers are $Ax^2 + Bxy + Cy^2$.  So again, $B^2 - 4AC$ is invariant.
+
+If we take any conic section and rotate it to eliminate the $xy$ term (which we know how to do), then we have
+\[ Ax^2 + Cy^2 + Dx + Ey + F = 0 \]
+
+If a conic section has $B^2 - 4AC$ equal to zero, then it also has $B^2 - 4AC$ equal to zero when rotated to have no $xy$, i.e. $B = 0$.  Then it must be that either $A$ or $C$ is equal to zero.  And that means, we have a parabola.
+
+\section*{visualize slicing a cone}
+
+\subsection*{plane with normal along $x$-axis}
+
+The conic sections  can be formed as the intersection of a plane and two identical but inverted copies of a right circular cone, with their vertices at the same point.  Without loss of generality, align them with the $z$-axis and place the vertices at the origin.
+
+If the orientation of the plane is precisely right --- the plane must be inclined at the same angle as the cone --- then the result is a parabola.  
+\begin{center} \includegraphics [scale=0.18] {cut1.png} \end{center}
+
+Otherwise it's either a closed curve, that is, an ellipse or even a circle, or the plane cuts both nappes of the double cone to give the two separate parts of a hyperbola.  In certain cases, called \emph{degenerate}, the intersection can be a line or pair of lines or even just a single point.  To give one example:  $x^2 - y^2 = 0$, which simplifies to $x = y$.
+
+\url{https://en.wikipedia.org/wiki/Degenerate_conic}
+
+The equation of a cone whose axis of symmetry is the $z$-axis is:
+\[ z = cr \]
+where $c$ is a constant and $r$ is the radius of a circle.
+\[ r = \sqrt{x^2 + y^2} \]
+For simplicity choose $c = 1$ and then
+\[ x^2 + y^2 = z^2 \]
+
+Let us choose a plane oriented along the $x$-axis.  That would be a plane with no $x$ in its normal vector and an equation like
+\[ y + kz + 1 = 0 \]
+
+ We can adjust $k$ later to orient the cone so the slice gives a parabola.
+\[ z = \frac{1}{k}(-y - 1) \]
+\[ z^2 = \frac{1}{k^2}(y + 1)^2 \]
+\[ k^2 (x^2 + y^2) = y^2 + 2y + 1 \]
+\[ k^2 x^2 + (k^2 - 1)y^2 - 2y - 1 = 0 \]
+Since there is no $xy$, $B=0$, and we must have $4AC = 0$ so $k^2 = 1$ and then
+\[ x^2 - 2y - 1 = 0 \]
+\[ y = \frac{1}{2} x^2 - \frac{1}{2} \]
+A parabola in standard orientation.
+
+Try to visualize what we just did.  We picked a plane with normal vector $\langle 0,1,k \rangle$, so that vector points out along the $y$-axis with a variable amount of $z$, depending on $k$.  In the end, we had $k=1$ so the vector was $\langle 0,1,1 \rangle$, which makes a $45^{\circ}$ angle between the $y$- and $z$-axes.  This matches the cone, whose surface is also inclined at that angle.
+
+\begin{center} \includegraphics [scale=0.18] {cut1.png} \end{center}
+
+The result is a parabola.
+
+ The projection of the intersection lies in the $x,y$-plane.  To obtain the actual parabola, we must stretch it by $1/\cos \phi$, where $\phi$ is the angle the plane we chose makes with the $x,y$-plane.
+
+Going back to 
+\[ k^2 x^2 + (k^2 - 1)y^2 - 2y - 1 = 0 \]
+Let $k^2 = 2$ ($4AC > B^2 = 0$), then
+\[ 2x^2 + y^2 - 2y - 1 = 0 \]
+
+Complete the square on $y$:
+\[ 2x^2 + y^2 - 2y + 1 - 2 = 0 \]
+\[ 2x^2 + (y-1)^2 = 2 \]
+An ellipse centered at $(0,1)$.
+
+Actually, with Desmos we don't even have to solve the equation.  
+
+If $k^2 = 1$ it's a parabola:
+\begin{center} \includegraphics [scale=0.18] {rot12.png} \end{center}
+If $k^2 > 1$ then the sign on $y^2$ is positive and we have a ellipse as we just saw above.
+\begin{center} \includegraphics [scale=0.18] {rot13.png} \end{center}
+If $k^2 < 1$ then the sign on $y^2$ is negative and we have a hyperbola.
+\begin{center} \includegraphics [scale=0.18] {rot11.png} \end{center}
+
+\subsection*{plane at $45^{\circ}$}
+
+Let's do a more complicated example.  For the plane, we will choose:
+\[ x + y + kz = 1 \]
+where (again) $k$ is a constant we can vary it later to obtain a parabola.  The normal vector to this plane is $\langle 1,1,k \rangle$, which means that it slices on an angle $45^{\circ}$ to both $x$- and $y$-axes.
+
+\begin{center} \includegraphics [scale=0.18] {cut2.png} \end{center}
+
+Then
+\[ z = \frac{1}{k} (1 - x - y) \]
+\[ x^2 + y^2 = z^2 = \frac{1}{k^2} (1 - x - y)^2 \]
+\[ x^2 + y^2 = \frac{1}{k^2} (1+ x^2 + y^2 - 2x - 2y + 2xy) \]
+And
+\[ (k^2-1)x^2 - 2xy + (k^2-1)y^2 + 2x + 2y - 1 = 0 \]
+
+If $k^2=2$ then $4AC = 4 = B^2$, so we have a parabola.  Simplifying:
+\[ x^2 - 2xy + y^2 + 2x + 2y - 1 = 0 \]
+\begin{center} \includegraphics [scale=0.2] {rot9.png} \end{center}
+We wish to rotate this parabola to standard orientation.  The angle is, once again, $45^{\circ}$.  We know this from the orientation of the plane, but also because $(A-C)/B = 0$ so $\cot 2 \theta = 0$.
+
+The points should be rotated CCW by the angle to get the form that opens down.  Then it's just a question of the sign of the cofactor of $x^2$.
+
+Let $c =  \sin \theta = \cos \theta = 1/\sqrt{2}$.  We substitute $cx + cy$ for $x$ and $-cx + cy$ for $y$.  
+
+Factoring out the $c$ we have $c(x+y)$ and $c(-x + y)$.  In the squared and $xy$ terms we have $c^2 = \frac{1}{2}$.
+
+For $2x + 2y$ we substitute to get
+\[ 2c(x + y) + 2c(-x + y) = 4cy = 2 \sqrt{2} y \]
+
+So that gives
+\[ \frac{1}{2}(x + y)^2 - (x + y)(x - y) + \frac{1}{2} (- x + y)^2 + 2 \sqrt{2} y - 1 = 0 \]
+\[ (x + y)^2 - 2(x + y)(-x + y) + (- x + y)^2 + 4 \sqrt{2} y - 2 = 0 \]
+\[ x^2 + 2xy + y^2 + 2x^2 - 2y^2 + x^2 - 2xy + y^2  + 4 \sqrt{2} y - 2 = 0 \]
+
+The $xy$ terms cancel and drop out.
+\[ x^2 + y^2 + 2x^2 - 2y^2 + x^2 + y^2  + 4 \sqrt{2} y - 2 = 0 \]
+So do the $y^2$ terms:
+\[ x^2 + 2x^2 + x^2 + 4 \sqrt{2} y - 2 = 0 \]
+\[ 4x^2 + 4 \sqrt{2} y - 2 = 0 \]
+\[ x^2 + \sqrt{2} y - \frac{1}{2} = 0 \]
+
+\begin{center} \includegraphics [scale=0.2] {rot10.png} \end{center}
+
+The intersection of the two curves has an awkward angle and solution.  It is not the vertex of the unrotated curve, 
+
+Any point, when rotated, will still lie at the same distance from the origin as it did before rotation.  That includes the vertex of the parabola, and it's easy to check.
+
+Let's see.  When $x = 0$ we have
+\[ \sqrt{2} y = \frac{1}{2} \]
+\[ y = \frac{1}{2 \sqrt{2}} \]
+So that's the distance from the vertex to the origin. If we had isolated $y$ above we would have
+\[ y = \frac{-x^2}{\sqrt{2}} + \frac{1}{2 \sqrt{2}} \]
+and then it would be obvious.
+
+ Since the angle is $45^{\circ}$, if $x$ is at the vertex of the unrotated curve then we have an isosceles right triangle and Pythagoras tells us that
+\[ 2x^2 = (\frac{1}{2 \sqrt{2}})^2 \]
+\[ x = \frac{1}{4} \]
+
+Plugging that into
+\[ x^2 - 2xy + y^2 + 2x + 2y - 1 = 0 \]
+\[ \frac{1}{16} - \frac{y}{2} + y^2 + \frac{1}{2} + 2y - 1 = 0 \]
+\[ y^2 + \frac{3}{2} y - \frac{7}{16} = 0 \]
+\[ (y + \frac{7}{4})(y - \frac{1}{4}) = 0 \]
+The positive root is $y = 1/4$ as expected.  The unrotated vertex is at $(1/4,1/4)$ and the rotated one is at $(0,1/(2\sqrt{2}))$.  We rotate in a circle around the origin, and the distance to the origin for any rotated point is unchanged.
+
+\subsection*{slope}
+One other thing we can do is to apply Kung's method to find the slope at any point $(x_0,y_0)$.
+
+\url{https://maa.org/sites/default/files/kung11010356273.pdf}
+
+We have the parabola
+\[ x^2 - 2xy + y^2 + 2x + 2y - 1 = 0 \]
+
+We set that equal to the higher powers of $(x-x_0)$ and $(y-y_0)$
+\[ (x-x_0)^2 - 2(x-x_0)(y-y_0) + (y-y_0)^2 \]
+which gives
+\[ x^2 - 2xy + y^2 + 2x + 2y - 1 = (x-x_0)^2 - 2(x-x_0)(y-y_0) + (y-y_0)^2 \]
+\[ 2x + 2y - 1 = -2x_0x + x_0^2 + 2y_0x + 2x_0y - 2x_0y_0 -2 y_0y + y_0^2 \]
+
+Gathering like terms
+\[ 2y - 2x_0y + 2y_0y = -2x_0 x - 2x + 2y_0x + x_0^2 - 2x_0y_0 + y_0^2 + 1 \]
+\[ y - x_0y + y_0y = -x_0 x - x + y_0x + \frac{(x_0 - y_0)^2}{2} + \frac{1}{2} \]
+\[ (1 - x_0 + y_0) y = (-x_0 - 1 + y_0) x + \frac{(x_0 - y_0)^2}{2} + \frac{1}{2} \]
+This is the equation of a line with slope
+\[ \frac{-x_0 - 1 + y_0}{1 - x_0 + y_0} \]
+and $y$-intercept
+\[ \frac{ \frac{(x_0 - y_0)^2}{2}  + \frac{1}{2}}{1 - x_0 + y_0} \]
+If we let the vertex be $(x_0,y_0) = (1/4,1/4)$ the $x_0$ terms cancel $y_0$ terms so the slope there is $-1$.
+
+The $y$-intercept is
+\[ \frac{1/2}{1} = \frac{1}{2}  \]
+
+In standard orientation, the slope is zero at the vertex but here, the graph is angled $45^{\circ}$ CW.
+
+\subsection*{general equation}
+
+Let us try to write a somewhat general equation for a conic section in terms of the cone and the plane.
+
+For the cone, let 
+\[ cr = z \]
+\[ c^2 r^2 = z^2 = c^2 x^2 + c^2 y^2 \]
+The larger $c$ is, the steeper the cone.
+
+For the normal vector to the plane, we keep things simple by making the vector perpendicular to the $x$-axis.  Let the $y$-component be $1$ and then adjust the tilt of the plane, with the $z$ component as $k$.  We have
+\[  y + kz + d = 0 \]
+where $d$ is a scalar that adjusts the position of the plane but not its orientation.
+
+The bigger $k$ is, the more the normal points up, and the shallower the angle of the plane.  There will be an inverse relationship between $c$ and $k$ when we have a parabola for the intersection.
+
+Solve the plane equation for $z$:
+\[ z = \frac{1}{k} \cdot (- 1)(y + d) \]
+\[ z^2 = \frac{1}{k^2} \cdot (y^2 + 2dy + d^2) \]
+\[ = c^2 x^2 + c^2 y^2 \]
+
+This becomes
+\[ c^2k^2 x^2 + (c^2k^2-1) y^2 - 2dy - d^2 = 0 \]
+
+There is no term that mixes $x$ and $y$ (we're oriented due north).  Thus $B = 0$ and so either $A$ or $C$ must be zero.
+
+To have a parabola, we make $y^2$ go away so
+\[ c^2k^2 - 1 = 0 \]
+which means that $k = 1/c$, as suspected.  The steeper the cone, the shallower the normal vector for the plane, in order to have a parabola.
+
+Finally
+\[ y = \frac{x^2}{2d} - \frac{d}{2} = 0 \]
+
+\end{document}

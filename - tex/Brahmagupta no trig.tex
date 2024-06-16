@@ -1,0 +1,159 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Brahmagupta without trig}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{Brahmagupta without trigonometry}
+
+I found an old geometry book online (Johnson, \emph{Advanced Euclidean Geometry} (1929)).
+
+\url{https://www.isinj.com/mt-usamo/Advanced%20Euclidean%20Geometry%20-%20Roger%20Johnson%20(Dover,%201960).pdf}
+
+Theorem 109 is Brahmagupta's theorem, though he isn't mentioned.  The proof is really interesting because there are no trig functions.  We rely on a clever construction, ratios from similar triangles, and a deep concept about ratios of areas in similar triangles.
+
+However, it also involves some wonky algebra, which we'll go through in a separate section.
+
+As we said before Brahmagupta's theorem is that the area of a cyclic quadrilateral with sides $a,b,c$ and $d$ is
+\[ K = \sqrt{(s - a)(s - b)(s - c)(s - d)} \]
+where $s$ is the semi-perimeter, namely $2s = a+b+c+d$.
+
+\subsection*{construction}
+
+As with most proofs, there is a construction that makes everything possible.
+\begin{center} \includegraphics [scale=0.25] {brahmagupta2.png} \end{center}
+The cyclic quadrilateral $ABCD$ is extended on two sides that converge to form a triangle. 
+ 
+Johnson says that "if $ABCD$ were a rectangle, the proof would follow trivially."  Which is a good thing, since in that case we can't draw the triangle.
+ 
+\emph{Proof}.
+
+\[ K = \sqrt{(s - a)(s - b)(s - c)(s - d)} \]
+Since $a = c$ and $b = d$
+\[ K^2 = (s - a)^2 \ (s - b)^2 \]
+\[ K = (s - a)(s - b) \]
+Since $2s = a + b + c + d = 2a + 2b$:
+\[ K = \ [ \frac{2a + 2b}{2} - a \ ] \ [ \ \frac{2a + 2b}{2} - a \ ] = ba \]
+ 
+$\square$
+
+Let $x$ and $y$ be the extended sides $CE$ and $DE$ in the triangle, with side $c$ as the third side of $\triangle CDE$.
+
+Recalling our previous work, we notice that $\angle BAE = \angle C$, since $\angle BAD$ is supplementary to both.  So $\triangle ABE \sim \triangle CDE$.
+
+From similar triangles we have
+\[ \frac{x}{c} = \frac{y - d}{a}, \ \ \ \ \ \ \frac{y}{c} = \frac{x - b}{a} \]
+
+\begin{center} \includegraphics [scale=0.25] {brahmagupta2.png} \end{center}
+
+Johnson simply says that adding these and solving for $x+y$ we may obtain
+\[ x + y + c = \frac{c}{c-a} (a + b - c + d) \]
+and similarly find the other three expressions that we need (each term appears singly negative in one of the four).  Let's see.
+
+\subsection*{fancy algebra}
+First rewrite the ratios as
+\[ ax = cy - cd, \ \ \ \ \ \ ay = cx - bc \]
+
+In the first case we want $x + y$ so let's add
+\[ ax + ay = cx + cy - bc - cd \]
+\[(a - c)(x + y) = -c(b + d) \]
+\[ x + y = \frac{c}{c - a} (b + d) \]
+and then a trick
+\[ x + y + c = \frac{c}{c - a} (b + d) + \frac{c(c - a)}{c - a} \]
+\[ = \frac{c}{c - a} \ (- a + b + c + d) \]
+
+The second one is also $x + y$ but has minus $c$
+\[ x + y - c = \frac{c}{c - a} (b + d) - \frac{c(c - a)}{c - a} \]
+\[ = \frac{c}{c - a} \ (a + b - c + d) \]
+
+The third one needs to be $x - y$ which we get as
+\[ ax = cy - cd, \ \ \ \ \ \ -ay = -cx + bc \]
+\[ ax - ay = -cx + cy + bc - cd \]
+\[ = -c(x - y) + c(b - d) \]
+so
+\[ (x - y)(a + c) = c(b - d) \]
+\[ x - y = \frac{c}{a + c} (b - d) \]
+and then
+\[ x - y + c = \frac{c}{a + c} (b - d) + \frac{c(a + c)}{a + c} \]
+\[ = \frac{c}{a + c} (a + b + c - d) \]
+
+The last one is $y - x$ so
+\[ y - x = \frac{c}{a + c} (d - b) \]
+and then
+\[ - x + y + c = \frac{c}{a + c} (d - b) + \frac{c(a + c)}{a + c} \]
+\[ = \frac{c}{a + c} (a - b + c + d) \]
+
+Assembling everything, on the left-hand side we have
+\[ (x + y + c)(x + y - c)(x - y + c)(-x + y + c) \]
+and on the right hand side we have
+\[ \ [ \ \frac{c^2}{c^2 - a^2} \ ]^2  \ (-a + b + c + d)(a - b + c + d)(a + b - c + d)(a + b +c - d) \]
+
+I think that's quite a lot of algebra to just skip over.
+
+\subsection*{converting to the semi-perimeter}
+
+By Heron's formula we have for the area of $\triangle CDE$:
+\[ K = \frac{1}{4} \ \sqrt{(x + y + c)(-x + y + c)(x - y + c)(x + y - c)} \]
+
+But by our algebraic manipulations that is equal to 
+\[ K = \frac{1}{4} \ \frac{c^2}{c^2 - a^2}  \ \sqrt{(-a + b + c + d)(a - b + c + d)(a + b - c + d)(a + b +c - d) } \]
+
+Then, each of the terms under the square root can be connected to the semi-perimeter $s$ because, for example
+\[ 2s = a + b + c + d \]
+so 
+\[ 2s - 2a = - a + b + c + d\]
+\[ 2(s - a) = (-a + b + c + d) \]
+
+We accumulate a factor of $16$ under the square root, which just cancels the $4$ leaving
+\[ K = \frac{c^2}{c^2 - a^2}  \ \sqrt{(s-a)(s-b)(s-c)(s-d) } \]
+
+This is for the area of the triangle $\triangle CDE$.  It is bigger than what's under the square root by the factor of $c^2/(c^2 - a^2)$, which is greater than one.
+
+It remains to connect this area to that of the quadrilateral.  Naturally, it will turn out that they are connected by the same factor.
+
+\subsection*{connecting the areas}
+
+The last idea is that
+\[ \Delta_{CDE} = (ABCE)  + \Delta_{ABE} \]
+where these terms are all areas.
+
+But $\triangle CDE \sim \triangle ABE$ and the ratio between the areas is
+\[ \frac{\Delta_{ABE}}{\Delta_{CDE}} = \frac{a^2}{c^2} \]
+
+This goes back to the Pythagorean theorem.  The ratio of areas of two similar triangles is proportional to the squares on corresponding sides.
+
+\emph{Proof}.
+Let the two similar triangles have sides $abc$ and $ABC$.  If $\phi$ is the angle between $a$ and $b$, and also between $A$ and $B$, then the ratio of areas is
+\[ \frac{ab \sin \phi \cdot 1/2}{AB \sin \phi \cdot 1/2} = \frac{ab}{AB} = \frac{a^2}{A^2} \]
+
+$\square$
+
+So dividing both sides by $\Delta_{CDE}$ we obtain:
+\[ \frac{(ABCD)}{\Delta_{CDE}} = \frac{\Delta_{CDE}}{\Delta_{CDE}} - \frac{\Delta_{ABE}}{\Delta_{CDE}} \]
+
+\[ = 1 - \frac{a^2}{c^2} = \frac{c^2 - a^2}{c^2} \]
+so
+\[ (ABCD) = \frac{c^2 - a^2}{c^2}  \ \Delta_{CDE} \]
+But this is just the factor that we are looking for.  Multiply what we had before by this value and obtain the area of $ABCD$ as
+\[ K =  \sqrt{(s-a)(s-b)(s-c)(s-d) } \]
+
+$\square$
+
+\end{document}

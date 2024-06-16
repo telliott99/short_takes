@@ -1,0 +1,181 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Exp and Log}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{inverse functions}
+
+The word logarithm was invented by John Napier, who came up with the idea as an aid for multiplication.  
+
+Let's start by saying that the logarithm, or log for short, is the \emph{inverse function} to exponentiation.
+\vspace{2ex}
+\begin{center} \includegraphics [scale=0.4] {inverse_func.png} \end{center}
+\vspace{2ex}
+In the figure above, the function $y = 2^x$ is plotted in blue and $y = \log_2(x)$ is in red.  Note that they are mirror images reflected across the line $y = x$ (green).  This is (one) definition of an inverse function.
+
+Just as exponentiation (or exp for short) requires the specification of a base $b$ which is to be ``raised to the power'' $x$, so too the log function requires that we say \emph{which} base is being used.  We write
+\[ y = b^x \ \ \ \ \ \ \log_b (y) = x \]
+
+If you feed $x$ into the function exp, out comes $y$;  if you feed $y$ into the function log, out comes $x$.  We could write
+\[ x = \exp(\log(x)) \ \ \ \ \ \ a = \log(\exp(a)) \]
+
+I'm going to assume that you already know that exponents do not have to be integers but can be real numbers, including irrationals, as well as zero.  
+
+\subsection*{rules}
+
+The first rule of exp is:
+\[ b^p \cdot b^q = b^{p+q} \]
+If $b^p$, the number equal to $b$ raised to the power $p$, is multiplied by $b^q$, then the product can be found by adding the exponents.  
+
+The second rule is called the exponentiation rule:
+\[ (b^p)^q =  b^{pq} \]
+
+\subsection*{ancient history}
+
+Now, by definition, if $u = b^p$ and $v = b^q$, then $p$ is the log of $u$ (to the base $b$), and similarly $q$ is the log of $v$ (to the same base) and $u \cdot v$ can be computed by finding the number which is equal to $b^{p+q}$.
+
+In the old days, if you wanted to multiply $2.718281828 \times 3.141592653$, you would get out a book called the table of logarithms, find the logs of those two numbers, add the logs together, then look again in the book until you found the number whose logarithm was equal to that sum.  Today you just punch numbers into a calculator and read $8.539734223$.
+
+So then why do they torture you with logarithms?
+
+One reason is to reinforce the idea that the inverse function of exp is log, and vice-versa.  But a much more important reason is that there is a deep connection between the log function and the function $y = 1/x$ that runs all through calculus.  So this is one of those, ``you're going to need this later'' type of arguments.
+
+Note:  I hesitated to call $y = 1/x$ \emph{the} inverse function, although that is normal usage, because that meaning is a completely different one than what we we've been talking about.  
+
+\subsection*{rules for logs}
+
+Just as we add exponents for exp, we add logarithms for log, since they are really two names for the same thing.
+\[ \log_b(p \cdot q) = \log_b(p) + \log_b(q) \]
+
+Remember that you must use the same base $b$ when using the exp or log functions.
+
+Now
+\[ p^q = p \cdot p \dots  \cdot p \ \ \ ( q \ \text{ times)} \]
+Taking the $\log_b$ of both sides
+\[ \log_b(p^q) = \log_b(p) + \log_b(p) \dots + \log_b(p) \ \ \ ( q \ \text{ times)} \]
+so
+\[ \log_b(p^q) =  q \log_b(p) \]
+
+We can use that second rule as follows.  If
+\[ b^{pq} = (b^p)^q = b^{qp} = (b^q)^p \]
+Then 
+\[ \log_b((b^p)^q) = q \cdot \log_b(b^p) = pq \]
+That is a little hard to come up with de novo, which is why I like the trick of writing out 
+\[ \log_b(p^q) = \log_b(p) + \log_b(p) \dots + \log_b(p) \ \ \ ( q \ \text{ times)} \]
+
+\subsection*{change of base formula}
+It's common to see the log function written without parentheses.  
+\[ y = b^x \ \ \ \ \ \ \ x = \log_b y \]
+
+It turns out that logarithms of the same number to two different bases $a$ and $b$ are related by a constant, in fact, that constant is the same for any $x$, so
+\[ \log_b x = k \cdot \log_a x \]
+Our goal is to figure out what that constant $k$ is.
+
+Go back to
+\[ y = b^x \ \ \ \ \ \ \ x = \log_b y \]
+Take the logarithm to base $a$ of the first equation:
+\[ \log_a y = \log_a (b^x) \]
+Use the second rule for logs from above on the right-hand side:
+\[  \log_a y = x \cdot \log_a (b) \]
+Substitute for $x$ from the second equation.
+\[ \log_a y = \log_b y \cdot \log_a b \]
+Now, $y$ stands for any number, so we might as well replace it by $x$
+\[ \log_a x = \log_b x \cdot \log_a b \]
+
+This equation connects the log of any number $x$ to two different bases $a$ and $b$.  The constant of proportionality is $\log_a b$.  
+
+To remember this (if you must), switch the order of terms
+\[ \log_a x = \log_a b \cdot \log_b x  \]
+
+Do you see that $b \cdot \log_b$ in the middle of the right-hand side?  I imagine the two $b$'s canceling to give $\log_a x$ (though they don't, really).
+
+It is very easy to show that
+\[ \log_a b \cdot \log_b a = 1 \]
+I leave that as an exercise.  Use the rule that we just derived, twice.
+
+\subsection*{e is for Euler?}
+
+We have used (elsewhere) both $2$ and $10$ as the base for exponential functions, and both $\log_2$ and $\log_{10}$ are also seen.  
+
+There is one other number used as the base for exponential and logarithms that surpasses those in importance.  It is called $e$.  
+
+Weirdly, $e$ is just a number, admittedly an irrational number with a value slightly less than $3$, namely, $e \approx 2.718281828$.  (For entertainment, what was computed before was $\pi \cdot e$ or ``pie'').
+
+We often see functions like $e^x$ or $e^{-x}$.  The corresponding logarithm is called the \emph{natural} logarithm and it has its own symbol $\ln$.  So for example,
+\[ \ln 2 = 0.693 \]
+
+It is understood that the base of natural logarithms is $e$, we don't need to write the subscript.  Sometimes the function is written as $\exp \{ x \}$, again without the subscript.
+
+Without going too deeply into it, let's just look at a plot of $e$.
+\begin{center} \includegraphics [scale=0.4] {e_slope.png} \end{center}
+In each case, $e$ is just the same strange number, but $e^x$ is called the ``function e to the x''.
+
+The red curve is the graph of $e^x$, and the blue line is the tangent to the curve at the point $1,e$.  (The value of $y=e^x$ at the point with $x = 1$ is just $e$).  The slope of the tangent line to the curve at any point $x$ is equal to the value of the function $e^x$ itself at that point.  
+
+We say that
+\[ \ [ \ e^x \ ]' = e^x \]
+(without explaining what the derivative symbol $'$ is all about).
+
+That's really important in calculus.
+
+\subsection*{half-life}
+
+Let's finish up with a practical example.
+
+Radioactive atoms ``decay'' by emitting something, either a ``particle'' or a photon of light.  For example $^{32}P$, often used to label DNA, emits a beta particle (a very fast electron) and turns into the sulfur isotope $^{32}S$ (a neutron has turned into a proton).
+
+Each individual atom has some small probability of decaying in the next second.  For $^{32}P$, most will not.  On the average, half the atoms in a sample of $^{32}P$ decay in about $14.3$ days.  This is called the half-life.  Each type of radioactive atom has a characteristic half-life, ranging from nanoseconds to billions of years, depending on the kind of atom, or isotope.
+
+The point is that in each second, the same fraction of atoms decays.  That is to say, the loss of P atoms is proportional to the number of P atoms at a given time.  To put it another way, after one-half life, half the atoms remain, after two half-lives only a quarter remain, and so on.
+
+We write this relationship as
+\[ N = N_0 \ e^{-kt} \]
+Taking logs
+\[ \ln \frac{N}{N_0} = - kt \]
+
+We can say that the fraction remaining after time $t$ is $e^{-kt}$, where $t$ is some constant that we will determine, different for each type of radioactivity.
+
+If we graph $N$ in the first example as a function of $t$, we have an exponential decay curve, whereas, if we plot the second function, we will have a straight line with slope $-k$.  The second is much easier to analyze.
+
+Another thing is to see what happens when $t$ is equal to $T$, the half-life, where $N = N_0/2$.  
+\[ \ln \frac{1}{2} = - kT \]
+
+Now
+\[ \ln \frac{1}{2} = - \ln 2 \]
+To see this, multiply 
+\[ \frac{1}{2} \cdot 2 = 1 \]
+and take logs
+\[ \ln \frac{1}{2} + \ln 2 = \ln 1 = 0 \]
+So going back to our equation, we have
+\[ \ln \frac{1}{2} = - kT \]
+\[ \ln 2 = kT \]
+The decay constant and the half-life are related by a constant, the natural logarithm of $2$, which is equal to about $0.693$  That means $k$ is
+\[ k = \frac{0.693}{14.3 \text{ days}} \approx 0.04848 \ \text{days}^{-1} \]
+It is easier to calculate the fraction remaining at time $t$ as
+\[ \frac{N}{N_0} = \ e^{-kt} = e^{- \ln 2 \ \cdot \ t/T} \]
+
+The half-life of $^{32}P$ is 14.3 days, which is about a million seconds.  Using the formula above, I calculate that, coincidentally, roughly one in a million atoms decay each second.  
+
+Even a tiny amount, say $10^{-12}$ mole, contains  about $10^{12}$ atoms and so experiences about a million violent disintegrations every second.
+
+Even after $10$ half-lives we would be down to $1/2^{10} \approx 10^{-3}$ or several hundred cpm.  Still noticeable on our Geiger counter.  Ask me how I know.
+
+\end{document}

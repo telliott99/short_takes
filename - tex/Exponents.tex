@@ -1,0 +1,331 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Exponents}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+This is a brief introduction to exponential notation and logarithms.
+
+The first few powers of $2$ are
+\[ 2 \cdot 2 = 4 \]
+\[ 2 \cdot 2 \cdot 2 = 2 \cdot 4 = 8 \]
+\[ 2 \cdot 2 \cdot 2 \cdot 2 = 4 \cdot 4 = 16 \]
+
+The exponent is a new notation we introduce where rather than write $2 \cdot 2 \cdot 2 \cdot 2$, instead we count the number of copies of $2$ that should be multiplied together and write that next to the number:
+\[ 2^2 = 4 \ \ \ \ \  2^3 = 8 \ \ \ \ \ \ 2^4 = 16 \ \ \ \ \ 2^{10} = 1024 \]
+
+Sometimes people will say "multiply 2 by itself that many times" but the tiny problem there is that once you reach 4 you no longer have 2 any more except in the multiplier.  It may be confusing.
+
+The exponent is written to the right and as a superscript (it is usually made a little smaller in size).  This can be done for \emph{any} number.
+\[ 3^2 = 9 \ \ \ \ \ \ \ \ \ \ 3^3 = 27 \ \ \ \ \ \ \ \ \ \ 3^4 = 81 \]
+\[ 10^2 = 100 \ \ \ \ \ \ \ \ \ \ 10^6 = 1000000 \]
+
+We call the original number the \emph{base} and the power an \emph{exponent}.  In general, for $b^p$,
+$b$ is the base, and $p$ is the power or exponent.
+
+In the case of one single power of a number, we might write
+\[ 2 = 2^1 \]
+Doing that will help with the next idea.
+
+\subsection*{multiplication}
+
+To multiply powers of $2$ (or some other number), add the exponents.
+\[ 2^1 \cdot 2^2 = 2^{1+2} = 2^3 \]
+\[ 10^2 \cdot 10^4 = 10^{2+4} = 10^6 \]
+
+You can see why this works by writing out each individual factor and then grouping them
+\[ 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^5 \]
+\[ = (2 \cdot 2) \cdot (2 \cdot 2 \cdot 2) = 2^2 \cdot 2^3 = 2^{2 + 3} = 2^5 \]
+
+To do this kind of multiplication, the bases must be the same
+\[ 2^3 \cdot 3^2 = \text{?} \]
+
+In the example above, you must not try to add together the exponents $3$ and $2$.
+
+\subsection*{extensions}
+When multiplying two numbers, the exponents add.  When dividing two numbers, the exponents subtract.
+\[ \frac{8}{4} = \frac{2^3}{2^2} = 2^3 \cdot 2^{-2} = 2^{3-2} = 2^1 = 2 \]
+
+Here's a picture from Lara Alcock's \emph{Mathematics rebooted}.
+\begin{center} \includegraphics [scale=0.6] {exponents_extended.png} \end{center}
+
+In the middle we have the sequence $2 \ 4 \ 8 \ 16$ and the equivalent sequence above it:  $2^1 \ 2^2 \ 2^3 \ 2^4$.  Moving to the right consists of multiplying by $2$ and for the power, adding $1$ to the exponent.  But moving to the left consists of dividing by $2$ and subtracting $1$ from the exponent.
+
+So what number lies to the left of $2$?  Well, $1 \cdot 2 = 2$.  So $1$ must be equal to $2^{1 - 1}$.  But that's $2^0$.  How to conceive of multiplying a number by itself zero times?
+
+My advice:  don't try to visualize what's happening.  It's just a very convenient new notation.
+
+Here's another thought.  Suppose we imagine that exponents don't have to be just $\{1, 2, 3 \dots \}$ but might be negative integers or fractions or even zero. 
+
+This forms a consistent system.  So then if
+\[ 1 \cdot 2 = 2 \]
+\[ 2^p \cdot 2^1 = 2^1 \]
+By the laws of exponents, $p + 1 = 1$.  Clearly $p = 0$.  So $2^0 = 1$.
+
+Continuing, $1/2 = 2^{-1}$ and $1/4 = 2^{-2}$ and so on.
+
+Let's reinforce the above with another example:
+\[ 0.1 = \frac{1}{10} = 10^{-1} \]
+Similarly $1/100 = 0.01 = 10^{-2}$.  This means that a decimal like $0.157$ can also be written as
+\[  0.157 = 1 \cdot 10^{-1} + 5 \cdot 10^{-2} + 7  \cdot 10^{-3} \]
+
+The exponent notation can be extended, first to zero, then to negative numbers and fractions, and afterward to all numbers.
+
+Let us write the number $2/2 = 1$ as
+\[ \frac{2^1}{2^1} = \text{?} \]
+Using the rule above for division, we should subtract the two exponents
+\[ 1 = \frac{2^1}{2^1} = 2^0 \]
+
+But this is true for any number and any exponent, as long as it's the same on top and bottom (and the base is not zero):
+\[ \frac{b^p}{b^p} = 1 = b^0 \]
+
+We can extend the idea to fractions where the numerator is smaller than the denominator.
+\[ \frac{2^1}{2^2} = \frac{1}{2} = 2^{-1} \]
+
+Whenever we do this kind of manipulation, the bases must be the same.
+
+\subsection*{powers of powers}
+
+We will sometimes need to do the following
+\[ (2^2)^2  = \text{?} \]
+
+What's inside the parentheses is $2^2 = 4$ so then $4^2 = 16$.  Evidently
+\[ (2^2)^2  = 16 = 2^4 \]
+
+This gives us the rule that when computing powers of powers, exponents multiply.
+\[ (2^2)^2 = 2^{2 \cdot 2} = 2^4 = 16 \]
+
+In general
+\[ (b^p)^q = b^{pq} \]
+
+\subsection*{square roots}
+
+You know that the squares of the first three integers (after $1$) are
+\[ 2 \cdot 2 = 4 \ \ \ \ \ \ \ \ \ \ 3 \cdot 3 = 9 \ \ \ \ \ \ \ \ \ \ 4 \cdot 4 = 16 \]
+and we could continue in this way.
+
+$4,9$ and $16$ are called \emph{perfect squares}.
+
+The number which is multiplied by itself to give the result is called the \emph{square root}.  $2$ is the square root of $4$, written $2 = \sqrt{4}$.
+
+Even though $2$ itself is not the square of any integer (nor are $3,5,6,7,8$ etc., there does exist a number that when multiplied by itself is equal to $2$.  
+
+By trial and error (or using a calculator) one can find that $1.414^2 \approx 1.9994$ and $1.415^2 \approx 2.002$ so the square root of $2$ lies somewhere between those two values.  
+
+We can write this result as an inequality
+
+\[ 1.414 < \sqrt{2} < 1.415 \]
+
+$\sqrt{2}$ is a new kind of number called an \emph{irrational} number.  The name means there is no rational number (no fraction) which is exactly equal to $\sqrt{2}$.  We'll see why another time.  
+
+Since any finite decimal is a rational number, the implication is that the sequence $\sqrt{2} = 1.414...$ continues forever without repeating.
+
+Extend the exponent notation to square roots in the following way.  We're looking for a number that when multiplied by itself, is equal to $2$
+\[ n \cdot n = 2 \]
+We also want to write $n$ as a power of $2$:
+\[ 2^p \cdot 2^p = 2^1 = 2 \]
+
+Using the addition rule, we see that $p + p = 1$.  Clearly $2p = 1$ so $p = 1/2$ and then the square root of $2$ should be written as
+\[ 2^{1/2} \cdot 2^{1/2} = 2^1 = 2 \]
+
+Decimals also work fine as exponents so we can write
+\[ 2^{0.5} = 2^{1/2} = \sqrt{2} \]
+
+Similarly $2$ is the \emph{cube root} of $8$ and $2 = 8^{1/3}$.
+
+That statement about decimals being legitimate powers is really important.  $10^{0.425}$ is a perfectly good number, even if we don't see right away how to calculate it.  The result is about $2.66$.
+
+\subsection*{logarithms}
+
+The \emph{logarithm} is just a power or exponent, using a particular base. It has a different name partly because logarithms were discovered before people started using exponents, around the time of Galileo (early 1600s). 
+
+Suppose we know (never mind how yet) that $0.30103$ is the power of $10$ that is needed to make $2$.  That is
+\[ 2 = 10^{0.30103} \]
+
+We say that $0.30103$ is the logarithm to the base $10$ of the number $2$, or equivalently, the logarithm of $2$ to the base $10$. ($0.30103$ is only approximately correct.)  
+
+Logarithm is a fancy word for exponent, which is a fancy word for power. We could say that $3$ is the logarithm of $8$ to the base $2$, since $2^3 = 8$.  It's the same idea.  
+
+The base of the logarithm is indicated in the following way.  If $b^p = n$ then we write
+\[ \log_b (n) = p \]
+Sometimes the parentheses are left out
+\[ \log_b n = p \]
+
+Suppose we also know that
+\[ 3 = 10^{0.47712} \]
+
+Then, to multiply $2 \cdot 3$, we have
+\[ 2 \cdot 3 = 10^{0.30103} \cdot 10^{0.47712} = 10^{0.30103 + 0.47712} = 10^{0.77814} \]
+
+If we also happen to know that $0.77814$ is the logarithm of $6$ to the base $10$, then we have our answer.
+
+Back in the days of Kepler and Newton, when multiplication was carried out by hand, and it was common to multiply together 6 or 7 digit numbers, it was much easier to look up their logarithms in a table (a collection of logarithms), add them, and then find the number corresponding to that logarithm (called the anti-logarithm) in another table.
+
+\[ 1.189207115 \cdot 1.189207115 = 1.414213562 \]
+
+Since can look up in a table of values that 
+\[ \log_{10} (1.189207115) = 0.0752574989 \] 
+we can do that multiplication by adding two copies of the logarithm
+\[ 0.0752574989 + 0.0752574989 = 0.15051499783 \]
+ and then look up in another table that 
+ \[ \log_{10} 1.414213562 = 0.1505149978 \]
+
+We don't do things this way any more, so why are we talking about logarithms?  We'll explain why, but first we need one more powerful idea.
+
+\subsection*{aside on functions}
+$x^2$ is a function.  For every value of $x$ you put in, its output is $x^2$.
+
+A function is like a machine that when you feed in a number, it spits out another number.  We say that a function is a rule that assigns a unique output for every input (for some functions, the range of input may be restricted).
+
+Raising to a power (exponentiation), taking the square root, or taking the logarithm of a number are all functions.
+
+If we have the same number on both sides of an equation and then feed both sides to the same function, we still have equality.  That's really important.
+
+So if we have
+\[ \text{something} = \text{another thing} \]
+Then
+\[ \log(\text{something}) = \log(\text{another thing}) \]
+and
+\[ \text{something}^2 = \text{another thing}^2 \]
+
+\subsection*{why logarithms}
+
+Obviously, nobody does multiplication this way any more. So why do we torture you with it?  The main reason is that in calculus we get interested in finding the area under curves.  
+
+If we're driving a car and the speed varies, the distance traveled is the area underneath the curve that describes the speed with respect to time.
+
+So for example, the area under the curve $y = x^2$ between the bounds of $x = 0$ and $x = 1$ is equal to $1/3$.
+
+\begin{center} \includegraphics [scale=0.2] {x_squared.png} \end{center}
+
+It turns out that the area under the curve $y = 1/x$ between the bounds $x = 1$ and $x = t$ is equal to the logarithm of $t$ to a special base.
+
+\begin{center} \includegraphics [scale=0.2] {1_over_x.png} \end{center}
+
+That special base is called $e$ or the base of natural logarithms.  
+
+The logarithm to the base $e$ is called the \emph{natural logarithm} and it's written as $\ln$.  These two statements are equivalent:
+\[ y = e^x \ \ \ \ \ \ \ \ \ \ x = \ln y \]
+
+Here's the important point:  the two functions $y = 1/x$ and $y = \ln (x)$ are mathematical cousins.  They have exactly the same relationship in calculus as, say, $y = x^2$ and $y = x^3$.  That will be very useful for solving problems later on.
+
+In this last part, we introduce some more challenging ideas.  If you're new to exponents, this might be a good place to stop.
+
+First, something we left out above:  the area under $y = 1/x$ between the bounds $x = 1$ and $x = e$ is equal to $1$.  That's a definition of $e$.
+
+\subsection*{changing the base}
+
+There is a formula which relates the logarithm of any number, call it $x$, using two different bases.  That is, there is some constant $k$ such that
+\[ \log_b (x) = k \cdot \log_a (x) \]
+
+Here's an example.  We know that $2^3 = 8$, 	So $\log_2 (8) = 3$.  Above we had that $\log_{10} (2) = 0.30103$.  By the multiplication rule from before, we find that 
+\[ \log_{10} (8) = \log_{10} (2^3) = 3 \cdot \log_{10} (2) = 0.90309 \]
+
+We want $k$ so that
+\[ \log_b (x) = k \cdot \log_a (x) \]
+\[ \log_2 (8) = k \cdot \log_{10} (8) \]
+\[ 3 = k \cdot 0.90309 \]
+
+We could calculate $k$, but that's not really our interest here.  We want to notice that the logarithm of a number to a smaller base ($2$) is larger than the logarithm of the same number to a larger base (10).  As one goes up, the other goes down.
+
+It turns out that $k$ is a third logarithm.  I remember the general formula as
+\[ \log_b (x) = \frac{\log_a (x)}{\log_a (b)} \]
+
+\subsection*{aids to memory}
+
+You will probably need to learn the formula above at some point in your algebra career.  I remember it by saying (i) we want to find a relationship between $\log_b (x)$ and $\log_a (x)$ 
+\[ \log_b (x) = k \cdot \log_a (x) \]
+
+and then (ii) line it up so that the little $a$'s are above one another on the right.
+\[ \log_b (x) = \frac{\log_a (x)}{\log_a (b)} \]
+
+You could also write this as
+\[ \log_a (b) \cdot \log_b (x) = \log_a (x) \]
+and imagine the upper and lower $b$ on the left-hand side canceling in some way.  (They don't really).
+
+\subsection*{derivation}
+
+Write
+\[ x = b^p \]
+\[ p = \log_b (x) \]
+
+These expressions are equivalent and just the definition of the exponent or logarithm.  Now take $\log_a$ of both sides of the first expression:
+\[ \log_a (x) = \log_a (b^p) \]
+
+The multiplication law for exponents says that the right-hand side is
+\[ \log_a (b^p) = p \log_a (b) \]
+
+Now substitute for $p = \log_b (x)$ and rewrite the original equation as
+\[ \log_a (x) = \log_b (x)  \log_a (b) \]
+
+That's what we had before.
+
+\[ \frac{\log_a(x)}{\log_a(b)} = \log_b(x) \]
+
+Such an easy derivation, and yet I can never remember it for long.
+
+\subsection*{problem}
+
+I saw this problem on the web.
+\begin{center} \includegraphics [scale=0.2] {exp_prob.png} \end{center}
+
+It almost looks like a mistake, since $81 = 3^4$ and $64 = 2^6$.
+
+I sneaked a peek:
+\begin{center} \includegraphics [scale=0.5] {exp_prob2.png} \end{center}
+That's even stranger.  It's as if when we switch the bases, the answer doesn't change!
+
+Write
+\[ x = \log_2 (81) = 4 \cdot \log_2 (3) \]
+\[ y = \log_3 (64) = 6 \cdot \log_3 (2) \]
+
+Go back to our change of base equation:
+\[ \log_a (x) = \log_b (x)  \log_a (b) \]
+
+substitute $x = a$
+\[ \log_a (a) = 1 = \log_b (a)  \log_a (b) \]
+Hence
+\[ x \cdot y = 24 \]
+
+\subsection*{how logarithms were calculated}
+
+Above we had that $\log_{10} (2) = 0.30103$.  How was this determined?
+
+The first part is to calculate successive square roots of $10$.
+
+\[ 10^{0.5} = 3.16228 \]
+\[ 10^{0.25} = 1.77828 \]
+\[ 10^{0.125} = 1.33352  \]
+\[ 10^{0.0625} = 1.15478  \]
+\[ 10^{0.03125} = 1.0746  \]
+
+That's done by trial and error, as we found $\sqrt{2}$ above.
+
+Next we must find the numbers which when multiplied together, give $2$
+
+$\circ$ \ \ $1.77828 \cdot 1.0746 = 1.9113$ (too small).
+
+$\circ$ \ \  $1.77828 \cdot 1.15478 = 2.0535$ (too large).
+
+This means that $\log_{10} (2)$ is just slightly more than $0.25 + 0.03215 = 0.28215$.  To get better precision, you need more roots of $10$.  The whole procedure was a big pain.  
+
+But ... it only needed to be carried out once.  Then anyone could use those logarithms.  And back in the day (before the mid 1970s), everybody who needed to calculate had their tables of logarithms and antilogarithms.
+
+\end{document}

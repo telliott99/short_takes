@@ -1,0 +1,75 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Making change}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+You're working the cash register at the soup place and someone's grandad actually wants to use cash.  That's weird.
+
+Their food costs \$$3.84$ and they hand you ten dollars.  You freeze ...
+
+What to do?  Put away your calculator.
+
+Turn this into a reverse addition problem.  What number, when added to $84$, gives $100$?
+\[ 84 +  \text{??} = 100 \]
+
+The rule is that in the ones place (the last place on the right), the digits must add to give $0$.  We get $6$, since $4 + 6 = 10$.
+\[ 84 + \text{?}6 = 100 \]
+
+In the next place, the digits add to give $9$ (one less than $10$).  Since $8 + 1 = 9$, we obtain
+\[ 84 + 16 = 100 \]
+
+Thus, we can solve the change problem for \$$1$ by saying, the digits in the tens place should add up to $9$, and the digits in the ones place should add to $10$.
+
+\begin{verbatim}
+25 + 75
+34 + 66
+51 + 49
+72 + 28
+\end{verbatim}
+
+You get the idea.
+
+Having solved the coins, count them out.  Now forget that part of the answer.
+
+The paper money is as follows.  Do the same as before, but first, subtract \$$1$ from what the customer gives you.
+
+Their food costs \$$3.84$ and they hand you \$$10$.  We already solved the coins as $0.16$ and now the dollars are $3 + 6 = 9$.  The change is $6.16$.
+
+Suppose he gives you \$$20$, or \$$5$?
+
+We have $3$ plus something equals $19$, one less than $20$?  The answer is $16$.
+
+Or $3$ plus something equals $4$, one less than $5$?  The answer is $1$.
+
+And for the person who gives you four pennies plus \$$20$, ask him:  what the heck are those things?
+
+Or you can do the following:  subtract $4$ cents from what he owes.  So now make change for \$$3.80$ from \$$20.00$.  That's $0.20$ plus $16$ so \$$16.20$.
+
+$\bullet$  total to $10$ in the ones position
+
+$\bullet$  total to $9$ in the tens position
+
+$\bullet$ add to $1$ less than what they gave for the dollars
+
+$\bullet$ if they give you coins, credit the coins against the amount, then make change for that
+
+
+\end{document}

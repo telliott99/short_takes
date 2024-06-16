@@ -1,0 +1,336 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Caps and slices}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here we will look at calculating various areas in a circle.  It will be simple geometry to start with, and we'll connect that with calculus later to gain some insight into the standard formulas.
+
+To make things simpler, take a unit circle with $R = 1$, recognizing that the result can always re-scaled.  For a circle of radius $R$, the area scales like $R^2$.
+  
+\begin{center} \includegraphics [scale=0.4] {polar_area1.png} \end{center}
+
+Here is a quarter-circle.  We draw a radius, and then drop the vertical to the horizontal axis, forming three areas of different shapes.  These are a \emph{sector} or pie-shaped piece of the circle ($S$), plus the \emph{triangle} below it ($\Delta$), and then toward the outside, what I call a \emph{wingtip} ($W$).
+
+There is another sector, $T$, which has angle $t$ as the central angle.  Really the core insight is that the area of $W$ is $T$ \emph{minus} the triangle $\Delta$, while the area above the dotted line marked $x$ is $S$ \emph{plus} the same triangle.
+
+The area of a sector with central angle $\theta$ is $\theta/2$.  We get that result by equating the fraction of the whole occupied by the area $A$ to the fraction of the whole that the angle sweeps out:
+\[ \frac{A}{\pi} = \frac{\theta}{2 \pi} \]
+
+For area $S$ and angle $s$:
+\[ S = \frac{s}{2} \]
+
+The next shape is the triangle.  The angle $t$ comes from complementary angles.  The hypotenuse is $1$ with sides equal to $\sin t$ and $\cos t$.  However, since angle $s$ is complementary, the same triangle also has sides $\sin s$ and $\cos s$.
+
+Its area is
+\[ T = \frac{\sin t \cos t}{2} = \frac{\sin s \cos s}{2} \]
+
+\begin{center} \includegraphics [scale=0.4] {polar_area1.png} \end{center}
+Lastly, the wingtip is what remains after the other two areas are subtracted from $\pi/4$.  So altogether we have
+\[ W = \frac{\pi}{4} - \frac{\sin s \cos s}{2} - \frac{s}{2} \]
+
+A circular cap consists of two wingtips, the second one would extend below the horizontal axis.
+\[ \text{Cap} = 2W =   \frac{\pi}{2} - \sin s \cos s - s  \]
+And since $s + t = \pi/2$:
+\[ \text{Cap} =  t - \sin t \cos t =  t - \sin s \cos s   \]
+which makes perfect sense in terms of what we said before.
+
+\subsection*{slices of a circle}
+
+\begin{center} \includegraphics [scale=0.3] {polar_area7.png} \end{center}
+
+Now, let's focus on that part of a circle swept out by a ray from one edge, i.e. between a chord and the diagonal.  I will call that shape a \emph{slice} of the circle, since the apex angle is on the circle rather than at the center.  We can draw a dotted line starting from the center of the circle to form another sector and triangle.
+
+Let this sector have central angle $2s$.  If we draw any inscribed angle that subtends the same arc of the circle as central angle $2s$, then the inscribed angle is one-half, or $s$.  So the area of the sector alone is just $s$.
+
+It remains to determine the area of the triangle.  That area can be divided into two right triangles with sides $\sin s$ and $\cos s$.
+
+The area of the each triangle is $\frac{1}{2} \sin s \cos s$, so the two together are twice that, since this is a unit circle.  In terms of the inscribed angle, the sector is $s$ and the total is just
+\[ A = s + \sin s \cos s \]
+
+\subsection*{combining the two views}
+
+We found that the area of the central part (a \emph{belt}, extending below the horizontal axis) is
+\[ s + \sin s \cos s \]
+This is the sector $s$ plus the triangle we had in the first part, all doubled to include the mirror image area below the horizontal axis.
+
+The circular cap (over the entire half-circle) is $\pi/2$ minus this or
+\[ \frac{\pi}{2} - s - \sin s \cos s = t - \sin s \cos s = t - \sin t \cos t \]
+
+In the second part, we partitioned the half-circle using a slice of inscribed angle $s$.  The area of the slice is 
+\[ A = s + \sin s \cos s \]
+
+The area of the belt is exactly the same as the area of the slice.  We can see this clearly when we \emph{turn the circle}.  In the figure below, the ray $r$ has been turned so that it is horizontal.
+
+\begin{center} \includegraphics [scale=0.3] {polar_area2.png} \end{center}
+Part of the area is beneath the horizontal diagonal of the circle, but there is a matching sector above the diagonal, on the left, that's missing.  
+
+The two areas are equal because the central angles are equal, by vertical angles.
+
+So, again, the area of a belt is exactly the same as the area of the corresponding slice.  If the belt or cap is given in terms of a height, $h = \sin s$.  But take care to note that the height should be measured as forming a right angle with the ray (belt picture), not with the diagonal.
+
+\subsection*{general case}
+
+Finally, we consider a more general situation, where neither edge is a diagonal of the circle.  If the diagonal from the origin is included in the area swept out, then we have simply the sum of two different areas from two components of the total angle.  
+
+If not, we can compute the area as the difference of two areas swept from one diagonal out to each of the given end positions.  It is just like the classic proofs for the inscribed angle theorem.
+
+Any belt of the circle, even one that has different width arcs on the two ends, can be computed as the sum for two arcs.
+\begin{center} \includegraphics [scale=0.3] {polar_area4.png} \end{center}
+
+\[ A = s + t + \sin s \cos s + \sin t \cos t \]
+
+\subsection*{displaced circle}
+
+We want to do some calculus for this problem, so we must introduce a coordinate system.  One approach is to stay with Cartesian coordinates but displace the circle from the origin.
+
+The equation for a unit circle of radius $R$ centered at the origin is simply 
+\[ R^2 = x^2 + y^2 \]
+Every point $(x,y)$ on the circle satisfies this equation.
+
+For a circle displaced from the origin to $(h,k)$, the equation is
+\[ R^2 = (x-h)^2 + (y-k)^2 \]
+
+Here, we have unit circle whose origin is at $(1,0)$:
+\[ 1^2 = (x-1)^2 + y^2 \]
+This places the origin of coordinates at the bottom-left corner of the figure.
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+
+Expanding
+\[ 1 = x^2 - 2x + 1 + y^2 \]
+
+$r$ is the length of the ray extending from the origin to a point on the circle.  For a slice of the circle, the lengths of the two edges bounding the slice are different --- one is a ray and one is a diagonal.  Since $r$ varies with angle $\theta$, we are looking for an expression for $r(\theta)$.  
+
+For the ray of length $r$ terminating at $(x,y)$ on the circle, $x = r \cos \theta$ and $y = r \sin \theta$ so $x^2 + y^2 = r^2$ and then
+\[ 1 = r^2 - 2x + 1 \]
+\[ r^2 = 2x \]
+Substituting for $x=r \cos \theta$
+\[ r^2 = 2 r \cos \theta \]
+\[ r = 2 \cos \theta \]
+which is the same as our simple analysis of the shapes.
+
+\subsection*{Thales' theorem}
+
+Consider the triangle with two sides that are radii of the circle, and third side $r$.  We have that $a = R \cos \theta$ and $r = 2a$ so $r = 2 R \cos \theta$.  
+
+All this fits with what we already know from Thales' theorem.  The triangle with sides $r$ and $2R$ is a right triangle.
+
+\subsection*{law of cosines}
+
+Another way to get an expression for $r$ in terms of the subtended angle uses the law of cosines.  Recall that for three sides of a triangle $a,b$ and $c$ and angle $C$ between $a$ and $b$ we have:
+\[ c^2 = a^2 + b^2 - 2ab \cos C \]
+
+So here
+\[ R^2 = r^2 + R^2 - 2rR \cos \theta \]
+\begin{center} \includegraphics [scale=0.4] {polar_area.png} \end{center}
+
+This gives the same quadratic in $r$
+\[ r^2 = 2R \cos \theta \ r \]
+whose solution is
+\[ r = \frac{2R \cos \theta \pm \sqrt{4R^2 \cos^2 \theta}}{2} \]
+\[ r = 2R \cos \theta \]
+
+For the unit circle we have just 
+\[ r = 2 \cos \theta \ \ \ \ \ \  r^2 = 4 \cos^2 \theta \]
+
+It's a bit of a diversion, but a different perspective is to consider the central angle $\phi = 2 \theta$.  The supplementary angle to $\phi$ (call it $\phi'$) is the apex angle in the same double triangle we had before.  As the supplementary angle, its cosine is the same magnitude as $\cos \phi$ but with a minus sign.
+
+The law of cosines gives here:
+\[ r^2 = R^2 + R^2 - 2 R^2 \cdot (- \cos 2 \theta) \]
+For the unit circle
+\[ r^2 = 2 + 2 \cos 2 \theta \]
+
+Compared to what we had before the value of $r^2$ seems a little different
+\[ 2 + 2 \cos 2 \theta \stackrel{?}{=} 4 \cos^2 \theta \]
+
+But this is the double angle formula in disguise.  Rearranging:
+\[ 1 + \cos 2 \theta = 2 \cos^2 \theta \]
+\[ = \cos^2 \theta + 1 - \sin^2 \theta \]
+\[ \cos 2 \theta = \cos^2 \theta - \sin^2 \theta \]
+which is correct.
+
+\subsection*{integral}
+
+Now we want to do some calculus.  As we've seen, it isn't necessary for the area calculation, but the terms in the solution have obvious counterparts in the geometry we've already done --- otherwise it seems a bit like magic.
+
+If the length of the ray is $r$ then the "sides" of the relevant area element are $r$ and $r \ d \theta$:
+\begin{center} \includegraphics [scale=0.4] {polar_area_element.png} \end{center}
+Technically, this is a double integral over the area element in two variables, but we can replace the inner integral $\int r \ dr$ part by $\frac{1}{2} \ r^2$ (trust me).
+
+The area is
+\[ A =  \frac{1}{2} \  \int_0^{\theta} r^2 \ d \theta \]
+You can say that the factor of one-half comes from the triangular shape.
+
+Using our first expression for $r^2$ the integral is 
+\[ A = 2 \int \cos^2 \theta \ d \theta = \theta + \sin \theta \cos \theta \bigg |_0^{\theta} \]
+\[ = \theta + \sin \theta \cos \theta \]
+
+and using the second version it is
+\[ A = \frac{1}{2} \ \int_0^{\theta}  2 + 2 \cos 2 \theta \ d \theta \]
+\[ = \int_0^{\theta}  1 + \cos 2 \theta \ d \theta \]
+\[ = \theta + \frac{1}{2} \ \sin 2 \theta \ \bigg |_0^{\theta} = \theta + \frac{1}{2} \sin 2 \theta \]
+\[ = \theta + \sin \theta \cos \theta \]
+
+The last step uses the double angle formula for sine.  If you haven't seen $\int \cos^2 x \ dx$ before, the second solution probably makes more sense.
+
+We'll resolve this below.  If we didn't already know how to solve $\int \cos^2 x \ dx$, this would give a solution.
+
+\subsection*{yet another view}
+The equation of the unit circle, centered at the origin, as a function $y = f(x) = \sqrt{1- x^2}$.
+
+Consider a chord of the unit circle, drawn at a height $h$ above the center (measured on the chord's perpendicular bisector).  We might find the two points where the chord meets the circle.  Let's call them $\pm \ x_0$.  
+
+Then we would have the area of a rectangle plus two wingtips.
+
+$\pm \ x_0$ are the two endpoints which are on the circle and where the corresponding $y$-value is $y_0 = h$.
+
+\[ y_0 = \sqrt{1 - x_0^2} = h \]
+Rearranging
+\[ x_0 = \pm \ \sqrt{1 - h^2} \]
+
+The total area is
+\[ A = \int_{-x_0}^{x_0} \sqrt{1 - x^2} \ dx \]
+
+This integral is also famous, and turns out to be the same as the one we showed before.
+
+We do a trig substitution 
+\begin{center} \includegraphics [scale=0.4] {trig1.png} \end{center}
+except that because we are already using $\theta$ for something else, let's rename the angle from the figure as $u$.
+
+So $x = \sin u$, and $\sqrt{1 - x^2} = \cos u$, and also $dx = \cos u \ d u$, and the integral is 
+\[ \int \cos^2 u \ du = \frac{1}{2} (u + \sin u \cos u) \]
+which we solved previously.
+
+This is easily checked:
+\[ \frac{d}{d u} \ [ \ \frac{1}{2} (u + \sin u \cos u) \ ] \ = \frac{1}{2} (1 - \sin^2 u + \cos^2 u) \]
+\[ = \frac{1}{2} (2 \cos^2 u) = \cos^2 u \] 
+
+$\square$
+
+\subsection*{$\sin^2$}
+
+
+
+For a circular caps:  it is tempting to use the same formula to calculate the area of a circular cap as an integral with the angle as the variable, but there is a subtlety.  
+
+This angle is $t$, the complement of $s$.  So the $r(\theta)$ term is not cosine but $\sin t$.  The area is
+\[ 2 \int_0^{t} \sin^2 t \ dt = t - \sin t \cos t \]
+which matches what we had before.  Alternatively, let the angle run from $s$ to $\pi/2$ and use $\cos^2 s$, as before.
+
+The easiest way to solve the integral is to remember that
+\[ \sin^2 t + \cos^2 t = 1 \]
+\[ \int \sin^2 t  \ dt + \int \cos^2 t \ dt = t  \]
+
+\subsection*{vertical view}
+We \emph{could} integrate the area of the circle between $-x_0$ and $+x_0$, find the part which lies below the line $y = h$, and then add the pieces from the ends.  But that would be silly, because there is a more elegant way.
+
+The last view (which is so simple that I'll skip the diagram for a moment), is to turn the circle another quarter-turn.  The area of a belt of width $h$ is simply
+\[ A = 2 \int_0^h  \sqrt{1 - x^2} \ dx \]
+while finding the cap simply requires changing the bounds to $h$ and $1$.
+
+We need that factor of $2$ for the answer because the integral is just the area \emph{above} the $x$-axis, whereas we want all of it.
+
+In terms of the trig substitution (and multiplying by that factor of $2$)  this is
+\[ A= u + \sin u \cos u \]
+Switching back to the variable $x$, since $\sin u = x$, we have
+\[ A = \sin^{-1} x + x \ \sqrt{1 - x^2} \]
+The first term on the right-hand side is the inverse sine, which can be read as ``the angle whose sine is $x$".
+
+The bounds are simply $0$ and $h$.  But since $x=0$ at the lower bound, the angle whose sine is zero is $0$, so the whole expression evaluates to $0$ there.  At the upper bound we have
+\[ A =  \sin^{-1} h + h \ \sqrt{1 - h^2} \]
+
+What is $h$?  If you look the diagram below I think you can see that $h = \sin \theta$, so finally
+\[ A =  \theta + \sin \theta \cos \theta \]
+
+or for our previous notation
+\[ A =  u + \sin u \cos u \]
+
+This is equal to the answers from other approaches, as we should require.
+
+The wonderful thing about this is we see where the terms come from --- as in the geometric approach above.  The area under the curve can be constructed in two parts by drawing the radius to the point $(x,y)$.
+
+\begin{center} \includegraphics [scale=0.5] {circle_integral.png} \end{center}
+(This figure is from Hamming's calculus text).
+
+There is a sector of the circle and a triangle.  The area is
+\[ A = \frac{1}{2} \ (\sin^{-1} x + x \sqrt{1-x^2} ) \]
+
+Accounting for the duplicated area below the $x$-axis, these correspond to the terms of
+\[ A = \sin^{-1} x + x \sqrt{1-x^2} \]
+
+It is easy to see how this relates to $\theta$:
+\[ A = \theta + \sin \theta \cos \theta \]
+
+\subsection*{cartesian coordinates}
+
+Let's try to calculate the same area with the original orientation and without displacing the circle, i.e. with the origin of coordinates at the center of the circle.
+\begin{center} \includegraphics [scale=0.4] {polar_area3.png} \end{center}
+
+We will call the point where the ray intercepts the circle $(x_0,y_0)$.  We can then break the figure up into a triangle with base $1 + x_0$, height $y_0$, and area
+\[ A_{\triangle} = \frac{(1 + x_0) y_0}{2} = \frac{y_0}{2} + \frac{x_0 y_0}{2} \]
+
+We note that 
+\[ y_0 = \sin \phi = \sin 2 \theta = 2 \sin \theta \cos \theta \]
+Hence
+\[ A_{\triangle} = \sin \theta \cos \theta + \frac{x_0 y_0}{2} \]
+So that is one of the terms that we need to match the other answers.  The term $x_0 y_0/2$ will cancel.
+
+Next, the edge of the D-shaped edge of the circle is (using the integral we solved earlier):
+\[ A_{D} = \frac{1}{2} (\sin^{-1} x + x \ \sqrt{1 - x^2} \bigg |_{x_0}^1 ) \]
+
+At the upper bound the first term is $\pi/2$, because the sine of $\pi/2$ is equal to $1$.  Obviously, we have to get rid of that, but how?
+
+Considering the lower bound the first term is $\sin^{-1} x_0$.  Going back to the diagram, $x_0$ is the \emph{cosine} of the base angle $\phi$, so it is the sine of $\pi/2 - \phi$.  For the first term only, upper bound minus lower bound, and still ignoring that factor of $2$:
+\[ \pi/2 - \sin^{-1} ( \sin (\pi/2 - \phi)) = \phi \]
+The whole thing is then
+\[ A_{D} = \frac{1}{2} (\phi - x_0 \sqrt{1 - x_0^2} \ ) \]
+But $\phi = 2 \theta$ and the second term is also $x_0 y_0$ so this becomes
+\[ A_{D} = \theta - \frac{x_0 y_0}{2} \]
+
+Hence
+\[ A_{\text{tot}} = A_{\triangle} + A_{D} \]
+\[ =  \theta - \frac{x_0 y_0}{2} + \sin \theta \cos \theta + \frac{x_0 y_0}{2} \]
+\[ = \theta + \sin \theta \cos \theta \]
+
+I have mixed and matched variables here, both $\theta$ and sine and cosine with $x$ and $y$.  This is fine as long as we cancel the latter, leaving only terms with $\theta$.
+
+In passing, note that what we have called $A_{D}$ is really one-half of a circular cap at height $h = x_0$.  So twice that is the area of the cap, namely
+\[ A_{\text{cap}} = \sin^{-1} h  - h \sqrt{1 - h^2} \]
+
+$\square$
+
+Finally, we might explore whether these formulas give the correct answers in other situations.  In the figure below is a slice formed by a right angle plus the complementary angles $\theta + \phi$. 
+\begin{center} \includegraphics [scale=0.3] {polar_area5.png} \end{center}
+
+The area of the slice is 
+\[ A_{\text{blue}} = \frac{\pi}{2} + \sin \frac{\pi}{2} \cos \frac{\pi}{2} = \frac{\pi}{2} \]
+and it is independent of the orientation of the right angle.  
+
+Is that really possible?  The sum of the other two areas must also be $\pi/2$.  Using the formula with the complementary angle, the total white area is
+\[ A_{\text{white}} = \frac{\pi}{2} - ( \phi' + \sin \phi' \cos \phi' ) + \frac{\pi}{2} - ( \theta' + \sin \theta' \cos \theta ' ) \]
+Since $\theta + \phi = \pi/2$ we can cancel one $\pi/2$ and the two angles, leaving:
+\[ A_{\text{white}} = \frac{\pi}{2} -  \sin \phi' \cos \phi'  - \sin \theta' \cos \theta' \]
+Since $\phi = \theta'$ and vice-versa
+\[ = \frac{\pi}{2} -  \ [ \ \sin \phi \cos \phi  + \sin \theta \cos \theta \ ] \]
+That looks like an issue, but the term in brackets is $\sin \phi + \theta$, that is, $\sin \pi/2 = 0$, so we're good.
+
+I have somehow drawn the figure out of proportion, but the math is right.
+
+\end{document}

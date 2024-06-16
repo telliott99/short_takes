@@ -1,0 +1,123 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Lagrange Trig identities}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+According to wikipedia
+
+\url{https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Lagrange's_trigonometric_identities}
+
+the following two trigonometric identities are due to Lagrange:
+
+\[ \sum_{k=0}^n \sin k \theta = \frac {\cos {\frac 1 2} \theta - \cos (n + {\frac 1 2}) \theta} {2 \sin {\frac 1 2} \theta} \]
+
+\[ \sum_{k=0}^n \cos k \theta = \frac {\sin {\frac 1 2} \theta + \sin (n + {\frac 1 2}) \theta} {2 \sin {\frac 1 2} \theta} \]
+
+We focus on the first one because we need it for the problem of the area under the cycloid curve.  Rearrange:
+\[ 2 \sin {\frac 1 2} \theta \cdot \sum_{k=0}^n \sin k \theta =  \cos {\frac 1 2} \theta - \cos (n + {\frac 1 2}) \theta  \]
+
+Looking for a derivation, the product of sines and the difference of cosines suggests we look at the sum formulas:
+\[ \cos A + B = \cos A \cos B - \sin A \sin B \]
+\[ \cos A - B = \cos A \cos -B - \sin A \sin (- B) \]
+\[ = \cos A \cos B + \sin A \sin B \]
+
+Subtracting the first from the second gives
+\[ \cos (A - B) - \cos (A + B) = 2 \sin A \sin B \]
+
+Let $B = {\frac \theta 2}$ and $A = k \theta$:
+\[ \cos (k -  {\frac 1 2}) \theta  - \cos (k +  {\frac 1 2}) \theta = 2 \sin k \theta \cdot  \sin {\frac \theta 2} \]
+
+Now rearrange and sum over $k$.  We'll start the sum from $k=1$ for the moment.
+\[ 2 \sin {\frac 1 2} \theta  \cdot \sum_{k=1}^n \sin k \theta = \sum_{k=1}^n  \cos (k -  {\frac 1 2}) \theta  - \cos (k +  {\frac 1 2}) \theta \]
+
+On the right-hand side, we notice that adjacent terms cancel.  For example in
+\[ \ [ \cos (k -  {\frac 1 2}) \theta  - \cos (k +  {\frac 1 2}) \theta \ ] \ + \ [ \ \cos (k + 1 -  {\frac 1 2}) \theta  - \cos (k + 1 +  {\frac 1 2}) \theta \ ] \]
+the two middle terms cancel.  This is a telescoping sum.
+
+So the result is
+\[ 2 \sin {\frac 1 2} \theta  \cdot \sum_{k=1}^n \sin k \theta = \cos {\frac 1 2} \theta  - \cos (n +  {\frac 1 2}) \theta \]
+which rearranges to give the result shown at the beginning except that we need to add one term
+\[ \sin 0 = 0 \] 
+and then
+\[ 2 \sin {\frac 1 2} \theta  \cdot \sum_{k=0}^n \sin k \theta = \cos {\frac 1 2} \theta  - \cos (n +  {\frac 1 2}) \theta \]
+
+\subsection*{second derivation}
+
+A second derivation is to write the sum using Euler's formula 
+\[ e^{ik\theta} = \cos k \theta + i \sin k \theta \]
+and then
+\[ \sum_{k=0}^n \sin k \theta = \Im {\sum_{k=0}^n e^{ik \theta} } = \Im {\sum_{k=0}^n (e^{i \theta})^k } \]
+We will, at the end, need only the imaginary part, $\Im$, of the right-hand side.
+
+This is a geometric series with ratio $e^{i \theta}$.  Leaving off the $\Im$ part:
+\[ = \frac{1 - r^{n+1}}{1 - r} = \frac {e^{i(n+1) \theta} - 1} {e^{i \theta} - 1} \]
+
+This can be factored
+\[ = \frac {(e^{i(n+1) \theta/2})(e^{i(n+1) \theta/2} - e^{-i(n+1) \theta/2})} {e^{i \theta/2} (e^{i \theta/2} - e^{-i \theta/2})} \]
+and simplified
+\[ = e^{in \theta/2} \cdot \frac {(e^{i(n+1) \theta/2} - e^{-i(n+1) \theta/2})} {(e^{i \theta/2} - e^{-i \theta/2})} \]
+Using Euler's formula again 
+\[ = e^{in \theta/2} \cdot \frac {2i \sin (n+1) \theta/2} {2i \sin \theta/2 } \]
+\[ = e^{in \theta/2} \cdot \frac {\sin (n+1) \theta/2} {\sin \theta/2 } \]
+\[ = (\cos \frac {n \theta} 2 + i \sin \frac {n \theta} 2 ) \cdot \frac {\sin (n+1) \theta/2} {\sin \theta/2 } \]
+
+Recall that we want only the imaginary part, so finally
+\[ \sum_{k=0}^n \sin k \theta =  \sin n \theta/2 \cdot \frac {\sin (n+1) \theta/2} {\sin \theta/2 } \]
+\[ \sin \frac \theta 2 \cdot \sum_{k=0}^n \sin k \theta =  \sin \frac {n \theta} 2 \cdot \sin \frac {(n+1) \theta} 2  \]
+
+\subsection*{comparison}
+If all this is true, it must be that somehow
+\[ \cos {\frac 1 2} \theta  - \cos (n +  {\frac 1 2}) \theta =  2 \sin \frac {n \theta} 2 \cdot \sin \frac {(n+1) \theta} 2  \]
+In other words:
+\[ \cos {\frac 1 2} \theta  - \cos (n \theta +  \frac \theta 2) =  2 \sin (n \cdot \frac \theta 2) \cdot \sin (\frac {n \theta} 2 + \frac \theta 2)  \]
+\[ \cos B - \cos (2A + B) = 2 \sin A \cdot \sin (A + B)  \]
+\[ \cos (A+B - A) - \cos (A + B + A)  = 2 \sin A \cdot \sin (A + B) \]
+So if $\alpha = n \theta/2 + \theta/2$ and $\beta = n \theta/2$ this is
+\[ \cos (\alpha - \beta) - \cos (\alpha + \beta) = 2 \sin \beta \cdot \sin \alpha \]
+which is where we started!  So the two formulas are equivalent.
+
+\subsection*{evaluation}
+
+The reason we are doing this is that this expression came up in the context of the area under the arch of the cycloid.  We need to evaluate 
+\[ \sum_{k=0}^n \sin k \theta \]
+for $\theta = \frac \pi n$, as $n \rightarrow \infty$.
+
+For the first formula
+\[ 2 \sin {\frac 1 2} \theta  \cdot \sum_{k=0}^n \sin k \theta = \cos {\frac 1 2} \theta  - \cos (n +  {\frac 1 2}) \theta \]
+we have that the right hand side is
+\[ \cos {\frac 1 2} \frac \pi n  - \cos (n +  {\frac 1 2}) \frac \pi n \]
+In the limit, the first term is $\cos 0 = 1$ and the second is $\cos \pi + 0 = - 1$ so the difference is $2$, which cancels the $2$ on the left-hand side.  
+
+As a result, the sum is
+\[ \lim_{n \rightarrow \infty} \frac 1 {\sin \frac \pi {2n}} \]
+which we approximate by the small angle formula as $2n/\pi$.
+
+For the second formula
+\[ \sin \frac \theta 2 \cdot \sum_{k=0}^n \sin k \theta =  \sin \frac {n \theta} 2 \cdot \sin \frac {(n+1) \theta} 2  \]
+we have that the right-hand side is
+\[ \sin \frac \pi 2 \cdot \sin \frac {(\pi + \frac \pi n)} 2 \]
+which in the limit is $1 \cdot 1$.
+
+Therefore, the sum is (as before)
+\[ \lim_{n \rightarrow \infty} \frac 1 {\sin \frac \pi {2n}} \]
+which we approximate by the small angle formula as $2n/\pi$.
+
+\end{document}

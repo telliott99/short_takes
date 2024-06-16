@@ -1,0 +1,110 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Minus one}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+You're familiar with the number line.
+
+\begin{center} \includegraphics [scale=0.3] {number_line.png} \end{center}
+
+Here we see the result of $5 + 4$.  Start on $0$, facing right.  First take $5$ steps forward, then $4$ more.  The result is $9$.
+
+Negative numbers extend to the left of $0$ on the number line (original line on top and the extended line below).
+\begin{center} \includegraphics [scale=0.3] {number_line2.png} \end{center}
+
+The concept of negative numbers seems a bit strange at first.  How can you have $-3$ sheep?  
+
+But if you first owe someone \$$3$ and then you earn \$$5$, after returning your friend's money you'll have $5-3 = 2$ dollars.  You could think of this as you had -\$$3$ (you had no money but also owed money) and then got paid \$$5$ so you have $-3 + 5 = 2$ dollars.
+
+For multiplying with negative numbers we first have the rule that 
+\[ -1 \cdot n = -n \]
+for every positive number $n$.  For example $-1 \cdot 2 = -2$.
+
+And since multiplication is \emph{commutative} (you can reverse the order of the terms without changing the result)
+\[ n \cdot -1 = -n \]
+for every positive number $n$.  For example $2 \cdot -1 = -2$.
+
+The big question is what to do with 
+\[ -1 \cdot -1 \stackrel{?}{=} \]
+
+We're going to define this to be equal to something, and there are really only two choices we might think about for a possible answer:  either $1$ (that is, $+1$) or $-1$.  Let's think about the second possibility and see why that causes trouble.
+
+\subsection*{what's wrong with this}
+
+We're going to find that if we defined the above result as equal to $-1$, we run into a conflict with the fundamental properties of arithmetic.
+
+One property is that $1$ is the multiplicative identity, meaning that for any number $n$
+
+\[ 1 \cdot n = n \]
+
+Also, when multiplying any equation by the same number on both sides, equality is maintained.  Multiplying the above by $1/n$ we get
+
+\[ 1 = \frac{n}{n} \]
+
+This second rule says that any number divided by itself is equal to $1$.
+
+So let's look at
+
+\[ -1 \cdot -1 = -1 \]
+
+Using $1$ as the multiplicative identity, we have that $1 \cdot -1 = -1$ and equating that with our definition we have that
+
+\[ -1 \cdot -1 = 1 \cdot -1 \]
+
+Now multiply by $1/-1$, clearing one copy of $-1$ on each side.  (Here we are using another fundamental property, associativity).
+
+This leaves us with
+\[ -1 = 1 \]
+
+That's a real problem, what mathematicians call a \emph{contradiction}.  Choosing $-1$ as the answer in the original equation messes up our mathematical universe.  Therefore, we are forced to define
+
+\[ -1 \cdot -1 = 1 \]
+
+[ Note:  the rule above was that any number divided by itself is equal to $1$.  The exception is that  $0/0$ is not defined.  It is not \emph{permitted}.  We'll explain why in a separate writeup. ]
+
+Strogatz (in \emph{Joy of x}) shows this pattern
+
+\[ 2 \cdot -1 = -2 \]
+\[ 1 \cdot -1 = -1 \]
+\[ 0 \cdot -1 = 0 \]
+\[ -1 \cdot -1 = ? \]
+
+The pattern is clear.  The answer is $+1$.
+
+Here is a table
+\begin{verbatim}
+    -2 -1  0  1  2
+    --------------
+-2 |       0 -2 -4
+-1 |    1  0 -1 -2
+ 0 | 0  0  0  0  0
+ 1 |-2 -1  0  1  2
+ 2 |-4 -2  0  2  4
+ \end{verbatim}
+ 
+Another explanation I like comes from Stewart (\emph{Letters to a Young Mathematician}).  Suppose we look at 
+\[ (-1) \cdot (1 - 1) = 0 \]
+Clearly, this is zero, because the sum inside the parentheses is 0.
+
+But suppose we expand it using the distributive law.  The first term is $-1 \cdot 1 = -1$.  If we put that $-1$ on the right-hand side it becomes $+1$ and then we have:
+\[ -1 \cdot -1 = 1 \]
+
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Bertrand's paradox}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Grinstead and Snell's wonderful \emph{Introduction to Probability} has this problem (example 2.6).  It's called Bertrand's paradox.  We are asked to draw a chord of a unit circle randomly.
+
+\begin{center} \includegraphics [scale=0.6] {Bertrand1.png} \end{center}
+
+Here we might say, let's choose each of three angles $\alpha$, $\beta$ and $\theta$ randomly (uniform density) from $[0, 2 \pi]$.  
+
+But there is no reason why the radius to $B$ cannot lie along the $x$-axis, so there are really only two choices.  
+
+The question is posed:  what is the probability that the length of this random chord is $> \sqrt{3}$.
+
+However, there are several different approaches to parametrize the problem, and randomizing the different parameters leads to different results.
+
+\subsection*{equilateral triangles}
+
+Let's review briefly some properties of equilateral triangles.  We drop an altitude and observe the ratio of side lengths.  It is convenient to start with a side length of 2 for the original triangle, then in the bisected copies the sides are in the ratio 1-2-$\sqrt{3}$ (the $1$ by bisection, and $\sqrt{3}$ by the Pythagorean theorem).
+
+The angle at each vertex of the original equilateral triangle is $\pi/3$, so the new triangles have angles of $\pi/6$, both by bisection or because the altitude forms an angle of $\pi/2$ at the base, so the sum of angles theorem gives us the last angle.
+
+In the right panel, the equilateral triangle is inscribed in a unit circle, so $OR = OP = OQ = 1$.  We claim that the line segment $OM$ has a length of $1/2$.
+
+\begin{center} \includegraphics [scale=0.5] {Bertrand2.png} \end{center}
+
+\emph{Proof}.
+
+$\angle PQR$ is a right angle, by Thales' circle theorem, and $\angle MRQ$ is shared, so $\triangle PQR$ is similar to $\triangle RMQ$.  Therefore, $\angle RPQ = \angle MQR = \pi/3$.
+
+Therefore the sides of $\triangle PQR$ are also in the ratio 1-2-$\sqrt{3}$, with $PQ/PR = 1/2$ and so $PQ = OP = OQ$.  Thus, $\triangle OPQ$ is isosceles.
+
+$QM \perp OP$ so $MQ$ is the bisector of both $\angle PQO$ and the base $OP$.  
+
+Therefore, $OM$ is one-half of $OP$ and has a length of $1/2$.
+
+$\square$
+
+\subsection*{first parametrization}
+
+We have just shown that the altitude of the inscribed equilateral triangle in a unit circle has length $3/2$.  This means that the ratio of the inscribed triangle to the standard one is $\sqrt{3}/2$.
+
+And that means the side length of the inscribed equilateral triangle is $\sqrt{3}$.
+
+That explains the length chosen for the chord in this problem.  We see that if $M$ is chosen at random anywhere along $OP$, one-half of the time the chord formed will be larger than $\sqrt{3}$.
+
+\begin{center} \includegraphics [scale=0.5] {Bertrand2.png} \end{center}
+
+So the probability we are asked to give is just $1/2$.
+
+\subsection*{second parametrization}
+
+\begin{center} \includegraphics [scale=0.5] {Bertrand3.png} \end{center}
+
+The second parametrization has the same triangle we just saw, $\triangle PQR$.  The angle at vertex $R$ is $\theta$.
+
+$\theta$ can lie in the interval $[0, \pi/2]$, and in the event that $\theta < \pi/6$, the chord length $RQ > \sqrt{3}$.
+
+The probability that the chord is greater than $\sqrt{3}$ in length is $1/3$, since $\pi/6$ is one-third of $\pi/2$.
+
+\subsection*{third parametrization}
+
+Finally, we imagine picking two coordinates $(x,y)$ at random from the interior of the circle.  We place the midpoint of the chord $M$ at $(x,y)$.
+
+If $M$ is such that $r = \sqrt{x^2 + y^2} < 1/2$, then $M$ will be closer to the center of the circle than $1/2$ and so the chord length will be $> \sqrt{3}$.
+
+The number of points that have this property is proportional to the relative areas of the inside small circle, and the larger circle around is.
+
+\[ \frac{\pi (1/2)^2}{\pi} = \frac{1}{4} \]
+
+We see that, depending on which parameter is randomized, we obtain a probability of $1/2$, $1/3$ or $1/4$.
+
+In Jaynes' words, the problem is not well-formed.
+
+\end{document}

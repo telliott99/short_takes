@@ -1,0 +1,68 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Parallelogram proof of Ptolemy's theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+\subsection*{preliminary}
+
+The cyclic quadrilateral theorem says that \emph{if} four points lie on a circle, then opposing angles are supplementary.  We will derive the converse:  if opposing angles are supplementary, the four points lie on a circle. 
+
+Suppose we are given that the angles $B$ and $D$ are supplementary, and that points $A,B,$ and $D$ lie on the circle as drawn.  \emph{Claim}.  Then $C$ also lies on the circle.
+
+\begin{center} \includegraphics [scale=0.25] {Cyclic_quad_converse.png} \end{center}
+
+\emph{Proof}.
+Since the sum of $B + D = \pi$ and the sum of all four angles equals $2 \pi$, it follows that the angles $A$ and $C$ are also supplementary.
+
+Suppose that $C$ does \emph{not} lie on the circle, but is internal.  Extend $DC$ to the circle at $C'$ and draw $BC'$ (middle panel).  $A$ and $C'$ are supplementary, by the forward theorem, so $\angle C = C'$ (i.e. $\angle BCD = \angle BC'D$.  But as the external angle of $\triangle BCC'$, $\angle BCD > \angle BC'D$.  This is a contradiction.
+
+Or suppose that $C$ is external (right panel).  Find the point where $DC$ meets the circle at $C'$.  As before, we must have that $C = C'$.  But as the external angle of $\triangle BC'C$, $\angle BC'D > \angle BCD$.  This is a contradiction.  Since $C$ is neither outside nor inside the circle, it must lie on the circle.
+
+$\square$.
+
+\subsection*{main}
+
+We consider a quadrilateral $ABCD$ with diagonal $AC = x$ and we're given that $B$ and $D$ are supplementary.  It follows then that $ABCD$ is a \emph{cyclic} quadrilateral --- all four vertices lie in a circle, by our lemma.
+\begin{center} \includegraphics [scale=0.3] {pt31.png} \end{center}
+
+\begin{center} \includegraphics [scale=0.25] {pt32.png} \end{center}
+We cut the quadrilateral into two triangles and lay them along the horizontal line $DCB$.  Because of the supplementary angles, $A'D \parallel A''B$.
+
+\begin{center} \includegraphics [scale=0.35] {pt35.png} \end{center}
+We relabel the sides for ease of reference.  We can also go back to the original quadrilateral and get some more angles.
+\begin{center} \includegraphics [scale=0.25] {pt33.png} \end{center}
+
+The trick then is to rescale the two triangles in the last figure so that the parallel sides are also equal and we have a parallelogram.
+\begin{center} \includegraphics [scale=0.3] {pt34.png} \end{center}
+An easy way to do that is to scale the left one by $d$ and the right one by $a$.
+\begin{center} \includegraphics [scale=0.35] {pt35.png} \end{center}
+
+The new triangle that we generate is similar to one in the original figure.
+It has a central angle composed of the open and filled red dots and flanking sides proportional to $a$ and $d$ with ratio $x$.  The third side is then similar to $y$ but scaled by $x$ to give $xy$.
+
+\begin{center} \includegraphics [scale=0.3] {pt36.png} \end{center}
+
+Opposing equal sides of the parallelogram are
+\[ bd + ac = xy \]
+which is Ptolemy's theorem.
+\begin{center} \includegraphics [scale=0.35] {pt35.png} \end{center}
+
+$\square$
+
+\end{document}

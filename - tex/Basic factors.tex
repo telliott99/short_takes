@@ -1,0 +1,68 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Basic factors}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+Here are some important tips for factoring: 
+
+$\circ$ \ We only worry about prime factors:  $2 \ 3 \ 5 \ 7 \ 11 \ 13 \ 17 \ 19 \dots$.
+
+$\circ$ \ A multiple of $2$ (an even number) ends in one of $2 \ 4 \ 6 \ 8 \ 0$.  
+
+$\circ$ \ A multiple of $3$ has digits that add up to a multiple of $3$ like $3 \ 6 \ 9$.
+
+$\circ$ \ Any multiple of $5$ ends in $0$ or $5$.  
+
+Therefore, we only need to check numbers that end in $1 \ 3 \ 7 \ 9$.
+
+$\circ$ \ We only need to check for a particular prime factor when the number of interest is larger than that prime, squared.  So only check for $7$ as a factor when $n > 49$ and for $11$ when $n > 121$.
+
+Actually, we can do better than that.  The only possible numbers smaller than $100$ with $7$ as the smallest factor are 
+\[ 7 \cdot 7 = 49, \ \ \ \ \ \  7 \cdot 11 = 77, \ \ \ \ \ \ 7 \cdot 13 = 91 \]
+
+Between $100-200$:
+\[ 7 \cdot 17 = 119,  \ \ \ \ \ \  7 \cdot 19 = 133, \ \ \ \ \ \  7 \cdot 23 = 161 \dots \]
+
+It's probably easier to memorize those than to have to bother with checking for divisibility by $7$.
+
+As for $11$ we have
+\[ 11 \cdot 13 = 143, \ \ \ \ \ \ 11 \cdot 17 = 187 \dots \]
+There's a pattern here.  For $3$-digit multiples of $11$, the middle digit is the sum of the two on the ends.
+
+To summarize, with the exception of three numbers smaller than $100$, and five others smaller than $200$, the only non-primes smaller than $200$ are divisible by $2$, $3$ or $5$.
+
+\subsection*{example}
+
+Factoring is hard because there are lots of prime numbers.  
+
+What are the prime factors of $157$?  The number $157$ is not even or a multiple of $5$.  It's not divisible by $3$, because $1 + 5 + 7 = 13$ and $1 + 3 = 4$.  
+
+We know that $7 \cdot 20 = 140 + 14 = 154$.  Since $154$ is divisible by $7$, $157$ cannot be (Why?  Use the distributive law).
+
+If you haven't memorized the two numbers that are multiples of $11$ or remembered the trick with the digits, then you have to try $11$, because $157 > 121 = 11^2$.  
+
+We have $11 \cdot 10 = 110$ and $157 - 110 = 47$.  But then $44$ is divisible by $11$ so $47$ is not, thus neither is $157$ for the same reason as above.
+
+Last, $157 < 169 = 13^2$, and certainly $157 < 13 \cdot 17 = 221$, so we don't need to check $13$.  We conclude that $157$ is a prime number.
+
+The most important reason to spend time adding fractions is that it motivates the subject of prime factorization and the famous \emph{fundamental theorem of arithmetic}.  
+
+But there is an easier way to solve factoring problems.  That method is called \emph{Euclid's algorithm}.  It gives the product of all shared factors without factoring.  I'm just not sure if you know about it yet.
+
+\end{document}

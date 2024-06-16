@@ -1,0 +1,34 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangents}
+\date{}
+
+\begin{document}
+\maketitle
+\large
+Let $T=(x,y)$ be the point where the tangent line meets a unit circle centered at the origin.  Write the equation of the tangent line in terms of its slope $-x/y$ as
+\[ -\frac{x}{y} =  \frac{y - (-1)}{x - 1/2} \]
+\[ y^2 + y = -x^2 + \frac{1}{2} x \]
+Since $x^2 + y^2 = 1$ everywhere on the circle,
+\[ y + 1 = \frac{1}{2} x  \]
+This is a relationship between the $x$- and $y$- values at both tangent points, but it is clearly not the equation of the tangent line, confirmed since $(1/2,-1)$ is not a solution.  The trick here is to use the information from the circle \emph{again}:
+\[ \sqrt{1 - x^2} = \frac{1}{2} x - 1 \]
+\[ 1 - x^2 = \frac{1}{4}x^2 - x + 1 \]
+\[ \frac{5}{4}x^2 - x = 0 \]
+\[ (\frac{5}{4}x - 1)x = 0 \]
+This has two solutions, $x = 0$ and $x = 4/5$, which are indeed the $x-$coordinates of the points of tangency as a more sophisticated analysis will confirm.  Then $y = \sqrt{1 - x^2} = -3/5$ (the minus sign because this is the fourth quadrant).  So the slope is 
+\[ \frac{-x}{y} = \frac{-4/5}{-3/5} = \frac{4}{3} \]
+The height of the triangle is then $2/3$ and the area is easily found to be $1/6$.
+\end{document}

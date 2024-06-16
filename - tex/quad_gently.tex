@@ -1,0 +1,169 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Quadratics gently}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{introduction}
+
+A quadratic equation is one that contains a term with $x^2$.  The simplest quadratic is $y = x^2$. 
+
+The $x^2$ term makes the graph grow faster vertically than horizontally, so it curves up to form something that looks like a ``cup'' or down to form an inverted cup something like the nose of a rocket.  
+
+The \emph{sign} of $x^2$ determines whether the cup of the graph opens up or down.  The very tip of the cup is called the \emph{vertex}.
+
+The standard formula is usually written as
+\[ y = ax^2 + bx + c \]
+where $a,b,$ and $c$ are constants.  $b$ or $c$ may be zero.  Examples:
+\[ y = 2x^2 \ \ \ \ \ \ \ \  y = x^2 + 5 \]
+\[ y = x^2 - 4 \ \ \ \ \ \ \ \   y = x^2 + 3x + 2 \]
+Acceleration due to gravity gives quadratic equations where the independent variable is time
+\[ y = -16t^2 + 64t + 144 \]
+describes how high in the air an object is at time $t$ if it starts ($t = 0$) with an initial velocity of 64 feet per second straight up, and initial height 144 feet above the ground.
+
+You may be given an equation like $x = ay^2$.  When graphed, it will open left or right.  However, to avoid confusion, I recommend substituting letters and working with it in standard form, and then switching back at the end.
+
+$a$ is called the \emph{cofactor} of $x^2$ and $b$ is the cofactor of $x$.  You may be given a formula in non-standard form where you have to \emph{gather like terms}, as in
+\[ y - x - 2 = 3x^2 + x \]
+which rearranges to the standard form 
+\[ y = 3x^2 + 2x + 2 \]
+
+Here are some general observations.  It is worth entering some of these examples and others into Desmos and playing with the values of the constants to see what happens.
+
+$\circ$ \ $a$ is called the \emph{shape factor}, the larger it is (in absolute value), the more sharply the graph curves up or down.
+
+$\circ$ \ The addition of a constant, $c$, simply shifts the curve up and down vertically but does not change its shape.
+
+$\circ$ \ The effect of $b$ is more complicated.  An equation with $b = 0$, like $x^2 - 4$, has its vertex on the $y$-axis, but a non-zero $b$ moves the vertex away from the $x$-axis.
+
+Normally, we are interested in only a few specific questions about a quadratic equation.  
+
+$\circ$ \ Does it open up or down?  In the first case the value $y$ at the vertex is a minimum, and in the second, the value of $y$ at the vertex is a maximum.
+
+$\circ$ \ What is the minimum/maximum value of $y$?
+
+$\circ$ \ What are the values of $x$ which make $y$ equal to zero?  These are the points where the graph crosses the $x$-axis.  They are called zeros or roots of the equation.
+
+Let's go back to the equation with gravity:
+\[ y = -16t^2 + 64t + 144 \]
+
+Here we have not $y = f(x)$ but $y = f(t)$.  However, this makes no difference to the way we solve it.  What are the constants?
+\[ a = - 16, \ \ \ \ \ \ \ b = 64 \ \ \ \ \ \ \ c = 144 \]
+
+Here is a first (simple) fact to memorize about quadratics:  the min or max value occurs when the independent variable, $x$ or $t$, is equal to $-b/2a$, negative $b$ over $2a$.  We have
+\[ t_{max} = - \frac{64}{2 \cdot (-16)} = 2 \]
+
+The maximum height of the projectile occurs when $t = 2$ seconds, and that height is
+\[ y = -16(2)^2 + 64(2) + 144 \]
+\[ = -64 + 128 + 144 = 208 \]
+$208$ feet above the ground at t = 2 seconds.
+
+You might wonder how long it takes to come back down.  If we had started from ground-level (if $c = 0$ rather than $c = 144$ as we have it), then the time $t$ of the max would not change (the equation $-b/2a$ doesn't depend on $c$).
+
+Also, because of the symmetry, it would take exactly the same time to go up to the max as to come back down to the ground.  Solving our present equation (with non-zero starting height) will have to wait for the techniques to work with roots or zeros.
+
+Here is another classic problem.
+
+\subsection*{maximizing area}
+We need to build a fence or a wall from a fixed amount of material.  There are constraints:   it must be in the shape of a rectangle, and we want the area enclosed to be a maximum.
+
+You will likely be given some definite amount of material, like $200$ feet of fencing.  Later we will see that is does no harm to re-scale our problem, for the moment we do the problem as it was given.
+
+Let the perimeter of the rectangle be $200$.  Let us label the dimensions as $h$ (height) and $w$ (width).  The height and width added together are one-half the perimeter:
+\[  h + w = \frac{200}{2} = 100 \]
+
+If the height is $h$, then the width is $100 - h$, and the area is
+\[ A = hw = h(100 - h) \]
+\[ = -h^2 + 100 h \]
+
+Since the cofactor of $h^2$ is negative, the graph of this equation forms a ``cup" that opens down.  The value of $A$ at the vertex is a maximum.  A fundamental fact about parabolas:   if 
+\[ y = ax^2 + bx + c \]
+the min or max occurs when
+\[ x = - \frac{b}{2a} \]
+
+Here, the maximum area $A$ occurs when
+\[ h = - \frac{b}{2a} \]
+\[ =  - \frac{100}{2(-1)} = \frac{100}{2} = 50 \]
+That is, $h = 50$ and $w = 100 - h = 50$.  The maximum area is for a square.
+
+Another way to see that this is a maximum is to ask what happens if we move to a slightly larger or smaller value for $h$.  Suppose $h = 51$, then since they add to give $100$, $w = 49$ and we have
+\[ 49 \cdot 50 = \ ? \]
+
+Do not grab your calculator.  Instead, let's define $m = 50$ and realize that if $h = m + 1$, we must have $w = m - 1$ so in general, if we move $\delta$ away from the solution 
+\[ hw = (m + \delta)(m -  \delta) = m^2 -  \delta^2 < m^2 \]
+
+Since $\delta^2 > 0$ the new area must be less.
+
+At this point, it would be good to take a break from theory and do some more problems finding maximum and minimum values.  
+
+
+\subsection*{factoring}
+
+We said that the standard form is
+\[ y = ax^2 + bx + c \]
+but now we want to think about another way in which a quadratic can be written, as the product of two different expressions.
+\[ (x + \text{ some constant } ) \cdot  (x + \text{ some other constant } ) \]
+Let's use some letters for the constants
+\[ y = (x + p)(x + q) \]
+\[ = x^2 + px + qx + pq \]
+\[ = x^2 + (p + q)x + pq \]
+With time you will be able to skip that step in the middle.
+
+Here are some examples:
+\[ y = (x + 3)(x - 2) = x^2 + x - 6 \]
+\[ y = (x + 2)(x - 2) = x^2 - 4 \]
+\[ y = (x + 1)(x) = x^2 + x \]
+
+To be completely general, we will entertain the possibility of having a constant out front:
+\[ y = 2(x + 3)(x - 2) = 2x^2 + 2x - 6 \]
+
+At this point, you should spend a little time going backward.  Given
+\[ x^2 + x - 6 \]
+turn that into
+\[ (x + 3)(x - 2) \]
+
+The trick is to think about the factors of $c$, of $-6$, which are $1,2,3,6$ and then see if we can combine them (one should be negative), so that \emph{when they add}, we get $b = 1$.  That's what gives the two values $3$ and $-2$, they multiply to give minus $6$ and add to give $1$.
+
+Why do this?  We are interested in those values of $x$ which give $y = 0$:
+\[ y = 0 = ax^2 + bx + c \]
+If we can re-write the equation in the form
+\[ 0 = (x + 3)(x - 2) \]
+
+then I hope it is clear that there are two possibilities.  If
+\[ x + 3 = 0 \]
+we have then
+\[ 0 = 0 \cdot (x - 2) \]
+so $x = -3$ is a zero.  The other zero or root is $x = 2$.
+
+For this reason, the general form is usually written as
+\[ (x - s)(x - t) = x^2 - (s + t)x + st \]
+so $x = s$ and $x = t$ are the roots or zeros of this quadratic equation.
+
+Again, at this point you will need some practice to fix these ideas in your head.
+
+One last point:  quadratic equations are always symmetrical.  If a horizontal line crosses the graph at two points, those points are always symmetrical about the line that goes up and down through the vertex.
+
+This means that the two points where $y = 0$ crosses the graph, the points $x = s$ and $x = t$, are symmetrical about the vertex $x = -b/2a$.  Let's call that point $x = m$ (for min/max)?
+\[ x = m = - \frac{b}{2a} \]
+The symmetry means that $m$ is the \emph{average} of $s$ and $t$.
+\[ m = \frac{s + t}{2} \]
+
+
+\end{document}

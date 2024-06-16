@@ -1,0 +1,49 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Lamppost problem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here's a classic problem:  there is a light on top of a post and a person is walking away from it at some speed.  At what speed is the tip of the person's shadow moving?
+\begin{center} \includegraphics [scale=0.7] {lamp_post1.png} \end{center}
+Obviously the two speeds are related, but it seems clear that they depend on the angle to the light or current distance to the person.
+
+From similar triangles we get that
+\[ \frac{H}{L} = \frac{h}{l} \]
+$H$ and $h$ are fixed.  The speed of the shadow is $dL/dt$.  But the person's speed is not $dl/dt$.
+
+Instead, the person's current distance from the lamppost is the difference $L - l$.  How to express this difference in terms of the other values?  One answer is to find another similar triangle:
+\begin{center} \includegraphics [scale=0.7] {lamp_post2.png} \end{center}
+\[ \frac{H-h}{L-l} = \frac{H}{L} = \frac{h}{l} \]
+
+Rearranging the first and last terms:
+\[ \frac{H-h}{h} = \frac{L-l}{l}  \]
+
+We want 
+\[ \frac{dl}{dt} = \frac{h}{H - h} \cdot \frac{d(L - l)}{dt} \]
+The speed of the shadow is $H/(H-h)$ times the speed of the person.
+
+So, for example, if $H = 5$ m and the person is $1.8$ m then
+\[ \frac{h}{H - h} = \frac{1.8}{3.2} = \frac{9}{16} \]
+So if the person's speed is $1.2$ m/s the shadow's speed is $27/40$ = $0.675$ m/s.
+
+The seems counter-intuitive, but suppose the person's height were one-half the lamppost.  Then $h/(H-h) = 1$.  The distance from the post is always equal to the length of the shadow, so the speed is the same.
+
+\end{document}

@@ -1,0 +1,264 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Right triangles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:right_triangles}
+
+A right triangle is a triangle containing one right angle.  Right angles (and right triangles) are special.  The definition of a right angle is that two of them add up to one straight line or $180$ degrees.  
+
+In the figure below, the angle at vertex $P$ is a right angle.  It is common to mark a right angle with a little square, as shown, but these are a pain to draw, so I will often not do that.  The side opposite $P$, namely $c$, is the \emph{hypotenuse}.
+
+\begin{center} \includegraphics [scale=0.35] {right_triangle.png} \end{center}
+
+Since the sum of angles in a triangle is equal to two right angles, the sum of the angles $\theta$ and $\phi$ above is also equal to one right angle, or 90 degrees.  
+
+Angles $\theta$ and $\phi$ are said to be \emph{complementary}.  This fact is often exploited in proofs.
+
+$\bullet$ \ the two smaller angles in a right triangle are together equal to one right angle.
+
+\subsection*{hypotenuse-angle (HA)}
+
+For two right triangles, if one hypotenuse is equal to the other, and also one set of angles equal, the two triangles are congruent.
+
+\emph{Proof}.
+
+Given two triangles with the right angle plus one other angle congruent, then we have all three angles congruent (AAA) by the triangle sum theorem.
+
+In addition, if in two right triangles we have the longest side (hypotenuse) congruent, then the triangles are congruent by ASA.
+
+$\square$
+
+\subsection*{hypotenuse-leg (HL)}
+ 
+For two right triangles, if one hypotenuse is equal to the other, and also one set of legs equal, the two triangles are congruent.
+
+\begin{center} \includegraphics [scale=0.4] {hyp_side_cong.png} \end{center}
+
+In the figure, imagine the hypotenuse swinging on the hinge of its vertex with the horizontal base.  There is only one angle where it will terminate on the vertical side with the correct length.  That point is marked with a black dot.
+
+This determines the angle between the known sides, and simultaneously, the length of the third side. 
+
+In terms of our conditions for congruence, this is SSA (which we said doesn't work always).  However, it does work if the triangle is a right triangle.   
+
+\emph{Proof}.
+
+Although we haven't proved it yet, we call on the Pythagorean theorem.  Given the hypotenuse and one leg of a right triangle, $h$ and $a$, the theorem says that
+\[ a^2 + b^2 = h^2 \]
+
+so the third leg is determined by the other two sides and therefore we have SSS.
+
+$\square$
+
+Other named methods of proof for right triangles can be found in some books, but these do not add anything because they are exactly equivalent to methods we already know:
+
+$\circ$ Leg-Leg, the two legs flank the right angle (SAS).
+
+$\circ$ Hypotenuse-Acute angle (AAS).
+
+$\circ$ Leg-Acute angle (ASA).
+
+\subsection*{altitudes}
+
+\begin{center} \includegraphics [scale=0.5] {complementary.png} \end{center}
+
+In the large right triangle above, we know that
+\[ s + t = 90 \]
+When we draw the perpendicular to the hypotenuse that goes through the upper vertex, that is an \emph{altitude} of the triangle.  Because of the right angle, we obtain two smaller right triangles.  Thus
+\[ s + t' = 90 \]
+\[ s' + t = 90 \]
+Hence
+\[ s + t = 90 = s + t' \]
+so
+\[ t = t' \]
+and similarly, $s = s'$.
+
+\subsection*{theorems about right triangles}
+
+$\bullet$ \ In any right triangle, the right angle is larger than either of the other two angles.
+
+\emph{Proof}.
+
+Suppose $\alpha$ and $\beta$ are complementary angles in a right triangle,  Then $\alpha + \beta$ is equal to one right angle.  
+
+Both angles $\alpha$ and $\beta$ must be non-zero:  $\alpha > 0$ and $\beta > 0$ (otherwise we do not have a triangle).  Suppose that $\alpha < \beta$.  Then, the larger angle, $\beta = 90 - \alpha < 90$.
+
+$\square$
+
+$\bullet$ \ In any right triangle, the hypotenuse is longer than either side.
+
+\emph{Proof}.
+
+By the previous theorem, the right angle is the largest angle in a right triangle.
+
+By Euclid \hyperref[sec:Euclid1]{\textbf{Prop $I.18$}} (next chapter):  in any triangle, a greater side is opposite a greater angle.  
+
+$\square$
+
+The fact that the hypotenuse is the longest side in a right triangle will come in handy when we investigate the tangent to a circle.  It is also useful here.
+
+$\bullet$ \ The distance from a fixed point to a line is least when the new line segment makes a right angle with the line.
+
+\emph{Proof}.
+
+Draw the perpendicular $QR$.
+
+\begin{center} \includegraphics [scale=0.4] {angle_bisector2a.png} \end{center}
+
+Any other line segment  (for example, the dotted line) from $R$ to the upper edge (the extension of $PQ$), forms a right triangle also containing $QR$, where the dotted line is the hypotenuse.
+
+Since the hypotenuse is the longest side of a right triangle, by the previous theorem, $QR$ must be shorter.
+
+$\bullet$ \ Any point on the bisector of an angle is equidistant from the sides at the point of closest approach.
+
+\begin{center} \includegraphics [scale=0.4] {angle_bisector2b.png} \end{center}
+
+We simply draw the vertical line $RS$.  The resulting triangle is congruent to $\triangle PQR$ by AAS.  Therefore, $QR = RS$.
+
+$\square$
+
+$\bullet$ \ If a point is equidistant from the sides of an angle, then it lies on the angle bisector.
+
+\emph{Proof}.
+
+We are given $QR = RS$ and have the shared side $PR$, which is the hypotenuse, in two right triangles.  We have hypotenuse-leg (HL), hence the two triangles are congruent.  
+
+Therefore the two smaller angles at $P$ are equal, so $PR$ is the bisector of $\angle QPS$.
+
+$\square$
+
+\begin{center} \includegraphics [scale=0.4] {angle_bisector3b.png} \end{center}
+
+\subsection*{altitude crossing}
+
+\label{sec:Newton_altitude}
+
+Here is a first look at a problem we will come back to in much more detail elsewhere.
+
+\begin{center} \includegraphics [scale=0.4] {newton2.png} \end{center}
+
+In the left panel, we draw the line from the vertex $C$ down vertically in $\triangle ABC$.  This line meets the base at a right angle, and is called the altitude.
+
+The altitude divides the base into lengths $a$ and $b$.  Now draw a second altitude from vertex $A$ to the side opposite.  
+
+What is the height $h$ above the base where the two lines cross?
+
+The two triangles containing angles marked with magenta dots are similar.  The reason is that they are both right triangles that have the vertical angles in common.  Therefore the marked angles are also equal.
+
+In the small triangle the side opposite the marked angle ($\angle BAC$) has length $h$, while the entire length of the altitude is $L$.  By similar triangles
+
+\[ \frac{h}{a} = \frac{b}{L} \]
+
+(the side opposing the marked angle is in the numerator on both sides).  So the height $h$ is
+
+\[ h = \frac{ab}{L} \]
+
+The formula is noteworthy because it is symmetrical in $a$ and $b$, it does not contain any term like the length of side $AC$.
+
+Therefore, if we draw the third altitude to side $BC$, it crosses the vertical altitude at the same height $h = ab/L$ (right panel).
+
+This means that the three altitudes cross at a single point.
+
+\begin{center} \includegraphics [scale=0.5] {newton3.png} \end{center}
+
+Newton published this proof around 1680.
+
+\subsection*{median on the hypotenuse}
+
+\begin{center} \includegraphics [scale=0.35] {rt_tri_bisector.png} \end{center}
+
+In a right triangle, draw the line segment from the vertex that contains a right angle to the midpoint of the hypotenuse, separating it into two equal lengths $a$.  We will show that the length of the bisector is also $a$.
+
+\emph{Proof}.
+
+In the right panel, draw the perpendicular from the midpoint $S$ to the base $PR$.  The triangle $SQR$ is similar to the original right triangle (by AAA).
+
+Hence the two parts of the base are equal (labeled $b$), because $a/2a = b/2b$.  
+
+Therefore we have two congruent triangles:  $SQR$ and $PQS$ (by SAS).  So the bisector $PS$ is equal in length to $SR$.
+
+Both of the new isosceles triangles formed by the original dashed line have equal base angles.
+
+$\square$
+
+\subsection*{stacked triangles}
+
+\begin{center} \includegraphics [scale=0.5] {angle_bisector_r4.png} \end{center}
+
+Suppose we are given that $\angle OPQ$ and $\angle OQR$ are right angles.  We draw the altitude $RS$ and observe that the angle at vertex $S$ is a right angle.  
+
+Therefore, in triangle $ORS$, the sum $\theta + u + v$ is equal to one right angle.  At the same time, in triangle $OQR$, the sum $u + v + \phi$ is also equal to one right angle.  Therefore
+\[ \theta = \phi \]
+
+Further, since they have a shared angle and are also right triangles, $\triangle QRT$ and $\triangle OPQ$ are similar triangles.
+
+\subsection*{angle bisector}
+
+\label{sec:angle_bisector}
+
+With that background, we now consider a classic problem:  the ratio of sides when there is an angle bisector.
+\begin{center} \includegraphics [scale=0.4] {angle_bisector_r1.png} \end{center}
+Suppose we are given that the large triangle is a right triangle.  
+
+We draw a line joining the vertex on the left with the side opposite. 
+
+This line could in general be drawn anywhere, however two interesting cases are when  the side opposite is bisected (left panel), or when the angle at the left is bisected (right panel).  These two cases are not the same.  In the first $\phi \ne \theta$ and in the second, $c \ne d$.
+
+Suppose we choose the second possibility, equal angles.  We are in a position to prove an important theorem.
+
+\subsection*{angle bisector theorem}
+
+With reference to the two figures above, we are to prove that
+\[ \frac{d}{b} = \frac{c}{a} \]
+
+$\bullet$ \ The sides and bases are in proportion for a right triangle with bisected angle.
+
+\emph{Proof}.
+
+Draw an altitude for the upper of the two small triangles, meeting the side of length $b$.
+
+\begin{center} \includegraphics [scale=0.4] {angle_bisector_r2.png} \end{center}
+
+The red triangle and the one directly above it are congruent (right panel).  They share a side (the hypotenuse of each), and they are right triangles with the same smaller angle $\theta$.  Therefore, the altitude we just drew has length $c$.
+
+The small triangle with sides $c$ and $d$ (at the top) is similar to the original large triangle.  The reason is that they are both right triangles containing the smaller angle $\gamma$.
+
+By similar triangles, we form equal ratios of the angle opposite $\gamma$ to the hypotenuse:
+
+\[ \frac{a}{b} = \frac{c}{d} \]
+
+This is rearranged simply to give
+\[ \frac{d}{b} = \frac{c}{a} \]
+which is what we were asked to prove.
+
+The result can be pushed a little further:
+\[ \frac{a}{b} = \frac{c}{d} \]
+Add $1$ to both sides:
+\[ \frac{a + b}{b} = \frac{c + d}{d} \]
+\[ \frac{a + b}{c + d} = \frac{b}{d} = \frac{a}{c} \]
+
+$\square$
+
+\begin{center} \includegraphics [scale=0.4] {angle_bisector_r5.png} \end{center}
+
+which is a surprising result and becomes important later in looking at Archimedes method for approximating the value of $\pi$.
+ 
+\end{document}

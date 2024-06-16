@@ -1,0 +1,126 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Tangent to conic section}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+
+{https://maa.org/sites/default/files/kung11010356273.pdf}
+
+The equation below is a general form for any conic section
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+
+If the point $P = (x_0,y_0)$ lies on the conic section, then it satisfies the above equation.
+
+Next, Kung says, let
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(x-x_0)^2 + B(x-x_0)(y - y_0) + C(y-y_0)^2 \]
+
+We've simply taken the higher powers of the conic and plugged in $(x - x_0)$ and $(y - y_0)$.
+
+One thing to note is that if $x = x_0$ and $y = y_0$ (we're at $P$), then the right-hand side is zero.  So $P$ is on the conic since now we have
+\[ Ax_0^2 + Bx_0y_0 + Cy_0^2 + Dx_0 + Ey_0 + F = 0 \]
+
+If the right-hand side is not zero (not both $x = x_0$ and $y = y_0$), there are some consequences.  No other point on the conic can satisfy the equation, since any point on the conic makes the left-hand side equal to zero.
+
+Also, we lose all the higher power terms when multiplying out.  Canceling the common terms: 
+
+\[ Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(-2x_0 x + x_0^2) + B(-y_0 x - x_0 y + x_0y_0) + C(-2y_0 y + y_0^2) \]
+
+Gathering terms we have
+\[ (2Ax_0 + By_0 + D)x  + (B x_0 + 2Cy_0 + E) y \]
+\[  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ - Ax_0^2 - B x_0 y_0 - C y_0^2 + F = 0    \]
+
+This equation is linear in $x$ and $y$.  It is the equation of a line.
+
+So we have the equation of a line passing through $(x_0,y_0)$ where no other point on the line is on the conic section.  In other words, it is the equation of the tangent line to the curve.
+
+A more sophisticated treatment, given in the article, is that the equation of any line can be parametrized.
+
+Suppose $x = x_0 + \lambda_1 t$ and $y = y_0 + \lambda_2 t$ then
+\[ (x - x_0) = \lambda_1 t \]
+\[ (y - y_0) = \lambda_2 t \]
+Substituting into Kung's equation
+
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ A(x-x_0)^2 + B(x-x_0)(y - y_0) + C(y-y_0)^2 \]
+
+we have
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = \]
+\[ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ (A \lambda_1^2 + B\lambda_1 \lambda_2 + C \lambda_2^2) t^2 = Kt^2  \]
+
+If $t = 0$, we're at $(x_0,y_0)$.  
+
+If $t \ge 0$, and $K = 0$, then each point on the line satisfies the conic section.  (i.e. it is degenerate).  
+
+If both $K \ne 0$ and $t \ne 0$ then the left-hand side equals $Kt^2$ and is not zero.
+ 
+ So no point on the conic
+ \[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+other than $(x_0,y_0)$ satisfies the condition
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = Kt^2 \]
+
+No other point on the conic is also on the line, and no other point on the line also belongs to the conic.
+
+The example given is
+\[ x^2 - xy + y^2 - 7 = 0 \]
+
+The point $(-1,2)$ is on the curve.
+
+Plugging into what we had above, the tangent line through $(-1,2)$  is
+\[ x^2 - xy + y^2 - 7 = (x+1)^2 - (x+1)(y-2) + (y-2)^2 \]
+\[ -7 = 2x + 1 +2 x - y + 2 - 4y + 4 \]
+\[ 5y = 4x + 14 \]
+\[ y = \frac{4}{5} x + \frac{14}{5} \]
+
+\begin{center} \includegraphics [scale=0.4] {tan_conic.png} \end{center}
+
+A second example is the unit circle.  We have
+\[ x^2 + y^2 - 1 = 0 = (x-x_0)^2 + (y - y_0)^2 \]
+\[ -1 = -2xx_0 + x_0^2 - 2yy_0 + y_0^2 \]
+\[ 2yy_0 = -2xx_0 + x_0^2 + y_0^2 + 1 \]
+\[ y = - \frac{x_0}{y_0} \ x + \ [ \ \frac{x_0^2}{2y_0} + \frac{y_0}{2} + 1 \ ] \]
+The \emph{slope} of the tangent to a unit circle at any point $(x,y)$ is $-x/y$.
+
+The easiest calculus derivation uses implicit differentiation:
+\[ 2x \ dx + 2y dy = 0 \]
+\[ \frac{dy}{dx} = - \frac{x}{y} \]
+
+For the general parabola in standard orientation:
+\[ ax^2 + bx + c - y = 0 \]
+write
+\[ ax^2 + bx + c - y = a(x-x_0)^2 \]
+\[ bx + c - y = -2ax_0 x + x_0^2 \]
+\[ (2 a x_0 + b)x + c - x_0^2 = y \]
+
+And indeed $2 a x_0 + b$ is the slope of the tangent to the general parabola at $(x_0,y_0)$.
+
+As a final example
+\[ x^2 + 2xy + y^2 + x - y + 4 = (x-x_0)^2 + 2(x-x_0)(y - y_0) + (y-y_0)^2  \]
+\[ x - y + 4 = -2x x_0  + x_0^2 - 2y_0 x - 2 x_0 y + 2 x_0 y_0 - 2 y_0 y + y_0^2 \]
+
+
+\begin{center} \includegraphics [scale=0.20] {tan_conic2.png} \end{center}
+
+Sliding the sliders, the line stays on the parabola.  It works!.
+
+
+\end{document}

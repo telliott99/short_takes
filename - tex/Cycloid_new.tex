@@ -1,0 +1,185 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Cycloid}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Imagine a bicycle with one tire marked at a particular point on the rim, say with fluorescent paint or a small light.  Time starts at $t = 0$ with that point $P$ in contact with the $x$ axis at $(0,0)$.  Then the bike rolls to our right.  As the tire rotates the fixed point $P$ on the rim traces a curve.
+\begin{center} \includegraphics [scale=0.6] {cycloid.png} \end{center}
+
+\subsection*{Roberval}
+The cycloid curve was not known to the ancients, as far as our sources have anything to say.  The first mention is around 1500, and by the time of Galileo a century later, it was something he thought about quite a bit and encouraged others to study.  
+
+Galileo is said to have used Archimedes method of cutting out shapes and weighing them to show that the area was approximately $3$ times that of the generating circle.  But he was apparently not prepared for it to be \emph{exactly} equal, so was skeptical.
+
+The cycloid became very popular in the decades before Newton.  Roberval came up with a clever application of Cavlieri's principle to find the area under the curve.
+
+His great idea was to draw a second curve, called the \emph{companion curve}, by sliding values derived from a half-circle to add them to the $x$-values on the cycloid curve, as shown below.  We can imagine sliding them from the left, but it works also to slide them from the right.
+
+The areas marked by horizontal lines are equal, by Cavalieri's principle.
+But that total extra area is just $\pi a^2 / 2$, one-half of the circle.
+
+\url{https://maa.org/sites/default/files/pdf/cmj_ftp/CMJ/January%202010/3%20Articles/3%20Martin/08-170.pdf}
+
+\begin{center} \includegraphics [scale=0.2] {cycloid_comp.png} \end{center}
+
+The companion curve $AQD$ apparently divides the rectangular area $ACDB$ in half, by symmetry.  
+
+Each piece at a distance $h$ from the top is matched by a piece of equal length at a distance $h$ from the bottom, by the vertical symmetry of the half-circle.
+
+The rectangle has width $\pi a$ and height $2a$, its area is $2 \pi a^2$, and one-half that is $\pi a^2$.
+
+The area under the cycloid curve is then three-quarters of the total, which (between $0 \rightarrow \pi$) is $(3/2) \pi a^2$, and the area under one complete lobe is twice that or $3\pi a^2$.
+
+Of course the challenge for this argument is proving that the match is exact.
+
+\subsection*{slope}
+Descartes gave the slope of the tangent line to the cycloid by the following construction:
+\begin{center} \includegraphics [scale=0.2] {cycloid_slope.png} \end{center}
+Given $P$ on the cycloid, extend from $P$ horizontally to find $E$ on the circle, then draw $EC$, and finally draw $PQ$ parallel to $EC$.  The tangent is perpendicular to these two line segments.
+
+I like this construction because it reminds me of what Roberval did with the parabola.  For any $t$, the distance moved horizontally is equal to the distance along the rim of the generating circle.  The tangent should add to or subtract from both values at the same rate.  
+
+\begin{center} \includegraphics [scale=0.2] {cycloid8.png} \end{center}
+
+Indeed, in Roberval’s view of the curve (see Martin) ``Let the diameter $AB$ of the circle $AGB$ move along the tangent $AC$, always remaining parallel to its original position until it takes the position $CD$, and let $AC$ be equal to the semicircle $AGB$. At the same time, let the point $A$ move on the semicircle $AGB$, in such a way that the speed of $AB$ along $AC$ may be equal to the speed of $A$ along the semicircle $AGB$.''
+
+Therefore, since no slippage occurs, movement along the tangent should be in the direction of the sum of the two vectors. The tangent is the average of the tangent to the circle at $E$ and the horizontal.
+
+Since the latter is zero, the result is one-half of the former.
+
+In other words, we expect that the angle between the tangent to the cycloid curve and the $x$-axis should be \emph{half} of the angle between the tangent to the circle and the $x$-axis.
+
+\begin{center} \includegraphics [scale=0.2] {cycloid_slope2.png} \end{center}
+
+We are given that $PE$ is horizontal, so it is parallel to $QC$. Also, $PQ \parallel EC$. Therefore, $PECQ$ is a parallelogram. $\angle DEC$ is right. Angles marked with blue and magenta dots are complementary.
+
+$\angle \theta$ at the circle’s origin is supplementary to two magenta dots, so $\theta/2$ is complementary to one. That is, $\theta/2$ is complementary to the angle of the tangent, so the tangent’s slope is the cotangent of $\theta/2$.
+
+\subsection*{standard parametric approach}
+
+We want to find equations that give the point $P$ as a function of time.  We will parametrize the curve, yielding parametric equations $x(t)$, $y(t)$.
+
+The diagram below shows the angle through which the wheel has turned as $\theta$, but we will use $t$ for $\theta$ now.  
+
+\begin{center} \includegraphics [scale=0.5] {cycloid2.png} \end{center}
+
+The $x$ displacement of the vertical straight down from the center of the tire is just $at$, where $a$ is the radius of the wheel, it is equal to the arc on the circumference of the wheel from the point which is currently in contact with the ground, going around up to $P$.
+
+It is reasonably easy to derive the desired parametric equations, using vectors, especially once you know the answer.  For $x$, we have the vector that goes from $(0,0)$ to the contact point with the ground.  As indicated in the figure, that is $at$, the circumference of the wheel up to that point.
+
+We need to subtract the distance $a \ sin\ t$ from that.  Basically the rationale is that the motion is a standard parametric circle which has been rotated by $90$ degrees clockwise and then inverted.  The rotation changes cosine to sine, and the inversion brings the subtraction.
+
+\begin{center} \includegraphics [scale=0.35] {cycloid3.png} \end{center}
+
+It's easier to see for $t < \pi/2$, but it is true always.  Check some other values of $t$ like $\pi$ or $3\pi/2$ to confirm.  This is the usual circular motion.
+
+For $y$, we have a constant factor of $a$ above the $x$ axis, then the additional displacement is $-a \ cos \ t$.  So for $t=0$ we have the additional displacement is -a (we were on the ground), for $t=\pi/2$ it is zero, and for $t=\pi$ it is plus $a$ for a total of $2a$.  All that looks fine.
+
+The parametric equations are then
+\[ x(t) = at - a \sin t \]
+\[ y(t) = a - a \cos t \]
+
+Here is an animation from Desmos, if you want to set it up and play with it.
+\begin{center} \includegraphics [scale=0.18] {cycloid6.png} \end{center}
+
+It is almost, but not quite, a semi-ellipse.
+\begin{center} \includegraphics [scale=0.18] {cycloid7.png} \end{center}
+
+If you look closely at the animation, we had 
+\[ \sin(at + \pi) + at = at - \sin at \]
+\[ \cos(at + \pi) + 1 = 1 - \cos at \]
+
+where we have used the addition formulas
+\[ \sin A + B = \sin A \cos B + \sin B \cos A \]
+\[ \cos A + B = \cos A \cos B - \sin A \sin B \]
+
+So we see that the Desmos formulas are actually the same as what we’ve written above (and used in the second screenshot), regarding the semi-ellipse.
+
+\subsection*{calculus}
+
+Once we know some calculus, we can get various expressions like the slope of the curve
+
+Taking derivatives:
+\[ x'(t) = a - a \cos t \]
+\[ y'(t) = a \sin t  \]
+We can get $dy/dx$, what we usually call $y'$, by simple division:
+\[ y' = \frac{dy}{dx} = \frac{a \sin t }{a - a \cos t} \]
+\[ = \frac{\sin t}{1 - \cos t} \]
+Here, we will do what we can without calculus.
+
+Simmons uses half-angle formula to make something simpler, like so:
+\[ \sin t = 2 \sin \frac{t}{2} \cos \frac{t}{2} \]
+\[ \cos t = \cos^2 \frac{t}{2} - \sin^2 \frac{t}{2} \]
+\[ = 1 - 2 \sin^2 \frac{t}{2} \]
+So the ratio is
+\[ y' = \frac{ 2 \sin \frac{t}{2} \cos \frac{t}{2}}{2 \sin^2 \frac{t}{2}} = \cot \frac{t}{2} \]
+
+We saw this before, when we looked at the geometry of the tangent.
+
+\subsection*{aside about Archimedes}
+
+It struck me that $\cot t/2$ is one of the terms in the relationship Archimedes used in approximating $\pi$. There we had
+\[ \cot 2 \theta + \csc 2 \theta = \cot \theta \]
+\[ \cot t + \csc t = \cot t/2 \]
+
+So somehow, if what we have above is correct
+\[ \frac{\sin t}{1 - \cos t} = \cot t/2 = \cot t + \csc t \]
+
+Factor the right-hand side
+\[ =  \frac{1}{\sin t} (\cos t + 1) \]
+
+Then
+\[ \sin^2 t = (1 - \cos t)(\cos t + 1) \]
+\[ = 1 - \cos^2 t \]
+and one more step gives our favorite identity.
+
+Let's see if we can figure out a parametric equation for the companion curve.  $x(t)$ for the cycloid was $x(t) = at - a \sin t$.  The companion curve gets an additional length in the $x$-direction of $a \sin t$.  So $x(t) = at$.  That was easy!
+
+If we want $y = f(x)$ we must do
+\[ y = a - a \cos t \]
+and then substitute $t = x/a$ so
+\[ y = a(1 - \cos x/a) \]
+
+which goes like the sine squared of a scaled version of $x$.
+
+\begin{center} \includegraphics [scale=0.2] {cycloid5.png} \end{center}
+
+Since the latter is zero, the result is one-half of the former.
+
+Referring to the figure below, and repeating what we said before, $\angle \theta$ at the circle’s origin is supplementary to two magenta dots, so $\theta/2$ is complementary to one. That is, $\theta/2$ is complementary to the angle of the tangent, so the tangent’s slope is the cotangent of $\theta/2$.
+
+\begin{center} \includegraphics [scale=0.2] {cycloid_slope2.png} \end{center}
+
+Let us also take the origin of the circle temporarily as the origin of coordinates $(0, 0)$. Then let point $E$ be
+\[ x' = -a \sin t \]
+\[ y' = a - a \cos t \]
+
+Since $C = (0,-a)$ we have that the slope of $CE \parallel PQ$ is
+
+\[ \frac{\Delta y}{\Delta x}  = \frac{(a - a \cos t) - a}{( -a \sin t) - 0} = \frac{\cos t - 1}{\sin t} \]
+
+The slope of the tangent is the negative inverse 
+
+\[ \frac{\sin t}{1 - \cos t} \]
+which matches. We can also show that ED has the same slope as the
+tangent, since it makes a right angle with CE.
+
+\end{document}

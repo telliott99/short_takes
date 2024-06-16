@@ -1,0 +1,162 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Sum of angles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:sum_angles_similar_tri}
+
+There are some really important formulas that relate the sine and cosine of individual angles to the sine and cosine of their sum (or difference).  Here is one of them.  For angles $s$ and $t$
+
+\[ \cos s - t = \cos s \cos t + \sin s \sin t \]
+
+By $\cos s - t$ we mean $\cos (s - t)$, but have left off the parentheses. 
+
+There are four formulas, and then some special examples.  These are used a lot in calculus, not only for solving problems, but most important, in finding an expression for the derivatives of the sine and cosine functions.
+
+I've memorized only the one given above.  Say "cos cos" and then recall the difference in sign, minus on the left, plus on the right.
+
+I like this version because it can be checked easily.  Just set $s = t$:
+\[ \cos s - t = \cos s - s = \cos 0 = 1 = \cos^2 s + \sin^2 s \]
+which is our favorite trigonometric identity and obviously correct.
+
+\subsection*{similar triangles}
+
+Draw two triangles, one on top of the other, with the hypotenuse of the second scaled to be equal to $1$.  Then draw a rectangle around the whole thing.
+
+\begin{center} \includegraphics [scale=0.6] {sum_angles_6.png} \end{center}
+
+For the triangle with angle $\theta$ and hypotenuse $1$, the labels should be obvious.
+
+Second, for triangles with angle $\phi$ where the hypotenuse is \emph{not} $1$, we have something like $\cos \phi \cos \theta$ on the bottom of the figure, which gives the desired value $\cos \phi$ after dividing by the hypotenuse, $\cos \theta$.
+
+The angle labeled $\theta + \phi$ at the top is known by the alternate interior angles theorem, and the angle $\phi$ at top right is by complementary and supplementary angles.
+
+Now, just read off the relationships from the sides of the rectangle:
+\[ \sin \phi + \theta = \sin \phi \cos \theta + \cos \phi \sin \theta \]
+\[ \cos \phi + \theta = \cos \phi \cos \theta - \sin \phi \sin \theta \]
+
+\subsection*{change signs}
+
+For $\cos s - t$, flip the sign on the second term.  
+\[ \cos s - t = \cos s \cos t + \sin s \sin t \]
+That's because
+\[ \cos -\theta = \cos \theta \]
+\[ \sin - \theta = - \sin \theta \]
+
+\begin{center} \includegraphics [scale=0.4] {pm_theta.png} \end{center}
+
+The diagram shows the reason:
+\[ \cos \theta = x/r = \cos - \theta \]
+while
+\[ \sin \theta = y/r = -  (\sin - \theta ) = - (-y/r) \]
+
+Substitute $- \sin \theta$ for $\sin - \theta$ and $\cos \theta$ for $\cos - \theta$:
+\[ \cos s - t = \cos s \cos - t + \sin s \sin - t \]
+\[ = \cos s \cos t - \sin s \sin t \]
+and
+\[ \sin s - t = \sin s \cos t - \cos s \sin t \]
+
+It's kind of overkill, but still worth noting that a simple change to the figure we had above will give the difference formulas:
+
+\begin{center} \includegraphics [scale=0.6] {sum_angles_7.png} \end{center}
+We've changed the symbol $\phi$ to refer to the complementary angle from what it was before.  
+
+We can justify the label $\phi - \theta$ for the angle at the lower left in various ways, for example, by adding up the three angles at that corner:
+\[ (\phi - \theta) + \theta + (90 - \phi) = 90 \]
+
+Switch the labels appropriately (it's easy since this $\phi$ is the complement of the old one).
+
+Read the result:
+\[ \sin \phi - \theta = \sin \phi \cos \theta - \cos \phi \sin \theta \]
+\[ \cos \phi - \theta = \cos \phi \cos \theta + \sin \phi \sin \theta \]
+
+\subsection*{alternate grouping}
+
+In the figure, I have simply rotated the same triangle.
+\begin{center} \includegraphics [scale=0.4] {angles2.png} \end{center}
+
+From the counter-clockwise rotation, we can read off the fundamental relationships:
+\[ \sin (\theta + \pi/2) = b = \cos \theta \]
+\[ \cos (\theta + \pi/2) = - a = - \sin \theta \]
+
+Then consider the first sum of angles formula:
+\[ \sin s + t = \sin s \cos t + \cos s \sin t \]
+
+Write the same triple sum in two different ways
+\[ \sin s + t + \pi/2 = \sin (s + t) + \pi/2 = \sin s + (t + \pi/2) \]
+
+From the middle expression and using the first fundamental relation with $\theta = s + t$:
+\[ \sin (s + t) + \pi/2 = \cos s + t \]
+From the right-hand grouping and using the formula for the sine of the sum
+\[ \sin s + (t + \pi/2) = \sin s \cos t + \pi/2 + \cos s \sin t + \pi/2 \]
+But using the two fundamental relations we can see that this is equal to:
+\[ = \sin s (- \sin t) + \cos s \cos t \]
+
+Putting the two results together:
+\[ \cos s + t =  \cos s \cos t - \sin s \sin t \]
+Going backwards is a similar exercise.
+
+\subsection*{Euler}
+Euler's formula is:
+\[ e^{i \theta} = \cos \theta + i \sin \theta \]
+
+If you've never seen it before, don't worry what it means or where it comes from.  Just treat $i$ as a constant with $i^2 = -1$.  Multiply as follows:
+\[ (\cos s + i \sin s)(\cos t + i \sin t) \]
+\[ = \cos s \cos t + i^2 \sin s \sin t + i \ [ \ \sin s \cos t + \cos s \sin t \ ] \] 
+\[ = \cos s \cos t - \sin s \sin t + i \ [ \ \sin s \cos t + \cos s \sin t \ ] \] 
+
+This is a \emph{complex} number with a real part (the first two terms), plus an imaginary part, the last two terms, with a leading factor of $i$.
+
+For the same calculation with the exponential
+\[ e^{is} \cdot e^{it} = e^{i(s+t)} \]
+\[ = \cos (s + t) + i \sin (s + t) \]
+
+By Euler's formula, these two expressions are equal.  
+
+The rule for equality of complex numbers is that both the real parts and the imaginary parts must be equal.  So we have
+\[ \cos (s + t) = \cos s \cos t - \sin s \sin t \]
+\[ \sin (s + t) = \sin s \cos t + \cos s \sin t \]
+
+\subsection*{alternative proof of sum of angles}
+
+The law of cosines is a relatively simply consequence of the Pythagorean theorem.  It can be used in a straightforward derivation of the formula for the sum of angles, specifically, 
+\[ \cos x - y = \cos x \cos y + \sin x \sin y \]
+
+I saw this here
+\url{https://www.youtube.com/watch?v=JOg9kQp7pig}
+
+Here is the derivation.  I am using Daniel Rubin's figure.
+\begin{center} \includegraphics [scale=0.5] {daniel_rubin.png} \end{center}
+
+We simply compute the length of the chord $AB$ in two different ways.  The first way uses the coordinates of the two points.
+\[ (AB)^2 = (\cos y - \cos x)^2 + (\sin y - \sin x)^2 \]
+\[ = \cos^2 y - 2 \cos y \cos x + \cos^2 x + \sin^2 y - 2 \sin y \sin x + \sin^2 x \]
+\[ = 1 + 1 - 2 (\cos y \cos x + \sin x \sin y) \]
+
+(Either of these differences in the first line can be reversed without changing the result).  The second way uses the law of cosines from above.
+\[ AB^2 = 1^2 + 1^2 - 2 \cdot 1 \cdot 1 (\cos x - y) \]
+
+We obtain
+\[ \cos x - y =  \cos x \cos y + \sin x \sin y \]
+
+$\square$
+
+\end{document}

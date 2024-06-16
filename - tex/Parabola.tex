@@ -1,0 +1,192 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Parabola}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The parabola is one of a larger class of geometric figures called the conic sections.  
+\begin{center} \includegraphics [scale=0.4] {conic_sections2.png} \end{center}
+
+It is pretty complicated to look at parabolas in the way that the Greeks did, so we start by using a formula from analytic geometry, which allows us to draw the curve.
+
+The equation of a general parabola is simply $y=ax^2$, where $a$ is called the shape factor of the parabola.  Here are parabolas with different values of $a$.  The larger $a$ is, the faster the curve rises.
+
+\begin{center} \includegraphics [scale=0.4] {shape_factor.png} \end{center}
+
+The one in the figure below is a little flatter than we usually draw, we'll see the reason for that choice in a minute.  The vertex is at $(0,0)$, and the curve is symmetric across the $y$-axis:  $f(x) = f(-x)$.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_1.png} \end{center}
+
+At $x = 2$ we have $y = 1$, so $a = 1/4$.  And at $x = 1$ we have $y = 1/4$, which is consistent with that.
+
+\subsection*{focus and directrix}
+
+We need one more idea to start our geometric look at the parabola.  
+
+The geometric definition is this.  Pick a point on the $y$-axis a distance $p$ up from the origin, colored magenta in the figure.  This point is called the focus ($F$).
+\begin{center} \includegraphics [scale=0.35] {para_geo_1.png} \end{center}
+Then draw a line parallel to the $x$-axis which intersects the $y$-axis the same distance $p$ below the origin.  This line is called the directrix.  It is colored blue and its equation is $y = -p$.
+
+The parabola consists of all those points whose \emph{distance to the focus is equal to the vertical distance to the directrix}.
+
+It is another fact that we will establish later that the distance $p$ is related to $a$ by the equation:
+\[ 4ap = 1 \]
+which explains our choice of $a$.  We want the parabola to be flat enough to see $F$ and the line $y = -p$ clearly.
+
+If we consider the point $P = (2,1)$ we can compute the distance to the focus as simply $\Delta x = 2$ and to the directrix as $\Delta y = 1 + 1 = 2$.
+
+\subsection*{slope of the tangent}
+
+One last fact we will justify later:  at any point $(x,y)$ on the parabola, the slope is $2ax$.  Therefore, the slope of the tangent to the curve at $x = 2$ is 
+\[ m = 2 \cdot 1/4 \cdot 2 = 1\]
+
+By inspection of the graph we see that the tangent line goes through $I = (0,-1)$ which gives a point slope formula of $y = x -1$.  It is easy to verify that $(2,1)$ and $(0,-1)$ are both on the line, and of course the slope is $1$, as advertised.
+
+Notice that the $x$-intercept, $x_0$ is
+\[ 0 = x - 1, \ \ \ \ \ \ x = 1 \]
+This is exactly halfway on the $x$-axis between $P$ and $I$.
+
+All of this depends on our assumption that the slope of the tangent to the curve at $(2,1)$ has slope $2ax = 1$ for $y = 1/4 \ x^2$.
+
+\subsection*{another point}
+From the equation of the curve we can get that $(x = - 1, y = 1/4)$ is on the curve.  The distance from the point to the directrix is just $5/4$.
+\begin{center} \includegraphics [scale=0.35] {para_geo_1.png} \end{center}
+
+The distance to the focus, squared, is:
+\[ d^2 = 1^2 + (\frac{3}{4})^2 = \frac{25}{16} \]
+so 
+\[ d = \sqrt{\frac{25}{16}} = \frac{5}{4} \]
+which checks.
+
+And this should not be a surprise.  A look at the figure will show that in units of $1/4$, we have a 3-4-5 right triangle.
+
+\subsection*{computing p}
+
+Pick an arbitrary point on a parabola (in blue), with coordinates $(x, ax^2)$.  
+
+The change in $x$ going to the focus is just $x$, while going to the directrix it is zero.
+
+To compute the change in $y$, find the distance of the point to the $x$-axis as $ax^2$ and then for the focus, subtract $p$, while for the directrix, add $p$.
+
+\begin{center} \includegraphics [scale=0.4] {focus_dir.png} \end{center}
+
+So, the squared distance to the focus (magenta point) is 
+\[ \Delta x^2 + \Delta y^2 =  x^2 + (ax^2 - p)^2  \]
+
+while the squared distance to the directrix (red line) is  $(ax^2 + p)^2$.  
+
+For the correct choice of $p$ these distances must be equal:
+\[ (ax^2 - p)^2 + x^2 = (ax^2 + p)^2 \]
+
+At this point one can multiply out the squares on both sides.  Notice, we have $(m - n)^2$ on the left and $(m + n)^2$ on the right.  The terms of $m^2$ and $n^2$ will cancel leaving terms like $2mn$ of differing sign:
+
+\[ - 2ax^2p + x^2 =  + 2ax^2p  \]
+
+Divide by $x^2$
+\[ - 2ap + 1 =  2ap  \]
+\[ 4ap = 1 \]
+\[ ap = \frac{1}{4} \]
+
+The shape factor $a$ determines the distance of the focus and directrix from the vertex.
+
+\subsection*{slope of the tangent}
+As we said, the slope of the tangent to $y=ax^2$ at any fixed point $x$ is equal to $2ax$. 
+
+\begin{center} \includegraphics [scale=0.4] {para17.png} \end{center}
+
+The equation of a line passing through the point $(x,ax^2)$ with the given slope is
+\[ y' - ax^2 = 2ax(x' - x) \]
+where $(x',y')$ is any other point on the line.
+
+What \emph{that} means is that the $x$-intercept of the tangent line ($y' = 0$, $x' = x_0$) is:
+\[ - ax^2 = 2ax x_0 - 2ax^2 \]
+\[ ax^2 = 2ax x_0 \]
+\[ x = 2x_0 \]
+\[ x_0 = \frac{1}{2} x \]
+
+The tangent line passes through the $x$ axis halfway back toward the origin.
+\begin{center} \includegraphics [scale=0.4] {para17.png} \end{center}
+
+And what \emph{that} means is that the $y$-intercept is symmetrical with the original point (as far below the $x$-axis as the point is above it). Here's the algebra:
+\[ y_0 - ax^2 = 2ax(0 - x) \]
+\[ y_0 = -ax^2 \]
+
+And then finally, if the point on the parabola is $P$, the focus $F$, the intersection with the directrix $D$, and the $y$-intercept $I$
+
+\begin{center} \includegraphics [scale=0.4] {para20.png} \end{center}
+the quadrilateral $FPDI$ is a parallelogram.  It looks like all four equal sides are equal.  Let's see.
+
+\emph{Proof}.
+
+The vertical distance from $P$ to the $x$-axis is $ax^2$, so $PD = ax^2 + p$.  Similarly, the vertical distance from $I$ up to the $y-$axis is also $ax^2$, so $IF = ax^2 + p = PD$.  
+
+$FP$ is the hypotenuse of a right triangle with sides $x$ and $ax^2 - p$.  $ID$ is the hypotenuse of a right triangle with the same sides.  Therefore $ID = FP$ and $IFPD$ is a parallelogram.
+
+Finally, $FP = PD$, by the geometric definition of the parabola.  
+
+Therefore, $IFPD$ is a regular parallelogram.
+
+$\square$
+
+As the long diagonal of a parallelogram, the tangent line makes equal angles with $FP$ and $PD$.
+
+If $PD$ is extended vertically upward, the angle it makes with the tangent line ($\phi$) is equal to the angle between $FP$ and the tangent line.  This means that all vertical light rays entering a parabola will reflect and then come together at the focus.
+
+Let us add one more relationship to the figure:  draw the line passing through $P$ that is vertical to the tangent, called the \emph{normal} to the tangent.  
+
+\begin{center} \includegraphics [scale=0.4] {para21.png} \end{center}
+
+The normal intersects the $y$-axis at a point above $P$.  We can calculate the additional vertical distance $h$ by noting that the slope of this line is the negative inverse of $2ax$ and the distance along the $x$-axis is just $x$ so 
+
+\[ \Delta y = -\frac{2ax}{x} = - \frac{1}{2a} \]
+where $h = |\Delta y|$.  The $y$-intercept is $1/2a + ax^2$.
+
+A more subtle way of doing this is to draw similar triangles on the figure.  One in particular has base $x$ and height $h$ and hypotenuse equal to the length of the normal.  If you do this, you should be able to show that
+\[ \frac{h}{x} = \frac{x}{2ax^2} \]
+\[ 2ah = 1 \]
+which leads directly to the same answer.
+
+This means that the height of the intersection of the normal above the point $(x,y)$ is independent of $x$ and $y$.  It's just $1/2a$.  So as $x$ gets larger and the parabola becomes more and more vertical, the distance in height gained by the normal becomes smaller and smaller as a fraction of $x$ (or $y$).
+
+\subsection*{Roberval's idea}
+
+Here is a brilliant idea of Roberval which gives the slope of the tangent to a parabola.  It involves a tiny bit about vectors, which we will introduce later in the book.
+
+\url{https://en.wikipedia.org/wiki/Gilles_de_Roberval}
+
+Roberval views the curve as the track of an object, and asks what is the direction of movement at each position?  (He draws his parabolas sideways, so we will too, for this once).
+
+\begin{center} \includegraphics [scale=0.4] {Roberval.png} \end{center}
+
+The idea is that the vector describing the motion, where a projectile tracing out the curve is headed at any individual moment, is the combination of two other vectors.  
+
+We know these two vectors!  They are the invariants, namely that the distance to the focus and the distance to the directrix are equal at every point.  Since the motion must be such as to preserve that invariant, the motion lies in the direction of the sum of the two vectors.  These are 
+
+\[ PF = \langle \ x, ax^2 - p \ \rangle \]
+\[ PD = \langle \ 0, ax^2 + p \ \rangle \]
+
+The sum is 
+\[ \mathbf{v} = \langle \ x, 2ax^2 \ \rangle \]
+A line along this vector has slope
+\[ \frac{\Delta y}{\Delta x} = \frac{2ax^2}{x} = 2ax \]
+
+And since the tangent lies in the direction of motion, we're done.  This general idea works for other curves, notably the circle and the ellipse.
+
+\end{document}

@@ -1,0 +1,100 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Zero}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Consider the equation $xy = 1$.  
+
+Now suppose $y = 0$.  What is $x$?  The answer is that since $0$ times \emph{anything} is zero, there is no $x$ that satisfies the equation when $y = 0$.  
+
+If we multiply both sides of the equation by $1/y$ 
+\[ x = \frac{1}{y} \]
+
+It's less obvious now, but still true that if $y = 0$, then there is no real number $x$ to satisfy the equation.
+
+Thus, we learn in algebra not to do this
+\[ \frac{1}{0} \stackrel{?}{=} \]
+
+We say that the result of division by zero is \emph{undefined}. 
+
+Let's suppose the denominator is not $0$ but instead is small and then ask what happens if it becomes smaller.  So for example $1/0.1 = 10$, and using exponents
+\[ \frac{1}{10^{-1}} = 10^{1} \]
+
+Then
+\[ \frac{1}{10^{-1000}} = 10^{1000} \]
+
+The inverse of a very very very small number is a very very very large number.  What's the largest number?  
+
+Infinity, symbolized $\infty$, is a candidate.  Suppose we try treating $\infty$ as a number.  Maybe
+\[ \frac{1}{0} \stackrel{?}{=} \infty \]
+
+However, infinity is a strange beast.  Consider
+\[ \infty + 1 \stackrel{?}{=} \]
+
+Certainly some number one more than infinity is also infinite?  $\infty$ is supposed to be the largest number.  But then if
+\[  \infty + 1 = \infty \]
+
+Subtracting $\infty$ on both sides (assuming that $\infty$ is just a number) we obtain
+\[ 1 = 0 \]
+
+That's problematic, to say the least.  
+
+Continuing our exploration, suppose we try
+
+\[ \frac{1}{0} = \infty \]
+
+What do we mean by the division operation?  We mean that result of $a/b$ is a number $c$ such that
+\[ a = c \cdot b \]
+
+So, applying the same logic to our problem
+\[ 1 = \infty \cdot 0 \]
+
+But $0$ times any number is defined to be equal to zero.  Oops.  We must also ask about $2/0$.  It must be that
+\[ \frac{2}{0} = 2 \cdot \frac{1}{0} = 2 \cdot \infty =  \infty \]
+
+So, working with the left-hand and very right-hand sides:
+\[ 2 = \infty \cdot 0 \]
+
+and since $1 = \infty \cdot 0$ it follows that
+
+\[ 2 = \infty \cdot 0 = 1 \]
+
+These are huge contradictions.  We conclude that
+
+$\bullet$ \ \ $\infty$ is not a number
+
+$\bullet$ \ \ Division by $0$ is not defined
+
+\subsection*{another demonstration}
+Suppose we accept for a moment that $\frac{1}{0}$ is \emph{something}, without specifying exactly what it is.  Then consider
+\[ 0 \cdot \frac{1}{0} \]
+
+On one hand, if we use the rule that $0 \cdot a = 0$, where $a$ is any number, then
+\[ 0 \cdot \frac{1}{0} = 0 \]
+
+On the other hand, if we use the rule that any number divided by itself is $1$
+\[ 0 \cdot \frac{1}{0} = 1 \cdot \frac{0}{0} = 1 \cdot 1 = 1  \]
+
+We have to break at least one rule, and that's not desireable.
+
+
+
+\end{document}

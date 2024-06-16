@@ -1,0 +1,71 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Order of operations}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Order of operations is a topic in pre-algebra.  The acronym to remember is PEMDAS, which stands for
+
+$\circ$ \ parentheses
+
+$\circ$ \ exponents
+
+$\circ$ \ multiplication and division
+
+$\circ$ \ addition and subtraction
+
+I'm not crazy about this subject.  For one thing, it usually employs the symbols $\times$ and $\div$, which we are going to do away with in algebra.  A few examples:
+
+\subsection*{1}
+
+\[ 42 \div 7 \times 3 \]
+
+Since multiplication and division are at the same "level" in the hierarchy, and operations at the same level are carried out left-to-right: 
+\[ 42 \div 7 \times 3 = 6 \times 3 = 18 \]
+In algebra we would write
+\[ \frac{42}{7} \cdot 3 \]
+which is unambiguous.  And if we really wanted something different, we can use brackets
+\[ 42 \div (7 \times 3) = \frac{42}{7 \cdot 3} \]
+
+\subsection*{2}
+
+Here's one with multiplication and addition:
+\[ 6 + 7 \times 3 = 6 + 21 = 27 \]
+Multiplication is at a higher level than addition, so we hold off on the addition and do the multiplication first.  To force the other evaluation just write brackets:
+\[ (6 + 7) \cdot 3  = 39 \]
+
+Remember the distributive law!
+\[ 3 \cdot (6 + 7) = 3 \cdot 13 \]
+And we can split up the terms any way that will make it easier.  For example
+\[ 3 \cdot (6 + 7) = 3 \cdot (10 + 3) = 3 \cdot 10 + 3 \cdot 3 = 39 \]
+
+\subsection*{brackets first}
+
+\[ 27 \div (8 - 5)^2 = 27 \div 3^2 = 27 \div 9 = 3 \]
+Here, the brackets direct us to do the subtraction first.  then E comes before D, so we do the square, and then the division last.  In algebra we would write
+\[ \frac{27}{(8-5)^3} \]
+
+Brackets top and bottom:
+\[ (\frac{2 + 1}{3 - 1})^2 = \frac{(2 + 1)^2}{(3 - 1)^2} = \frac{3^2}{2^2} = \frac{9}{4} \]
+
+\[ (18 \div 6 \times 5) - 14 \div 7 = (3 \cdot 5) - 2 = 13 \]
+
+
+\end{document}

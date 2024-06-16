@@ -1,0 +1,99 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Quadratics, summary}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{Summary}
+
+The most general equation for a quadratic is
+\[ y = ax^2 + bx + c \]
+where $a$, $b$ and $c$ are all constants.  These are the letters everyone uses for them.
+
+The graph of any particular quadratic equation traces out a parabola, which is shaped like the nose cone of a rocket but is open inside, like a cup.
+
+$\circ$ \ $a$ determines how steeply the sides curve and its sign tells in what direction the "cup opens", up or down.
+
+$\circ$ \ $b$ and $a$ together determine where the vertex lies.  The vertex is the very bottom or top of the cup.
+
+$\circ$ \ $c$ shifts the parabola's vertical position and is also the $y$-value when $x = 0$.
+
+If $a$ is positive, the cup opens up, and $y$ has its minimum value at the vertex.  If $a$ is negative, then the cup opens down, and $y$ has its maximum value at the vertex.
+
+Two basic questions to ask about any quadratic are
+
+$\circ$ \ Where is the vertex located? What is the $x$-value at the vertex?
+
+$\circ$ \ Where are the roots?  These are the $x$-values where the graph crosses the $x$-axis, where $y = 0$.
+
+We will call the vertex's $x$-value $m$ for minimum/maximum.  The formula is
+\[ m = - \frac{b}{2a} \]
+When $x=m$, then $y$ attains its min or max value.  
+
+If you need to find that $y$ value, plug $x = m = -b/2a$ into the equation and crank away.
+
+To "solve" a quadratic means to find its zeros, or roots, which means $y = 0$.
+\[ ax^2 + bx + c = 0 \]
+It is very useful to play in Desmos with the form of the equation produced by factoring out $a$:
+\[ y = a \ [ \ x^2 + \frac{b}{a}x + \frac{c}{a} \ ]  \]
+That leading $a$ still determines shape, but it no longer changes where the vertex or the zeros are.  It is the cofactor of $x$, namely $b/a$, which does that.  
+
+As a result, we can make an equation easier to work with by factoring out $a$ from $x^2$ in this way.
+
+In looking for the roots, because of that $0$ on the right-hand side, dividing by $a$ does not change the roots.  The same values of $x$ satisfy this equation
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} =  0 \]
+Sometimes we can guess the zeros or roots.  For $s$ and $t$ to be zeros, it must be that
+\[ (x - s)(x - t) = 0 \]
+\[ = x^2 - (s + t)x + st  \]
+By comparison with the other form (see the previous equation), it should be apparent that
+\[ \frac{b}{a} = - (s + t) \ \ \ \ \ \ \ \ \  \frac{c}{a} = st \]
+See if you can find two factors that add to give negative $-b/a$ and multiply to give $c/a$.  As an example
+\[ x^2 + 2x - 63 = y \]
+Find integers two units apart that multiply to give $63$, realizing that one of them has a minus sign
+\[ (x - 7)(x + 9) = x^2 + 2x - 63 = 0 \]
+This equation equals $0$ when $x = 7$ or $x = -9$.
+
+The vast majority of equations do not have integer roots, but this exercise seems valuable because it focuses attention on what it means to be a root.
+
+Another situation in which the zeros are easy is if $c = 0$ because then
+\[ ax^2 + bx + 0 = x(ax + b) = 0 \]
+One zero is $x=0$ and the other is when $ax+b = 0$ so $x = -b/a$.  
+
+The $x$ position of the vertex is always the average of the two zeros.  That works for the last example and if you look back you see that we had $s$ and $t$ as the roots and
+\[ \frac{b}{a} = - (s + t) \]
+But
+\[ m = - \frac{b}{2a} = \frac{s + t}{2} \]
+$m$ is the average of the roots and we can also write
+\[ x^2 - 2mx + \frac{c}{a} =  0 \]
+
+The zeros can always be found using the quadratic formula.  Here is my favorite, simple version of that:
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+You must memorize both the formula for $m$ and this one.  
+
+The easiest derivation of the quadratic formula is by "completing the square".  Start with the previous equation and rearrange to give
+\[ x^2 - 2mx  =  - c/a  \]
+
+The bright idea is to turn the left-hand side into $(x - m)^2$ which we do by adding $m^2$ to both sides:
+\[ x^2 - 2mx + m^2 = m^2 - c/a  \]
+\[ (x - m)^2 = m^2 - c/a  \]
+The rest is just algebra.
+
+
+\end{document}

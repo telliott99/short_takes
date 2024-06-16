@@ -1,0 +1,99 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Inequalities}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+It is easiest to think about inequalities by visualizing the number line.  If some number $a$ is further to the right on the number line than some other number $b$, then we say that $a$ is \emph{greater than} $b$ and write $a > b$ or $b$ is \emph{less than} $a$ and write $b < a$.
+
+Examples:  $2 > 1$, $1 > 0$, $0 > -1$, $-1 > -2$.  Each statement can be rewritten with a $<$ symbol by switching the left- and right-hand sides.  So $1 < 2$ and so on.  The first axiom of inequalities is that if we
+
+$\bullet$ \ add or subtract the same value $c$, then inequality is preserved.
+\[ a > b \ \ \ \ \ \iff a + c > b + c \]
+
+We won't worry about the distinction too much, but this statement is true for all real numbers, all $a,b,c \in \mathbb{R}$.  If you don't know what that means, forget about it for now. 
+
+Multiplication is a little harder.  Obviously, if we multiply both sides by $0$, then we have not inequality but equality since both sides become $0$.  
+
+Otherwise
+
+$\bullet$ \  if $c > 0$ then multiplying by $c$ preserves inequality.
+\[ a > b \ \ \ \ \ \iff ac > bc \]
+
+However, consider $-1$.  Starting with $a > 0$ and multiplying by $-1$, what should happen?  It is clear that $-a < 0$.  The same problem occurs with any inequality.  It must switch.
+
+$\bullet$ \  $a > b \ \ \ \ \ \iff -a < - b$.
+
+You can predict what happens when multiplying by $-c$ if you break it up into two operations:  first multiply by $c$ and then by $-1$.
+
+$\bullet$ \  if $c < 0$ then multiplying by $c$ reverses the inequality.
+\[ a > b \ \ \ \ \ \iff ac < bc \]
+
+Division is just like multiplication, except that division by zero is, as usual, undefined.
+
+$\bullet$ \  if $a > b$ and $c > d$, then $a + c > b + d$.  
+
+One way to see this is to say that $a = b + x$ and $c = d + y$ so 
+\[ a + c = b + d + x + y > b + d \]
+
+\subsection*{average}
+The average of two numbers $a$ and $b$ is $(a + b)/2$.  We can show that if $a > b$ then
+\[ a > \frac{a + b}{2} > b \]
+
+The average of two numbers lies between them on the number line.  First add $a$ to both sides of $a > b$:
+\[ a + a > a + b \]
+Then add $b$ to both sides of $a > b$:
+\[ a + b < b + b \]
+Combine
+\[ a + a < a + b < b + b \]
+and divide by $2$:
+\[ a < \frac{a + b}{2} < b \]
+
+$\square$
+
+\subsection*{number density}
+
+This leads to a very important observation about numbers, not just the real numbers but rational numbers as well.  
+
+A rational number is a fraction such as $p/q$, where $p$ and $q$ are both integers, i.e. numbers like $\{\dots -2 , -1, 0, 1, 2 \dots \}$.  Let's stick with positive integers for the moment.
+
+Suppose we have found $p$ and $q$ such that 
+\[ 0 > \frac{p}{q} \]
+but just barely.  $p/q$ is very close to zero, in fact, as close as you like.  We imagine that $p < q$ so $p/q < 1$.
+
+Now construct the average of $p/q$ and $0$.  We said that the average of two numbers lies between them.  We claim that
+\[ 0 < \frac{1}{2} (\frac{p}{q} + 0) < \frac{p}{q} \]
+
+The first part is obvious.  Half of any number greater than zero is still greater than zero.  What about the other part?
+\[ \frac{p}{2q} < \frac{p}{q} \]
+Multiply by $2q/p$
+\[ 1 < 2 \]
+which is also obviously true.  So, if you want a proof, run the reasoning in reverse.
+
+What does this mean?  We haven't said anything specific about $p$ and $q$ except that $p < q$ and $p/q > 0$.  By constructing the average, we have found a number smaller than $p/q$ that is still larger than $0$.  We can repeat this operation as many times as we like, each time halving the distance to zero.
+
+The conclusion, then is:  there is \emph{no} number that is the closest number to $0$, since given a candidate number, we can always average it with zero and find another yet smaller number.
+
+Furthermore, we can add any number we like to the inequality, like
+\[ 1 < 1 + \frac{p}{2q} < 1 + \frac{p}{q} \]
+
+We conclude that for $1$, there is no other number that is the closest to it, since we can always average the two numbers and find another number in between.  In fact, this is true for \emph{any} number.  There is no "closest" number to any given number.
+
+\end{document}

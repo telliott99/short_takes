@@ -1,0 +1,519 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Newton binomial}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Dunham (\emph{The Calculus Gallery}, chapter 1) has an introduction to Newton's binomial theorem plus some applications of series to approximation of the digits of $\pi$, to integration, and to writing series such as the ones for $\sin x$ and $\cos x$ and $exp\{ x \}$.
+
+\url{http://assets.press.princeton.edu/chapters/s7905.pdf}
+
+\subsection*{fractional exponents}
+
+It turns out that the binomial theorem, originally used for integer powers, also gives correct results for fractional exponents $m/n = r$.  The first people that we are sure knew about this were Newton and (about five years later) Gregory.  A key difference is that there is never a term of $(r-r)!$ so any series for non-integer $r$ is infinite.
+
+Newton's formulation can be written fairly compactly as
+
+\[ (P + PQ)^{m/n} = P^{m/n} + \frac{m}{n} AQ + \frac{m - n}{2n}BQ + \dots \]
+where the terms $A, B \dots$ refer to the \emph{entire} previous term,   For example
+\[ B =  \frac{m}{n} \cdot P^{m/n}Q \]
+\[ C = \frac{m}{n} \cdot \frac{m - n}{2n} \cdot P^{m/n}Q^2 \]
+
+The progression of cofactors \emph{not including} the contributions from previous terms is
+\[ 1, \ m/n, \ \frac{m - n}{2n}, \ \frac{m - 2n}{3n} \dots \]
+
+If we bring $n$ up into the numerator and let $r = m/n$ these become
+\[ 1, r, \frac{r - 1}{2}, \frac{r - 2}{3} \dots \]
+but remember that $A,B,C \dots$ contain cofactor terms as well.  Let's write out the whole thing:
+\[ (P + PQ)^{r} = P^{r} + r \cdot P^{r}Q + r \cdot \frac{r - 1}{2} \cdot P^{r}Q^2 + \dots \]
+
+We can simplify further by factoring out $P^{r}$:
+\[ (1 + Q)^{r} = 1 + r \cdot Q + r \cdot \frac{r - 1}{2} \cdot Q^2 + r \cdot \frac{r - 1}{2} \cdot \frac{r - 2}{3} \cdot Q^3 + \dots \]
+where I have added an additional term to make sure you can see the pattern.  
+
+This is the familiar binomial, but with rational $r$.
+
+\subsection*{example}
+\[ \frac{1}{\sqrt{1 - x^2}} \]
+It will become important that if we square this we know that
+\[ \frac{1}{1 - x^2} = 1 + x^2 + x^4 + \dots \]
+provided that $x^2 < 1$.  This is the familiar geometric series with common ratio $r$ and first term $1$.
+
+Let's see
+\[ (1 - a)^{r} = 1 + r(-a) + \frac{r(r-1)}{2!} (-a)^2 + \frac{r(r-1)(r-2)}{3!} (-a)^3 + \]
+\[ \ \ \ \ \ \ \ \ \ \ + \frac{r(r-1)(r-2)(r-3)}{4!} (-a)^4 + \dots \]
+Here $r = -1/2$ so
+\[ (1 - a)^{-1/2} = 1 + -\frac{1}{2}(-a) + \frac{3}{8} (-a)^2 - \frac{5}{16} (-a)^3 + \frac{35}{128} (-a)^4 + \dots \]
+\[ = 1 + \frac{1}{2}x^2 + \frac{3}{8} x^4 + \frac{5}{16} x^6 + \frac{35}{128} x^8 + \dots \]
+
+Notice that all the terms are positive.  The odd powers of $-a$ contribute a minus sign that cancels the $-1$ obtained from multiplying an odd number of negative coefficients in front.  
+
+Also, the fractions are much easier to do if one remembers the trick with $A,B,C \dots$.
+
+\subsection*{check}
+To check this result, Newton squared the series.  Of course, this is only possible if we neglect higher powers than some chosen limit.  Let's take powers up to $x^8$.
+
+For the cofactors of $x^2$ we have a contribution of $1 \cdot 1/2$ from the second term in each copy of the squared series.  That's a total of $1$ as the cofactor for $x^2$ in the squared series.
+
+For the cofactors of $x^4$ we have two copies of $1 \cdot 3/8$ plus one copy of $1/2 \cdot 1/2$.  The total is again $1$ of $x^4$.
+
+For the cofactors of $x^6$ we have $2 \cdot 5/16$ plus $2 \cdot 1/2 \cdot 3/8$.  The total is $1$ of $x^6$.
+
+Finally, for $x^8$ we have $2 \cdot 35/128$ plus $2 \cdot 1/2 \cdot 5/16$ plus $3/8 \cdot 3/8$.  I get
+\[ 70/128 + 5/16 + 9/64 = \frac{70 + 40 + 18}{128} = 1 \]
+
+So the square is equal to $1 + x^2 + x^4 + \dots$.  This gives confidence that the method \emph{is} working correctly.
+
+\subsection*{arc sine}
+The function was
+\[ \frac{1}{\sqrt{1 - x^2}} \]
+If we integrate this (using a trig substitution) the integral is just $\sin^{-1}x$, the arc sine of $x$, the angle whose sine is $x$.
+
+It goes like this:  draw a right triangle with hypotenuse $1$ and $x$ as the side opposite angle $t$.  Hence $x = \sin t$, $dx = \cos t \ dt$ and $\sqrt{1-x^2} = \cos t$. So the integral is
+\[ \int \frac{1}{\sqrt{1 - x^2}} \ dx = \int \frac{1}{\cos t} \ \cos t \ dt = \int dt = t \]
+The integral is just $t$, the angle whose sine is $x$, as we said.
+
+The polynomial is easy to integrate as well.  We had
+\[ = 1 + \frac{1}{2}x^2 + \frac{3}{8} x^4 + \frac{5}{16} x^6 + \dots \]
+\[ = x + \frac{1}{6}x^3 + \frac{3}{40} x^5 + \frac{5}{7} \cdot \frac{1}{16} x^7 + \dots \]
+We will work through a couple more terms, below.
+
+First note that if the sine of the angle is $x = 1/2$, then $t = \pi/6$.  Rather than multiply let's just divide now:
+\[ \frac{\pi}{6} = 0.523598775598 \]
+
+The first 7 terms are:
+\[
+\begin{matrix}
+n & |r-n| & 1/n & cofactor & Q^n  \\
+0  & - & - & 1 & (x^2)^0 \\
+1 & 1/2 & 1 & 1/2 & (x^2)^1 \\
+2 & 3/2 & 1/2 & 3/8 & (x^2)^2  \\
+3 & 5/2 & 1/3 &  5/16 & (x^2)^3  \\
+4 & 7/2 & 1/4 &  35/128 & (x^2)^4  \\
+5 & 9/2  & 1/5 &  63/256  & (x^2)^5 \\
+6 & 11/2  & 1/6 &  231/1024  & (x^2)^6  \\
+\end{matrix}
+\] 
+
+To obtain each cofactor after the first, multiply $|r-n| \cdot 1/n$ times the previous cofactor right above it.
+
+To evaluate the integral, multiply by one over the power $1/n$ and by $1/2^n$.  The first term is just $n=1$, so we get $1/2$.
+
+\[
+\begin{matrix}
+n & (x^2)^n & x^{2n+1} & (1/2)^{2n+1} & \times \ 1/(2n+1) & \times \ cofactor & result  \\
+0  & 1 & x  & 2^{-1} & 1 & 1 & 1/2 \\
+1  & x^2 & x^3  & 2^{-3} & 1/3 & 1/2 & 1/3 \cdot 2^{-4} \\
+2  & x^4 & x^5  & 2^{-5} & 1/5 & 3/8 &  3/5 \cdot 2^{-8}  \\
+3  & x^6 & x^7  & 2^{-7} & 1/7 &  5/16 & 5/7 \cdot  2^{-11}  \\
+4  & x^8 & x^9  & 2^{-9} & 1/9 &  35/128 & 35/9 \cdot 2^{-16}  \\
+5  & x^{10} & x^{11}  & 2^{-11}  & 1/11 &  63/256  &  63/11 \cdot 2^{-19} \\
+6  & x^{12} & x^{13}  & 2^{-13}  & 1/13 &  231/1024  &  231/13 \cdot 2^{-23}  \\
+\end{matrix}
+\] 
+
+I get
+
+\begin{verbatim}
+[
+0.5,
+0.020833333333333332,
+0.00234375,
+0.00034877232142857144,
+0.000059339735243055555,
+0.000010923905806107955,
+0.0000021182573758638823
+]
+----------------------
+0.523598237553187
+\end{verbatim}
+
+Accurate to 6 places, so far.
+
+\subsection*{another series}
+According to the internet, the series Newton actually computed to find $\pi$ starts from integrating the equation of the circle:  $\sqrt{r^2-x^2}$.
+
+\url{https://blogs.sas.com/content/iml/2023/03/08/newton-pi.html}
+
+It seems surprising (at first) that he chooses a circle of radius $1/2$ 
+
+\begin{center} \includegraphics [scale=0.6] {Newtbin.png} \end{center}
+so the equation is
+\[ \sqrt{(\frac{1}{2})^2 - (x - \frac{1}{2})^2} \]
+
+We have $x - \frac{1}{2}$ because the origin is placed at the left edge of the circle.  This simplifies to 
+\[ \sqrt{x - x^2} = \sqrt{x} \cdot \sqrt{1 - x} \]
+
+The area of the whole sector is one-sixth of the circle so $\pi/4 \cdot 1/6 = \pi/24$.  The area of the triangle is $\sqrt{3}/32$.  $\sqrt{3}$ can be computed in various ways.
+
+For example, one could use the method that I think Archimedes used, based on continued fractions, or approximate it by repeated trial calculations.  However, I'm quite sure he used the Newton-Raphson method.
+
+In any event, the series is
+\[ \sqrt{1 - x} = 1 + (\frac{1}{2})(-x) + (\frac{1}{2})(-\frac{1}{2})(\frac{1}{2})(-x)^2 + (-\frac{1}{8})(-\frac{3}{2})(\frac{1}{3})(-x)^3 + \dots \]
+
+It is apparent that every term after the first has a minus sign.  We ignore signs until the end.
+
+The result of the integrated polynomial should be equal to the difference between
+\[ \frac{\pi}{24} = 0.1308996938995747 \]
+and 
+\[ \frac{\sqrt{3}}{32} =  0.05412658773652741 \]
+which is
+\[ \frac{\pi}{24} - \frac{\sqrt{3}}{32} = 0.07677310616304729 \]
+
+\[
+\begin{matrix}
+n & |r-n| & 1/n & cofactor & x^n  \\
+0  & - & - & 1 & 1 \\
+1 & 1/2 & 1 & 1/2 & x \\
+2 & 1/2 & 1/2 & 1/8 & x^2  \\
+3 & 3/2 & 1/3 &  1/16 & x^3  \\
+4 & 5/2 & 1/4 &  5/128 & x^4  \\
+5 & 7/2  & 1/5 &  7/256  & x^5 \\
+6 & 9/2  & 1/6 &  21/1024  & x^6  \\
+\end{matrix}
+\] 
+
+\subsection*{integration}
+
+We make sure to include $\sqrt{x}$ in the power, and then evaluate the integral at $x = 1/4$ so $\sqrt{x} = 1/2$.
+
+The leading factor from integrating has a $2$ in the numerator from $x^{3/2}, x^{5/2}$ etc., but this cancels the $1/2$ from $\sqrt{x}$, so we just write what is going to be carried forward:  $1/3, 1/5 \dots$.
+
+The first term is positive and equal to 
+\[ \frac{1}{12} = 0.08333333333333333 \]
+That looks promising, just a bit larger than our target.
+
+\[
+\begin{matrix}
+n & x^{n+1/2} & \int & \int & lead & \times \ x^{n+1} & \times \ cofactor & result  \\
+0  & x^{1/2} & x^{3/2}  &\sqrt{x} \cdot x & 1/3 & 2^{-2} & 1 & 1/3 \cdot 2^{-2} \\
+1  & x^{3/2} & x^{5/2}  & \sqrt{x} \cdot x^2 & 1/5 & 2^{-4} & 1/2 & 1/5 \cdot 2^{-5} \\
+2  & x^{5/2}  & x^{7/2}  & \sqrt{x} \cdot x^3 & 1/7 & 2^{-6} & 1/8 &  1/7 \cdot 2^{-9}  \\
+3  & x^{7/2}  & x^{9/2}  & \sqrt{x} \cdot x^4 & 1/9 & 2^{-8} &  1/16 & 1/9 \cdot  2^{-12}  \\
+4  & x^{9/2} & x^{11/2}  & \sqrt{x} \cdot x^5 & 1/11 & 2^{-10} &  5/128 & 5/11 \cdot 2^{-17}  \\
+5  & x^{11/2} & x^{13/2}  & \sqrt{x} \cdot x^6  & 1/13 & 2^{-12} &  7/256  &  7/13 \cdot 2^{-20} \\
+6  & x^{13/2} & x^{15/2}  & \sqrt{x} \cdot x^7  & 1/15 & 2^{-14} &  21/1024  &  21/15 \cdot 2^{-24}  \\
+\end{matrix}
+\] 
+
+\begin{verbatim}
+[
+0.00625,
+0.00027901785714285713,
+0.00002712673611111111,
+0.0000034679066051136362,
+0.0000005135169396033654,
+0.00000008344650268554687 
+]
+---------------------------
+0.006560209463301371
+\end{verbatim}
+
+And 
+\[ 1/12 - 0.006560209463301371 \]
+\[ = 0.07677312387003196 \]
+Compare with $\pi/24 - \sqrt{3}/32$:
+\[ 0.07677310616304729 \]
+
+Good to 7 places.  Newton got 16, I'm told.  That would require something like a dozen more terms.
+
+\subsection*{arc tangent}
+Here is another example where we don't even need to derive a series, but we do need to know some simple calculus.
+
+We start with the integral
+\[ \int \frac{1}{1 + x^2} \ dx \]
+
+We make a trig substitution.  The angle is $t$ and $x$ is the side opposite, $1$ the side adjacent and then $\sqrt{1 + x^2}$ is the hypotenuse.
+
+The first part of the integral is
+\[ \int \cos^2 t  \ dx \ \text{?} \]
+
+The problem is to find $dx$ in terms of $t$.  $x = \tan t$.  Recall that the product rule is
+\[ (uv)' = u'v + uv' \]
+and the quotient rule is then easily remembered as (change sign on the second term and divide by its square):
+\[ (u/v)' = (u'v - uv')/v^2 \]
+
+So the derivative of the tangent is 
+\[ (\tan t)' = \frac{ \cos^2 t - (- \sin^2 t)}{\cos^2 t} \ dt = \frac{1}{\cos^2 t} \ dt \]
+so the integral is simply $\int dt = t$ or $\tan^{-1} x$.
+
+That's the hard part.  The easy part is to get a series for the same function, just substitute $u = x^2$ 
+\[ \frac{1}{1 + u} = 1 - u + u^2 - u^3 + \dots \]
+\[ \frac{1}{1 + x^2} = 1 - x^2 + x^4 - x^6 + \dots \]
+And integrate
+\[ x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots \]
+This is equal to what we had before, $\tan^{-1} x$.
+
+A very simple evaluation is $x = 1$, $t = \pi/4$ and so
+\[ \frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5}  - \frac{1}{7} + \dots \]
+A famous series, which converges \emph{very} slowly.
+
+According to Gil Strang, Halley (or perhaps his assistants) used instead $x = 1/\sqrt{3}$ then $\tan^{-1} x = \pi/6$.  First factor out $x$
+\[ = x (1 - \frac{x^2}{3} + \frac{x^4}{5} - \frac{x^6}{7} + \dots ) \]
+
+
+\[ \frac{\pi}{6} = \frac{1}{\sqrt{3}} (1 - \frac{1}{9} + \frac{1}{45} - \frac{1}{7 \cdot 27} + \dots \]
+\[ \pi = 2 \sqrt{3} (1 - \frac{1}{9} + \frac{1}{45} - \frac{1}{7 \cdot 27} + \dots \]
+\[ \pi = 3.464101615137755 \cdot 0.9058201058201059 \]
+\[ = 3.1378528915956805 \]
+
+I'll have to investigate this one to see how fast it converges.
+
+\subsection*{natural logarithm}
+Start with the geometric series
+\[ \frac{1}{1 - x} = 1 + x + x^2 + x^3 + \dots \]
+Substitute $x = -u$
+\[ \frac{1}{1 + u} = 1 - u + u^2 - u^3 + \dots \]
+
+Since $\int 1/(1+x) \ dx = \ln (1+x)$ we have that is equal to the series integrated term by term:
+\[ \ln (1 + x) = x - \frac{1}{2} x^2 + \frac{1}{3} x^3 - \frac{1}{4} x^4 + \frac{1}{5} x^5 + \dots \]
+\[ \ln (1 - x)= - x - \frac{1}{2} x^2 - \frac{1}{3} x^3 - \frac{1}{4} x^4 - \frac{1}{5} x^5 + \dots \]
+multiply the last by $-1$
+\[ - \ln (1 - x)= x + \frac{1}{2} x^2 + \frac{1}{3} x^3 + \frac{1}{4} x^4 + \frac{1}{5} x^5 + \dots \]
+and add
+\[ \ln (1+x) - \ln (1-x) = 2 \ [ \ x + \frac{1}{3} x^3 + \frac{1}{5} x^5 + \dots \]
+\[ = \ln \frac{1+x}{1 - x} \]
+This is significantly faster to converge than the original log series.  For example, if $x = 1/3$ then we have
+\[ \ln 2 = 2 \ [ \ \frac{1}{3} + \frac{1}{3 \cdot 3^3} + \frac{1}{5 \cdot 3^5} + \frac{1}{7 \cdot 3^7} + \dots \ ]  \]
+\[ = 2 \ [ \  1/3 + 1/81 + 1/1215 + 1/15309 + 1/177147 + \dots \ ] \]
+\[ = 0.693146 \]
+The actual value is $0.693147$ to 6 places.
+
+Similarly, let $x = 1/5$ then
+\[ \ln 3/2 = 2 \ [ 1/5 + 1/375 + 1/15625 + 1/546875 \ ] \]
+\[ = 0.405465 \]
+Correct to six places.
+
+\subsection*{inversion}
+
+One of the methods invented by Newton that is discussed in Dunham is the inversion of a series.  Wolfram calls this reversing.  
+
+Consider one with $z$ as a function of $x$
+\[ z = \frac{x}{1 + x} = x - x^2 + x^3 - x^4 \dots \]
+and a second with $x$ as a function of $z$.
+\[ x = \frac{z}{1 - z} = z + z^2 + z^3 + z^4 \dots \]
+
+The second is obtained from the geometric series, multiplied by $z$.  The first is also the geometric series, with $-x = z$ and then multiplied by $x$.
+
+The two are related.  Given the closed form, we can write:
+\[ z = \frac{x}{1 + x} \]
+\[ \frac{1}{z} = \frac{1}{x} + 1 \]
+\[ \frac{1}{x}  = \frac{1}{z} - 1 \]
+\[ x = \frac{z}{1 - z} \]
+
+Dunham uses this example to discuss how Newton found inverse functions for series that he knew.  Suppose we just had the first one and we wanted to write its inverse.  
+
+Suppose we knew only that
+\[ z =  x - x^2 + x^3 - x^4 \dots \]
+Clearly, $z$ is approximately equal to $x$, especially since these series are only valid for $|x| < 1$.  Write a correction term $p$.
+\[ z + p = x \]
+Substitute for $x$ into the series we know
+\[ z = (z + p) - (z + p)^2 + (z + p)^3 - (z + p)^4 \dots \]
+Grouping by powers of p we have
+\[ z = z +  (-z^2 + z^3 - z^4 + \dots)p^0 + \]
+\[ + \ (1 - 2z + 3z^2 - 4z^3 + \dots)p^1 +  \]
+\[ + \ (-1 + 3z - 6z^2 + 10z^3 + \dots)p^2 + \dots \]
+
+Now throw away everything except the cofactors of $p^0$ and $p^1$, which gives (notice the change of sign in the numerator)
+\[ p = \frac{z^2 - z^3 + z^4 + \dots}{1 - 2z + 3z^2 - 4z^3 + \dots} \]
+
+ Now, further, keep only the lowest powers of $z$ (i.e. $z^2$ in the numerator and $1$ in the denominator so that leaves just
+ \[ p \approx z^2 \]
+
+Write
+\[ p = z^2 + q \]
+\[ x = z + z^2 + q \]
+where $q$ is a second error term.
+
+If you substitute into the monster above and multiply out and then weed and cull, you will find that
+\[ q = z^3 + r \]
+where $r$ is a third error term.  Do this enough times and you can convince yourself that 
+\[ x = z + z^2 + z^3 + \dots \]
+
+Wolfram
+
+\url{https://mathworld.wolfram.com/SeriesReversion.html}
+
+gives these formulas (from references) for the cofactors of the two series.  If the cofactors of $x$ are $a$:
+\[ a_1x + a_2x^2 + a_3x^3 + \dots \]
+and those of $z$ are
+\[ A_1z + A_2z^2 + A_3z^3 + \dots \]
+
+Then
+\[ A_1 = \frac{1}{a_1}  \ \ \ \ \ \  A_2 = - \frac{a_2}{a_1^3}  \ \ \ \ \ \  A_3 = \frac{2a_2^2 - a_1a_3}{a_1^5} \]
+\[ A_4 = \frac{5 a_1 a_2 a_3 - a_1^2 a_4 - 5 a_2^3}{a_1^7} \]
+\[ A_5 = \frac{6a_1^2 a_2 a^4 + 3a_1^2a_3^2 + 14a_2^4 - a_1^3a_5 - 21 a_1a_2^2a^3}{a_1^9} \]
+
+They give two more terms, but I think this is enough.  In our example, all of the $a_n$ are just one, the even ones are minus.  So
+\[ A_1 = 1 \ \ \ \ \ \ A_2 = -1 \ \ \ \ \ \ A_3 = 1 \]
+\[ A_4 = -1 \ \ \ \ \ \ A_5 = 1 \]
+Not much of a test, I suppose.  But it could have given wrong answers.
+
+Looking both forward and back to the series for $\sin^{-1} x$:
+\[ = 1 + \frac{1}{6}x^3 + \frac{3}{40} x^5 + \frac{5}{112} x^67 \]
+
+\[ a_1 = 1 \ \ \ \ \ \ a_2 = 0 \ \ \ \ \ \ a_3 =  \frac{1}{6} \]
+\[ a_4 =  0  \ \ \ \ \ \ a_5 =  \frac{3}{40} \]
+
+so 
+
+\[ A_1 = 1 \ \ \ \ \ \ A_2 = 0 \ \ \ \ \ \ A_3 = -a_1 a_3 =  -\frac{1}{6} = \frac{1}{3!} \]
+\[ A_4 = 0 \ \ \ \ \ \ A_5 = 3 a_1^2 a_3^2 - a_1^3 a_5 =  \frac{1}{120} = \frac{1}{5!}  \]
+
+We have
+\[ z - \frac{1}{3!} z^3 + \frac{1}{5!} z^5 + \dots \]
+which is indeed the series for $\sin z$.
+
+\subsection*{Newton's method for $\sin z$}
+
+Dunham says that Newton derived the famous series for $e^x$ by "reversing" his series for the natural logarithm.  He did something similar to turn the inverse sine or arcsine into the sine, and the same for cosine.
+
+We apply what we learned above, first to sine and then to the logarithm.
+
+The goal is to start with
+\[ z = \sin^{-1} x = x + \frac{1}{6}x^3 + \frac{3}{40}x^5 + \frac{5}{112}x^7 + \dots \]
+And obtain a series
+\[ x = \sin z = z + \dots \]
+
+Now, $z = x + $ stuff, so $x = z +$ some other stuff.  And therefore, although the series \emph{might} have started with $1$ (cosine does), we know this one does not, so we start with $x \approx z$.  
+
+There is an error term $p$
+\[ x = z + p \]
+Substitute into the series that we just wrote down
+\[ z  = (z + p) +  \frac{1}{6}(z + p)^3 + \frac{3}{40}(z + p)^5 + \frac{5}{112}(z + p)^7 + \dots   \]
+
+Remember that Newton's procedure is to keep only the very first term of the cofactors of $p$ (in the denominator), and the cofactors of $p^0 = 1$ with the lowest power of $z$ (in the numerator).  
+
+That lone $p$ in the first term will be followed by terms like $z^2p/6$, which are discarded.
+
+The terms with no $p$ start with $z^3/6$.  we have
+\[ p + \frac{1}{6}z^3 \approx 0 \]
+\[ p \approx - \frac{1}{6}z^3 \]
+so we write
+\[ x = z - \frac{1}{6}z^3 + q \]
+where $q$ is another error term.
+
+Let's try one more round.
+\[ z  = (z - \frac{1}{6}z^3 + q) +  \frac{1}{6}(z  - \frac{1}{6}z^3 + q)^3 + \frac{3}{40}(z  - \frac{1}{6}z^3 + q)^5 + \dots   \]
+We can see that there is a leading $q$ (with no $z$) so we can ignore all the other terms with $q$, and the leading $-z^3/6$ will cancel the first term from
+\[  \frac{1}{6}(z  - \frac{1}{6}z^3 + q)^3 \]
+
+Knowing the formula, we are looking for a factor of $z^5/5! = z^5/120$.  It comes partly from this term and partly from the next.  Ignore the leading $1/6$ and group:
+\[  [ \ (z  - \frac{1}{6}z^3) + q \ ]^3  = (z  - \frac{1}{6}z^3)^3  + 3(z  - \frac{1}{6}z^3)^2q + \dots \]
+We need only the first term 
+\[ = z^3 - 3 z^2 (\frac{1}{6}z^3) + \frac{1}{2}z^7 + \dots \]
+Bringing back the $1/6$ we can do our cancelation and we have $-z^5/12$, but this is not the whole story.
+
+The next power is 
+\[ \frac{3}{40}(z  - \frac{1}{6}z^3 + q)^5 = \]
+Of which only the first term matters:  $3/40 \cdot z^5$.
+
+Remember that these will both change sign when we put them on the other side of the equation.  So then for cofactors of $z^5$ we have:
+\[ \frac{1}{12}z^5 -  \frac{3}{40}z^5 = \frac{1}{120}z^5  \]
+
+The first three terms in the series for $\sin z$ are
+\[ \sin z = z - \frac{1}{6}z^3 + \frac{1}{120}z^5 + \dots  \]
+which is correct!
+
+\subsection*{Newton's method for the exponential}
+Using calculus, the difference quotient for the logarithm easily leads to this relationship.
+\[ \frac{d}{dt} \ln x = \frac{1}{x} \]
+
+That derivation depends on knowing that 
+\[ e = \lim_{m \rightarrow \infty} (1 + 1/m)^m \]
+
+We rewrite what was above as an integeral, and set it up with a dummy variable $t$ and the real variable $x$ in the upper limit
+\[ \int_1^x \frac{1}{t} \ dt = \ln x - \ln 1 = \ln x \]
+
+The whole subject of logarithmic and exponential functions can start with this as the definition of the logarithm.
+
+So the area under the curve $1/t$ between $1$ and $x$ is equal to the natural log of $x$.
+
+Previously, we manipulated the geometric series to get a series for $1/(1 + x)$ and then integrated to obtain: 
+\[ z = \ln (1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots \]
+
+Now, we want to ``reverse'' this series to get one for the exponential.  Before we get started, notice that we have
+\[ z = \ln 1 + x \]
+exponentiating
+\[ e^z = e^{\ln 1 + x} = 1 + x \]
+\[ x = e^z - 1 \]
+This is the step the stumped me for a while.  
+
+Our series is for $x$.  So the series we're expecting to get is:
+\[ e^z - 1 = z +  \frac{z^2}{2} + \frac{z^3}{6} + \dots \]
+
+As Archimedes said:
+
+\begin{quote}For certain things which first became clear to me by a mechanical method had afterward to be demonstrated by geometry...\textcolor{blue}{it is of course easier, when we have previously acquired by the method some knowledge of questions, to supply the proof than it is to find the proof without any previous knowledge.} This is a reason why, in the case of the theorems the proof of which Eudoxus was the first to discover, namely, that the cone is a third part of the cylinder, and the pyramid a third part of the prism, having the same base and equal height, we should give no small share of the credit to Democritus, who was the first to assert this truth...though he did not prove it.
+\end{quote}
+
+Start by saying that $x$ is equal to $z$ plus an error term.
+\[ x = z + p \]
+and substitute into the series we know for the logarithm
+\[ z = (z + p) - \frac{(z + p)^2}{2} + \frac{(z + p)^3}{3} - \frac{(z + p)^4}{4} + \dots \]
+
+Recalling Newton's procedure, since there is a leading $p$ with cofactor $1$ and no other $p^1$ without $z$ in it, we will have $p = \ \text{something}/1$, i.e. the denominator will just be $1$.  
+
+The numerator will come from the lowest power of $z$ that does not multiply $p$, after a change of sign.
+\[ 0 \approx p - \frac{z^2}{2} \]
+This gives $p \approx z^2/2$ and then
+\[ z = z +  \frac{z^2}{2} + q \]
+where $q$ is a new error term.
+
+Wash, rinse, repeat.
+\[ z = (z +  \frac{z^2}{2} + q) - \frac{1}{2} (z +  \frac{z^2}{2} + q)^2 + \frac{1}{3} (z +  \frac{z^2}{2} + q)^3 +  \dots \]
+
+Again, we have a leading factor of $q$ with no $z$, so we can ignore anything coming after that would have $q$ in it.  That leaves for the second term (without the cofactor):
+\[  (z +  \frac{z^2}{2} + q)^2 =  \ [ \ (z + \frac{z^2}{2}) + \dots) \ ]^2 \]
+\[ \approx (z + \frac{z^2}{2})^2 \approx z^2 + z^3 \]
+bringing back the cofactor of $-1/2$ 
+\[ -\frac{1}{2}( z^2 + z^3) \]
+
+$-z^2/2$ cancels what was in the first term, just before $p$.  What's left here is $-z^3/2$, but that's not the whole of it.
+
+From the cubic, we get 
+\[ \frac{1}{3} (z +  \frac{z^2}{2} + q)^3 \approx \frac{1}{3}(z + \frac{z^2}{2})^3 \approx \frac{z^3}{3} \]
+ignoring higher powers of $z$.
+
+These two terms go on the other side of the equals sign with a change in sign, and then finally we obtain
+\[ q = \frac{z^3}{2} - \frac{z^3}{3} = \frac{z^3}{6} \]
+so the series grows to
+\[ x = z +  \frac{z^2}{2} + \frac{z^3}{6} + r \]
+where $r$ is yet another error term.
+
+Add $1$ to obtain
+\[ e^z = 1 + z +  \frac{z^2}{2} + \frac{z^3}{6} + \dots \]
+This is the series we're looking for and I think Newton was the first person to see it.
+
+\subsection*{calculate $e$}
+
+Among other things that gives us the ability to calculate 
+\[ e = e^1 = 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \dots \]
+With terms up to $1/6!$ I get
+\[ = 2.718 \]
+
+We can also verify term by term that
+\[ \frac{d}{dz} e^z = e^z \]
+
+and then, hitting cleanup, Euler comes in with $i$ and writes
+\[ e^{iz} = \cos z + i \sin z \]
+That's for another day.
+
+\end{document}

@@ -1,0 +1,310 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Factors and factoring}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+The positive integers are $1, 2, 3$ and so on, often called the natural numbers.  The set of natural numbers is denoted $\mathbb{N}$.  
+
+Natural numbers are either prime or composite.  Every number has itself and $1$ as factors since $1 \cdot n = n$.  A prime number has no other factors.  The prime numbers smaller than $25$ are
+\begin{verbatim}
+2 3 5 7 11 13 17 19 23 
+\end{verbatim}
+In the discussion on factorization below, we will ignore the number itself and the factor $1$. 
+
+\subsection*{composite numbers}
+
+Numbers that are not prime, called composite, do have other factors.  There is only one extra, or rather a duplicate, if the number is a perfect square of a prime.  Examples:
+\[ 9 = 3 \cdot 3, \ \ \ \ \ \ 25 = 5 \cdot 5, \ \ \ \ \ \  49 = 7 \cdot 7 \ \ \dots \]
+
+It might be worth thinking why perfect squares \emph{only} have the two repeated factors and no others.
+
+Usually, composites have at least two factors.  Here are factorizations of composite numbers up to $25$:
+
+\begin{verbatim}
+ 4 = 2.2
+ 6 = 2.3
+ 8 = 2.2.2
+ 9 = 3.3
+10 = 2.5
+
+12 = 2.2.3
+14 = 2.7
+15 = 3.5
+16 = 2.2.2.2
+18 = 2.3.3
+20 = 2.2.5
+
+22 = 2.11
+24 = 2.2.2.3
+25 = 5.5
+\end{verbatim}
+
+For every composite number, the factorization is unique, there is only one way to do it.  This statement is called the \emph{fundamental theorem of arithmetic}.
+
+If we list the factors from smallest to largest, we can see that the first time $3$ is the smallest prime factor is for $9 = 3 \cdot 3$, and the next time $3$ is the smallest prime factor is $15 = 3 \cdot 5$.  This happens because $5$ is the next prime after $3$.
+
+The first time $5$ is the smallest prime factor is for $25 = 5 \cdot 5$ and the next time, it is for $5 \cdot 7 = 35$.
+
+The first time $7$ is the smallest prime factor is for $49 = 7 \cdot 7$ and the next is for $77 = 7 \cdot 11$.  
+
+In other words, if you are trying to decide if a number is prime, you do not have to check any number before $77$ for whether $7$ is a factor, since if it is composite it will have at least one factor of $2, 3$ or $5$.
+
+Most of the numbers smaller than $100$ are easy to factor.  The harder ones have $7$ as the smallest factor.  These are all larger than $49$ except the square:
+
+\begin{verbatim}
+ 49 = 7.7
+ 77 = 7.11
+ 91 = 7.13
+ 119 = 7.17
+\end{verbatim}
+
+Notice that the second factor for each one after the first is a prime larger than $7$.
+
+\subsection*{common factors}
+
+Common factors are shared.
+
+Example:
+
+\[ 24 = 2 \cdot 2 \cdot 2 \cdot 3 \]
+\[ 30 = 2 \cdot 3 \cdot 5 \]
+
+Grouping the common factors first
+\[ 24 = (2 \cdot 3) \cdot 2 \cdot 2 \]
+\[ 30 = (2 \cdot 3) \cdot 5 \]
+
+The common factors of $24$ and $30$ are $2 \cdot 3 = 6$.  
+
+\subsection*{greatest common divisor}
+
+A divisor is a number that divides a larger number evenly.  It is either a factor or a product of factors.
+
+The divisors for our example are
+\[ 24 = (1, 2, 3, 4, 6, 8, 12, 24) \]
+\[ 30 = (1, 2, 3, 5, 6, 10, 15, 30) \]
+
+The greatest common divisor (GCD) is the largest divisor common to both numbers.  In the two rows of factors above, we can see that the largest factor present in both rows is $6$.  
+\[ \text{GCD} \ (24,30) = 2 \cdot 3 = 6 \]
+\emph{The GCD is always the product of the common factors.}
+
+\[ 24 = (2 \cdot 3) \cdot 2 \cdot 2 \]
+\[ 30 = (2 \cdot 3) \cdot 5 \]
+
+\subsection*{least common multiple}
+
+The least common multiple (LCM) is the number we need for addition or subtraction of two fractions that have different denominators.
+
+One way to find the LCM is to consider the factors that are \emph{not} shared.  Above we had:
+
+\[ 24 = (2 \cdot 3) \cdot 2 \cdot 2 \]
+\[ 30 = (2 \cdot 3) \cdot 5  \]
+
+Take the factors of $24$ that are not shared ($2 \cdot 2 = 4$) and multiply the second number:  
+\[ 4 \cdot 30 = 120 = \ \text{LCM}(24,30) \]
+
+Or take the factor of $30$ that isn't shared ($5$) and multiply the first number:  
+\[ 5 \cdot 24 = 120 \]
+
+They always come out equal.  Why?
+
+\subsection*{shortcut}
+If you're good at multiplying in your head, it may be faster to test multiples of the larger number.  Say we 
+
+\[ \frac{1}{6} + \frac{1}{10} \]
+
+$\circ$ \ $2 \cdot 10 = 20$ is not divisible by $6$
+
+$\circ$ \ $3 \cdot 10 = 30$ \emph{is} divisible by $6$
+
+Done.  
+
+The LCM is $30$.
+
+\[ \frac{1}{6} + \frac{1}{10} = \frac{5}{30} + \frac{3}{30}  \]
+
+\subsection*{Euclid's algorithm}
+There is a quick and easy method to find the GCD that doesn't require factorization, but I don't know if you've seen it yet.
+
+\subsection*{practical factorization}
+Ask these questions:
+
+$\circ$ \ Is the number divisible by $5$?  
+
+See if the last digit is $0$ or $5$.  Divide by $5$ and then work on what remains.
+
+$\circ$ \ Is the number even?  
+
+Divide by $2$ and then work on what remains.
+
+$\circ$ \ Is the number divisible by $3$?
+
+Use digit addition to test it.  
+
+Normally, you shouldn't have to try any more than $2,3,5$ or $7$.
+
+\subsection*{digit addition test}
+
+A number is divisible by $3$ if (and only if) its digits add to $3$ or a multiple of $3$.  For example, suppose we're given $123456789$.  Is it divisible by $3$?
+\[ 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 \]
+\[ = 9 + 9 + 9 + 9 + 9  \]
+
+(How did I do that?)
+
+Yes.  $123456789$ is divisible by $3$.
+
+$9$ is a multiple of $3$.  Also $2 + 1 = 3$.
+
+Incidentally, a similar test also works for $9$.  A number is divisible by $9$ if (and only if) its digits add to $9$.  $123456789$ is also divisible by $9$.
+
+There is also a trick for $7$ (see the end).
+
+\subsection*{example}
+
+Suppose we're adding two fractions
+\[ \frac{a}{30} + \frac{c}{105}  \]
+What should we choose for a common denominator?  
+
+First, we recognize that $30$ does not divide $105$ evenly ($3 \cdot 30 = 90, 4 \cdot 30 = 120$).
+
+Write the factorization of the denominators:
+\[ 30 = 2 \cdot 3 \cdot 5 \]
+\[ 105 = 3 \cdot 5 \cdot 7 \]
+
+The shared factors are $(3,5)$.  Combine the factors into those shared, and not shared.  Multiply the others:
+\[ 7 \cdot 30 = 210 \]
+\[ 2 \cdot 105 = 210 \]
+
+Those unique to one number multiplied by the other number make the common denominator.
+
+This gives:
+\[ \frac{a}{30} = \frac{7}{7} \cdot \frac{a}{30} = \frac{7a}{210} \]
+\[ \frac{b}{105} = \frac{2}{2} \cdot \frac{b}{105} = \frac{2b}{210} \]
+
+And then
+\[ \frac{7a}{210} + \frac{2b}{210} = \frac{7a + 2b}{210} \]
+
+\subsection*{more examples}
+
+$3$ and $4$ have no common factors.  The best we can do is $3 \cdot 4 = 12$ as a common denominator. 
+
+$9$ and $12$ have one $3$ as a common factor.  We should take the other factor of $3$ from $9 = 3 \cdot 3$, and then multiply $3 \cdot 12 = 36$ as a common denominator.  From the other direction, divide $12 \div 3 = 4$ and then multiply $4 \cdot 9 = 36$.
+
+$60$ and $24$ have two $2$'s and a $3$, i.e. $2 \cdot 2 \cdot 3 = 12$ as a common factor.  We should choose what's left from $24$, which is $2$, and multiply $2 \cdot 60 = 120 =  5 \cdot 24$ as a common denominator.  
+
+\subsection*{divisibility by $7$}
+
+Here are two different digit addition tests for $7$.  
+
+Take the last digit of $n$ away from the number.  Then double it and subtract that from the truncated part.  Repeat if necessary.  If you reach a multiple of $7$, then $7$ also divides the larger number.
+
+Examples.
+
+Let $n = 91$.  The last digit is $1$, double it and subtract:
+\[ 9 - 2 = 7 \]
+
+Let $n = 3101$.  The last digit is $1$, double it and subtract:
+\[ 310 - 2 \cdot 1 = 308 \]
+Repeat
+\[ 30 - 16 = 14 \]
+So yes, $3101$ is divisible by $7$.  We can check pretty easily now that we know it's worth it.
+\[ 7 \cdot 400 = 2800 \]
+$3101 - 2800 = 301$.
+\[ 7 \cdot 40 = 280 \]
+$301 - 280 = 21 = 7 \cdot 3$.
+
+So $7$ evenly divides $3101$ and $3101/7 = 400 + 44 + 3 = 443$.
+
+Continuing with $443$, we see that it is not even, not divisible by $3$ or $5$ or $7$.  After that it gets harder to check.  It turns out that $443$ is prime.
+
+\subsection*{second method}
+Another digit addition test for $7$ which is reasonably easy is based on the following factorization:
+\[ abc = a \cdot 100 + b \cdot 10 + c \]
+\[ = a(7 \cdot 14 + 2) + b(7 + 3) + c \]
+So decimal $abc$ is divisible by $7$ if (and only if) $7$ evenly divides:
+\[ 2a + 3b + c \]
+Example:
+\[ 539 \rightarrow 10 + 9 + 9 = 28 \]
+539 is $7 \cdot 77$.
+
+This is more or less readily extended to the thousands by
+\[ a \cdot 1000 + b \cdot 100 + c \cdot 10 + d \]
+\[ = a(7 \cdot 142 + 6) + b(7 \cdot 14 + 2) + c(7 + 3) + d \]
+Example:
+\[ 1127 \rightarrow 6 + 2 + 6 + 7 = 21 \]
+1127 is $7 \cdot 161$.
+\[ 161 \rightarrow 2 + 18 + 1 = 21 \]
+$161$ is $7 \cdot 23$.
+
+I find it just as easy to say:
+\[ 161 = 140 + 21 \]
+Both of the numbers on the right-hand side are clearly multiples of $7$.
+
+\subsection*{divisibility by $11$}
+A digit addition test for $11$ as a factor.  Split off the last digit and subtract from the rest.  Repeat until you can decide whether the result is a multiple of $11$.
+
+Let $n = 121$.  The next value is $11$, and we're done.
+
+Let $n = 627$.  The next value is $62 - 7 = 55$, and we're done.
+
+\subsection*{summary}
+
+In each case, split off the last digit from the first part, thereby truncated.  Then
+
+$\circ$ \ 7:  subtract twice the last digit from the rest.
+
+$\circ$ \ 11:  subtract the last digit from the rest.
+
+$\circ$ \ 13:  add four times the last digit to the rest.
+
+$\circ$ \ 17:  subtract five times the last digit from the rest.
+
+$\circ$ \ 19:  add twice the last digit to the rest.
+
+Let $n = 18905$.  then $1890 + 10 = 1900 = 19 \cdot 100$.
+
+An encyclopedic source for this stuff is
+
+\url{https://en.wikipedia.org/wiki/Divisibility_rule}
+
+There are lots of other rules.
+
+\subsection*{proof}
+
+Here is a sketch proof for the rule of 7.  
+
+The rule is to remove the last digit, multiply it by two and then subtract the result from the truncated number.  
+
+It works because $21$ is divisible by $7$.  
+
+The rule amounts to subtracting $21$ from the number for every $1$ in the original ones' place.  Example:
+
+$7371 - 21 = 7350$
+
+We have cleared the ones' place and now have a number that is the product of $735$ and $10$, but $10$ does not contain a factor of $7$ (nor does $100$, $1000$, etc.).  So we just divide by $10$ and work with $735$.
+
+At each step we produce $m$ from $n$ in a way that $7|n$ ($n$ is divisible by $7$) $\iff$ $m|7$.  
+
+On the next round we subtract $2 \cdot 5 \cdot 10$ from $730$, giving $630$.
+
+The rule for $11$ was to subtract the last digit from the truncation.  But this amounts to subtracting $11$ from the original number for each $1$ in the original ones' place.
+
+The rule for $13$ was to add $4$ times the last digit.  Since we are also clearing the ones' place, we are adding $40$ and subtracting $1$ (that is $+ 39$) for each $1$ in the original ones' place.
+
+
+\end{document}

@@ -1,0 +1,286 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Similar triangles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{similar right triangles}
+
+We will prove that for similar right triangles, all angles equal implies equal ratios of sides.  Our approach is from Acheson and is based on an observation about area.
+
+\begin{quote}Draw a rectangle ABCD, and a diagonal AC.  Then pick a point E on the diagonal and draw lines through it parallel to both sides.\end{quote}
+
+\begin{center} \includegraphics [scale=0.6] {Acheson_G42.png} \end{center}
+
+All of the right triangles in the figure are similar.  (\emph{Proof}:  use some combination of the alternate interior angles theorem, complementary angles in a right triangle and vertical angles).  
+
+By changing the height of the figure, we can obtain any two complementary angles we wish.  And by changing the placement of $E$ we can get any ratio we like.
+
+The two shaded rectangles are bisected by the diagonal $AEC$ (\emph{Proof}:  this is a basic property of rectangles;  we have congruent $\triangle$ by SSS).  So the two light-gray triangles have equal area, and the two dark gray ones do as well.
+
+But $\triangle ABC$ and $\triangle ADC$ also have equal area.
+
+Therefore, we just subtract equal areas to find that the two unshaded rectangles above and below the diagonal are equal in area.  The one on top has area $bc$ and the one below has area $ad$.  We have
+
+\[ bc = ad \]
+\[ \frac{a}{c} = \frac{b}{d} \]
+
+$\square$
+
+A bit of algebra gives:
+\[ \frac{a}{c} + \frac{c}{c} = \frac{b}{d} + \frac{d}{d} \]
+\[ \frac{a + c}{c} = \frac{b + d}{d} \]
+\[ \frac{a + c}{b + d} = \frac{c}{d} = \frac{a}{b} \]
+
+\begin{center} \includegraphics [scale=0.6] {Acheson_G42.png} \end{center}
+
+\subsection*{hypotenuse in proportion}
+
+It is natural to ask, what about the hypotenuse?
+
+\begin{center} \includegraphics [scale=0.5] {similar18.png} \end{center}
+
+Let us look ahead briefly to the Pythagorean theorem.  As you likely know, for a right triangle with sides $a$ and $b$ and hypotenuse $g$:
+\[ a^2 + b^2 = g^2 \]
+
+We can use the Pythagorean theorem to prove that:
+\[ \frac{a}{c} = \frac{b}{d} = \frac{g}{h} \]
+
+\emph{All} of the sides of two similar right triangles have the same ratio.  
+
+We must be careful, however.  There is a deep connection between similarity, area and the Pythagorean theorem.  It is important that we will have Euclid's proof of the theorem, which uses SAS and does not depend on similarity.
+
+\emph{Proof}.
+
+Start with 
+\[ \frac{a}{c} = \frac{b}{d} = k \]
+\[ a = kc, \ \ \ \ \ \ b = kd \]
+\[ a^2 + b^2 = k^2c^2 + k^2d^2 \]
+\[ g^2 = k^2h^2 \]
+
+Since these are lengths, we can take the positive square root and obtain
+
+\[ \frac{g}{h} = k \]
+\[ = \frac{a}{c} = \frac{b}{d} \]
+
+$\square$
+
+Thus, AAA similarity is established for right triangles.  If either of the smaller angles matches between two right triangles, then they are not only similar but all the side lengths are in the same ratio as well.
+
+\subsection*{all triangles}
+
+Any triangle can be decomposed into two right triangles.  So, combining the results for the two sub-triangles, we will have the result for the general case.  
+
+Start with two triangles similar because the angles are the same (left panel).  
+
+\begin{center} \includegraphics [scale=0.35] {similar13.png} \end{center}
+
+Make a copy of the smaller triangle and rotate it and then attach at the top (forming a parallelogram).  The original small triangle and the rotated version are congruent by our construction.
+
+We have two pairs of parallel sides, either by the converse of alternate interior angles or because $s + t + u$ is equal to two right angles.
+
+Now, draw the two altitudes, label the sides, and suppress the labels for the angles but just mark them with colored circles.
+
+\begin{center} \includegraphics [scale=0.35] {similar14.png} \end{center}
+
+We have two different pairs of similar right triangles.  
+
+We have
+\[ \frac{a}{h} = \frac{a'}{h'} \]
+\[ \frac{b}{h} = \frac{b'}{h'} \]
+
+So then
+\[ \frac{h}{h'} = \frac{a}{a'} =  \frac{b}{b'} \]
+
+There is nothing special about this pair of sides, we could have chosen any other pair, either $a$ and $c$ or $b$ and $c$, and have the same result.
+
+Therefore if any two triangles have three angles the same, the side lengths are all in the same proportion.
+
+$\square$
+
+\subsection*{parallel third side implies equal ratios}
+
+In book VI, Euclid proves a number of theorems about similar triangles.  Euclid $VI-1$ relates to what we called the \hyperref[sec:area_ratio_theorem]{\textbf{area-ratio theorem}}.  We use this theorem in the next proof.
+
+\subsection*{Euclid $VI-2$}
+
+\begin{center} \includegraphics [scale=0.6] {Euclid_VI_2.png} \end{center}
+
+In $\triangle ABC$, let $DE$ be drawn parallel to $BC$, with $AD \ne DB$.
+
+Then, we claim that $AD$ is to $DB$ as $AE$ is to $EC$.
+
+\emph{Proof.}
+
+First, $\triangle BDE$ and $\triangle ADE$ have the same vertex $E$ and their bases, $AD$ and $DB$, lie on the same line, so they have the same altitude.  
+
+\begin{center} \includegraphics [scale=0.4] {Euclid_VI_3a.png} \end{center}
+
+Therefore, by the area-ratio theorem, their areas are in proportion to the lengths of the bases.
+
+If we designate area as $\Delta$:
+\[ \frac{\Delta_{ADE}}{\Delta_{BDE}} = \frac{AD}{BD} \]
+
+Similarly, $\triangle CDE$ and $\triangle ADE$ have the same vertex $D$ and their bases, $AE$ and $CE$, lie on the same line (below).  Therefore they have the same altitude and their areas are in proportion to the lengths of the bases.  
+
+\begin{center} \includegraphics [scale=0.4] {Euclid_VI_3b.png} \end{center}
+\[ \frac{\Delta_{ADE}}{\Delta_{CDE}} = \frac{AE}{CE} \]
+
+Combining these two results we have that
+\[ \frac{\Delta_{CDE}}{\Delta_{BDE}} = \frac{AD}{BD} \cdot \frac{CE}{AE}  \]
+
+Now we use the information about $DE \parallel BC$.
+
+Triangles $\triangle BDE$ and $\triangle CDE$ have the same base, $DE$.
+
+Because the points $B$ and $C$ lie on a parallel to the base, their altitudes to that base have the same length, and therefore the triangles have the same area.
+
+\begin{center} \includegraphics [scale=0.4] {Euclid_VI_3a.png} \end{center}
+
+This means that in the previous expression, the left-hand side is equal to $1$, leaving
+\[ \frac{AE}{CE} = \frac{AD}{BD} \]
+
+A simple consequence is
+\[ \frac{AE}{CE} + \frac{CE}{CE}  = \frac{AD}{BD} + \frac{BD}{BD} \]
+\[ \frac{AC}{CE} = \frac{AB}{BD} \]
+which is easily combined with the previous result.  The ratios are the same.
+\[ \frac{AC}{AB} =  \frac{CE}{BD} = \frac{AE}{AD} \]
+
+To extend this result to the base, rotate the original triangle.
+
+$\square$
+
+Restatement of the \emph{Proof.}
+
+\begin{center} \includegraphics [scale=0.6] {Euclid_VI_2.png} \end{center}
+
+$\triangle BDE$ and $\triangle CDE$ have the same area, because they share the base $DE$ and the vertices $B$ and $C$ lie on the same line parallel to $DE$.  
+\[ (\triangle BDE) = (\triangle CDE) \]
+
+When added to $\triangle ADE$, the resulting triangles also have the same area
+\[ (\triangle ABE) = (\triangle ACD) \]
+
+\begin{center}
+\includegraphics [scale=0.3] {Euclid_VI_3a.png}
+\includegraphics [scale=0.3] {Euclid_VI_3b.png}
+\end{center}
+
+If the altitude to $E$ has length $g$, then twice $(\triangle ABE) = g \cdot AB$ and if the altitude to $D$ has length $h$, then twice $(\triangle ACD) = h \cdot AC$.  But these areas are equal, which means that
+\[ g \cdot AB = h \cdot AC \]
+
+The area of $\triangle ADE$ can be figured in two different ways as
+\[ g \cdot AD = h \cdot AE \]
+
+Dividing, we obtain
+\[ \frac{AB}{AD} = \frac{AC}{AE} \]
+
+$\square$
+
+\subsection*{converse}
+
+Euclid also runs this argument backward to prove the converse:  given equal ratios, it follows that $DE$ is parallel to $BC$.  
+
+\emph{Proof}.  (sketch)
+
+Given that 
+
+\[ \frac{AE}{CE} = \frac{AD}{BD} \]
+
+The result about the ratio of areas does not depend on parallelism:
+\[ \frac{\Delta_{CDE}}{\Delta_{BDE}} = \frac{AD}{BD} \cdot \frac{CE}{AE}  \]
+
+By what we were given, the right-hand side is equal to $1$.  So
+\[ \Delta_{CDE} = \Delta_{BDE} \]
+
+These two triangles have the same base $BC$ and the same area, therefore, they have the same height.  
+
+Triangles with the same area and the same base have their top vertices lying along a line parallel to the base, so that they have the same height.
+
+\[ DE \parallel BC \]
+
+$\square$
+
+\subsection*{altitudes in proportion}
+
+Note that, as well as the sides, the altitudes are also in proportion with the same ratio.
+
+One way to see this is to drop an altitude and then consider the two similar right triangles on one side of it.  The altitudes are sides of this triangle.
+
+For similar triangles, where the sides are in proportion $k$, the areas are in proportion $k^2$.  The reason is that the altitudes are in the same proportion, namely $k$.
+
+\begin{center} \includegraphics [scale=0.4] {similarity_by_area3.png} \end{center}
+
+Given that $DF \parallel BC$, so $\triangle ADF \sim \triangle ABC$.
+
+Drop the altitude $AGH$.
+
+Now we see that $\triangle ADG \sim \triangle ABH$ and $\triangle AGF \sim \triangle AHC$, with the same proportionality constant, \emph{since they share the sides} $AG$ and $AH$.
+
+Suppose that $AD/AB = DF/BC = k$.  Then $AG/AH$ also is equal to $k$.
+
+The ratio of areas is then
+\[ \frac{\Delta_{ADF}}{\Delta_{ABC}} =  \frac{\frac{1}{2} DF \cdot AG}{\frac{1}{2} BC \cdot AH} = k^2 \]
+
+$\square$
+
+\subsection*{AAA similarity theorem}
+
+\begin{center} \includegraphics [scale=0.4] {similar9.png} \end{center}
+
+On the left is the easy case where $AB = BD$.  
+
+We will show that the sides are in proportion even when that proportion is not $1:2$, as on the right.
+
+Note:  we proved this theorem for right triangles already, based on an idea I found in Acheson's book, and combined it with an extension to all triangles.
+
+If the horizontal bisector is parallel to the base, then the triangles are similar.  We will have AAA.  This is true regardless of which side of the large triangle we choose to be the base.
+
+\begin{center} \includegraphics [scale=0.25] {Kiselev166.png} \end{center}
+
+His notation is different than what we used above, drawing $\triangle BDE$ smaller than $\triangle BAC$.  We follow Kiselev for this section.
+
+There are two cases.  The first is when the lengths of $BA$ and $BD$ are commensurable.  
+
+Two lengths are commensurable when there is some small length $\ell$ that we can define as one unit, such that for integers $m$ and $n$, $BD = m\ell = m$ and $BA = n\ell = n$.
+
+Divide the side as shown.  Draw lines parallel to $AC$ and also those parallel to $BC$.  
+
+Then $BE$ and $BC$ will be divided into congruent parts, numbering $m$ and $n$ for each, respectively.  The same thing happens on the bottom.  It is clear that 
+\[ \frac{m}{n} = \frac{BD}{BA} = \frac{DE}{AC} = \frac{BE}{BC} \]
+
+The second, harder, case is shown in the right panel above.  
+
+$BD$ and $BA$ are not commensurate and there is some small remainder when dividing the first into the second.  Put another way, if $BA = n\ell$, then there are two integers $m$ and $m+1$ such that
+\[ m\ell < BD < (m+1)\ell \]
+
+But if $\ell$ is small, with $n$ and $m$  large,
+\[ \frac{m}{n} \approx \frac{BD}{BA}, \ \ \ \ \ \ \frac{m}{n} \approx \frac{DE}{AC}, \ \ \ \ \ \ \frac{m}{n} \approx  \frac{BE}{BC} \]
+
+Crucially, by choosing the unit length $\ell$ smaller and smaller, and thus $n$ being larger and larger, we can make the remainder $BD - m\ell$ \textbf{as small as we like}.  
+
+As $n$ gets very large we approach equality:
+\[ \frac{m}{n} = \frac{BD}{BA} = \frac{DE}{AC} = \frac{BE}{BC} \]
+for the second case as well.
+
+In calculus we say that, in the limit, as $n \rightarrow \infty$, they become equal.  If this seems strange, wait for the discussion of the limit concept, in calculus.
+
+
+
+\end{document}

@@ -1,0 +1,60 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Fermat area}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Fermat had the idea of approximating the area under a curve by adding up a series of rectangles.  To start with, we will look at the curve $y = x^2$.  And for simplicity, we will start from $x = 0$ and go up to $x = a$.
+
+But the really great idea is to divide the number line from $0 \rightarrow a$ into segments using $r < 1$.  So going backward from $a$ we have $ar < a$ and so on:  i.e. $\dots ar^3 < ar^2 < ar < a$.
+
+\begin{center} \includegraphics [scale=0.10] {Fermat_area3.png} \end{center}
+
+The number of rectangles is infinite, and the approximation to the area will become exact as we let $r \rightarrow 1$.
+
+The last rectangle has base $a - ar$ and height $a^2$ so
+\[ S = (a - ar)  \cdot (a)^2 + \dots \]
+The next term is for the rectangle with base $a = ar - ar^2$ and height $(ar)^2$:
+\[ S = (a - ar)  \cdot (a)^2 + (ar - ar^2) \cdot (ar)^2 +  \dots \]
+The third term is
+\[  (ar^2 - ar^3) \cdot (ar^2)^2 \]
+which gives
+\[ S = (a - ar)  \cdot (a)^2 + (ar - ar^2) \cdot (ar)^2 + (ar^2 - ar^3) \cdot (ar^2)^2 +  \dots \]
+\[ = a^3 (1-r) \ [ \  1 +  r^3 +  r^6 + \dots \ ]  \]
+This is a geometric series!  Since $r < 1$ it converges and the value of the sum is
+\[ S = \frac{a^3(1-r)}{1-r^3} \]
+But $1 - r^3$ can be factored into
+\[ 1 - r^3 = (1 - r) (1 + r + r^2) \]
+which means we have
+\[ S = \frac{a^3}{1 + r + r^2 } \]
+And then as $r \rightarrow 1$ this becomes just
+\[ S = \frac{a^3}{3} \]
+which matches Archimedes.
+
+\subsection*{general case}
+Then
+\[ S = (a - ar)  \cdot (a)^n + (ar - ar^2) \cdot (ar)^n + (ar^2 - ar^3) \cdot (ar^2)^n +  \dots \]
+We can factor out $a^{n+1}$ and $1-r$ just like before
+\[ S = (a^{n+1}) (1 - r) (1 + r^{n+1} + (r^{n+1})^2 + \dots) \ ]  \]
+This is also a geometric series with 
+\[ S = \frac{a^{n+1}(1-r)}{1 - r^{n+1}} = \frac{a^{n+1}}{1 + r + r^2 + \dots + r^n} \]
+\[ = \frac{a^{n+1}}{n+1} \]
+
+\end{document}

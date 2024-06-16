@@ -1,0 +1,177 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Introduction}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here's a problem from the web.  Two chords are drawn in an octagon, and we're asked what fraction of the area is contained between them.
+
+\begin{center} \includegraphics [scale=0.4] {bowie1.png} \end{center}
+
+\subsection*{inscribed in a square}
+
+The simplest way to look at this problem is to imagine the octagon inscribed in a square.  Tilt the square so that the bottom edge of the octagon is horizontal.
+
+\begin{center} \includegraphics [scale=0.4] {bowie0.png} \end{center}
+
+We can calculate the total area of the octagon as the area of the square minus the small triangles at the corners.  Focusing on them for a minute, we see that each is an isosceles right triangle with sides of length $a$ and hypotenuse $s$.
+\[ a^2 + a^2 = 2a^2 = s^2 \]
+
+The area of each triangle is $a^2/2$ and there are four of them for $2a^2$.  
+
+Each side of the square has $s$ plus two copies of $a$, so $b = s + 2a$ and the total area is $b^2$ or
+\[ A = (s + 2a)^2 = s^2 + 4as + 4a^2 \]
+Subtract $2a^2$
+\[ A_{\text{ octagon}} = s^2 + 4as + 2a^2 \]
+
+This form obscures an important result.  Substitute $s^2 = 2a^2$ from above:
+\[ A_{\text{ octagon}} = 2a^2 + 4as + 2a^2 = 4(a^2 + as) \]
+
+We have three lines that divide the octagon into four regions.  The total area is four times something.  Is this a coincidence?
+
+The area of two triangles is 
+\[ sb = s(s + 2a) = s^2 + 2as = 2(a^2 + as) \]
+
+The triangles are one-half the total area of the octagon.  The two trapezoids must be the other half.
+
+The area of one trapezoid is (subtracting two triangles):
+\[ A_{\text{ trapezoid}} = ab - a^2 \]
+\[ = a(s + 2a) - a^2 = as + a^2 \]
+
+So two triangles are equal in area to two trapezoids.
+
+\subsection*{inscribed in a circle}
+
+Another way to look at this problem is to imagine the octagon inscribed in a circle.  All the points of the octagon lie on the circle, which is of radius $r$, or diameter $d = 2r$ (below, left panel).
+
+We reason that the two triangles are congruent (by symmetry) and they are both right triangles with a shared hypotenuse that is a diameter of the circle.  
+
+\begin{center} \includegraphics [scale=0.4] {bowie1b.png} \end{center}
+
+How do we know they are right triangles?
+
+The external angle of the octagon is $e = \pi/4$ (we must turn by a full $2 \pi$ in 8 turns so $8e = 2\pi$).
+
+Two successive turns forms one right angle.  Since $\theta + e = \pi/2$ and $e = \pi/4$, we have that $e = \theta = \pi/4$.  The supplementary angle to $e + \theta $ is also a right angle.
+
+Back to the triangles.  The whole angle subtended is $2 \phi$ (by symmetry) and since $2 \phi$ is a peripheral angle of the circle, its arc is $1/4$ of the total, or $\pi/2$. 
+
+As a peripheral angle the measure of $2 \phi$ is one-half that.  Thus, $2 \phi = \pi/4$ and $\phi = \pi/8$.
+
+\begin{center} \includegraphics [scale=0.4] {bowie2.png} \end{center}
+
+\subsection*{trigonometry}
+
+The sides of the triangle can be found in terms of the diameter as $d \sin \phi$ and $d \cos \phi$.  The area is
+
+\[ A_{\text{ triangle}} = \frac{1}{2} \ d \sin \phi \cdot d \cos \phi \]
+
+and the whole area for the region in red (two triangles) is
+\[ A_{\text{ region}} = d^2 \sin \phi \cos \phi \]
+
+The question asked what fraction of the octagon's area is shaded red.  
+
+In the geometry book we derived a simple formula for the area of a regular polygon:
+\[ A_{\text{ polygon}} = nr^2 \sin \frac{\pi}{n} \cos  \frac{\pi}{n} \]
+
+This is an octagon so $n = 8$.  The angle is $\phi = \pi/8$ and since $r = d/2$
+
+\[ A_{\text{ octagon}} = 8 \cdot \frac{d^2}{2^2} \sin  \phi \cos  \phi \]
+\[ = 2 \cdot d^2 \sin  \phi \cos \phi \]
+
+We have again that the area of the entire octagon is twice that of the two triangles.  The octagon is divided by three lines into four equal parts.
+
+\begin{center} \includegraphics [scale=0.4] {bowie2.png} \end{center}
+
+\subsection*{calculating the area}
+
+If we want to actually calculate the area of the octagon, going back to the formula
+
+\[ A_{\text{ octagon}} = 2 \cdot d^2 \sin \frac{\pi}{8} \cos  \frac{\pi}{8} \]
+
+The individual terms with sine and cosine of $\pi/8$ will take some figuring, but we know from the double angle formula that
+
+\[ \sin 2s = 2 \sin s \cos s \]
+
+The sine of $\pi/4$ is $1/\sqrt{2}$, so
+\[ \sin \phi \cos \phi = \frac{1}{2 \sqrt{2}} \]
+
+and the area is then 
+\[ A_{\text{ octagon}} = \frac{2d^2}{2 \sqrt{2}} = \frac{d^2}{\sqrt{2}} \]
+
+Previously, we calculated the area in terms of the length of the side.
+\[ A_{\text{ octagon}} = 4(a^2 + as) = 4(\frac{s^2}{2} + \frac{s^2}{\sqrt{2}}) \]
+\[ = 2s^2(1 + \sqrt{2}) \]
+
+If these are truly equal then the relationship between $d$ and $s$ is
+\[  \frac{d^2}{\sqrt{2}} = 2s^2(1 + \sqrt{2}) \]
+\[ d^2 = s^2(2 \sqrt{2} + 4) \]
+
+\begin{center} \includegraphics [scale=0.4] {bowie2.png} \end{center}
+
+For one triangle, from Pythagoras we have that 
+\[ d^2 = s^2 + (s + 2a)^2 \]
+\[ = s^2 + s^2 + 4as + 4a^2 \]
+with $a = s/\sqrt{2}$ and $2a^2 = s^2$
+\[ d^2 = 2s^2 + 2\sqrt{2} s^2 + 2s^2 \]
+\[ = s^2 (4 + 2 \sqrt{2}) \]
+
+which matches what we had above.
+
+As another check, write
+\[ \sin \frac{\pi}{8} = \frac{s}{d} = \frac{1}{\sqrt{(4 + 2 \sqrt{2})}} \]
+
+I obtained $0.382683..$ for both sides.
+
+\subsection*{half-angle formulas}
+
+Finally, another way to find the relationship between $s$ and $d$ is to use the half-angle formulas.  We take the double angle formula for cosine and rewrite it as follows
+\[ \cos 2s = \cos^2 s - \sin^2 s \]
+\[ = 2 \cos^2 s - 1 \]
+
+So
+\[ \cos^2 s = \frac{1 + \cos 2s}{2} \]
+
+Using our favorite trigonometric identity again
+\[ \sin^2 s = 1 - \cos^2 s \]
+\[ = 1 - \frac{1 + \cos 2s}{2} =  \frac{1 - \cos 2s}{2} \]
+
+The final formulas are obtained by taking square roots.  
+
+Leaving this as the square we have that
+\[ \sin^2 \frac{\pi}{8} = \frac{1 - \cos \frac{\pi}{4}}{2} \]
+\[ = \frac{1}{2} (1 - \frac{1}{\sqrt{2}}) \]
+
+Somehow, it must be true that
+\[ \frac{1}{4 + 2 \sqrt{2}} = \frac{1}{2} (1 - \frac{1}{\sqrt{2}}) \]
+
+Factor out $1/2$
+\[ \frac{1}{2 + \sqrt{2}} = 1 - \frac{1}{\sqrt{2}} \]
+
+Multiply both sides by $\sqrt{2}$
+\[ \frac{1}{\sqrt{2} + 1} = \sqrt{2} - 1 \]
+
+Aha!  A difference of squares:
+\[ (\sqrt{2} + 1)(\sqrt{2} - 1) = 2 - 1 = 1  \]
+
+$\square$
+
+
+\end{document}

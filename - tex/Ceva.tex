@@ -1,0 +1,349 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Ceva's theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Four special points in triangles include the orthocenter, circumcenter, incenter and centroid.  The first is the point where the altitudes cross, the second is the center of the circle which includes all three vertices, and the third is the center of a circle which just fits inside the triangle.  The last is formed by drawing lines from each vertex to the midpoint of the opposing side.
+
+These have the common feature that three lines with certain properties cross at a single point.  When this happens, they are said to be concurrent.  
+
+Ceva's theorem gives the general conditions under which this happens.
+
+To this end, we will need a preliminary result, which is called Menelaus' theorem, due to Menelaus of Alexandria (the geometer, not the mythological figure). 
+
+\subsection*{Menelaus' theorem}
+
+This simple but powerful theorem is based on similar triangles.  In the figure below, subscripts indicate the parts of a side, for example, $a_1$ and $a_2$ are the components of side $a$.  
+
+We wish to consider the third side plus the extension, which is $c'$.  At the risk of confusing you, we will \emph{just this once} use $c$ for the length of the whole side \emph{plus the extension}.
+
+We will show that the product of three ratios is equal to $1$:
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c'} = 1 \]
+
+\begin{center} \includegraphics [scale=0.5] {menelaus.png} \end{center}
+
+\emph{Proof}.
+
+Draw the dotted line segment parallel to $b$ and label it $d$.  We have two pairs of similar triangles.  The first pair has side ratios
+\[ \frac{d}{a_1} = \frac{b_1}{a_2} \]
+while the second has
+\[ \frac{d}{c'} = \frac{b_2}{c} \]
+
+Combining the two results:
+\[ d = \frac{a_1 b_1}{a_2} = \frac{b_2 c' }{c} \]
+So
+\[ \frac{a_1 \cdot b_1\cdot c}{a_2 \cdot b_2\cdot c'} = 1 \]
+
+$\square$
+
+We should note that Menelaus' theorem is true even when the line segment going through $Y$ does not go through the triangle (right panel, below).  The proof is straightforward and relies on a construction giving similar triangles.
+
+\begin{center} \includegraphics [scale=0.4] {further2.png} \end{center}
+
+\subsection*{Einstein's proof of Menelaus}
+
+There is a story that Einstein disliked the proof of Menelaus' theorem given above.
+
+He said it was ugly, and that it didn't involve the vertices symmetrically.  I read that Einstein's proof starts by dropping altitudes to the traversal, and then uses similar triangles.  Here's what I came up with.
+
+\begin{center} \includegraphics [scale=0.4] {menelaus1.png} \end{center}
+
+\emph{Proof}.
+
+The right triangle with $c$ as hypotenuse is similar to the one with $c'$ as hypotenuse.  The ratio of short sides gives
+\[ \frac{q}{r} = \frac{c}{c'} \]
+
+The right triangles with $a_1$ and $a_2$ as hypotenuse are similar.  We form the ratio of altitudes:
+
+\[ \frac{r}{p} = \frac{a_1}{a_2} \]
+
+Finally, the right triangles with $b_1$ and $b_2$ as hypotenuse are similar.  We form the ratio of altitudes again:
+
+\[ \frac{p}{q} = \frac{b_1}{b_2} \]
+
+Multiply the left-hand sides all together to obtain $1$.  Therefore
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c'} = 1 \]
+
+$\square$
+
+According to
+
+\url{https://www.cut-the-knot.org/Generalization/MenelausByEinstein.shtml}
+
+\begin{quote}
+... [in] correspondence between Albert Einstein and a friend of his, Max Wertheimer. In the first letter, Einstein apparently continues a discussion on elegance of mathematical proofs. A proof may require introduction of additional elements, like line AP in the first of the cited proofs. In Einstein's opinion, "... we are completely satisfied only if we feel of each intermediate concept that it has to do with the proposition to be proved."
+
+As an illustration of his viewpoint, Einstein gives two proofs of the same proposition - one ugly, the other elegant. Curiously, the proposition he proves is that of the Menelaus theorem, and the proof ugly in his view is the first of the cited proofs. He writes, "Although the first proof is somewhat simpler, it is not satisfying. For it uses an auxiliary line which has nothing to do with the content of the proposition to be proved, and the proof favors, for no reason, the vertex A, although the proposition is symmetrical in relation to A, B, and C. The second proof, however, is symmetrical, and can be read off directly from the figure."
+\end{quote}
+
+\subsection*{converse}
+
+We've drawn $\triangle ABC$ as an acute triangle, with the traversal crossing through points internal to two sides and on the extension of the third. There are other possibilities.  However, if we restrict ourselves to this case, then the converse can be stated as
+
+Given that the product of ratios is equal to $1$, the three points are colinear.
+
+\begin{center} \includegraphics [scale=0.5] {menelaus.png} \end{center}
+
+\emph{Proof}.
+
+An easy proof draws on the forward theorem.  Assume that the product of ratios is $1$.
+
+Suppose the points are not colinear, so the case with product $1$ has $c''$ and the case with colinear points has $c'$.  We are given that
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c''} = 1 \]
+
+But, by the forward theorem
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c'} = 1 \]
+
+We conclude that $c' = c''$  Hence, if the product is equal to $1$, the points lie on the same line.
+
+$\square$
+
+\subsection*{Ceva's theorem}
+
+\label{sec:Ceva_theorem}
+
+Let us then move on to Ceva's theorem (right panel, below).  We will show that if the \emph{three lines are concurrent} (they all cross at the same point), then
+
+\[ \frac{a_1 \cdot b_1\cdot c_1}{a_2 \cdot b_2\cdot c_2} = 1 \]
+
+\begin{center} \includegraphics [scale=0.5] {menelaus2.png} \end{center}
+
+\emph{Proof}.
+
+The left panel is from the proof of Menelaus' theorem.  In the right panel, consider the left half-triangle with a side composed of $e + d$.  Apply Menelaus' theorem once.
+\[ \frac{d}{e} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c_2} = 1 \]
+
+For the right half-triangle, apply Menelaus again but go clockwise from the middle:
+\[ \frac{d}{e} \cdot \frac{a_2}{a_1} \cdot \frac{c}{c_1} = 1 \]
+
+Combine the two results:
+\[ \frac{b_1}{b_2} \cdot \frac{c}{c_2} = \cdot \frac{a_2}{a_1} \cdot \frac{c}{c_1} \]
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c_1}{c_2} = 1 \]
+
+$\square$
+
+\subsection*{proof based on area}
+
+We will look at two more, very classic proofs of Ceva's theorem.  These again show the close relationship between similarity in triangles, and area.
+
+The second one depends on the area-ratio theorem we developed previously.
+
+\begin{center} \includegraphics [scale=0.5] {area11.png} \end{center}
+
+This is simple algebra based on the area formula:  one-half the base times the height.  Since the two different shaded triangles have the same altitude, the ratio of their areas is the same as the ratio of the length of the bases.
+
+In the triangle shown below, draw a line from the vertex $A$ to the opposite side $BC$, dividing it into lengths $a_1$ and $a_2$.
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new1.png} \end{center}
+
+Drop the altitudes from the other vertices to the line.  We have vertical angles as well as the corresponding right angles, hence the two triangles are similar with ratios:
+\[ \frac{a_1}{a_2} = \frac{h_1}{h_2} \]
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new2.png} \end{center}
+
+Hence the altitudes are in the same ratio as the parts of the side $a_1/a_2$.
+
+Now, pick a point \emph{anywhere} on that line.
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new3.png} \end{center}
+
+We'll focus on $P$, but $Q$ would give the same result.  The triangle $\triangle APB$ can be visualized as having base $AP$ and altitude $h_1$, while $\triangle APC$ has the same base $AP$ and altitude $h_2$.
+
+Since they have the identical base, the areas are in same the ratio as the altitudes, but these are, in turn, in the same ratio as the parts of the side.
+\[ \frac{\Delta_{APB}}{\Delta_{APC}} = \frac{h_1}{h_2} = \frac{a_1}{a_2} \]
+
+Let us abbreviate those areas as $L = \Delta_{APC}$ and $M = \Delta_{APB}$.  We have
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new4.png} \end{center}
+
+\[ \frac{M}{L} = \frac{a_1}{a_2} \]
+
+Now we just appeal to symmetry.
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new5.png} \end{center}
+
+\[ \frac{K}{M} = \frac{b_1}{b_2} \]
+\[ \frac{L}{K} = \frac{c_1}{c_2} \]
+
+Multiply together to obtain a big cancelation:
+
+\[ \frac{M}{L} \cdot  \frac{K}{M} \cdot  \frac{L}{K} = \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot  \frac{c_1}{c_2} \]
+\[ 1 = \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot  \frac{c_1}{c_2} \]
+
+This is the forward version of Ceva's theorem.  If we draw the three lines to be concurrent, then the parts of the sides are in this ratio, which we can also write
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} =  \frac{c_2}{c_1} \]
+
+$\square$
+
+The proof also works in reverse,
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot  \frac{c_1}{c_2}  = 1 \iff \text{3 lines cross at point P} \]
+
+\emph{Proof}.
+
+Everything is the same as before, except we suppose that the ratio of the parts of $a$ has to be slightly different in order to obtain $1$ when we multiply everything together.
+
+Of course, this would mean that the line from $A$ would no longer go through $P$.  Suppose the new line gives $a_1'$ and $a_2'$ as the components of the side $a$.
+
+\[ a_1 \ne a_1', \ \ \ \ \ \  a_2 \ne a_2' \]
+
+But, by the forward theorem we have that the line which \emph{does} go through $P$ divides the side into $a_1$ and $a_2$ such that
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot  \frac{c_1}{c_2}  = 1 \]
+
+We conclude that
+\[ \frac{a_1}{a_2} = \frac{a_1'}{a_2'} \]
+
+Since they are parts of the same length, the components are individually equal.  That is, if the whole side is $a$ then $a_2 = a - a_1$ and $a_2' = a - a_1'$ so
+\[ \frac{a_1}{a - a_1} = \frac{a_1'}{a - a_1'} \]
+\[ a_1 a - a_1 a_1' = a_1' a - a_1 a_1' \]
+\[ a_1 = a_1' \]
+
+$\square$
+
+\subsection*{centroid}
+
+In the general case, the crossing lines are called cevians.  In the case of medians, they divide the sides opposite in half, and then the central point is called the centroid.  Recall that we had
+
+\[ \frac{M}{L} = \frac{a_1}{a_2} \]
+\[ \frac{K}{M} = \frac{b_1}{b_2} \]
+
+But if $a_1 = a_2$ and $b_1 = b_2$, then $K = L = M$.  
+
+Furthermore, the two component triangles of region $K$ have equal area, because they share the vertex at $P$ and their bases are equal.  (Which also implies the previous result).
+
+Therefore, in the case of medians, all six small triangles are equal in area (right panel).
+
+\begin{center} \includegraphics [scale=0.5] {menelaus2.png} \end{center}
+
+For a physical object, the point $P$ would be the \emph{center of mass}.
+
+Furthermore, any given median is the base of two triangles with the same altitude, but one has twice the area of the other (region $M$ has twice the area as the triangle with side $a_1$, below.  
+
+\begin{center} \includegraphics [scale=0.5] {ceva_new4.png} \end{center}
+
+Therefore the central point $P$ divides each median into lengths that are one-third and two-thirds of the original.
+
+\subsection*{orthocenter}
+
+\label{sec:orthocenter_proof}
+
+Consider this triangle in which we have drawn the altitudes to each side.  We claim that they cross at a single point, called the orthocenter.
+
+\begin{center} \includegraphics [scale=0.4] {ceva5.png} \end{center}
+
+Let the angles be $A, B, C$ as labeled, and the sides opposite be $a, b, c$, subdivided as shown.
+
+Then $\angle A$ is part of two right triangles, and by similar triangles we have that
+\[ \frac{c_1}{b} = \frac{b_2}{c} \ \ \ \rightarrow \ \ \ \frac{b_2}{c_1} = \frac{c}{b} \]
+
+Similarly for $\angle B$
+\[ \frac{a_1}{c} = \frac{c_2}{a} \ \ \ \rightarrow \ \ \ \frac{c_2}{a_1} = \frac{a}{c} \]
+
+And $\angle C$
+\[ \frac{b_1}{a} = \frac{a_2}{b} \ \ \ \rightarrow \ \ \ \frac{a_2}{b_1} = \frac{b}{a} \]
+
+The product of the three right-hand sides above is $c/b \cdot a/c \cdot b/a = 1$.  Therefore the product of the left-hand sides is also $1$:
+\[ \frac{b_2}{c_1} \cdot \frac{c_2}{a_1} \cdot \frac{a_2}{b_1} = 1  \]
+
+Invert and re-order the terms
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c_1}{c_2} = 1  \]
+
+$\square$
+
+\begin{center} \includegraphics [scale=0.25] {ceva4.png} \end{center}
+
+Since we have satisfied Ceva's condition, the 3 altitudes all cross at a single point.  That point is the orthocenter, and this is a proof that it exists.
+
+Finally, we develop an unusual proof that the centroid exists, and locate it on the lines to the midpoints of the sides (I found this proof in Lockhart).
+
+The proof depends on the properties of similar triangles.
+
+\subsection*{centroid}
+
+Consider the triangle in the figure below (left panel).  
+
+\begin{center} \includegraphics [scale=0.4] {midpoints1.png} \end{center}
+
+Draw a line segment parallel to the base and connecting to the midpoint of the left side.  Then, by the alternate interior angle theorem and the vertical angle theorem, the two angles marked with red dots in the middle are equal to the red dotted angle at the base.
+
+Therefore, by three angles the same, the small upper triangle is similar to the large one.  The ratio of similar sides is $1:2$.
+
+But this can be done on the right side as well, and then the same for all three vertices of the original triangle (right panel).  
+
+By the triangle sum theorem and also by the alternate interior angle theorem, the angles in the interior triangle are equal to other angles as indicated.  By shared sides, the four small triangles are congruent.
+
+Now draw lines from each vertex to the midpoint of the opposing side.  $GHIA$ is a parallelogram, by the angle equalities just proven.  
+
+The two diagonals of a parallelogram cross at their midpoints.  Therefore $O$ is the midpoint of the side $GI$ and the same line that connects $A$ to midpoint $H$ also connects $H$ to midpoint $O$.
+
+\begin{center} \includegraphics [scale=0.4] {midpoints2.png} \end{center}
+
+Therefore the centroid of $\triangle GHI$ is also the centroid of the parent.  This process can be repeated as many times as we please (right panel).  
+
+The triangles get smaller and eventually tend to a point.  That point is on all three midpoint segments.  Therefore, the centroid is a single point.
+
+$\square$
+
+\subsection*{algebra of the centroid}
+
+We can locate the centroid by imagining that we find successive midpoints of a length from opposite ends left and right.  
+
+The first point is at $1/2$ of the length (point $O$ on $\triangle GHI$), the second comes back from vertex $H$ by $1/4$ so is at $0.75$ (on the right edge of the small red triangle in the right panel, above).  The third is at $0.5 + 1/8$ (on the left edge of the smallest black triangle).
+
+Every second round we get closer to the centroid  by advancing from the left by
+\[ S = \frac{1}{2} +  \frac{1}{8} +  \frac{1}{32}  + \dots \]
+
+Now, we can either assume this sum is finite (for now) or recognize that it is certainly smaller than 
+\[ \frac{1}{2} +  \frac{1}{4} +  \frac{1}{8}  + \dots = 1 \]
+
+\begin{center}
+\includegraphics [scale=0.3] {series1.png}
+\end{center}
+
+So if
+\[ S = \frac{1}{2} +  \frac{1}{8} +  \frac{1}{32}  + \dots \]
+then
+\[ 2S = 1 +  \frac{1}{4} +  \frac{1}{16}  + \dots \]
+and then, adding the two expressions:
+\[ 3S = 1 +  \frac{1}{2} +  \frac{1}{4} +  \frac{1}{8} + \frac{1}{16}   + \dots \]
+\[ = 1 + 1 \]
+\[ S = \frac{2}{3} \]
+
+$\square$
+
+\subsection*{centroid from Menelaus}
+
+We can apply \hyperref[sec:Menelaus_theorem]{\textbf{Menelaus' theorem}} to the case of the centroid.  This gives a very simple equation to identify how far along the median the point $P$ is.
+
+The original theorem was (left panel).
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c'} = 1 \]
+
+\begin{center} \includegraphics [scale=0.5] {menelaus2.png} \end{center}
+
+Write the same expression for the median coming down from the top vertex in the right panel and the triangle with sides $b$ and $c_1$.
+
+\[ \frac{d}{e} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c_2} = 1 \]
+
+$b_1/b_2 = 1$ and $c/c_2 = 2$.  Therefore
+\[ 2d = e \] 
+
+The point $P$ lies one-third of the way up from the side to the corresponding vertex.
+
+\end{document}

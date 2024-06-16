@@ -1,0 +1,89 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Vaccine efficacy}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Suppose we design a trial for a vaccine and, to make things simpler, assign equal numbers of people to the treatment and control groups:  call them vaccine and placebo.
+
+We must decide which particular signal or endpoint to follow, whether positive cases, hospitalizations, or deaths.  
+
+The time period also must be specified:  e.g. from two weeks after the second shot until the end of the trial.
+
+Suppose we observe $C$ cases in the vaccinated group and $c$ cases in the placebo group.
+
+The efficacy is just
+\[ E = \frac{c - C}{c} \]
+
+which can also be written as
+
+\[ E = 1 - \frac{C}{c}  \]
+
+We could say that this is how many cases (as a fraction) would have occurred in the vaccine group had they not received the vaccine.
+
+\subsection*{example}
+
+If the number of cases is 5 in the vaccinated group and 100 in the placebo group, the efficacy is
+\[ E = 1 - \frac{5}{100} = 0.95 \]
+
+Multiply by $100$ to get efficacy as a percentage:  $95 \%$.
+
+It may happen that the vaccine and placebo groups are of different sizes.  If the number of cases is very small in the vaccine group, the number could be increased to improve accuracy.
+
+If there are $N$ people in the vaccinated group and $n$ people in the placebo group, then the risks for the two groups, adjusted for population size, are
+\[ R = \frac{C}{N} \ \ \ \ \ \ \ \ \ \  r = \frac{c}{n}  \]
+
+The efficacy is now
+\[ E = \frac{r - R}{r} = 1 - \frac{R}{r}  \]
+
+\subsection*{example}
+
+Say there are 50000 people in the vaccinated group and 10000 in the placebo group, while the number of cases is 5 in the vaccinated group and 100 in the placebo.  Then the risks are
+
+\[ R = \frac{5}{50000} = 10^{-4} \]
+\[ r = \frac{100}{10000} = 10^{-2} \]
+
+And the efficacy is
+
+\[ E = 1 -  \frac{10^{-4}}{10^{-2}} = 1 - 10^{-2} = 0.99 \]
+
+which is $99 \%$.
+
+\subsection*{adverse events}
+
+Another big issue is adverse events.  Everyone who is vaccinated probably gets a sore arm, but serious illness, admission to hospital, or even death, would obviously be bad outcomes.
+
+Let's look at the number of deaths that would be expected even without vaccination.
+
+The death rate for, say, the whole population of the United States, depends on many things including age distribution, the health care system, sex, race and other factors.
+
+But overall, the death rate is about $0.87 \%$ per year, just under $1 \%$.  That means with a population of 330 M, about 2.8 M people die each year.  
+
+Just in passing, it also means that when an extra 0.6 M people die of Covid-19 over a year's time, the signal is clearly visible.  So the theory that Covid deaths are wildly exaggerated due to miscoding is easily disproved.
+
+Start with $0.9 \%$ per year.  The usual denominator for these kinds of figures is "per 100,000 people", giving $900$.
+
+However, the rate is substantially increased for older people.  It is roughly $5 \%$ per year for $70+$.  That's $5000$.
+
+For a trial of $30000$ people carried out over $3$ months, we must divide by $12$.  We therefore expect that about $400$ people in the vaccine group will die within the period of the trial, for other reasons.
+
+Each one of those deaths must be investigated to decide whether the vaccine had anything to do with it.  It's a challenge.
+
+\end{document}

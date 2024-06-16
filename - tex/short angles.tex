@@ -1,0 +1,117 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Angle theorems}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The way I like to think about geometry is to start with angles.  The most important thing we do in geometry is to \emph{prove} things.  We call such proven facts \emph{theorems}.  Let's prove some basic theorems about angles.
+
+Consider, then, two lines or line segments that cross.
+\begin{center} \includegraphics [scale=0.5] {sangles1.png} \end{center}
+ 
+Four angles are formed at the intersection of two lines.  Depending on the relative orientation, the angle between the two lines might be smaller or larger.
+ 
+We see that there seem to be \emph{pairs} of angles that look roughly the same.  Their measures appear to be comparable and we suspect they may be equal.  These are the angles that lie across the intersection from one another.  By rotating one of the lines, one pair of angles gets larger, and the other pair gets smaller.
+ 
+There are also two extreme cases for two lines.  The first one is that the two lines are \emph{parallel}, they do not cross (not ever).  
+
+\begin{center} \includegraphics [scale=0.5] {sangles2.png} \end{center}
+
+And the second is that the four angles at the intersection are all equal (right panel).  These are called right angles.  It is common to put a little box there to indicate that these are right angles.  
+
+We will prove later that if the two angles above the black line are equal, they are all equal.  All four are right angles.
+
+In fact, we can take this as the definition of a right angle (not something about the measurement in degrees).  
+
+\subsection*{supplementary and vertical angles}
+
+Now consider the two angles above the black line.  We call these supplementary angles, and we claim that the sum of the measures of the two angles is equal to two right angles.
+
+\begin{center} \includegraphics [scale=0.5] {sangles3.png} \end{center}
+
+\[ \phi + \theta = \text{two right angles} \]
+
+By the definition above, when two adjacent angles are equal, they are both right angles.  You can follow that logic all the way around the intersection to see that the sum total is four right angles.  By symmetry, the sum of angles on each side of a given line is equal to half that, or two right angles.
+
+This is always true even when the angles involved are not right angles.  Maybe you can just accept it as a definition that says what we think about how the world works.  It is called the supplementary angle theorem.  (We do not prove everything).
+
+Now let's label the rest of the angles. 
+
+\begin{center} \includegraphics [scale=0.5] {sangles4.png} \end{center}
+
+We're sort of giving the game away by labeling the third and fourth angles with primes.  We claim that the combination $\phi + \theta'$ is also equal to two right angles, by the same logic as before, because they are supplementary angles with respect to the red line.
+
+But now look what we have:
+\[ \phi + \theta =  \text{two right angles}  = \phi + \theta' \]
+\[ \theta = \theta' \]
+
+$\phi$ and $\phi'$ are also equal, for the same reason.  
+
+I often use colored dots to mark angles that are equal.  As a result of the argument that we just made, we have shown that the angles marked with the red dots are equal.  The ones marked with black dots are equal as well.  Angles that lie across the intersection from each other are called vertical angles.
+
+\begin{center} \includegraphics [scale=0.5] {sangles5.png} \end{center}
+
+The theorem about them is called the \emph{vertical angle theorem} and it is the first major theorem in geometry.
+
+\subsection*{parallel postulate}
+
+The next big idea has to do with parallel lines.  It is really the definition of what it means to be parallel.  The two horizontal black lines in the figure below are parallel, if (and only if), the sum of the angles $s + t$ is equal to two right angles.
+
+\begin{center} \includegraphics [scale=0.5] {sangles6.png} \end{center}
+\[ s + t =  \text{two right angles} \]
+
+This is called the parallel postulate (it's another thing that we don't prove).  
+
+But then it immediately follows (from supplementary angles) that $s = s'$, because $s + t = $ two right angles $= s' + t$.
+\begin{center} \includegraphics [scale=0.5] {sangles7.png} \end{center}
+
+We mark them as equal with red dots.
+\begin{center} \includegraphics [scale=0.5] {sangles8.png} \end{center}
+
+And then we place another red dot, relying on the vertical angle theorem (left panel, below).
+\begin{center} \includegraphics [scale=0.4] {sangles9b.png} \end{center}
+
+Recall that if $a = b$ and $b = c$ then $a = c$, where the objects $a,b,c$ can be numbers, or angles, or even triangles.  We say that equality is transitive, and using that principle we have proved that the two angles in the right panel are also equal.  
+
+We have the following theorem:
+
+$\bullet$ \ \   Alternate interior angles of two parallel lines are equal.  
+
+We will use these basic theorems over and over again in geometry.  
+
+\subsection*{triangle sum theorem}
+
+Let us just extend our work to one more theorem, one about triangles.  Take the previous figure and add a fourth line.
+
+\begin{center} \includegraphics [scale=0.5] {sangles10.png} \end{center}
+
+We have formed a triangle.  On the left, we mark the alternate interior angles of two parallel lines with red dots as before, to show that they are equal.  Then we notice that with the new line, in blue, we have an additional pair of equal angles by the same theorem.
+
+In the right panel, we substitute labels for the angles to talk about them more clearly.  As we just said, by the alternate interior angles theorem, the two angles marked $s$ are equal, as are the two angles marked $t$.
+
+But then, the sum $r + s + t$ is equal to two right angles because they comprise the total of all angles underneath the top line.
+
+But $r + s + t$ is also the sum of angles in the triangle.  Our last theorem is called the triangle sum theorem.
+
+$\bullet$ \ \ The sum of the three angles of a triangle is equal to two right angles.
+
+Thales (624-546 BC), was from a Greek town called Miletus on the coast of Asia Minor (modern Turkey).  He lived long before Euclid (about 300 years before, 600 B.C.).  Although none of his writing survives, it is believed that Thales proved several early theorems including the ones we saw above.
+
+\end{document}

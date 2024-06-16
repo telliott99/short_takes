@@ -1,0 +1,139 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Adding fractions}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The basic rule for adding fractions is that they must have the same number on the bottom (a \emph{common denominator}).
+
+Here's a simple example
+\[ \frac{1}{5} + \frac{2}{5} = \frac{3}{5} \]
+
+We're allowed to add $1/5 + 2/5$ because of the shared $5$ on the bottom, and the sum has that same $5$ on the bottom and $1 + 2 = 3$ on the top.
+
+Easy enough.  But consider this.
+\[ \frac{1}{4} + \frac{1}{2} \stackrel{?}{=} \]
+
+we can't just add numerators (numbers on the top) for this one because the denominators are not the same.  
+
+\subsection*{two methods}
+
+One approach is to recognize that
+\[ \frac{2}{2} \cdot \frac{1}{2} =  \frac{2}{4} \]
+
+Since $2/2$ is equal to $1$, multiplying by $2/2$ is the same as multiplying by $1$, it \emph{doesn't change the value}, so $1/2$ is equal to $2/4$.  
+
+Now we have a common denominator, and can substitute into the equation from above
+\[ \frac{1}{4} + \frac{1}{2} = \frac{1}{4} +  \frac{2}{2} \cdot \frac{1}{2}  \]
+\[ = \frac{1}{4} + \frac{2}{4} = \frac{3}{4} \]
+
+Note:  starting with 7th grade math, you will be using the dot to symbolize multiplication rather than a "times" symbol.  $2 \times 2$ becomes $2 \cdot 2$.
+
+The problem we're solving is
+\[ \frac{1}{4} + \frac{1}{2} = \]
+
+We could have just multiplied the two denominators together to form a common denominator.  $2 \cdot 4 = 8$.
+
+ If we want that $8$ on the bottom, the first term should be
+\[ \frac{2}{2} \cdot  \frac{1}{4} = \frac{2}{8} \]
+
+The second term is
+\[ \frac{4}{4} \cdot  \frac{1}{2}  = \frac{4}{8} \]
+
+Put them together to give
+\[   \frac{1}{4} + \frac{1}{2} = \frac{2}{8} + \frac{4}{8} = \frac{6}{8} \]
+
+The result is obtained by adding numerators and putting them over the new denominator.  
+
+Finally, we  put everything into "lowest terms" as $3/4$, dividing both top and bottom by $2$.
+
+Using letters, we can write a general rule for the second method:
+\[ \frac{a}{c} + \frac{b}{d} = \frac{ad}{cd} + \frac{bc}{cd}  = \frac{ad + bc}{cd} \]
+
+The letters make it clear what to do.  The first fraction is multiplied (top and bottom) by the denominator of the second fraction:  $a/c \cdot d/d$.  The second term is multiplied by the denominator of the first.  $b/d \cdot c/c$.
+
+This method is easier in one way:  we know right away what the denominator is, it's just the product of the two original ones.  But the numbers involved are bigger, and at the end, we have to look for that common factor and remove it if there is one.
+
+\subsection*{harder problem}
+
+Let's look for a little more insight into this problem of common denominators and how to add fractions.  In the example above, we were able to see (we guessed), that multiplying by 2 would give us what we want.
+
+In other problems, we might have more trouble recognizing the right factor to use.
+\[ \frac{1}{12} + \frac{1}{21} \stackrel{?}{=}  \]
+
+We can always multiply $12 \cdot 21$, although that is a bit of a challenge.
+\[ 12 \cdot 21 = (10 + 2 ) \cdot 21 \]
+\[ = 10 \cdot 21 + 2 \cdot 21 \]
+\[ = 210 + 42 = 252 \]
+
+So for the first term, we would end up with 
+\[ \frac{21}{21} \cdot  \frac{1}{12} = \frac{21}{252} \]
+
+The second term is
+\[ \frac{12}{12} \cdot  \frac{1}{21}  = \frac{12}{252} \]
+
+adding together
+\[ \frac{1}{12} + \frac{1}{21} = \frac{21}{252} + \frac{12}{252} = \frac{33}{252}     \]
+
+As this point we see $33$ and think $3 \cdot 11 = 33$, so we should test if $252$ is evenly divisible by $3$ using the digit addition trick.
+\[ 2 + 5 + 2 = 9 \]
+
+Since $9$ is evenly divisible by $3$, so is $252$.  We should divide $252 \div 3 = 84$ to obtain the answer $11/84$.
+
+\subsection*{factorization}
+
+A better way is to recognize in the beginning that $3$ is a factor of both $12$ and $21$.
+\[ 12 = 3 \cdot 4 \]
+\[ 21 = 3 \cdot 7 \]
+so the problem becomes
+
+\[ \frac{1}{12} + \frac{1}{21} =  \frac{1}{3 \cdot 4} + \frac{1}{3 \cdot 7} \]
+
+This suggests that in multiplying to find the common denominator, we should leave the $3$ out.
+
+What we will do is multiply the first term like this:
+
+\[  \frac{7}{7} \cdot \frac{1}{3 \cdot 4} = \frac{7}{84} \] 
+
+and then the second
+
+\[  \frac{4}{4} \cdot \frac{1}{3 \cdot 7} = \frac{4}{84}  \] 
+
+We used the fact that $7 \cdot 12 = 84$ (which is the same as $4 \cdot 21$).  So then
+
+\[ \frac{1}{12} + \frac{1}{21} =  \frac{7}{84} + \frac{4}{84} = \frac{11}{84} \]
+
+If you multiply $84 \cdot 3$, you will find that it is equal to $252$.
+
+\subsection*{factoring}
+
+We need to recognize when one number is a factor of another.  It is a great relief that we only need to worry about four prime numbers:  $2,3,5$ and $7$.  Even better, the first three are easy.
+
+$\bullet$ \ \  Even numbers (divisible by $2$) end in $2,4,6,8,$ or $0$.
+
+$\bullet$ \ \  To test for divisibility by $3$, add the digits.  If the sum is divisible by $3$, then so is the original number.
+
+$\bullet$ \ \  Only numbers ending in $5$ and $0$ are divisible by $5$.
+
+$\bullet$ \ \  For $7$ you will need a times table, on paper or in your head.  This check is needed only for numbers equal to or larger than $7 \cdot 7 = 49$.
+
+$\bullet$ \ \  We need to do this until all the factors are prime (so $12 = 2 \cdot 6 = 2 \cdot 2 \cdot 3$ and $45 = 3 \cdot 3 \cdot 5$).
+
+\end{document}

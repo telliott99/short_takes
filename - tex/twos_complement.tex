@@ -1,0 +1,168 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Two's complement}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{description}
+
+It is curious how negative numbers are stored in most computers.  The high value bit is reserved as a \emph{sign} bit.  
+
+Although my machine and most others are 64-bit, we'll work with 1-byte (8-bit) examples for ease of representation.
+
+With 8 bits, if the top bit is reserved to indicate sign (1 for negative and 0 for positive), there remain 7 bits to hold the actual value.  Thus, on our 8-bit machine the largest and smallest positive integers are
+\begin{verbatim}
+0111 1111 = 127
+0000 0001 =   1
+\end{verbatim}
+
+So then for negative numbers, the high value bit is 1, as we've said.  The rest is determined by our rule that any number plus its negative must equal zero.
+
+\begin{verbatim}
+0111 1111 =  127
+1000 0001 = -127
+---------
+0000 0000
+\end{verbatim}
+
+The \emph{carry bit} propagates through in carrying out the addition and \emph{overflows} off the end.  
+
+If you compare the digits of 127 and its negative, - 127, the bits are all flipped, but then an extra 1 is added.  
+
+This also works with 1.  To write -1, flip all the bits from 1, and then add 1 to the result.
+
+\begin{verbatim}
+0000 0001 =   1
+1111 1111 =  -1
+---------
+0000 0000
+\end{verbatim}
+
+It looks strange, but it works.
+
+\subsection*{Adding two binary numbers with a carry row}
+
+An advantage of two's complement is that it unifies addition and subtraction so that we can use the same operations for both.
+
+Let's compute 69 - 12.  To do that we will add (-12) to 69.  69 = 64 + 4 + 1.  So bin(69) is
+\begin{verbatim}
+0100 0101
+\end{verbatim}
+
+And 12 = 8 + 4, so bin(12) is
+\begin{verbatim}
+0000 1100
+\end{verbatim}
+
+We want minus 12.  In two's complement, to obtain a negative number, invert the digits and add 1.  bin(-12) is
+
+\begin{verbatim}
+1111 0011
+0000 0001
+---------
+1111 0100
+\end{verbatim}
+
+Adding 69 + (-12) 
+
+\begin{verbatim}
+0100 0101
+1111 0100
+---------
+0011 1001
+\end{verbatim}
+
+Ignore the overflow.  The result is 32 + 16 + 8 + 1 = 57
+
+\subsection*{why this works}
+
+Suppose we compute -12 by subtracting 12 from 0.
+
+\begin{verbatim}
+0000 0000
+0000 1100
+---------
+       00
+\end{verbatim}
+
+At the third place we need to "borrow" a 1
+
+\begin{verbatim}
+     1
+0000 0000
+0000 1100
+---------
+      100
+\end{verbatim}
+
+
+But that's not quite right.  0 doesn't have 1 to give.  We must propagate the borrow.  Introduce a \emph{carry} row
+
+\begin{verbatim}
+1111 1
+0000 0000
+0000 1100
+---------
+      100
+\end{verbatim}
+
+so to continue
+
+\begin{verbatim}
+1111 1
+0000 0000
+0000 1100
+---------
+1111 0100
+\end{verbatim}
+
+That's what we had before.
+
+\subsection*{look ahead}
+
+Another issue with the carry bit is that it's slow to do the operations one bit at a time.
+
+We'd like to look at an addition problem and be able to say exactly where the carry bits will be.  We use a 2-byte machine to make the example clearer.
+
+\begin{verbatim}
+  1111 1111 1    1     Carry Row
+  0000 0000 0100 0101  (69)
++ 1111 1111 1111 0100  (-12)
+  -------------------
+  0000 0000 0011 1001  (57)
+\end{verbatim}
+
+
+Working from right to left, a carry bit is needed when
+both addends have 1, and not before.
+
+Once a carry bit is present, it propagates when either one or both of the addends have 1.
+
+Once we know the carry bits, just add all three values (by doing Carry OR A OR B), and disregard the carry in the result.
+
+
+
+
+
+
+
+
+
+\end{document}

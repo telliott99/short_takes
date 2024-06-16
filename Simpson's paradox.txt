@@ -1,0 +1,53 @@
+Consider a hypothetical university with only two departments, humanities and engineering, which differ in their admission rates for graduate students.  
+
+Broken down by sex, the admission rates are
+
+    HUM    ENG
+
+F   40%    80%
+M   20%    60%
+
+Clearly, both departments admit a smaller percentage of male applicants than females.  This is probably because it was 1950 and the very few women who applied tended to be really smart.
+
+-----
+
+Since we are talking percentages, the number of applicants doesn't matter.  However, there is another important variable, namely, the distribution of applicants grouped by sex, comparing the two departments.
+
+As an extreme example, suppose the men only apply to engineering and women only apply to humanities.  Then the overall admission rates will be
+
+F   40%
+M   60%
+
+And if 3/4 of the male applicants apply to engineering
+
+M   3/4(60%) + 1/4(20%) = 50%
+
+while only 1/4 of females apply to engineering
+
+F   1/4(80%) + 3/4(40%) = 50%
+
+the overall rates appear to be the same. 
+
+This is called Simpson's Paradox.  
+
+The example is a vastly simplified version of a real-life example.
+
+https://en.wikipedia.org/wiki/Simpson%27s_paradox
+
+-----
+
+Another famous example involves batting averages for two baseball players, Derek Jeter and David Justice in 1995 and 1996.
+
+         1995              1996             combined
+
+Jeter     12/ 48 = 0.250   183/582 = .314   195/630 = .310
+Justice  104/411 = 0.253    45/140 = .321   149/551 = .270
+
+David Justice had a slightly better average than Jeter in both years, but when the data are combined he is 40 points lower than Derek Jeter.
+
+The explanation is that although their averages are pretty similar in both years and both were much lower in 1995, Derek Jeter had a small number of at-bats in a relatively poor year for him in 1995, while David Justice had a small number at-bats in a relatively good year in 1996.
+
+ 
+
+
+

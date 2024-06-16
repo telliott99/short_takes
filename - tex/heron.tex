@@ -1,0 +1,68 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{figures/}{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Heron's proof}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here we go through Heron's proof of the eponymous theorem (as given by Paul Yiu).  I've stolen the diagram, but switched labels on a few of the points.  The triangle is $ABC$ with incircle radii $OD$, $OE$ and $OF$.
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+$BT$ is drawn equal in length to $AD$.  Two right triangles are drawn on the diameter of a circle $LC$, so $B$ and $O$ lie on the circle.
+
+As usual, the whole triangle is the sum of three pairs of equal triangles whose total base is the semiperimeter and altitude is equal to the radius $EO$.  $CT$ is drawn to be equal to the semiperimeter, hence the area of the triangle is $CT \cdot OE$.
+
+The total angle at $L$ is equal to $\angle AOD$.  \emph{Proof}.  Because $L$ and $\angle BOC$ are opposing angles in a quadrilateral inscribed into a circle, they are supplementary.  But the components of $\angle BOC$ ($\angle BOE$ and $\angle COE$) are, together with $\angle AOD$, one-half the total angle at $O$.  
+
+Thus $\angle BOC + \angle AOD$ are together equal to two right angles.  Hence $\angle L = \angle AOD$.
+
+As a result, we have two pairs of similar right triangles:  $\triangle CBL \sim \triangle AOD$ and $\triangle LBK \sim EKO$ (since $OE \parallel BL$).
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+We have to follow quite a long chain of ratios.
+
+From the first pair of similar triangles, we have the ratio of bases as
+\[ \frac{BC}{BL} = \frac{AD}{DO} \]
+Rearranging:
+\[ \frac{BC}{AD} = \frac{BL}{DO} \]
+Substituting $BT = AD$ and $EO = DO$
+\[ \frac{BC}{BT} = \frac{BL}{EO} \]
+
+From the second pair we have
+\[ \frac{BL}{BK} = \frac{OE}{KE} \]
+\[ \frac{BL}{OE} = \frac{BK}{KE} \]
+Hence
+\[ \frac{BC}{BT} = \frac{BK}{KE} \]
+The rest is relatively straightforward.
+
+Adding $1$ to both sides
+\[ \frac{BC+BT}{BT} = \frac{BK+KE}{KE} \]
+\[ \frac{CT}{BT} = \frac{BE}{KE} \]
+\begin{center} \includegraphics [scale=0.3] {heron2.png} \end{center}
+
+Rearranging
+\[ CT = BT \cdot \frac{BE}{KE} \]
+Multiply top and bottom by $CE$:
+\[ CT = BT \cdot \frac{BE}{KE} \cdot \frac{CE}{CE} \]
+$\triangle COK$ is right, thus $OE^2 = CE \cdot KE$ and 
+\[ OE^2 \cdot CT = BT \cdot BE \cdot CE \]
+\[ OE^2 \cdot CT^2 = BT \cdot BE \cdot CE \cdot CT \]
+\[ OE^2 \cdot CT^2 = AD \cdot BE \cdot CE \cdot CT \]
+$\square$
+This is Heron's theorem.
+
+\end{document}

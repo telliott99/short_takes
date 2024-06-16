@@ -1,0 +1,72 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Distributive law}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The three laws of algebra are the associative, commutative and distributive laws.  The first two are rather basic, at least with respect to integers or even real numbers.  There are other types of algebra where things get trickier.  
+
+Our main focus will be the third one, the distributive law.  But let's just state them all up front.  The associative laws say that the the order in which operations are performed doesn't change the result.
+
+\[ a + b + c = (a + b) + c = a + (b + c) \]
+\[ a \cdot b \cdot c = (a \cdot b) \cdot c = a \cdot (b \cdot c) \]
+
+The commutative laws say you can switch the order of the operands and not change the result
+\[ a + b = b + a \]
+\[ a \cdot b = b \cdot a \]
+
+The distributive law is one law that involves both multiplication and division and it says
+\[ a \cdot (b + c) = a \cdot b + a \cdot c \]
+
+\begin{center} \includegraphics [scale=0.3] {distributive.png} \end{center}
+
+\subsection*{practical applications}
+
+One corollary that comes up is in multiplication of base 10 numbers.  For example:
+\[ 6 \cdot 123 = 6 \cdot 100 + 6 \cdot 20 + 6 \cdot 3 \]
+
+That's the way we actually do multiplication, if you think about it.
+
+It's helpful for doing calculations in your head.  
+\[ 7 \cdot 16 = 70 + 7 \cdot 6 = 112 \]
+
+It can even be used with subtraction:
+\[ 6 \cdot 198 = 6 \cdot 200 - 6 \cdot 2 = 1188 \]
+
+Suppose we know a particular square like $n^2 = 20^2 = 400$.  How much is $19^2$.
+
+\[ 19^2 = (20 - 1)^2 = 20^2 - 2 \cdot 20 + 1 \]
+\[ = 400 - 40 + 1 = 361 \]
+
+It also explains the famous sum of digits rule:  if the sum of digits of a number is equal to $3$, the number is divisible by $3$.  (This also works for $9$).  Here's a derivation:
+
+Consider the number $abcd$, where $a \ et \ al.$ are some particular digits.  By the distributive law:
+
+\[ abcd = a \cdot 1000 + b \cdot 100 + c \cdot 10 + d \]
+\[ = a \cdot (999 + 1) +b \cdot (99 + 1) + c \cdot (9 + 1)+ d \]
+\[ = (a \cdot 999 + a) +( b \cdot 99 + b) + (c \cdot 9 + c )+ d \]
+\[ = (a \cdot 999 + b \cdot 99+ c \cdot 9) + a + b  + c + d \]
+
+The term in parentheses is clearly divisible by $3$ (and by $9$).  So then the question whether the original number is divisible by $3$ (or $9$) turns on the question of whether $a + b + c + d$ is divisible by $3$ (or $9$).
+
+If the sum of digits is divisible by $3$ (or $9$) then so is the original number.
+
+
+\end{document}

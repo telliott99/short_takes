@@ -1,0 +1,603 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Quadratics}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+A quadratic equation contains the square of a variable.  Most often we call the variables $y$ and $x$, so we can start with something like
+\[ y = x^2 \]
+Let's try some values for $x$ and compute the $y$ given by the function.
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| } 
+\hline
+x = & 0 & 1 & 2 & 3 & 4 \\ 
+y = & 0 & 1 & 4 & 9 & 16 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+Obviously, $y$ increases faster than $x$.  At each step it changes by adding the next odd number.  Another thing we can notice is that since $x^2$ is always greater than or equal to $0$, there is no value of $x$ for which $y < 0$.
+
+Finally, the same values are obtained for $- x$ as for $+ x$.  We can write that with the plus-or-minus sign:  $\pm$.
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| } 
+\hline
+x = & 0 & $\pm \ 1$ & $\pm \ 2$ & $\pm \ 3$ & $\pm \ 4$ \\ 
+y = & 0 & 1 & 4 & 9 & 16 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+Slightly more complicated functions are obtained by adding a constant.  Consider
+\[ y = x^2 - 1 \ \ \ \ \ \ y = x^2 + 1 \]
+There's a big difference between these.  The minimum value of $y$ comes when $x = 0$, so for the first one it is $-1$, while for the second it is $+1$.  This means that there are two values of $x$ for which $y = 0$ in the first case but not in the second.
+
+In fact, we can factor the first example
+\[ y = x^2 - 1 = (x + 1)(x - 1) \]
+
+Clearly, when $x = \pm \ 1$, then $y = 0$.  
+
+Below is a graph of all three.  Do you see why $y = x^2  - 1$ has zeros but $y = x^2 + 1$ does not?
+\begin{center} \includegraphics [scale=0.4] {p1.png} \end{center}
+
+The general formula for a quadratic with a constant added is 
+\[ y = x^2 + c \]
+Adding $c$ shifts the graph up or down, but doesn't change its shape.
+
+A second way to get a more complicated equation is to multiply the $x^2$ term by a constant.  This constant is usually called $a$ when it's not exactly specified:
+\[ y = ax^2 \]
+
+It may be that $a = 1$, and then $y = x^2$, but $a$ cannot be zero, or we don't have a quadratic.   Here are three examples:
+\begin{center} \includegraphics [scale=0.4] {p2.png} \end{center}
+$a$ is called the \emph{shape} factor, it makes the curve bend up more sharply as it grows larger.  What happens when $a$ is negative?
+
+A third thing is that there may also be a term containing the first power of $x$.  
+\[ y = x^2 + bx \]
+
+Examples
+\[ y = x^2 - x \ \ \ \ \ \ \ \ \ \ y = x^2 + x \]
+\begin{center} \includegraphics [scale=0.4] {p3.png} \end{center}
+
+The effect of $b$ is a little more complicated than for $a$ or $c$.  You can see having $-x$ shifts the parabola to the right, but also down.  Adding $+x$ has a mirror-image effect on the other side of the $y-$axis.
+
+We can understand something more by factoring these two equations.  In each case we get a factor of $x$ and then
+\[ y = x(x - 1) \ \ \ \ \ \ \ \ \ \ y = x(x + 1) \]
+So the equation $y = x^2 - x$ is shifted to the right and down, it has zeros (values of $x$ which give $y = 0$) at $x = 0$ and $x = +1$.  It seems pretty obvious from the factored form why that is true.  
+
+The general form is
+\[ y = ax^2 + bx + c \]
+where $a, b$ and $c$ are constants.  $b$ or $c$ (or both) might be zero.
+
+One last point in this section:  The minimum value of $y$, the very tip of the parabola, comes at a point called the \emph{vertex}.  
+
+The $x$-position of the vertex is always halfway in between the two zeros.  It is the average of the two values.
+
+The two most common applications of quadratic equations are maximization problems, and gravity.
+
+\subsection*{examples}
+
+\subsection*{maximizing area}
+We need to build a fence or a wall from a fixed amount of material.  There are constraints:   it must be in the shape of a rectangle, and we want the area enclosed to be a maximum.
+
+You will usually be given some definite amount of material, like $100$ feet of fencing.  It does no harm to re-scale our problem, as long as we understand how to undo the scaling once we have the answer, but for the time being we stay with what we're given
+
+Let the perimeter of the rectangle be $100$, the half-perimeter is $50$, and then if one dimension, say the short side of the rectangle is $h$, the width is $50 - h$, so the area is
+\[ A = hw = h(50 - h) = -h^2 + 50h \]
+
+As will be obvious later, since $a = - 1$ is less than $0$, the graph of this equation forms a "cup" that opens down.  The value of $A$ at the vertex is a maximum.  Again, two fundamental facts about parabolas are:   
+
+$\circ$ \ the vertex is the maximum (or minimum), and there $x = -b/2a$.
+
+So the simplest parabola $y = x^2$ has $b = 0$, because there is no term like $bx$, and the vertex is at $x = 0$, $y = 0$.
+
+In our problem $a = -1$ and $b = 50$, the vertex is at
+\[ h = - \frac{b}{2a} = - \frac{50}{2(-1)} = 25 \]
+Since $a < 0$ this is a maximum.   Since $h + w = 50$, it follows that $h = w = 25$.
+
+The meaning of this answer is that the square ($h = w$) has the maximum area for a rectangular shape with a fixed perimeter.
+
+Actually, you may know that if the shape is not rectangular the maximum area is for a circle or disk, but that is not the problem we're solving!
+
+\subsection*{gravity}
+
+A second application is for objects falling under the influence of gravity.  Gravity is a constant acceleration, which means that if the speed or velocity after falling for one second is $v$, the velocity after two seconds is twice $v$ and so on.  
+
+So the distance $d = vt$ covered from time zero up to $t = 1$ second is less than that covered between $t = 1$ and $t = 2$ seconds.  
+
+Let me just give you the equation.  If we drop our rock from the Tower of Pisa and the tower stands a height $h_0$ above the ground, the distance $h$ above the ground after $t$ seconds is
+\[ h = -16t^2 + h_0 \]
+This makes sense.  At $t = 0$, $h = h_0$ and when $t > 0$, then $h$ will be smaller than $h_0$ by some amount $-16t^2$.
+
+If the initial height $h_0$ is $144$ feet, then a dropped rock will hit the ground at $h=0$ which means that
+\[ 0 = -16t^2 + 144 \]
+\[ t = \sqrt{144/16} = \sqrt{9} = 3 \text{ sec} \]
+
+We take only the positive square root, but to explain that will take more time than we want for this example right now.  We'll come back to it.
+
+There is a limit to the final, or terminal velocity.  It comes not from gravity but from air resistance.  Someone who jumps from an airplane or gets thrown out through a window of the Nakatomi Plaza has a terminal velocity of about $180$ feet per second or $120$ miles per hour.
+
+\subsection*{Basic theory}
+
+You know that a linear equation is something like $y = mx + b$, where $x$ and $y$ are the variables, and $m$ is the slope of the line that is the graph of the equation. 
+
+When  $x = 0$, then $y = b$.  
+
+$b$ is the value that $y$ has when the line crosses the $y$-axis, where $x = 0$, called the $y$-intercept.  It's a reasonable idea to use the symbol $y_0$ instead of $b$, since we'll be using $b$ in the quadratic.  Say "y-naught" as in, the value that $y$ has when $x$ is naught, or zero.
+
+Since we are also going to use the symbol $m$ for something else today, allow me to write $y = kx + y_0$, with $k$ being the slope.
+
+We see that a linear equation contains $kx$ or $kx^1$ ($x$ to the power $1$), and it may have a constant as well, which you can think of as the cofactor for the $x^0$ power.
+
+An extension to higher powers is natural.  We write
+\[ y = ax^2 + bx + c \]
+
+where $x$ and $y$ are again variables and $a$, $b$ and $c$ are constants.
+
+I always think of this as the \emph{standard form} for a quadratic equation, although now that I look it up using Google it says that standard form is
+\[ 0 = ax^2 + bx + c \]
+
+and one page even says something else.  That's the problem with the internet --- someone is always wrong.
+
+Anyway, for us here, standard form means that we write out all three cofactors, $y = ax^2 + bx + c$.
+
+Here's an example
+\[ y = x^2 + 2x - 3 \]
+The graph looks like this in Desmos:
+
+\begin{center} \includegraphics [scale=0.5] {quad1.png} \end{center}
+
+We might notice a couple of things about this graph.  First, it is obviously not a straight line as with the linear equation, but a curve that bends upward.  The graph is said to resemble a "cup" that "opens upward".
+
+If the leading constant $a$ is negative then the graph will flip directions, and the "cup" opens downward.
+
+Second, this curve crosses the $x$-axis, which means that for some values of $x$, the result of the equation is $y = 0$.  Those values of $x$ are called the \emph{zeros} of the equation.
+
+There is a minimum value for $y$ on the curve, which occurs at a particular value of $x$, we will be calling that value $x = m$.
+
+The point on the curve where $x=m$ is called the \emph{vertex}.  If the cup would open down instead ($a < 0$), then this value would be a maximum.
+
+The zeros of the equation (the $x$-values where $y = 0$) are evenly spaced on either side of $m$, so we can think of $m$ standing for mean, the average of the two zeros.
+
+I like to use $s$ and $t$ as symbols for the zeros, others might use $r_1$ and $r_2$ where $r$ stands for root, or even $x_1$ and $x_2$.
+
+The curve as a whole is symmetric about the vertical line $x = m$.  That line is called the \emph{axis of symmetry}.
+
+It is worth emphasizing that if we know the zeros $s$ and $t$ then we know $m$ because it always lies exactly halfway in between.
+\[ m = \frac{s + t}{2} \]
+
+On the other hand, if we know $m$ but not the zeros our problem is to find some distance $d$ where
+\[ s,t = m \pm \ d \]
+
+\subsection*{examples}
+Here are some simple equations to plug into Desmos and look at how the graph changes.
+
+\[ y = x^2 \]
+\[ y = ax^2 \]
+
+Add a slider for $a$ and check out what happens when you change it.  $a$ if often called the \emph{shape} factor.  As $a$ becomes larger, the curve gets steeper.  And vice-versa.  Check out $y = 0.1x^2$.
+
+However, if $b$ is not zero, then the role of $a$ is a little more complicated because the position of the vertex is proportional to $b/a$.  When $b = 0$ as for $y = ax^2$, this doesn't happen.
+
+In this case, the graph does not really cross the $x$-axis but just touches it at the vertex.  The vertex lies on the $x$-axis and the $y$-value corresponding to $x = 0$ is $y = 0$.
+
+Next enter the equation
+\[ y = x^2 - 2x + c \]
+Add a slider for $c$ and notice what happens when you change it.   
+
+Adding $c$ simply moves the curve up or down vertically without changing its shape or the axis of symmetry $x = m$.  It also changes the $x$-intercept.
+\begin{center} \includegraphics [scale=0.5] {quad2.png} \end{center}
+
+When $c=-3$
+\[ y = x^2 + 2x - 3 \]
+
+The zeros (the values of $x$ giving $y = 0$ are $x = -3, +1$.  We can actually read them off the graph, and you can check the arithmetic.  $(-3)^2 - 6 - 3 = 0$.  Also, $1^2 + 2 - 3 = 0$.
+
+For any quadratic, there are some values of $c$ (more positive) where the curve won't cross the $x$-axis at all.  This means that there simply aren't any values of $x$ that give $y = 0$.
+
+Here the vertex is $4$ units down from the $x$-axis so if we were to add $5$ to what we had before, giving
+\[ y = x^2 + 2x + 2 \]
+If you check in Desmos you'll find that this curve does not cross the $x$-axis.
+
+And if we were to add only $4$ we would have
+\[ y = x^2 + 2x + 1 = (x + 1)^2 \]
+Each of these curves has its minimum value at $x = m = -1$.  For this particular example the minimum $y = (-1 + 1)^2 = 0$.  The parabola just touches the $x$-axis at the point $(-1,0)$.
+
+If you add a little more $c$ to any equation, where the vertex of the graph is on the $x$-axis, then it will lose its zeros.  A perfect example is $y = x^2 + 1$.  The minimum is at $x = 0$.  So no matter what $x$ is, $x^2 + 1$ is always $\ge 1$.  Therefore $y$ can never be zero.
+
+The role of $b$ is a bit tricky to analyze, but you can take a look in Desmos with a slider.  Here's a challenge:  what shape do you think the vertex traces out when $b$ varies?
+
+\subsection*{dividing out $a$}
+
+We can always factor out $a$ in the cases where it's not equal to $1$:
+\[ ax^2 + bx + c = y \]
+\[ a(x^2 + \frac{b}{a} x + \frac{c}{a}) = y \]
+
+It's especially convenient when we're looking for roots
+\[ a(x^2 + \frac{b}{a} x + \frac{c}{a}) = 0 \]
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
+
+Factoring out the $a$ \emph{doesn't change} them.
+
+You should play with an example in Desmos to see this.  Compare
+\[ y = 2x^2 + 4x - 3  \]
+\[ y = 2(x^2 + 2x - \frac{3}{2})  \]
+
+\begin{center} \includegraphics [scale=0.5] {factor_a.png} \end{center}
+
+Multiplying and dividing by $a$ and then changing the $a$ out front will change the shape and move the vertex up and down, but not the roots.  In this equation
+\[ a(x^2 + \frac{b}{a} x + \frac{c}{a}) = y \]
+the shape depends on the $a$ out front, while the vertex depends on the $a$ in co-factor of $x$.  Dropping the $a$ in front will not change the zeros.
+
+\subsection*{second form of the equation}
+
+Let us introduce a second way of writing a quadratic $y = (x - s)(x - t)$, and give a specific example:
+\[ y = (x + 3)(x - 1) \]
+
+$s$ and $t$ are numbers, but not just any numbers.  When $x = s$ or $x = t$, then $y = 0$, they are the zeros.
+
+Multiply out the example to obtain 
+\[ y = x^2 + 2x - 3 \]
+
+You can see why the graph of this equation, which we looked at before, crosses the $x$-axis at $-3$ and $1$.  When $x = -3$ or $x = 1$ is plugged into $y = (x + 3)(x - 1)$, we quickly get $y = 0$, without doing any real arithmetic.
+
+You might be worried about the situation when the graph never crosses the $x$-axis. In that case, what could $s$ and $t$ possibly be in order to give $y = 0$?  Does $y = (x - s)(x - t)$ even make sense in that case?  
+
+It turns out to have a deep meaning in terms of what are called complex numbers, involving $\sqrt{-1}$, but I think it's better to postpone thinking about it for now.  
+
+When talking about roots, we agree to only talk about functions whose graphs actually cross the $x$-axis or at least touch it, like $y =x^2$, and then of course, there \emph{will be} real numbers $s$ and $t$ such that $(x - s)(x - t) = 0$.
+
+And by the way, for $y = x^2$ people often say that it has duplicate roots, both $x = 0$, since $(x - 0)(x - 0)$ is the equation written in the $s,t$ form.  This is true of any equation whose vertex lies on the $x$-axis.
+
+\subsection*{values of $m$ and the zeros $s$ and $t$}
+
+A neat fact is that $m$, the $x$-value of the vertex, always lies halfway between $s$ and $t$, since $m$ lies on the axis of symmetry.
+
+$m$ is the \emph{average} of $s$ and $t$.
+\[ m = \frac{s + t}{2} \]
+
+Factor out $a$ as before
+\[ a(x^2 + \frac{b}{a} x + \frac{c}{a}) = y \]
+
+The $a$ doesn't matter for the zeros (it's a non-zero constant).  So we can rewrite this as
+\[ a(x - s)(x - t) = 0 \]
+\[ a(x^2 - (s + t)x + st) = 0 \]
+
+By comparing the two forms, we must have that the cofactors of $x$ match.  Namely
+\[ -(s + t) = \frac{b}{a} \]
+But we said above that $m$ always lies half-way between $s$ and $t$ so
+\[ m = \frac{s + t}{2} = - \frac{b}{2a} \]
+which justifies the formula for $m$.
+
+The other values we need to obtain for a quadratic are the zeros, $x$ values which make $y = 0$ (provided they exist).
+
+We saw a good example before, with
+\[ y = (x + 3)(x - 1) \]
+\[ = x^2 + 2x - 3 \]
+Then, the values of $x$ which give $y = 0$ were just $x = -3$ and $x = 1$.  
+
+In simple cases we might be able to look at $x^2 + bx + c$ and see the answer.
+
+\[ x^2 + 3x + 2 = 0 \]
+Notice that $1 + 2 = 3$ and $1 \cdot 2 = 2$.  So we are looking for two factors which add together give to $b$ and multiply together to give $c$.
+\[ = (x + 1)(x + 2) \]
+
+While you can get good at this with practice, most equations cannot be solved by this method, because almost always the roots are not integers.  They might be fractions, or square roots or even something else.
+
+Here are a few more examples of roots with the resulting $b,c$ values:
+\[ (x + 1)(x - 5) \Rightarrow b = -4, c = -5 \]
+\[ (x - \frac{1}{2})(x - \frac{1}{4})) \Rightarrow b = - \frac{3}{4}, c = \frac{1}{8} \]
+
+Here's an example from a gravity problem, we are asked to find the time when $y = 0$, so we need to find the roots of
+\[ -16t^2 + 64t + 96 = 0 \]
+
+That cofactor of $t^2$ is minus one-half the acceleration of gravity (in feet per second per second).
+
+Because of the $0$ on the right-hand side, it is perfectly legal to divide by the leading term of $(-16)$ and then
+\[ t^2 - 4t - 6 = 0 \]
+
+The zeros of the first are the same as the zeros of the second.  Unfortunately this doesn't factor cleanly, we need the quadratic equation to actually solve it.
+
+\subsection*{quadratic formula}
+
+The general formula to find the roots of a quadratic equation is a somewhat complicated looking beast.
+\[ x = \frac{-b \pm \ \sqrt{b^2 - 4ac}}{2a} \]
+
+Breaking it into two separate terms we have
+\[ x = - \frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a} \]
+
+You may recognize, however, that the first part is the $x$-value of the vertex, $m = -b/2a$.
+
+In fact, if you bring the denominator up under the square root
+\[ x =  - \frac{b}{2a} \pm \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}} \]
+\[ = m \pm \sqrt{m^2 - c/a} \]
+
+That looks like something I can remember.
+
+A second approach that could help is to break it down a different way.  The part under the square root is called the discriminant $D$.
+\[ D = b^2 - 4ac \]
+
+Notice that if $D = b^2 - 4ac < 0$ and \emph{and then} we have a problem with $\sqrt{D}$.   This happens exactly when $b^2 < 4ac$. 
+
+This is the case where the graph of the equation does not cross the $x$-axis.  Remember when we said that making $c$ more positive eventually results in a graph with no roots.  
+
+Looking at the expression for $D$ we can see why.  If $a > 0$ then the more positive $c$ is, the closer we get to $b^2 = 4ac$ and once we go past, there is no solution (in real numbers) to $\sqrt{b^2 - 4ac}$.
+
+We can write the quadratic formula in two parts as $D = b^2 - 4ac$ and then
+\[ x = \frac{- b \pm \ \sqrt{D}}{2a} \]
+
+or even better
+\[ x = m \pm \ \frac{\sqrt{D}}{2a} \]
+
+I prefer the other version, with $m^2$, but maybe that will help you.  
+
+Otherwise, write it down, put it somewhere on your desk, and do a bunch of problems to help engrave it on the surface of your brain.  
+
+After years of practice, sometimes I wake up from sleep reciting: "negative $b$ ...  plus or minus ...  the square root ... of $b^2 - 4ac$ ... all over 2$a$."
+
+\subsection*{easier method}
+
+At this point, the question arises of how to derive the quadratic formula which we gave above in the classic formulation.  As I said, I like the simple version:
+\[ x = m \pm \sqrt{m^2 - c/a } \]
+
+I know two approaches:  the first is "completing the square".   We have
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} = 0 \]
+We know $m = -b/2a$ so we can get that $b/a = -2m$ and then
+\[ x^2 - 2mx = - c/a    \]
+
+It's too bad we don't have a term like $m^2$ there.  Why?  That would be nice because
+\[ x^2 - 2mx + m^2 = (x - m)^2 \]
+
+As we said in the initial summary, the bright idea is to add $m^2$ on both sides:
+\[ x^2 - 2mx + m^2 = m^2 - \frac{c}{a} \]
+\[ (x - m)^2= m^2 - \frac{c}{a} \]
+
+We need both square roots --- there are (usually) two roots and that's where they come from
+\[ x = m \pm \ \sqrt{m^2 - c/a } \]
+
+This \emph{is} the quadratic formula, with $m$ and $m^2$ substituted appropriately.
+
+\subsection*{using $s$ and $t$}
+
+The second derivation is to analyze the zeros as being equidistant from $m$ and do a comparison of forms such as we used in originally finding a value for $m$.
+
+Remember that the problem we want to solve is
+\[ x^2 + \frac{b}{a} + \frac{c}{a} = 0 \]
+
+Look at the symmetry of the graph.  For any particular value of $y$ draw the horizontal line to find the two places where $x$ gives that result.  For each pair of $x$-values, they will be symmetric to $m$, meaning that if the pair is $s, t$ then the distances are equal
+\[ m-d = s \ \ \ \ \ \ \ \ \ m + d = t \]
+\[ 2m = s + t \]
+
+$m$ is the average of $s + t$.
+\begin{center} \includegraphics [scale=0.5] {quad2.png} \end{center}
+The change in sign happens because $m$ lies \emph{between} $s$ and $t$.  
+
+So 
+\[ (m - d)(m + d) = st \]
+\[ m^2 - d^2 = st \]
+\[ d^2 = m^2 - st \]
+
+We want to know $d$.  We already know $m$, and we also know $st$.  
+
+How is that?  Recall how we found $m = -b/2a$, by comparing
+\[ x^2 - (s + t) x + st \]
+\[ x^2 + (b/a) x + c/a \]
+$m$ is the average of $s + t$ so $-2m = b/a$ and then $m = -b/2a$.
+
+Now we focus on the fact that $c/a = st$.
+\[ d^2 = m^2 - st \]
+\[ = m^2 - c/a \]
+\[ d = \pm \ \sqrt{m^2 - c/a} \]
+
+Then the roots are just $m \pm d$ or
+\[ m \pm \sqrt{m^2 - c/a } \]
+The quadratic formula gives the zeros.
+
+\subsection*{conversion}
+
+You may want (or be required) to know the fancy version of the quadratic formula:
+\[ x = -\frac{b}{2a} \pm \ \frac{\sqrt{b^2 - 4ac}}{2a} \]
+
+It is relatively easy convert between the two forms.  Starting with
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+
+substitute for $m$
+\[ x = - \frac{b}{2a} \pm \ \sqrt{(\frac{b}{2a})^2 - c/a} \]
+
+The key is now to put the last term $-c/a$ over the same denominator as the first term under the square root, $(2a)^2 = 4a^2$.  To do that, multiply by $4a$ on top and bottom
+\[ x = - \frac{b}{2a} \pm \ \sqrt{(\frac{b}{2a})^2 - \frac{4ac}{4a^2}} \]
+
+We have $4a^2$ in the denominator which can come out from under the square root and simplify to
+\[ x = - \frac{b}{2a} \pm \ \frac{\sqrt{b^2 - 4ac}}{2a}  \]
+
+However, I really prefer
+\[ x = m \pm \ \sqrt{m^2 - c/a} \]
+
+especially since you must already know the formula for $m$, and the $c/a$ part is visible in
+\[ x^2 + \frac{b}{a} x + \frac{c}{a} =  0 \]
+
+The textbook version of "complete the square" starts with
+\[ x^2 + \frac{b}{a} x =  - \frac{c}{a}  \]
+and then adds to both sides
+\[ x^2 + \frac{b}{a} x + (\frac{b}{2a})^2 =  (\frac{b}{2a})^2 - \frac{c}{a}  \]
+\[ (x + \frac{b}{2a})^2 =  (\frac{b}{2a})^2 - \frac{c}{a}  \]
+\[ x + \frac{b}{2a} =  \pm \ \sqrt{(\frac{b}{2a})^2 - \frac{c}{a} }  \]
+and you can finish it off from there.
+
+\subsection*{a third form}
+There is  yet a third common way to write the equation of a parabola.  We introduce it because it will provide another justification for the fact that the $x$-coordinate of the vertex is at
+\[ m = -\frac{b}{2a} \]
+
+Suppose the graph does not have its vertex at the origin but instead at some other point like $(3,-2)$.  Is there a formula for that?  Look at this.
+\begin{center} \includegraphics [scale=0.5] {quad3.png} \end{center}
+
+We used Desmos to verify that the graph of the equation $y + 2 = (x - 3)^2$ has its vertex at $(x = 3, y = -2)$.  This is not a coincidence!
+
+I encourage you to try it with any other pairs of numbers, even fractions.
+
+It is traditional to use the notation $x = h$ and $y = k$ for the coordinates of the vertex.  In general, I prefer $x = m$, for the reasons given before.  However in this section we use $h$ and $k$.
+
+When the vertex is at $(h,k)$, the equation is $y - k = (x - h)^2$.  Pay attention to the minus signs.
+\[ y - 1 = (x - 2)^2 \ \ \ \ \ \rightarrow \ \ \ \ \text{vertex } (2,1) \]
+\[ y + 6 = (x - 3)^2 \ \ \ \ \ \rightarrow \ \ \ \ \text{vertex } (3,-6) \]
+\[ y = (x + 3)^2 \ \ \ \ \ \rightarrow \ \ \ \ \text{vertex } (-3,0) \]
+
+You can just memorize this fact and use it, but if you want to have a way to justify it, think of using $h$ and $k$ to adjust the vertex to the origin $(0,0)$.  If the vertex was originally at $x = 3$, we subtract $3$ from \emph{every} $x$ and that moves the vertex to $x = 0$.
+
+Then, by adding $-k$, the curve is simply moved or \emph{translated} up and down to have its vertex at the origin, without changing the shape.
+
+If there is a shape factor $a$ it just multiplies the whole thing as in $y - k = a(x - h)^2$.  Again, we can play with the equation by multiplying out
+\[ y - k = a(x - h)^2 \]
+\[ = ax^2 - 2axh + ah^2 \]
+
+If you compare with the general form of the equation
+\[ y = ax^2 + bx + c \]
+
+Again, the cofactors (including for $x$) must match.  That is
+\[ bx = - 2ahx \]
+\[ h = - \frac{b}{2a} \]
+
+This says that for \emph{any} quadratic, the $x$-coordinate of the vertex, which we also called $m$ before, can be found from the general form
+
+\[ ax^2 + bx + c  \ \ \ \ \ \ \Rightarrow  \ \ \ \ \ m = -b/2a \]
+
+The most basic thing we are asked to do with a quadratic is to find the position of the vertex, which always gives the minimum (or maximum) value for $y$.
+
+If you also want the $y$-value, just plug $x = -b/2a$ into the equation and do the arithmetic.
+
+You might be given an equation in standard form and asked to convert it to the $a(x-h)^2 = y - k$ form.  Let's start with the answer.
+\[ (x - 4)^2 = y - 3 \]
+The vertex is at $(4,3)$.  Multiply out:
+\[ x^2 - 8x + 16 = y - 3 \]
+\[ x^2 - 8x + 19 = y \]
+To go from this to the desired form, first put the constant with $y$.
+\[ x^2 - 8x = y - 19 \]
+Then, \emph{complete the square}.  Take half the cofactor of $x$, square it, and add on both sides:
+\[ x^2 - 8x + 16 = y - 19 + 16 = y - 3 \]
+\[ (x - 4)^2 = y - 3 \]
+If there is a factor of $a$ with $x^2$, you'll need to take that into account.  Divide the cofactor of $x$ by $a$ before you find half and square.
+\[ 2x^2 + 4x + 6 = y \]
+\[ 2(x^2 + 2x) = y - 6 \]
+Note that we add $2 \cdot 1$ on the right.
+\[ 2(x^2 + 2x + 1) = y - 6 + 2 = y - 4 \]
+\[ 2(x + 1)^2 = y - 4 \]
+
+\subsection*{line and a parabola}
+
+The line that just touches a curve at a point is called the tangent to the curve at that point, and this is a major topic of study in calculus.  We want to find a formula for the slope of the tangent line.
+
+Start with a generic parabola and a generic line in the plane, of just the sort we've been studying.
+
+Here are the two most common possibilities.  The line crosses the parabola at two points or it doesn't cross at all
+\begin{center} \includegraphics [scale=0.40] {para31.png} \end{center}
+
+The other two possibilities both have a single point of intersection.  The tangent line at a point (left panel), and a vertical line (right panel).  In the latter case, the line has an undefined slope.
+
+\begin{center} \includegraphics [scale=0.40] {para32.png} \end{center}
+
+Here's an example with actual numbers.
+
+\begin{center} \includegraphics [scale=0.40] {quad6.png} \end{center}
+
+The parabola is in red with its vertex at $x = -b/2a = -1$ and roots at $x = -3, 1$.  Three lines are shown, one crosses the curve at two points (blue), one does not cross at all (orange) and one is the tangent to the curve (green), touching only the point $(0,-3)$.
+
+We will show how to find the equation of the green line easily.
+
+As a reminder, suppose we have two lines
+\[ y = k_1x + u \]
+\[ y = k_2x + v \]
+
+If we want to know where they meet, we are looking for some point $(x,y)$ that solves both.  Since the $x$'s and the $y$'s are equal we get
+\[ k_1 x + u = y = k_2 x + v \]
+and we just solve for $x$.
+
+The problem is to do the same thing with a quadratic and a line.  
+
+We have the line $y = kx + u$ and the parabola $y = ax^2 + bx + c$ and we set the two $y$'s equal to obtain
+\[ kx + u = y = ax^2 + bx + c \]
+
+Group terms
+\[ ax^2 + (b - k)x + (c - u) = 0 \]
+
+This is another quadratic and can be solved in the usual way, namely the roots are
+\[ x = m \pm \ \sqrt{m^2 - (c-u)/a)} \]
+
+The crucial observation is this:  the line that is \emph{tangent} to the curve at $(x,y)$ only touches at that single point.  That's what tangent means.
+
+Therefore, we are interested in the case where the equation we wrote has only one solution.  That only happens if the discriminant is zero.
+
+The square root is what gives us two solutions.  If the square root goes away there is only one solution and we have therefore minus the cofactor of $x$, (b - k), over $2a$.
+\[ x = m = -\frac{b - k}{2a} \]
+\[ 2ax = - b + k \]
+\[ k = 2ax + b \]
+
+This is the slope of the tangent line to a parabola at the point $(x,y)$.  The slope is proportional to $x$, which makes sense.  The curve slopes more steeply upward, as $x$ gets bigger.
+
+Note that at the vertex, the slope is $k = 0$.  So that means
+\[ 2ax + b = 0 \]
+\[ x = - \frac{b}{2a} \]
+We have calculated $m$ again (and got the same answer).
+
+The tangent to the curve $ax^2 + bx + c$ has the slope $2ax + b$.  You might guess that the $2$ in the slope comes from the power of $2$ in the parabola, and you'd be right.
+
+\subsection*{note about $i$}
+We said that if $4ac > b^2$ we'll have the square root of a negative number.  We called the term under the square root, $D$, the discriminant.
+
+What people did was to invent a new kind of number $i$ with the property that $i^2 = -1$, so $\sqrt{-1} = i$.
+
+Then any negative square root can be written as $\sqrt{-N} = \sqrt{N} \cdot \sqrt{-1} = Ni$.
+
+We had this as an example:  
+\[ x^2 + 2x + 2 = 0 \]
+$a = 1$, $b = 2$ and $c = 2$.  Then
+\[ b^2 - 4ac = 4 - 8 = -4 \]
+The roots are
+\[ x = -1 \pm \ \frac{\sqrt{-4}}{2} = -1 \pm i \]
+
+If we write the equation out using the (minus the) roots
+\[ (x - s)(x - t) \]
+\[ = (x - (- 1 + i))(x - (-1 - i)) \]
+\[ = ((x + 1) - i))((x + 1) + i) \]
+we have four terms:
+\[ = (x + 1)^2 + i (x+1) - i (x+1) - i^2 \]
+The two terms in the middle cancel and the last one is $+1$:
+\[ = (x + 1)^2 + 1 = x^2 + 2x + 2 \]
+
+A real discussion about what $i$ \emph{means} will have to wait.  But notice that when we have roots containing $i$ they are always symmetric, it is always
+\[ (p + qi)(p - qi) = p^2 + q^2 \]
+And when multiplying out the terms with $i$ cancel.
+
+Any quadratic with real roots can be made into one that lacks them by shifting up or by taking the $h,k$ form and multiplying the right-hand side by $-1$.
+Compare:
+\[ y + 3 = (x - 1)^2 = x^2 - 2x + 1 \]
+\[ y + 3 = -(x - 1)^2 = -x^2 + 2x - 1 \]
+\begin{center} \includegraphics [scale=0.40] {p4.png} \end{center}
+
+If you're starting from the standard form, the easiest thing is to complete the square first:
+\[ y = x^2 - 2x - 2 \]
+\[ = x^2 - 2x  + 1 - 3 \]
+\[ = (x - 1)^2 - 3 \]
+and now change the sign on the squared term
+\[ y = - (x - 1)^2 - 3 \]
+
+
+
+\end{document}

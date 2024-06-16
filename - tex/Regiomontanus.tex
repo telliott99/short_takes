@@ -1,0 +1,166 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Regiomontanus problem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{Nelson's column}
+
+I've been reading Maor's \emph{Trigonometric Delights}, which has a chapter about Regiomontanus (1436-1476).  He took his pen name from his hometown, Konigsberg (not the famous one in Prussia, but another).  Regiomontanus wrote a book (translated as \emph{On Triangles of Every Kind}) which is said to be like Euclid's \emph{Elements} for trigonometry.  He posed the following problem to another German mathematician in 1471.
+
+I first saw it in Acheson's \emph{The Calculus Story}.  Nelson's column is a column with a statue of Nelson on top, naturally.  The hero of Trafalgar is honored at London's Trafalgar square.  Here is Acheson's sketch:
+\begin{center} \includegraphics [scale=0.3] {nelson.png} \end{center}
+We want a good view of Nelson.  Somewhere between too close and too far away would be best.  
+
+Let the angle subtended by Nelson's statue be $\angle A$.  We have two fixed distances:  $a$ is the height of the column and $b$ is the height of the statue on top  We can vary $x$, our distance from the statue (watch out for traffic).  The angle that Nelson subtends will depend on $x$.
+
+\subsection*{calculus solution}
+Somehow we need to maximize the angle $A$ as a function of $x$, but we are given what amounts to the tangent of two angles, neither of which is $\angle A$.
+
+However, we know that for $\theta$ in the first quadrant, as $\theta$ increases so does $\tan \theta$, since $\sin \theta$ is always increasing and $\cos \theta$ only decreases.  Therefore, if we maximize $\tan \theta$, $\theta$ will also be a maximum.  This is a standard trick to remember.
+
+Also, we do not have $\tan \theta$ directly.  $\theta$ is the difference of two other angles $s$ and $t$.  What we have is that $\theta = s - t$, while $\tan s = (a + b)/x$ and $\tan t = a/x$.
+
+We need a trig identity for the tangent of the difference of two angles, which can be derived pretty easily from the ones for sine and cosine.
+\[ \tan s - t = \frac{\sin s - t}{\cos s - t} \]
+\[ = \frac{\sin s \cos t - \sin t \cos s}{\cos s \cos t + \sin s \sin t} \]
+
+We can get what we need, multiplying through top and bottom by $1/\cos s \cos t$.
+\[ = \frac{\tan s - \tan t}{1 + \tan s \tan t} \]
+Plugging in:
+\[ \tan A = \frac{\frac{a+b}{x} - \frac{a}{x}}{1 + \frac{a(a+b)}{x^2}} = \frac{\frac{b}{x}}{1 + \frac{a(a+b)}{x^2}} \]
+
+More simplification follows.  Multiply top and bottom by $x^2$.
+\[ \tan A = \frac{bx}{x^2 + a(a+b)} \]
+
+We will take the derivative of that expression and then set it equal to zero, to find the maximum.  Looking ahead to the step after, we realize that we do not need the full derivative $(u'v - uv')/v^2$, but only the numerator, since the denominator will vanish when we multiply $0 \cdot v^2$.
+
+Hence
+\[ 0 = b(x^2 + a(a+b)) - 2x(bx) \]
+The factors of $b$ cancel 
+\[ 0 = x^2 + a(a+b) - 2x^2 \]
+\[ x^2 = a(a + b) \]
+
+We see that when $x$ is the geometric mean of the column height and the total height, the angle is maximized.
+\begin{center} \includegraphics [scale=0.3] {nelson.png} \end{center}
+
+This is the solution given in Acheson's calculus book.  The statue is fairly small compared to the column height.  If we let $a + b \approx a$ then
+\[ x^2 \approx a^2, \ \ \ \ \ \ \ x \approx a \]
+The appropriate viewing angle is 45 degrees and since the statue is about 169 feet high that would put you in the middle of traffic unless you're quite careful.
+
+Because of the cancelations, the calculus version is pretty simple, but there is also a really nice geometric solution.  Which is probably obvious since Regiomontanus didn't just pose this problem, he solved it, 200 years before calculus.
+
+\subsection*{geometric approach}
+
+We start with a theorem about chords extended from a circle.
+\begin{center} \includegraphics [scale=0.35] {arcs9.png} \end{center}
+I claim that
+\[ PQ \cdot PR = PS \cdot PT \]
+
+\emph{Proof}.
+
+Draw the two triangles.
+\begin{center} \includegraphics [scale=0.35] {arcs10.png} \end{center}
+In any quadrilateral whose four vertices all lie on one circle (a cyclic quadrilateral), the opposing vertices subtend supplementary angles.  Opposing vertices add to $180^{\circ}$, because their arc segments add up to one whole circle.
+
+In the figure above, the angle at vertex $R$ is supplementary to $\angle QST$.  But $\angle QST$ is also supplementary to $\angle QSP$.  Hence, $\angle QSP$ is equal to the angle at $R$.
+
+Therefore, $\triangle PQS$ is similar to $\triangle PRT$.  The similarity is such that
+
+\[ \frac{PS}{PR} = \frac{PQ}{PT} \]
+\[ PS \cdot PT = PQ \cdot PR \]
+
+Given a point $P$ outside the circle, the external part of any secant times the entire secant is a constant.
+
+One curious thing is that these triangles are similar but flipped.
+\[ \frac{PS}{PQ} = \frac{PR}{PT} \]
+
+$\square$
+
+We can do a bit more.
+\begin{center} \includegraphics [scale=0.35] {arcs9b.png} \end{center}
+
+Let the points $S$ and $T$ approach each other to become one point.  Then $PT$ will become a tangent of the circle.  Previously we had
+\[ PS \cdot PT = PR \cdot PQ \]
+
+Now we modify it slightly:
+
+\[ PT \cdot PT = PR \cdot PQ \]
+\[ PT^2 = PR \cdot PQ \]
+
+This is the tangent-secant theorem.  We can reason our way backward to a sketch of a more formal proof.
+
+Run the logic backward (from the ratios).  This sort of reverse logic has a name!  It was called the method of "analysis" by Pappus (320 AD).
+
+\begin{center} \includegraphics [scale=0.35] {arcs9c.png} \end{center}
+\[ PT \cdot PT = PR \cdot PQ \]
+\[ \frac{PT}{PQ} = \frac{PR}{PT} \]
+
+We must have two similar triangles, $\triangle PQT$ and $\triangle PRT$.  The angle at vertex $R$ must subtend the same arc as $\angle PTQ$.  If we already have the theorem about arcs subtended by a tangent and a secant, it's easy.
+
+\emph{Proof}.
+
+The angle $\angle PTQ$ formed by the tangent $PT$ and the chord $QT$ cut off the same arc of the circle as the angle formed at vertex $R$.
+
+Therefore $\triangle PQT$ is similar to $\triangle PRT$ by AAA.  This gives
+\[ \frac{PT}{PQ} = \frac{PR}{PT} \]
+which can be rearranged easily to the statement of the theorem.
+
+$\square$
+
+We can add to this proof by drawing a diagonal to the tangent point.
+\begin{center} \includegraphics [scale=0.35] {arcs9d.png} \end{center}
+
+Now it is clear that $\angle S = \angle R$ because they both subtend the arc $QT$.  $\angle QTS$ marked in magenta is complementary to the angle at $S$, marked with a black dot because $\angle SQT$ is a right angle,  by Thales' theorem.
+
+The same angle marked in magenta is also complementary to $\angle PTQ$.  Therefore $\angle PTQ = \angle S = \angle R$.  We continue the proof with analysis of similar triangles, as before.
+
+One application of this theorem is to a determination of the size of the earth.
+
+\subsection*{Looking at Euclid}
+
+I learned the secant-tangent theorem from Acheson's geometry book, and continue in the same vein by appropriating an entire example from his book.  Here's the problem.  We're looking up at a statue of Euclid on a column.
+
+\begin{center} \includegraphics [scale=0.4] {euclid.png} \end{center}
+
+We resist the temptation to make a dumb joke.
+
+\begin{center} \includegraphics [scale=0.25] {bogie.png} \end{center}
+
+In any event, we'd like to get the widest angular view, giving the largest apparent size of the statue.  If you get too close, the statue is greatly foreshortened and the angle small, and naturally, it is small at a distance.  There must be a best view, in the middle.
+
+Here is Acheson's solution:
+
+\begin{center} \includegraphics [scale=0.6] {euclid2.png} \end{center}
+
+Let the foot and head of Euclid be at $P$ and $Q$ and draw the circle containing those two points which is also tangent to your eye-level.  Then the tangent point provides the best view (left panel, above).
+
+The reason is that a circle through any other horizontal position crosses the eye-level at two points.  Such a circle will necessarily be bigger  (right panel).
+
+Consequently the arc $PQ$, which is fixed in size, will be a smaller fraction of the circle.  
+
+As a smaller fraction, both the central angle $\angle POQ$ will be smaller as well as the angle subtended at $A$ or $B$ (one-half of that).
+
+The secant-tangent theorem even gives a quantitative answer.  If $R$ is the point where the extension of $QP$ meets eye-level (the ground), then suppose the point $Q$ is $h$ units above the ground and $P$ is $g$ units.  The tangent-secant formula is 
+\[ RT \cdot RT = PR \cdot QR \]
+which says that the square of the optimum viewing distance is $h\cdot g$.  The optimal distance $d$ is
+\[ d^2 = hg, \ \ \ \ \ \ d = \sqrt{hg} \]
+
+\end{document}

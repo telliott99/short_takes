@@ -1,0 +1,208 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Sum of integers}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+In calculus, we will need formulas for the sum of the squares of the first $n$ integers, the cubed integers, and so on.  To keep it simple, let's just start with plain integers, $1 + 2 + 3 + \dots + n$.
+
+It seems likely that someone noticed the following pattern pretty early:
+\begin{center} \includegraphics [scale=0.35] {int_sum3.png}\end{center}
+
+The number of colored squares is one-half the total in each case.  If we call the number of squares in each column $n$, then the total is $n(n+1)$ and one-half that is
+\[ S_n = \frac{n(n+1)}{2} \]
+which is also, evidently the sum of the integers from $1$ to $n$.
+
+This is representative of a class of demonstrations that are often called "proofs without words."  Except that we have added some words.
+
+The partial sums are called the \emph{triangular} numbers.
+
+\newpage
+\begin{verbatim}
+ 1  2  3  4  5  6
+ 1  3  6 10 15 21 
+ \end{verbatim}
+
+Each number in the second row is the sum of the number to the left plus the one above.
+The triangular numbers are
+\[ 1, 3, 6, 10 \cdots \]
+They can be generated as the third diagonal of Pascal's triangle.:
+\begin{center} \includegraphics [scale=0.4] {pascal2.png} \end{center}
+
+There is a famous story about Gauss.  As a schoolboy, he "saw" how to add the integers from $1$ to $100$ as two parallel sums.
+
+\begin{center} \includegraphics [scale=0.25] {gauss4.png} \end{center}
+\begin{center} \includegraphics [scale=0.40] {gauss_sum.png}\end{center}
+Added together horizontally, these two series must equal twice the sum of $1$ to $100$.  
+
+But vertically, we notice that each sum is equal to $n+1$, and we have $n$ of them.  
+
+So, again
+\[ 2S_n = n (n+1) \]
+\[ S_n = \frac{1}{2} \ n (n+1) \]
+For $n=100$ the value of the sum is $5050$, which is what Gauss is said to have written on his slate and presented to the teacher immediately on being given the problem as a make-work exercise.
+
+One way of looking at this result is that between $1$ and $100$ there are $100$ representatives of the "average" value in the sequence, which (because of the monotonic steps) is $(100 + 1)/2 = 50.5$.  
+
+Or alternatively, view the sum as ranging from $0$ to $100$ (with the same answer).  Now there are $101$ examples of the average value ($100 + 0)/2 = 50$).
+
+\subsection*{induction}
+
+Perhaps you have seen the method called induction.  Probably the most famous example of an inductive proof is that for the formula we've been working with, the sum of integers.
+\[ S_n = 1 + 2 + \dots + n \]
+
+\emph{Proof}.
+
+Suppose someone has sent us, anonymously, a formula which they claim gives the sum of the first $n$ integers, namely 
+
+\[ S_n = \frac{n (n + 1)}{2} \]
+
+Assume the formula is correct for $S_n$.  Add $n+1$ to both sides.  The left-hand side becomes $S_{n+1}$, so we have:
+\[ S_{n + 1} = \frac{(n)(n + 1)}{2} + (n+1) \]
+\[ = (n+1)(\frac{n}{2} + 1) \]
+\[ = \frac{(n + 1)(n + 2)}{2} \]
+
+which is exactly what we'd get by substituting $n+1$ for $n$ in the original formula.
+
+Alternatively, sometimes it's clearer to assume the $n-1$ case and prove the formula is correct for $n$:
+\[ S_{n-1} = \frac{n(n-1)}{2} + n \]
+\[ S_n =  n \ [ \ \frac{(n-1)}{2} + 1 \ ] \]
+\[ = \frac{n(n + 1)}{2} \]
+
+So we have proven that if the $S_n$ formula is correct, then so is the one for $S_{n+1}$.
+
+How do we know that $S_n$ is correct?
+
+Just check the \emph{base case}:
+\[ S_1 = \frac{1(1 + 1)}{2} = 1 \]
+Since $S_1$ is clearly correct, $S_2$ must be also, and this continues all the way to $S_{n}$.
+\[ S_1 \Rightarrow S_2 \Rightarrow \dots S_{n-1} \Rightarrow S_n \Rightarrow S_{n+1} \]
+
+Therefore, it must be true for \emph{every} integer $n$.
+
+$\square$
+
+\subsection*{Derivation using sums}
+I'm going to derive the equation we have been using using algebra.  The general method will help us later.
+
+For any number, and in particular, any integer $k$ it is true that
+\[ (k+1)^2 = k^2 + 2k + 1 \]
+So consider what happens if we sum the values from $k=1 \rightarrow n$ for each of these terms
+\[ \sum_{k=1}^n (k+1)^2 = \sum_{k=1}^n k^2 + \sum_{k=1}^n 2k + \sum_{k=1}^n 1 \]
+
+If the equation is valid for any individual $k$, then the sum is also valid, plugging in all $k$ up to $n$.
+
+Rearranging
+\[ \sum_{k=1}^n (k+1)^2 - \sum_{k=1}^n k^2 = \sum_{k=1}^n 2k + \sum_{k=1}^n 1 \]
+Now think about the left-hand side in our equation. 
+\[ \sum_{k=1}^n (k+1)^2 - \sum_{k=1}^n k^2 \]
+
+We have a bunch of terms starting with $2^2$:
+\[ 2^2 + 3^2 + \dots + n^2 + (n+1)^2 \]
+we also have a bunch of terms to subtract starting with $1^2$:
+\[ 1^2 + 2^2 + 3^2 + \dots + n^2 \]
+Almost everything cancels.  This is called a "collapsing" or "telescoping" sum.  We have
+\[ (n+1)^2 - 1 = n^2 + 2n \]
+
+Bringing back the right-hand side  we obtain:
+\[ n^2 + 2n = \sum_{k=1}^n 2k + \sum_{k=1}^n 1 \]
+We can bring the constant factor $2$ out of the sum, and also, we recognize that the sum of the value $1$ a total of $n$ times is just $n$.
+\[ n^2 + 2n = 2\sum_{k=1}^n k + n \]
+
+Subtract $n$ from both sides and divide by $2$:
+\[ \sum_{k=1}^n k = \frac{n (n+1)}{2} \]
+That's it!
+
+\subsection*{another method}
+Here is another approach that I found very early in Hamming (Chapter 2) and have not seen in other books.  He calls it the method of \emph{undetermined coefficients}.  
+
+We suspect that the sum of integers formula has order $n^2$, because if we represent the integers as collections of squares or circles or something, and then stack them up next to each other it forms a triangle.  
+
+Another way to think about it is to suppose that the highest term is of degree $1$, just $n$:
+\[ S_n = kn \]
+but that would mean that
+\[ S_{n+1} = k(n+1) \ne kn + (n + 1) \]
+That's a contradiction.
+
+And still another way is to look at the growth of the sum 
+\begin{verbatim}
+ 0 + 1 =  1
+ 1 + 2 =  3
+ 3 + 3 =  6
+ 6 + 4 = 10
+10 + 5 = 15
+15 + 6 = 21
+21 + 7 = 28
+..
+\end{verbatim}
+When adding an odd number, the sum grows from $1$ times the number to twice, three and then four times the number.  It goes up by another factor of $n$ every two steps.  
+
+It's obviously growing faster than $n$.
+
+Given a term of $n^2$ the most general formula would be
+\[ \sum_{k=0}^{k=n} k = an^2 + bn + c \]
+and if $n=0$ the sum is zero so $c = 0$.  The right-hand side is now $an^2 + bn$.
+
+We can actually solve for $a$ and $b$ using $S_1$ and $S_2$.
+\[ S_1 = 1 = an^2 + bn = a + b \]
+\[ S_2 = 3 = 4a + 2b \]
+Multiply the first equation by $-4$ and add to the second one:
+\[ -1 = -2b \]
+So $b = 1/2$ and then $1 = a + 1/2$ so $a = 1/2$ as well.
+
+\subsection*{general solution}
+
+The inductive step is to write the formula for $m-1$, and then add $m$ to it.
+
+The right-hand side is just the formula, writing $m$ for $n$
+\[ am^2 + bm \]
+
+The left-hand side is the formula for $(m-1)$, plus $m$ from the induction step:
+\[ a(m-1)^2 + b(m-1) + m \]
+\[ = am^2 - 2am + a + bm - b + m \]
+
+Both terms on the right-hand side cancel and we are left with
+\[ - 2am + a - b + m = 0 \]
+What makes this method great is that the terms containing each power of $m$ (here just $m^1$ and $m^0$), must individually cancel.  That is
+\[ -2am + m = 0 \]
+\[ -2a + 1 = 0 \]
+which gives $a = 1/2$.  And the other part is
+\[ a - b = 0 \]
+So $b = a$ and then
+\[ S_n = an^2 + bn = \frac{1}{2}(n^2 + n)  = \frac{n(n + 1)}{2} \]
+
+\subsection*{series proof}
+This proof does little more than the proof without words given above, and in fact depends on another one, but it is interesting because it uses series directly.
+\begin{center} \includegraphics [scale=0.45] {squares.png} \end{center}
+We see that the sum of the first $n$ odd numbers is equal to $n^2$.  
+\[ 1 + 3 + 5 + \dots + (2n-1) = n^2 \]
+This formula is easily proven by induction, since the next term is $2n+1$, which when added to $n^2$ gives $(n+1)^2$.
+
+Count up the same number of $1$'s
+\[ 1 + 1 + 1 + \dots + 1 = n \]
+Add term by term to the first series
+\[ 2 + 4 + 6 + \dots + 2n = n^2 + n \]
+
+But that result is just twice what we want:
+\[ 1 + 2 + 3 + \dots + n = (n^2 + n)/2 \]
+
+
+
+\end{document}
