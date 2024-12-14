@@ -21,7 +21,7 @@
 \Large
 
 \subsection*{introduction}
-The \emph{conic sections} are so named because they can be formed as the intersection of a plane and a right circular cone\footnote{A right circular cone has for its base a circle, each point of which is the same distance from the vertex of the cone.  Thus, a line from the vertex to the center of the circle is perpendicular to the plane of the circle.  If the cone is infinite, pick for a base all the points at the same arbitrary distance from the vertex.}.  These curves --- circle, ellipse, parabola and hyperbola --- are usually presented in \emph{standard} orientation.
+The \emph{conic sections} are so named because each one can be formed as the intersection of a plane and a right circular cone\footnote{A right circular cone has for its base a circle, each point of which is the same distance from the vertex of the cone.  Thus, a line from the vertex to the center of the circle is perpendicular to the plane of the circle.  If the cone is infinite, pick for a base all the points at the same arbitrary distance from the vertex.}.  These curves --- circle, ellipse, parabola and hyperbola --- are usually presented in \emph{standard} orientation.
 
 For example, $y = ax^2$ (with $a > 0$) is a parabola with its center at the origin, opening up.  The curve $x = ay^2$ is not materially different, since we obtain the previous curve merely by exchanging $x$ for $y$.
 
@@ -62,20 +62,20 @@ The point $P$ lies a distance $r$ from the origin. In the $xy$-coordinate system
 \includegraphics [scale=0.13] {rot4.png}
 \end{center}
 
-Now consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise (CCW) by an angle $\theta$.  In the new system, $P = (u,v)$.  Of course the length of the vector to $P$ is still $r$.
+Consider a second coordinate system with $u$- and $v$-axes, rotated counter-clockwise (CCW) by an angle $\theta$.  In the new system, $P = (u,v)$.  The length of the vector to $P$ is still $r$;  it has not changed.
 
-We will find a formula to give $u$ as a function of $x$ and $y$ (and also $\theta$), abbreviated $u(x,y,\theta)$.  Similarly, we will get $v (x,y,\theta)$.  
+Rotation of the coordinate system CCW, from $x,y$-axes to $u,v$-axes, can equally be viewed as rotation of the point $P$ or a vector from the origin to $P$, in the opposite direction, i.e. CW.  $P$ gets closer to the ``horizontal'' $u$-axis than it was to the $x$-axis.
+
+We will find two formulas:  one gives $u$ as a function of $x$ and $y$ (and also $\theta$), abbreviated $u(x,y,\theta)$.  Similarly, we will get $v (x,y,\theta)$.  
 
 There are also equations that go in the opposite direction, namely $x(u,v,\theta)$ and $y (u,v,\theta)$.  This can be understood as rotation of the coordinate system CW, or as rotation CCW by an angle $- \theta$.
-
-Before getting into specifics, note that a rotation of the coordinate system CCW, from $x,y$-axes to $u,v$-axes, can equally be viewed as the rotation of the point $P$ or a vector from the origin to $P$, in the opposite direction, i.e. CW.  $P$ gets closer to the ``horizontal'' $u$-axis than it was to the $x$-axis.
 
 Although we end up rotating points and vectors and the graphs of conic sections, the equations are typically derived by thinking about rotations of the coordinate system.
 
 \section*{visual derivations}
 
 \subsection*{Stewart}
-Probably the easiest method I have found, in Stewart, depends on knowing the sum of angles formulas.
+The easiest method I have seen, in Stewart, depends on knowing the sum of angles formulas.  They can be read off the following drawing:
 \begin{center} \includegraphics [scale=0.5] {sum_angles_6.png} \end{center}
 
 It goes like this.  Label the angle between the vector to $P$ and the $u$-axis as $\phi$.
@@ -85,6 +85,7 @@ Let the point $P$ lie on the unit circle, with $r = 1$.  The coordinates of poin
 \[ u = \cos \phi \ \ \ \ \ \ \ \   v = \sin \phi \]
 while $x$ and $y$ are naturally expressed in terms of the combined angle $\theta + \phi$.
 \[ x = \cos (\theta + \phi)  \ \ \ \ \ \ \ \    y = \sin (\theta + \phi) \]
+
 Now, use the sum formula for cosine: 
 \[ x = \cos \theta \cos \phi - \sin \theta \sin \phi \]
 Plug in from $u = \cos \phi$ and $v = \sin \phi$:
@@ -95,14 +96,31 @@ In the same way:
 \[ = \sin \theta \cos \phi + \cos \theta \sin \phi \]
 \[ = u \sin \theta + v \cos \theta \]
 
-These are equations that start from $(u,v)$ coordinates and yield $(x,y)$ coordinates.  Re-stating them
-\[ x = u \cos \theta - v \sin \theta \]
-\[ y = u \sin \theta + v \cos \theta \]
+These are equations that start from $(u,v)$ coordinates and yield $(x,y)$ coordinates.  Restating them
+\[ x = x(u,v,\theta) = u \cos \theta - v \sin \theta \]
+\[ y = y(u,v,\theta) = u \sin \theta + v \cos \theta \]
 
-We will call this transformation the action of the \emph{operator} $T$
+We might call this transformation the action of the \emph{operator} $T$ on the vector $\langle u,v \rangle$, written as
 \[ T \langle u,v \rangle = \langle x,y \rangle \]
 
-We choose $T$ to remember that the minus sign is in the top equation:  It is more usual to call the operator $R$ with a subscript like $R_{cw}$, but there are two problems.  One must remember where the minus sign goes, and there is always confusion between rotation of vectors and rotation of the coordinate system, which are opposites.
+Here, we choose $T$ to remember that the minus sign is in the first or \emph{top} equation.  It is more usual to call the operator $R$ with a subscript like $R_{cw}$, but there are two problems.  One must remember where the minus sign goes, and there is always confusion between rotation of vectors and rotation of the coordinate system, which are opposites.
+
+On the other hand, there are only two such operators.  We can also call them $R_{cw}$, which rotates \emph{points} and \emph{vectors} in the clockwise direction, and $R_{ccw}$, which does the reverse.  
+
+Remembering our discussion from above, the point $u,v$ is \emph{closer} to the ``horizontal'' axis $u$ than $x,y$ is to its horizontal axis $x$.  Hence we expect that $T$ is equal to $R_{ccw}$.  This operator rotates $u,v$-coordinates cw into $x,y$-coordinates.
+
+This is easily confirmed by considering the result of $T$ operating on the unit vectors, $\langle 1,0 \rangle$ and $\langle 0,1 \rangle$.
+
+We simplify by taking $\theta = 90^{\circ}$, thus $\sin \theta = 1$ and $\cos \theta = 0$.  We had
+
+\[ x = u \cos \theta - v \sin \theta = -v \]
+\[ y = u \sin \theta + v \cos \theta = u \]
+
+Hence
+\[ T \langle 1,0 \rangle = \langle 0,1 \rangle \]
+which is indeed ccw rotation of the unit vector $\langle 1,0 \rangle$.  Similarly, 
+\[ T \langle 0,1 \rangle = \langle -1,0 \rangle \]
+Again, ccw rotation.
 
 We compute the square of the length to the origin:
 \[ x^2 + y^2 = (u \cos \theta - v \sin \theta)^2 + (u \sin \theta + v \cos \theta)^2 \]
@@ -110,6 +128,8 @@ We compute the square of the length to the origin:
 \[ = u^2 \cos^2 \theta + v^2 \sin^2 \theta + u^2 \sin^2 \theta  + v^2 \cos^2 \theta \]
 we have $u^2$ and $v^2$ separately multiplying $\sin^2 \theta + \cos^2 \theta = 1$.  Thus
 \[ x^2 + y^2 = u^2 + v^2 = r^2 \]
+
+The other operator, $R_{cw}$ can be derived by a similar method, but we will leave that sort of manipulation as an exercise.
 
 \subsection*{drawing rectangles}
 
@@ -119,7 +139,7 @@ The key step of the first approach is to draw a line that \emph{makes x the hypo
 \begin{center} \includegraphics [scale=0.15] {rot5.png} \end{center}
 \begin{center} \includegraphics [scale=0.15] {rot6.png} \end{center}
 
-Then, draw the adjacent side of the rectangle to make $y$ the hypotenuse of a (different) right triangle.  
+Then, draw the adjacent side of the rectangle to make $y$ the hypotenuse of a different right triangle.  
 
 $\theta$, the angle between $x$ and $u$ axes, is also the angle between $y$ and $v$ axes.  Note the angle near $P$ in the diagram.  This comes easily from the properties of right triangles and the vertical angles theorem.  On the other hand, it is also a trivial consequence of the fact that the axes are orthogonal:  $x \perp y$ and $u \perp v$.
 

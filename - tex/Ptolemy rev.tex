@@ -1,0 +1,77 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Ptolemy reverse dissection}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We're going to do the famous dissection of a cyclic quadrilateral as a proof of Ptolemy's theorem, but as a twist on the usual approach we'll do it in reverse, starting with a a parallelogram.  I'm hoping this will make the whole thing clearer.
+
+\begin{center} \includegraphics [scale=0.2] {Ptol1.png} \end{center}
+
+We have a parallelogram, and we've picked a point along the bottom edge and drawn lines to the opposing vertices.  Let's label some angles.
+
+\begin{center} \includegraphics [scale=0.2] {Ptol2.png} \end{center}
+
+And then use the properties of parallels to get the rest of them labeled as well.
+\begin{center} \includegraphics [scale=0.2] {Ptol3.png} \end{center}
+
+As a parallelogram, we have opposing angles equal, and adjacent angles summing to 180 as they must for parallel lines.
+
+Now do the dissection.  Cut out the red triangle and the blue triangle and join them as shown.  In general, the scale of one (or even both) will have to be adjusted so that they form a quadrilateral with that edge as the diagonal.  We'll return to this point in a minute.
+\begin{center} \includegraphics [scale=0.2] {Ptol4.png} \end{center}
+
+This is a cyclic quadrilateral, by the converse of the theorem on cyclic quadrilaterals, since opposing angles are supplementary.
+\begin{center} \includegraphics [scale=0.2] {Ptol5.png} \end{center}
+
+We can use the corollary of the inscribed angle theorem to draw the other diagonal and assign angles.
+\begin{center} \includegraphics [scale=0.2] {Ptol6.png} \end{center}
+
+We're going switch our attention to the lengths of the sides and diagonals, but before we do, notice a very special triangle (partly red and partly blue) with angles $\gamma, \delta,$ and $\alpha + \beta$.  
+
+That triangle has sides $a, d$ and $y$.
+\begin{center} \includegraphics [scale=0.2] {Ptol7.png} \end{center}
+
+Let's reverse the process, dissecting the cyclic quadrilateral by cutting along the $x$ diagonal, and arranging the pieces so that the bases are collinear as in the original parallelogram.
+
+\begin{center} \includegraphics [scale=0.2] {Ptol8.png} \end{center}
+
+In the general case, $a \ne d$.  But we can scale the two sides to be equal.  An easy way to do that is to cross multiply.
+
+\begin{center} \includegraphics [scale=0.2] {Ptol9.png} \end{center}
+
+We have a parallelogram again.  The angles are correct, and now the sides are equal.  So are the top and bottom equal.  We focus now on the white triangle.
+
+\begin{center} \includegraphics [scale=0.2] {Ptol10.png} \end{center}
+
+It has two sides with lengths $a$ and $d$, each scaled by a factor of $x$, and the two angles opposite those sides are $\delta$ and $\gamma$.
+
+Remember the special triangle?
+\begin{center} \includegraphics [scale=0.2] {Ptol12.png} \end{center}
+
+We can see it in the cyclic quadrilateral.  The sides are $a,d,y$.  In the parallelogram, that white triangle must be scaled by a factor of $x$, giving sides $xa, xd $ and $xy$.
+\begin{center} \includegraphics [scale=0.2] {Ptol13.png} \end{center}
+
+Since this is a parallelogram, the top and bottom are equal.  Namely, $ac + bd = xy$.
+
+This is Ptolemy's theorem.
+
+$\square$
+
+\end{document}
