@@ -1,0 +1,494 @@
+\documentclass[14pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Inversive Geometry}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+To carry out inversion, one starts by choosing a reference circle in the plane.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} on $O$ and radius $k$.
+
+Let $P$ be an arbitrary point, but not $O$.  The inverse of $P$ is called $P'$, computed according to the following rule:
+\begin{center} \includegraphics [scale=0.40] {inversion1.png} \end{center}
+$P'$ lies on $OP$ or its extension, such that
+\[ OP \cdot OP' = k^2 \ \ \ \ \ \ \ \  \frac{OP}{k} = \frac{k}{OP'} \]
+
+We can write $ I_{\omega} (P) = P'$.  In what follows we will show $\omega$ as a dotted line.  In some cases we only show a part of the circle.
+
+A collection of transformed points is referred to as the image of the input.  In some cases the image of a point may be the same as the original.
+
+You can see in the example above that $OP$ is about one-half of $k$, so then $OP'$ is twice $k$.  The image of points close to $O$ may be very far away.
+
+$O$ is a special point in more than one way.  As $P$ approaches $O$, the inverse $P'$ moves farther and farther away.
+
+To be complete, the theory invents a "point at infinity" which is the inverse of $O$.  We won't worry about that.  We'll just think of the set of possible inputs to $I$ as the "punctured plane", with $O$ missing.
+
+When we say something like ``a circle through $O$'', we are not worrying about the point $O$ itself.
+\begin{center} \includegraphics [scale=0.30] {inversion1a.png} \end{center}
+
+Above we said ``$OP$ or its extension''.  The technical term here is ray, a half-line.  But we will usually just draw a line segment, with definite endpoints, and also just call it a line for brevity.
+
+We call points that are invariant under inversion, fixed.  Let $R$ be a point on $\omega$, so the length of $OR$ is $k$.  Then we have that
+\[ I_{\omega} (R) = R' = R \]
+
+Points lying on $\omega$ itself invert into themselves, because then $OP = k = OP'$.
+
+Much of our work with inversions involves similar triangles.  Coxeter introduces it this way:
+\begin{center} \includegraphics [scale=0.30] {Coxeter_5_3A.png} \end{center}
+Draw the chord $TU \perp OP$.  Then $P'$ is the point where the tangents from $T$ and $U$ meet.  From similar triangles $\triangle OTP' \sim \triangle OPT$, so we have:
+\[ \frac{OP'}{k} = \frac{k}{OP} \]
+
+An analogous transformation in three dimensions uses a sphere, in space.
+
+\subsection*{inversion is an involution}
+
+If $P'$ is the inverse of $P$, then the inverse of $P'$ is $P$.
+
+\emph{Proof}.  Let $P''$ be the inverse of $P'$, with $OP' \cdot OP'' = k^2$.  But $k^2 = OP \cdot OP'$.  It follows that $OP'' = OP$. $\square$
+
+If $P$ lies inside $\omega$, then $P'$ lies outside, and vice-versa.  There is a famous essay which analogizes how one would hunt a lion in the desert by various mathematical or physical techniques.  Here is the one using inversion:
+
+\begin{quote}
+We place a \emph{spherical} cage in the desert, enter it and lock it. We perform an inversion with respect to the cage. The lion is then inside the cage, and we are outside.  \emph{H. Petard}
+\end{quote}
+
+\subsection*{inversion of a line through $O$}
+
+We now consider the results of inverting either a line or a circle.  There are two cases for each, depending on whether the line or circle goes through, $O$, the center of $\omega$.  They are all related, as we will see.
+
+\begin{center} \includegraphics [scale=0.25] {inversion2.png} \end{center}
+Let $P$ and $Q$ be any two points on a line through $O$.  The inverse points $P'$ and $Q'$ lie on the same line.
+
+\textbf{The inverse of a line through $O$ is the same line}.
+
+\subsection*{inversion of a line not through $O$}
+
+\begin{center} \includegraphics [scale=0.3] {inversion3a.png} \end{center}
+
+Let $L$ be a line, not passing through $O$, and let $P$ and $A$ be two points on the line.
+
+\textbf{The inverse of a line not through $O$ is a circle through $O$.}
+
+This is the first result that is a little surprising.
+
+\emph{Proof}.
+
+Let $L$ be external to $\omega$.  Pick $A$ such that $OA'A \perp PA$.  We have that 
+\[ OP \cdot OP' = k^2 = OA \cdot OA' \]
+\[ \frac{OP}{OA} = \frac{OP'}{OA'} \]
+
+It follows that $\triangle PAO \sim \triangle A'P'O$ and in particular, $\angle OP'A'$ is a right angle because $\angle OAP$ is a right angle.
+
+But this is true for \emph{every} point on $L$ other than $A$.
+
+By the inverse of Thales' circle theorem, it follows that $A'$ and $P'$ lie on a circle.  This circle passes through $O$.
+
+$\square$
+
+The diameter of this circle is perpendicular to the line $L$, so $L$ is parallel to the tangent to the circle at $O$.
+
+\begin{center} \includegraphics [scale=0.3] {inversion4.png} \end{center}
+
+The same proof still works for the case where $L$ passes through $\omega$, or even when it is tangent (below).  This is because, in both cases, $\triangle OAP \sim \triangle OP'A'$.
+
+\begin{center} \includegraphics [scale=0.3] {inversion4b.png} \end{center}
+
+\subsection*{note on similar triangles}
+
+For any points $A$ and $P$, we can form similar triangles by using the fundamental equations
+\[ OP \cdot OP' = k^2 = OA \cdot OA' \]
+\[ \frac{OP}{OA} = \frac{OP'}{OA'} \]
+
+\begin{center} \includegraphics [scale=0.38] {inversion3b.png} \end{center}
+
+This works even when one of $A$ or $P$ lies inside, and one outside $\omega$.
+
+\subsection*{inversion of a circle through $O$}
+
+Let $K$ be a circle, passing through $O$.  
+
+\begin{center} \includegraphics [scale=0.3] {inversion3a.png} \end{center}
+
+\textbf{The inverse of a circle through $O$ is a line not through $O$.}
+
+This follows directly from the previous theorem, since the inverse of the inverse of any point is the same point.
+
+As we saw from the previous result, it does not matter whether the circle is entirely internal to $\omega$, is internally tangent, or extends outside.
+
+\subsection*{Ptolemy's Theorem}
+
+With only what we have established so far, we can prove an important theorem.
+
+Let $A$, $B$ and $C$ lie on a circle through $O$.  Then, as we showed above, the inverse of this circle is a line not through $O$ and here, entirely external to the inversion circle.
+
+Ptolemy says that 
+\[ AB \cdot OC + BC \cdot OA = AC \cdot OB \]
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.35] {inversion9.png} \end{center}
+
+$A'B' + B'C' = A'C'$.  We will leverage this identity to find the result.
+
+We have three pairs of similar triangles.  To help stay organized, we write out the ratio boxes.
+\begin{center} \includegraphics [scale=0.18] {ratios11.png} \end{center}
+
+The symmetry is pretty clear.  We have that
+\[ \frac{A'B'}{AB} = \frac{OA'}{OB} \Rightarrow A'B' =  \frac{AB \cdot OA'}{OB} \]
+
+Also
+\[ \frac{B'C'}{BC} = \frac{OC'}{OB} \Rightarrow B'C' = \frac{BC \cdot OC'}{OB} \]
+
+Then
+\[ \frac{A'C'}{OC'} = \frac{AC}{OA} \Rightarrow A'C' = \frac{AC \cdot OC'}{OA} \]
+
+Form the sum and clear the denominators:
+\[ AB \cdot OA' \cdot OA + BC \cdot OC' \cdot OA = AC \cdot OC' \cdot OB \]
+
+Divide by $OC'$
+\[ AB \cdot \frac{OA'}{OC'} \cdot OA + BC \cdot OA = AC \cdot OB \]
+
+Can you find the appropriate entry for the last step?  I obtain
+\[ AB \cdot OC + BC \cdot OA = AC \cdot OB \]
+
+$\square$
+
+This is Ptolemy's theorem.
+
+We pause to reflect on one of the most useful and important theorems in all of geometry.
+
+We now consider circles not through $O$.  This is the point where the theory gets a little more sophisticated.
+
+\subsection*{inversion of a circle not through $O$}
+
+\textbf{The inverse of a circle not through $O$ is another circle not through $O$.}
+
+We can again draw different diagrams depending on where the circles lie with respect to $\omega$.  We need to make sure that the proof or proofs work for all of them.
+
+Consider first the case where $K$ is entirely external to $\omega$.
+
+\emph{Proof}.
+
+Let $K$ be a circle, not passing through $O$, and not even intersecting with $\omega$.  Draw the diameter $AB$ of $K$, such that the extension passes through $O$.
+
+\begin{center} \includegraphics [scale=0.35] {inversion5.png} \end{center}
+
+Let $C$ be an otherwise arbitrary point on $K$, not on $AB$.  Find the inverses of $A$, $B$ and $C$.  Draw $\triangle A'B'C'$.
+
+As before
+\[ \frac{OA'}{OC'} = \frac{OA}{OC} \]
+so $\triangle OB'C' \sim \triangle OCB$ and $\triangle OA'C' \sim \triangle OCA$.
+
+From similar triangles, we have that the angles marked $\alpha$ and $\beta$ are equal.
+
+By Thales' circle theorem, $\angle ACB$ is a right angle.  So from $\triangle BOC$:
+\[ \angle BOC + \alpha + \beta + \angle ACB = 180 \]
+
+But from $\triangle B'OC'$ (with $\angle B'OC' = \angle BOC$):
+\[ \angle B'OC'  + \alpha + \beta + \angle AC'B' = 180 \]
+
+It follows that $\angle A'C'B' = \angle ACB$, so $\angle A'C'B'$  is also a right angle, and thus it lies on the circle whose diameter is $A'B'$.  This is true for every point $C$ on circle $K$, other than $A$ and $B$.  
+
+$\square$
+
+Second case: let the circle $K$ intersect $\omega$, with the inversion center $O$ inside $K$.
+
+Draw the diameter $AB$ of circle $K$ which goes through $O$.  Let $C$ be any other point on circle $K$.
+
+\begin{center} \includegraphics [scale=0.36] {inversion6.png} \end{center}
+
+\emph{Proof}.
+
+We have $\triangle OAC \sim \triangle OC'A'$ and $\triangle OBC \sim \triangle OC'B'$.  From similar triangles, the angles marked as $\alpha$ are equal, as are those marked as $\beta$.
+
+$\angle ACB$ is right, but $\alpha + \beta$ is supplementary to $\angle ACB$ to $\alpha + \beta$ so the sum is $90$.
+
+It follows that $\angle A'C'B' = \alpha + \beta$ is also right.  Therefore $C'$ lies on a circle whose diameter is $A'B'$.  
+
+$\square$.
+
+Third case: the circle $K$ intersects $\omega$ but the inversion center $O$ is external to $K$.
+
+\begin{center} \includegraphics [scale=0.36] {inversion7.png} \end{center}
+
+Draw the diameter $AB$ of circle $K$ which, extended, goes through $O$.  Let $C$ be any other point on circle $K$.
+
+\emph{Proof}.
+
+The angles marked $\alpha$ and $\beta$ are equal (in pairs) by similar triangles.
+
+$\angle ACB$ is right.  So $\angle BOC + \alpha + \beta$ is equal to a right angle.
+
+But $\angle BOC + \alpha + \beta + \angle A'B'C'$ is equal to two right angles.
+
+Thus, $\angle A'C'B'$ is also right.
+
+$\square$
+
+The fourth and last case is where the circle $K$ and $\omega$ are concentric.  But then the inverse of $K$ is also a concentric circle.
+
+\subsection*{Invariants}
+
+Either a given point is on a circle (or line) or it is not.  If it is on the locus, then it must also lie on the image of the locus under inversion.
+
+This seems quite obvious, yet subtle.  We will not prove it here.
+
+Then if a circle or a line cuts a circle at two points, then after inversion the resulting figures will still have two points of intersection.
+
+And if a line is tangent to a circle or if two circles are tangent, or a line cuts a line, after inversion the resulting figures will still be tangent (in the first two cases) and in all cases, share one point of intersection.
+
+The next figure shows a circle $K$ not through $O$ and its inverse $K'$.  We notice that lines tangent to the original circle $K$ are also tangent to the inverse circle $K'$
+
+However, although the center of $K$ and the center of $K'$ are on the same line through $O$, they are \emph{not} inverses.
+
+\begin{center} \includegraphics [scale=0.35] {inversion10.png} \end{center} 
+
+We'll see why in just a bit.
+
+\subsection*{Inversion preserves angles}.
+
+As a special case (and the only one we will use for the Feuerbach theorem, below), if two circles are orthogonal, then their inverses are also orthogonal.
+
+Two circles are orthogonal if, at the points where they cross, the two tangents are perpendicular.  Equivalently, the two radii to that point must be perpendicular.
+
+Then, considering a circle orthogonal to $\omega$, the claim is that inversion in $\omega$ leaves such a circle invariant, or fixed.
+
+\begin{center} \includegraphics [scale=0.45] {FB4.png} \end{center}
+
+\emph{Proof}.
+
+Let the inversion circle $\omega$ have its center at $O$ and have radius of length $k$.
+
+Another circle $K$ with radius of length $R$ is positioned so that at the points where the two circles cross, the tangents (and radii) are perpendicular.
+
+The first thing we notice is that the points $S$ and $T$ lie on $\omega$, so they are fixed, their inverses are the same as the original point.
+
+Next consider a pair of points lying $P$ and $P'$ on a diameter of $K$, $P'$ on a distance $x$ from the inversion center, while $P$ lies a distance $2R+x$ from the inversion center.  The product of the distances is
+\[ (2R + x)x = 2Rx + x^2 \]
+
+But we also have from the geometry that
+\[ k^2 + R^2 = (R+x)^2 \]
+\[ k^2 = 2Rx + x^2 \]
+
+The product of the two distances is just $k^2$, so the inverse of $P$ is $P'$ and vice-versa.  We now know that four points of the inverted circle are also on the original circle.  The result follows.
+
+Even more generally, we may consider an arbitrary secant $QQ'$.  Recall from the secant tangent theorem that $OQ \cdot OQ' = OT^2 = k^2$.
+
+Any pair of points on any secant of circle $K$ are their own inverses, so they both lie on the inverted circle.  Thus, the circle is fixed under inversion.
+
+$\square$
+
+A relatively simple proof for circles that are not necessarily orthogonal comes from the web.  I have lost the author's name.
+
+We start with the special case where one circle goes through $O$:
+
+\begin{center} \includegraphics [scale=0.30] {inversion11.png} \end{center}
+
+The line $m$ through $O$ transforms into itself.  The circle is also through $O$, and is the inverse of the line $l$.  The angle between $l$ and $m$ is easily shown to be equal to the angle between $m$ and the image of the line $l$, namely the circle, at $A'$.
+
+The shaded gray angle at $A$ is complementary to $\angle AOP$.  But $\angle AOP = \angle QOA' = \angle QA'O$, and $\angle QA'O$ is complementary to the gray shaded angle at $A'$.  $\square$ 
+
+In the general case, suppose the circles on centers $B$ and $B'$ are inverses through $I_{\omega}$.  Let $A$ and $A'$ be inverse points as usual.
+
+\begin{center} \includegraphics [scale=0.30] {inversion12.png} \end{center}
+
+This does \emph{not} mean that $I_{\omega} (B') = B$!  If that were true, then $\angle OBA$ would be equal to the angles marked in green, which would mean that $OA \parallel OB$, which is clearly not true.
+
+However, the green angles at $A'$ and $A_1$ \emph{are} equal by similar triangles.  This requires a bit of work.  We simplify the diagram a bit and change the notation as far as the center of the circle, and also introduce tangent points $T$.
+
+\begin{center} \includegraphics [scale=0.25] {inversion14.png} \end{center}
+
+By the secant-tangent theorem, $OA_1 \cdot OA' = OT_1^2$ and this is true wherever $A'$ and $A_1$ lie.
+
+By the definition of inversion $OA \cdot OA' = k^2$.  So
+
+\[ \frac{OA_1}{OA} = \frac{OT_1^2}{r^2} \]
+which is a constant.  Call it $c$.  So then $OA_1 = c \cdot OA$ for every points $A_1$ and $A$ on the same line circles $Q$ and $Q_1$, \emph{at the second point of intersection}.
+
+\begin{center} \includegraphics [scale=0.25] {inversion14.png} \end{center}
+
+Since $\triangle OQT \sim \triangle OQ_1T_1$, that includes $Q$ and $Q_1$.  This relationship is called a homothety.  The entire circle on $Q_1$ is a bigger version of the one on $Q$.
+
+It follows that $\triangle OAQ \sim \triangle OA_1 Q_1$.  We now switch back to the original notation:  $\triangle OB'A' \sim \triangle OBA_1$, which gives two of the equal angles colored green in the figure below.  The third one (at $A$) is equal by similar right triangles.
+
+\begin{center} \includegraphics [scale=0.25] {inversion13.png} \end{center}
+
+The gray angles are both complementary to the green angles.  The second one in circle $B$ (at $A$) is equal by reflection across a line of symmetry through $B$ and $\perp m$.
+
+$\square$
+
+\emph{Proof}.  (Alternate).
+
+This is section 5.5 of Coxeter.
+
+\begin{center} \includegraphics [scale=0.25] {Coxeter_5_5A.png} \end{center}
+
+Consider two circles intersecting at $P$ (not drawn).  The supplementary angles formed between the circles are naturally defined in terms of the tangents to the two circles at $P$.  Suppose the angles are $\theta$ and $\phi$.  Now consider just the two tangent lines $a$ and $b$, which form $\angle \theta$ in the figure above.
+
+We perform an inversion with respect to circle $\omega$ on center $O$.  The inverse of a line not through $O$ is a circle through $O$, where the tangent to the new circle at $O$ is parallel to the original line.  So the inverse of line $a$ is circle $\alpha$ with its tangent parallel to $a$, and similarly for $b$.  We can see that the angle between these two tangents at $O$ is also equal to $\theta$, since they are parallel to the original lines $a$ and $b$.
+
+As we said above, if $P$ lies on both circles before inversion, it lies on both circles (or lines) after inversion.  Thus the tangents at $P'$ are equal to those at $P$ and form the same angle.
+
+We can also see that for intersecting circles, the angles at the two points of intersection are the same although the tangents have a mirror image symmetry.
+\begin{center} \includegraphics [scale=0.45] {FB5a.png} \end{center}
+
+\rule{\linewidth}{1pt}
+
+\subsection*{Feuerbach's Theorem}
+
+Finally, we reach this famous theorem.
+
+\begin{center} \includegraphics [scale=0.12] {Feuerbach.png} \end{center} 
+
+Recall that the nine point circle, passing through the midpoints of the sides, is the circumcircle of the medial triangle, i.e., it is formed with these points as the vertices.
+
+Feuerbach's theorem says that this circle is tangent (internally) to the incircle and (externally) to each of the excircles of a triangle.
+
+\begin{center} \includegraphics [scale=0.36] {FB8.png} \end{center}
+
+We previously looked at the incircle and three excircles of a triangle.  Recall that the nine point circle also goes through the feet of the altitudes and the bisectors of that part of each altitude between the orthocenter and each vertex.
+
+Let $\triangle ABC$ have the sides bisected at $A'$, $B'$ and $C'$.  The incircle is drawn on center $I$, and one excircle is drawn tangent to side $a = BC$, on center $O_a$.  $\triangle A'B'C'$ is also drawn.
+
+\begin{center} \includegraphics [scale=0.35] {FB1.png} \end{center}
+
+\textbf{I}
+
+We know from previous work that $BX = BY = s-b$, $AY = AZ = s-a$ and $CX = CZ = s-c$.  As well, the entire tangent from $A$ to the excircle has length $s$, the semi-perimeter.
+
+Radii are drawn from the incenter $I$ and the excenter $O_a$, perpendicular to side $BC$.  $BC$ is tangent to the two circles at these points.  It follows that
+\[ IX \parallel O_a X_a \]
+
+We also know from previous work with excircles that $BX = X_a C = s-b$.  So
+\[ X X_a = a - 2(s-b) = a - (a - b + c) = b - c  \]
+
+We also have that $XA' = X_a A'$.  That's because $A'$ is the midpoint of side $BC = a$, and we've subtracted equal lengths from both ends with $BX = X_a C$.
+
+Therefore, we can draw the circle as shown, with $A'$ as the center and radius $A'X = A'X_a = (b-c)/2$.
+
+We will refer to that circle as $\omega$.  It will be the inversion center for the transformation.
+
+We also draw another line tangent to both incircle and excircle.  Label the endpoints as $B_1$ and $C_1$.
+
+Also mark three other points:   where $A'B'$ crosses $B_1 C_1$ at $B''$, where $A'C'$ crosses $B_1 C_1$ at $C''$, and finally, the point where $BC$ crosses $B_1 C_1$, at $S$.
+
+\begin{center} \includegraphics [scale=0.35] {FB2.png} \end{center}
+
+\textbf{II}
+
+The center of the inversion circle $\omega$ is at $A'$, which is also on the nine-point circle.  The inverse of a circle through the inversion center is a line.
+
+The claim is that $B''$ is the inverse of $B'$, and $C''$ is the inverse of $C'$ so the straight line $B_1 C_1$ which goes through those two points is the inverse of the nine point circle containing points $A'$, $B'$ and $C'$.
+
+To begin with we obtain some more lengths.  Use the angle bisector theorem to get an expression for the length of $BS$ and $CS$, the components of side $a$ produced by the bisector.  The claim is that
+\[ BS = \frac{ac}{b+c} \ \ \ \ \ \ CS = \frac{ab}{b + c} \]
+
+This looks plausible because the sum is just $a = BC$, which checks.  
+
+Coxeter explain it thus:  \begin{quote}Since $S$ (like $I$ and $I_a$) lies on the bisector of the angle $A$, $S$ divides the segment $BC$, of length $a$, in the ratio $b:c$. \end{quote}
+
+Thus the two parts of $a$ are the fractions $b/(b+c)$ and $c/(b+c)$.
+
+\begin{center} \includegraphics [scale=0.35] {FB2.png} \end{center}
+
+Working through the algebra just to confirm this, let $BS = u$ and $CS = v$.  Then $u/c = v/b$ so $u/v = c/b$.  Add one to both sides
+\[ \frac{u+v}{v} = \frac{b + c}{b} \]
+but $u+v = a$ so we have $v = ab/(b+c)$.  Alternatively add one to both sides of the inverse of what's above.  Then
+\[ \frac{u+v}{u} = \frac{b + c}{c} \]
+and the second result follows easily as well.
+
+Another claim is that
+\[ SA' = \frac{a(b-c)}{2(b+c)} \]
+We get this from $BC = a$, so $BA' = a/2$ and then
+\[ SA' = \frac{a}{2} - \frac{ac}{b+c} \]
+Placed over a common denominator and subtracting, that checks.
+
+The last claim, which I missed in a youtube video of this proof but is in the source (Coxeter), is that $BC_1 = B_1C = b-c$.  This is easier to see for $B_1 C$ so let us start there.  The whole of side $AC$ has length $b$. so somehow it must be the case that $AB_1$ has length $c$ and then $B_1 C$ is the difference.
+
+\begin{center} \includegraphics [scale=0.35] {FB3.png} \end{center}
+
+We must show that $B_1 C = BC_1 = b-c$.  There is a lot of symmetry in the figure.  Both circles have their centers on the bisector of $\angle A$.
+
+We have that $\triangle SIX$ and $\triangle SIX_1$ have three sides equal (shared side, radius, and two tangents from a point), so they are congruent, which gives $\angle ASX = \angle ASX_1$.
+
+It follows that $\triangle ASB$ and $\triangle ASB_1$ are equiangular and share side $AS$, so they are congruent.  Thus $AB = AB_1 = c$.
+
+So $B_1C = b - c$, by subtraction, and 
+\[ B_1Z = b - (s-a) - (b-c) = a + c - s = s - b \]
+One can also get this from $SB = SB_1$ (congruent triangles, above) and $SX = SX_1$, so by subtraction, $BX = B_1X_1 = B_1Z$.
+
+The whole $\angle ASC = \angle ASC_1$ because the parts are equal (from congruent triangles and then vertical angles).  It follows that $\triangle ASC \cong \triangle ASC_1$.  So $AC = AC_1$ and $AB = AB_1$, and then finally $B_1 C = BC_1$, also by subtraction.
+
+We do not need it but we can also show that $BC = B_1C_1$.  $\triangle ABC \cong \triangle AB_1C_1$.
+
+\textbf{III}
+
+\begin{center} \includegraphics [scale=0.35] {FB2.png} \end{center}
+Next, we must find two pairs of similar triangles.  These are
+\[ \triangle SA'B'' \sim \triangle SBC_1 \ \ \ \ \ \ \triangle SA'C'' \sim \triangle SCB_1 \]
+
+These are easy because we have parallel lines and either vertical angles in the first case, or shared $\angle CSB_1$ in the second.
+
+We have 
+\[ \frac{SA'}{A'B''} = \frac{SB}{BC_1} \]
+\[ A'B'' = SA' \cdot BC_1 \cdot \frac{1}{SB} \]
+Plugging in the results from above
+\[ = \frac{a(b-c)}{2(b+c)} \cdot (b-c) \cdot \frac{b+c}{ac} \]
+and since $A'B' = c/2$:
+\[ A'B' \cdot A'B'' = (\frac{b-c}{2})^2 \]
+
+For the second triangle we obtain:
+\[ \frac{SA'}{A'C''} = \frac{SC}{B_1C} \]
+\[ A'C'' = SA' \cdot B_1C \cdot \frac{1}{SC} \]
+And again, plugging in:
+\[ = \frac{a(b-c)}{2(b+c)} \cdot (b-c) \cdot \frac{b+c}{ab} \]
+and since $A'C' = b/2$:
+\[ A'C' \cdot A'C'' = (\frac{b-c}{2})^2 \]
+
+But this is (the same for both), namely $r^2$.
+
+\begin{center} \includegraphics [scale=0.35] {FB2.png} \end{center}
+
+So $B''$ and $C''$ are the inverses of $B'$ and $C'$ respectively, with respect to $\omega$.
+
+\textbf{IV}
+
+We have an inversion circle centered on $A'$ with diameter $XX_a$ that we have labeled $\omega$.
+
+We have shown that the inverse of the nine-point circle is the line $B_1 C_1$, which passes through $BC$ at $S$ and is tangent to both the incircle and to the excircle (these points are not labeled).
+
+Since the inverses of the incircle and excircle are orthogonal with respect to $\omega$, they are fixed (they invert into themselves).
+
+So then, finally, in the inverted system we have line $B_1 C_1$ and the incircle and excircle, with the line tangent to both of these circles.
+
+Points where two curves cross or touch are still points where the inverted figures cross or touch, after inversion.
+
+Since $B_1 C_1$ is tangent to both circles, its inverse is still tangent to both circles.  The inverse of $B_1 C_1$ is the nine point circle, so that circle is tangent to both the other circles, i.e. the incircle and the excircle, and to the other two excircles, by extension.
+
+\begin{center} \includegraphics [scale=0.36] {FB8.png} \end{center}
+
+\subsection*{other ideas}
+
+Finally, a note about other approaches.  One can show that two circles are tangent externally (such as the excircle and nine-point circle), by showing that the distance between the two centers is equal to the sum of the radii.
+
+For internal tangency, the distance between centers must be the difference of the two radii.
+
+Thus, if one can calculate \emph{where} the centers lie, then this requirement can be checked.  A judicious choice of coordinate system will help, and you can find such proofs on the internet.  However, I think the inversion proof presented in detail here is a lot more fun, and quite simple, once we understand what inversion is all about.
+
+
+\end{document}

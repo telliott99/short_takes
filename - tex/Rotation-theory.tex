@@ -21,11 +21,19 @@
 \Large
 
 \subsection*{introduction}
-The \emph{conic sections} are so named because each one can be formed as the intersection of a plane and a right circular cone\footnote{A right circular cone has for its base a circle, each point of which is the same distance from the vertex of the cone.  Thus, a line from the vertex to the center of the circle is perpendicular to the plane of the circle.  If the cone is infinite, pick for a base all the points at the same arbitrary distance from the vertex.}.  These curves --- circle, ellipse, parabola and hyperbola --- are usually presented in \emph{standard} orientation.
+The \emph{conic sections} are so named because each can be formed as the intersection of a plane and a right circular cone\footnote{A right circular cone has for its base a circle, each point of which is the same distance from the vertex of the cone.  Thus, a line from the vertex to the center of the circle is perpendicular to the plane of the circle.  If the cone is infinite, pick for a base all the points at the same arbitrary distance from the vertex.}.  These curves --- circle, ellipse, parabola and hyperbola --- are usually presented in \emph{standard} orientation.
 
 For example, $y = ax^2$ (with $a > 0$) is a parabola with its center at the origin, opening up.  The curve $x = ay^2$ is not materially different, since we obtain the previous curve merely by exchanging $x$ for $y$.
 
-$y = ax^2 + bx + c$ has its center displaced but still opens up. By completing the square to give $a(x + b/2a)^2$ plus a constant and then substituting simply $x$ for what's in the parentheses we obtain a parabola of the \emph{same shape} as the original, translated to the origin. In fact, any conic not centered at the origin will have terms $(x-h)$ and/or $(y-k)$ which can be replaced by $x$ and $y$ to move the center to the origin.
+$y = ax^2 + bx + c$ has its center displaced but still opens up. By completing the square the same equation can be converted to something like $(x-h)^2 = y-k$.  Let's just do that in case you are dubious about it:
+
+\[ y = ax^2 + bx + c \]
+\[ y - c = a(x^2 + \frac{b}{a}x) \]
+\[ = a \ [ \ x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 \ ] \ - \frac{b^2}{4a} \]
+\[ = a(x + \frac{b}{2a})^2 - \frac{b^2}{4a} \]
+We find $h = -b/2a$ and $k = c - b^2/4a$.
+
+We obtain a parabola of the \emph{same shape} as the original, translated to the origin. In fact, any conic not centered at the origin will have terms $(x-h)$ and/or $(y-k)$ which can be replaced by change of variable to, say, $u$ and $v$ to move the center to the origin.
 
 $x^2 + y^2 = r^2$ is a circle with its center at the origin. 
 \[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \ \ \ \ \ \ \ \ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
@@ -33,19 +41,21 @@ are respectively, the equations of an ellipse, and a hyperbola.  Each is centere
 
 If $a > b$ the ellipse has its long dimension along the $x$-axis.  
 
-The hyperbola (with $a = b$, and rearranged as $x^2 - y^2 = c$, is shown in the graph below as the red curve.
+The hyperbola with $a = b$, and rearranged as $x^2 - y^2 = c$, is shown in the graph below as the red curve.
 \begin{center}  \includegraphics [scale=0.20] {rot0.png} \end{center}
-All of these are in standard orientation.  They have either the $x$- or the $y$-axis as an axis of symmetry. 
+So far, all of the examples have been in standard orientation.  They have either the $x$- or the $y$-axis as an axis of symmetry. 
 
 But that hyperbola can be \emph{rotated}.  In fact, the familiar equation $xy = 1$ is a hyperbola, rotated by $45^{\circ}$ (green curve in the figure above above).  The point of closest approach to the center is the same for each, $\sqrt{2} \approx 1.4 $, and the arms are perpendicular --- a consequence of having $a = b$.
 
-Any conic can be rotated.  You could even rotate a circle, but the graph wouldn't look any different.  :)  Here is a rotated ellipse.
+Any conic can be rotated.  Here is a rotated ellipse.
 \begin{center}  \includegraphics [scale=0.20] {rot0b.png} \end{center}
 
 And here is a rotated parabola.
 \begin{center} \includegraphics [scale=0.2] {rot9.png} \end{center}
 
-We want to understand how to transform equations of graphs from their rotated versions to standard form, and back again.  One clue is to notice the presence of terms that mix $x$ and $y$, such as $-xy$ in the equation for the rotated ellipse, above.  Not all rotated forms have $xy$ terms, but many do.
+You could even rotate a circle, but the graph wouldn't look any different.  :)
+
+We want to understand how to transform equations which yield graphs in rotated versions to standard form, and the reverse.  One clue is to notice the presence of terms that mix $x$ and $y$, such as $-xy$ in the equation for the rotated ellipse, above.  Not to mention $xy$ in the original example of a hyperbola.  Not all rotated forms have $xy$ terms, but many do.
 
 \subsection*{basic idea}
 
@@ -78,7 +88,11 @@ Although we end up rotating points and vectors and the graphs of conic sections,
 The easiest method I have seen, in Stewart, depends on knowing the sum of angles formulas.  They can be read off the following drawing:
 \begin{center} \includegraphics [scale=0.5] {sum_angles_6.png} \end{center}
 
-It goes like this.  Label the angle between the vector to $P$ and the $u$-axis as $\phi$.
+We've seen this elsewhere.  Briefly, the enclosing figure is a rectangle, so opposite sides are equal.  Then, for example
+\[ \cos (\phi + \theta) + \sin \phi \sin \theta = \cos \phi \cos \theta \]
+which can be rearranged to (what I hope is) the familiar form.
+
+On to rotation.  It goes like this.  Label the angle between the vector to $P$ and the $u$-axis as $\phi$.
 \begin{center} \includegraphics [scale=0.4] {min_rotation3.png} \end{center}
 
 Let the point $P$ lie on the unit circle, with $r = 1$.  The coordinates of point $P$ in the $u,v$ system are naturally expressed in terms of $\phi$:
