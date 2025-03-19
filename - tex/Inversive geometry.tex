@@ -21,16 +21,22 @@
 
 %[my-super-duper-separator]
 
-To carry out inversion, one starts by choosing a reference circle in the plane.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} on $O$ and radius $k$.
+\begin{quote}An inversion in a circle, informally, is a transformation of the plane that flips the circle inside-out. That is, points outside the circle get mapped to
+points inside the circle, and points inside the circle get mapped outside the
+circle.\end{quote}
+
+To carry out inversion, one starts by choosing a reference circle in the plane.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} at $O$ having radius $k$.
+
+We will show $\omega$ as a dotted line.  In some cases we only show a part of the circle.
 
 Let $P$ be an arbitrary point, but not $O$.  The inverse of $P$ is called $P'$, computed according to the following rule:
 \begin{center} \includegraphics [scale=0.40] {inversion1.png} \end{center}
 $P'$ lies on $OP$ or its extension, such that
 \[ OP \cdot OP' = k^2 \ \ \ \ \ \ \ \  \frac{OP}{k} = \frac{k}{OP'} \]
 
-We can write $ I_{\omega} (P) = P'$.  In what follows we will show $\omega$ as a dotted line.  In some cases we only show a part of the circle.
+We can write $ I_{\omega} (P) = P'$.
 
-A collection of transformed points is referred to as the image of the input.  In some cases the image of a point may be the same as the original.
+A locus of transformed points is referred to as the image of the input locus.  In some cases the image of a point may be the same as the original.
 
 You can see in the example above that $OP$ is about one-half of $k$, so then $OP'$ is twice $k$.  The image of points close to $O$ may be very far away.
 
@@ -41,7 +47,7 @@ To be complete, the theory invents a "point at infinity" which is the inverse of
 When we say something like ``a circle through $O$'', we are not worrying about the point $O$ itself.
 \begin{center} \includegraphics [scale=0.30] {inversion1a.png} \end{center}
 
-Above we said ``$OP$ or its extension''.  The technical term here is ray, a half-line.  But we will usually just draw a line segment, with definite endpoints, and also just call it a line for brevity.
+Above we said ``$OP$ or its extension''.  The technical term here is ray, a half-line.  But we will usually just draw a line segment, with definite endpoints, and also just call it a line, for brevity.
 
 We call points that are invariant under inversion, fixed.  Let $R$ be a point on $\omega$, so the length of $OR$ is $k$.  Then we have that
 \[ I_{\omega} (R) = R' = R \]
@@ -180,6 +186,16 @@ We now consider circles not through $O$.  This is the point where the theory get
 
 We can again draw different diagrams depending on where the circles lie with respect to $\omega$.  We need to make sure that the proof or proofs work for all of them.
 
+Here's an overview:
+
+\begin{center} \includegraphics [scale=0.55] {inversion15.png} \end{center}
+
+The cases we've already seen include a circle through the inversion center, which inverts into a line extending infinitely out (magenta and purple).
+
+The other cases we deal with now, where a circle either crosses $\omega$ or it does not (red and tangerine).  If it crosses $\omega$, the inverse crosses also.
+
+If the tangents lie on $\omega$, the result is the ``same'' circle (black), although most points have been inverted into other points.   For circles not through $O$, the tangents to the circle and its image under inversion coincide.
+
 Consider first the case where $K$ is entirely external to $\omega$.
 
 \emph{Proof}.
@@ -309,7 +325,7 @@ In the general case, suppose the circles on centers $B$ and $B'$ are inverses th
 
 This does \emph{not} mean that $I_{\omega} (B') = B$!  If that were true, then $\angle OBA$ would be equal to the angles marked in green, which would mean that $OA \parallel OB$, which is clearly not true.
 
-However, the green angles at $A'$ and $A_1$ \emph{are} equal by similar triangles.  This requires a bit of work.  We simplify the diagram a bit and change the notation as far as the center of the circle, and also introduce tangent points $T$.
+However, the green angles at $A'$ and $A_1$ \emph{are} equal by similar triangles.  This requires a bit of work.  We simplify the diagram and change the notation as far as the center of the circle, and also introduce tangent points $T$.
 
 \begin{center} \includegraphics [scale=0.25] {inversion14.png} \end{center}
 
@@ -317,12 +333,14 @@ By the secant-tangent theorem, $OA_1 \cdot OA' = OT_1^2$ and this is true wherev
 
 By the definition of inversion $OA \cdot OA' = k^2$.  So
 
-\[ \frac{OA_1}{OA} = \frac{OT_1^2}{r^2} \]
-which is a constant.  Call it $c$.  So then $OA_1 = c \cdot OA$ for every points $A_1$ and $A$ on the same line circles $Q$ and $Q_1$, \emph{at the second point of intersection}.
+\[ \frac{OA_1}{OA} = \frac{OT_1^2}{k^2} \]
+which is a constant.  Call it $c$.  So then $OA_1 = c \cdot OA$ for every pair of points $A_1$ and $A$ (\emph{at the second point of intersection}) lying on the same line through circles $Q$ and $Q_1$.
 
 \begin{center} \includegraphics [scale=0.25] {inversion14.png} \end{center}
 
-Since $\triangle OQT \sim \triangle OQ_1T_1$, that includes $Q$ and $Q_1$.  This relationship is called a homothety.  The entire circle on $Q_1$ is a bigger version of the one on $Q$.
+Since $\triangle OQT \sim \triangle OQ_1T_1$, that includes $Q$ and $Q_1$ so $OQ_1 = c \cdot OQ$. 
+
+This relationship is called a homothety.  The entire circle on $Q_1$ is a bigger version of the one on $Q$.
 
 It follows that $\triangle OAQ \sim \triangle OA_1 Q_1$.  We now switch back to the original notation:  $\triangle OB'A' \sim \triangle OBA_1$, which gives two of the equal angles colored green in the figure below.  The third one (at $A$) is equal by similar right triangles.
 
