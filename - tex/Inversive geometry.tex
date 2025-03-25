@@ -21,38 +21,38 @@
 
 %[my-super-duper-separator]
 
-\begin{quote}An inversion in a circle, informally, is a transformation of the plane that flips the circle inside-out. That is, points outside the circle get mapped to
-points inside the circle, and points inside the circle get mapped outside the
-circle.\end{quote}
+\emph{Inversion} in a circle maps a point in the plane to (typically) a different point in the plane.  The mapping is continuous, so if points lie close together before inversion they are close together afterwards.  A locus of points is transformed into another locus, e.g. a circle is in most cases transformed into another circle.
 
-To carry out inversion, one starts by choosing a reference circle in the plane.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} at $O$ having radius $k$.
+To carry out inversion, one starts by choosing a reference circle.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} at $O$ having radius $k$.  We show $\omega$ as a dotted circle.
 
-We will show $\omega$ as a dotted line.  In some cases we only show a part of the circle.
-
-Let $P$ be an arbitrary point, but not $O$.  The inverse of $P$ is called $P'$, computed according to the following rule:
+Let $P$ be an arbitrary point, distinct from $O$.  The inverse of $P$ is called $P'$.  $P'$ lies on the ray through $OP$ according to the following rule:
 \begin{center} \includegraphics [scale=0.40] {inversion1.png} \end{center}
-$P'$ lies on $OP$ or its extension, such that
 \[ OP \cdot OP' = k^2 \ \ \ \ \ \ \ \  \frac{OP}{k} = \frac{k}{OP'} \]
 
-We can write $ I_{\omega} (P) = P'$.
+We can write $ I_{\omega} (P) = P'$.  
 
-A locus of transformed points is referred to as the image of the input locus.  In some cases the image of a point may be the same as the original.
+Rather than the ray, we will just draw a line segment, with definite endpoints, and also as usual just call it line segment a line, for brevity.
 
-You can see in the example above that $OP$ is about one-half of $k$, so then $OP'$ is twice $k$.  The image of points close to $O$ may be very far away.
+A locus of transformed points is referred to as the image of the input locus under inversion.  In some cases the image of a point is the same as the original.  Points lying on $\omega$ invert into themselves, because then $OP = k = OP'$.
+
+You can see in the example above that $OP$ is about one-half of $k$, so then the length of $OP'$ is twice $k$.  The image of a point close to $O$ may be very far away.
 
 $O$ is a special point in more than one way.  As $P$ approaches $O$, the inverse $P'$ moves farther and farther away.
 
-To be complete, the theory invents a "point at infinity" which is the inverse of $O$.  We won't worry about that.  We'll just think of the set of possible inputs to $I$ as the "punctured plane", with $O$ missing.
+Here's an overview, with the \emph{inversion circle} represented as a dotted circle.  The blue circle maps to the one in cyan and the red circle maps to the one in tan.  The converse is also true.
+\begin{center} \includegraphics [scale=0.55] {inversion16.png} \end{center}  
+
+Points outside the inversion circle get mapped to points inside, and vice-versa.  A line through the center maps to itself.
+
+A locus through the center of the inversion circle (magenta circle) is a special case --- it maps to the purple line. The black circle is another special case, it maps to a circle that looks just like original, although all of the points have been swapped (except the two lying on the inversion circle).
+
+The complete theory invents a "point at infinity" which is the inverse of $O$.  We won't worry about that.  We'll just think of the set of possible inputs to $I$ as the "punctured plane", with $O$ missing.
 
 When we say something like ``a circle through $O$'', we are not worrying about the point $O$ itself.
 \begin{center} \includegraphics [scale=0.30] {inversion1a.png} \end{center}
 
-Above we said ``$OP$ or its extension''.  The technical term here is ray, a half-line.  But we will usually just draw a line segment, with definite endpoints, and also just call it a line, for brevity.
-
 We call points that are invariant under inversion, fixed.  Let $R$ be a point on $\omega$, so the length of $OR$ is $k$.  Then we have that
 \[ I_{\omega} (R) = R' = R \]
-
-Points lying on $\omega$ itself invert into themselves, because then $OP = k = OP'$.
 
 Much of our work with inversions involves similar triangles.  Coxeter introduces it this way:
 \begin{center} \includegraphics [scale=0.30] {Coxeter_5_3A.png} \end{center}
@@ -77,16 +77,14 @@ We place a \emph{spherical} cage in the desert, enter it and lock it. We perform
 
 We now consider the results of inverting either a line or a circle.  There are two cases for each, depending on whether the line or circle goes through, $O$, the center of $\omega$.  They are all related, as we will see.
 
+\textbf{The inverse of a line through $O$ is the same line}.
+
 \begin{center} \includegraphics [scale=0.25] {inversion2.png} \end{center}
 Let $P$ and $Q$ be any two points on a line through $O$.  The inverse points $P'$ and $Q'$ lie on the same line.
-
-\textbf{The inverse of a line through $O$ is the same line}.
 
 \subsection*{inversion of a line not through $O$}
 
 \begin{center} \includegraphics [scale=0.3] {inversion3a.png} \end{center}
-
-Let $L$ be a line, not passing through $O$, and let $P$ and $A$ be two points on the line.
 
 \textbf{The inverse of a line not through $O$ is a circle through $O$.}
 
@@ -94,7 +92,9 @@ This is the first result that is a little surprising.
 
 \emph{Proof}.
 
-Let $L$ be external to $\omega$.  Pick $A$ such that $OA'A \perp PA$.  We have that 
+Let $L$ be a line, not passing through $O$ and external to $\omega$, and let $P$ and $A$ be two points on the line.  Pick $A$ such that $OA'A \perp PA$.
+
+We have that 
 \[ OP \cdot OP' = k^2 = OA \cdot OA' \]
 \[ \frac{OP}{OA} = \frac{OP'}{OA'} \]
 
@@ -102,11 +102,11 @@ It follows that $\triangle PAO \sim \triangle A'P'O$ and in particular, $\angle 
 
 But this is true for \emph{every} point on $L$ other than $A$.
 
-By the inverse of Thales' circle theorem, it follows that $A'$ and $P'$ lie on a circle.  This circle passes through $O$.
+By the inverse of Thales' circle theorem, it follows that $A'$ and $P'$ lie on a circle.  This circle passes through $O$ and in fact, has diameter $OA'$.
 
 $\square$
 
-The diameter of this circle is perpendicular to the line $L$, so $L$ is parallel to the tangent to the circle at $O$.
+The diameter of this circle is perpendicular to the line $L$, so $L$ is parallel to the tangent to the circle at $O$ (not shown).
 
 \begin{center} \includegraphics [scale=0.3] {inversion4.png} \end{center}
 
@@ -161,7 +161,7 @@ Also
 \[ \frac{B'C'}{BC} = \frac{OC'}{OB} \Rightarrow B'C' = \frac{BC \cdot OC'}{OB} \]
 
 Then
-\[ \frac{A'C'}{OC'} = \frac{AC}{OA} \Rightarrow A'C' = \frac{AC \cdot OC'}{OA} \]
+\[ \frac{A'C'}{AC} = \frac{OC'}{OA} \Rightarrow A'C' = \frac{AC \cdot OC'}{OA} \]
 
 Form the sum and clear the denominators:
 \[ AB \cdot OA' \cdot OA + BC \cdot OC' \cdot OA = AC \cdot OC' \cdot OB \]
@@ -180,21 +180,15 @@ We pause to reflect on one of the most useful and important theorems in all of g
 
 We now consider circles not through $O$.  This is the point where the theory gets a little more sophisticated.
 
+\begin{center} \includegraphics [scale=0.55] {inversion15.png} \end{center}
+
 \subsection*{inversion of a circle not through $O$}
 
 \textbf{The inverse of a circle not through $O$ is another circle not through $O$.}
 
 We can again draw different diagrams depending on where the circles lie with respect to $\omega$.  We need to make sure that the proof or proofs work for all of them.
 
-Here's an overview:
-
-\begin{center} \includegraphics [scale=0.55] {inversion15.png} \end{center}
-
 The cases we've already seen include a circle through the inversion center, which inverts into a line extending infinitely out (magenta and purple).
-
-The other cases we deal with now, where a circle either crosses $\omega$ or it does not (red and tangerine).  If it crosses $\omega$, the inverse crosses also.
-
-If the tangents lie on $\omega$, the result is the ``same'' circle (black), although most points have been inverted into other points.   For circles not through $O$, the tangents to the circle and its image under inversion coincide.
 
 Consider first the case where $K$ is entirely external to $\omega$.
 
@@ -264,7 +258,7 @@ Either a given point is on a circle (or line) or it is not.  If it is on the loc
 
 This seems quite obvious, yet subtle.  We will not prove it here.
 
-Then if a circle or a line cuts a circle at two points, then after inversion the resulting figures will still have two points of intersection.
+Then if a circle or a line cuts a circle at two points, after inversion the resulting figures will still have two points of intersection.
 
 And if a line is tangent to a circle or if two circles are tangent, or a line cuts a line, after inversion the resulting figures will still be tangent (in the first two cases) and in all cases, share one point of intersection.
 
@@ -323,7 +317,7 @@ In the general case, suppose the circles on centers $B$ and $B'$ are inverses th
 
 \begin{center} \includegraphics [scale=0.30] {inversion12.png} \end{center}
 
-This does \emph{not} mean that $I_{\omega} (B') = B$!  If that were true, then $\angle OBA$ would be equal to the angles marked in green, which would mean that $OA \parallel OB$, which is clearly not true.
+This does \emph{not} mean that $I_{\omega} (B') = B$!
 
 However, the green angles at $A'$ and $A_1$ \emph{are} equal by similar triangles.  This requires a bit of work.  We simplify the diagram and change the notation as far as the center of the circle, and also introduce tangent points $T$.
 
@@ -342,19 +336,19 @@ Since $\triangle OQT \sim \triangle OQ_1T_1$, that includes $Q$ and $Q_1$ so $OQ
 
 This relationship is called a homothety.  The entire circle on $Q_1$ is a bigger version of the one on $Q$.
 
-It follows that $\triangle OAQ \sim \triangle OA_1 Q_1$.  We now switch back to the original notation:  $\triangle OB'A' \sim \triangle OBA_1$, which gives two of the equal angles colored green in the figure below.  The third one (at $A$) is equal by similar right triangles.
+It follows that $\triangle OAQ \sim \triangle OA_1 Q_1$.  We now switch back to the original notation:  $\triangle OA'B' \sim \triangle OA_1B$, which gives two of the equal angles colored green in the figure below.  The third one (at $A$) is equal since $\triangle BAA_1$ is isosceles.
 
-\begin{center} \includegraphics [scale=0.25] {inversion13.png} \end{center}
+\begin{center} \includegraphics [scale=0.20] {inversion13.png} \end{center}
 
 The gray angles are both complementary to the green angles.  The second one in circle $B$ (at $A$) is equal by reflection across a line of symmetry through $B$ and $\perp m$.
 
 $\square$
 
+\begin{center} \includegraphics [scale=0.25] {Coxeter_5_5A.png} \end{center}
+
 \emph{Proof}.  (Alternate).
 
 This is section 5.5 of Coxeter.
-
-\begin{center} \includegraphics [scale=0.25] {Coxeter_5_5A.png} \end{center}
 
 Consider two circles intersecting at $P$ (not drawn).  The supplementary angles formed between the circles are naturally defined in terms of the tangents to the two circles at $P$.  Suppose the angles are $\theta$ and $\phi$.  Now consider just the two tangent lines $a$ and $b$, which form $\angle \theta$ in the figure above.
 
@@ -365,17 +359,49 @@ As we said above, if $P$ lies on both circles before inversion, it lies on both 
 We can also see that for intersecting circles, the angles at the two points of intersection are the same although the tangents have a mirror image symmetry.
 \begin{center} \includegraphics [scale=0.45] {FB5a.png} \end{center}
 
-\rule{\linewidth}{1pt}
+\subsection*{excircles}
+
+To review briefly, \emph{excircles} are so named by reference to \emph{incircles}.  The incircle to a triangle is tangent to all three sides and lies inside the triangle.  An excircle is tangent to one side and also tangent to extensions of the other two sides and it is external to the triangle.
+
+In $\triangle ABC$, with opposite sides $a$, $b$ and $c$, the incircle on center $M$ is that circle to which all three sides are tangent.
+
+\begin{center} \includegraphics [scale=0.3] {excircle.png} \end{center}  
+
+Any triangle has a single incircle and three excircles, one for each side of the triangle.  The excircle on side $c$ (opposite $\angle C$) is formed by extending sides $a$ and $b$ (i.e. $BC$ and $AC$ above) and then finding the circle that is tangent to those two extensions and also tangent to side $c$.
+
+\begin{center} \includegraphics [scale=0.15] {heron7.png} \end{center}
+Let $N$ be the center of the excircle on side $c$.  $N$ lies on the bisector of the original $\angle C$.  This follows from the definition that $CD$ and $CE$ are tangent to this excircle.
+
+Since $AD$ and $AJ$ are also tangents to the excircle from point $A$, if the angle supplementary to $\angle A$ (i.e. $\angle BAD$) is bisected, then the bisector also runs through $N$, so $N$ can be constructed by finding the intersection of the bisectors of $\angle DAB$ and $\angle C$.  The bisector of $\angle ABE$ goes through $N$ as well.
+
+$s$ is the \emph{semi-perimeter} of the triangle, one-half the sum of the side lengths. $AG = u, BF = v, FC = w$.  As tangents from a point, the perimeter of the triangle has two copies of each, so the semi-perimeter has one:
+\[ u + v + w = s \]
+But $v + w = a$, so $AG = u = s - a$ and so on.
+
+It is also easy to show that the tangents from $A$ to the excircle on side $c$ are 
+\[ AD = AJ = s-b \]
+In other words, $J$ and $H$ each divide side $c$ into lengths $s-a$ and $s-b$.  \emph{Proof}.  Let $AD = p$ and $BE = q$. Then
+\[ p + (s-a) + (s-c) = q + (s-b) + (s-c) \]
+\[ p - a = q - b \]
+But we also know that $p + q = c$ so
+\[ c - q - a = q - b \]
+\[ 2q = - a + b + c = 2(s-a) \]
+\[ q = BE = BJ = s-a \]
+$\square$
+\begin{center} \includegraphics [scale=0.15] {heron7.png} \end{center}
+The length of the long tangents $CD = CE$ is easily shown to be just $s$.
+
+\[ (s-a) + (s-b) + (s-c) = 3s - (a + b + c) = s \]
 
 \subsection*{Feuerbach's Theorem}
 
 Finally, we reach this famous theorem.
 
-\begin{center} \includegraphics [scale=0.12] {Feuerbach.png} \end{center} 
+\begin{center} \includegraphics [scale=0.15] {Feuerbach.png} \end{center} 
 
 Recall that the nine point circle, passing through the midpoints of the sides, is the circumcircle of the medial triangle, i.e., it is formed with these points as the vertices.
 
-Feuerbach's theorem says that this circle is tangent (internally) to the incircle and (externally) to each of the excircles of a triangle.
+Feuerbach's theorem says that this circle (in red below) is tangent (internally) to the incircle and (externally) to each of the excircles of a triangle.
 
 \begin{center} \includegraphics [scale=0.36] {FB8.png} \end{center}
 
